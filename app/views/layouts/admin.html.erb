@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pierco</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<header>
+	<p><%=link_to "Inicio",:controller => 'admin', :action => 'index'%> | <%= link_to "Logout", :controller => 'login', :action => 'logout' %>
+</header>
+<body>
+
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+
+<%= yield %>
+
+</body>
+<footer id="company_footer">
+	<p>&copy Pierco Ltda. 2011 </p>
+</footer>
+
+</html>

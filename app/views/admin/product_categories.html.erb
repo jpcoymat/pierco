@@ -1,0 +1,23 @@
+<h1>Categorias de Productos	</h1>
+	
+	<% unless @product_categories.empty?	%>
+		<table>
+			<tr><th>Categoria	</th>	<th>Descripcion	</th></tr>
+			<% @product_categories.each do |product_category| %>
+				<tr><td><%= product_category.name																										%>	</td>
+					<td><%= product_category.description																								%>	</td>
+					<td><%= link_to "Subcategorias", :controller => 'admin', :action=> 'product_subcategories', :product_category => product_category	%>	</td>
+					<td><%= link_to "Modificiar",:controller => 'admin', :action => 'edit_product_category', :product_category => product_category		%>	</td>
+					<td><%= product_category.deleteable? ? link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_category', :product_category => product_category},	
+																		:confirm => "Esta seguro que desea eliminar esta categoria?", :method => :delete) : "" %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% else 	%>
+		<p>Aun no se han creado categorias de productos. :(</p>
+	<% end %>
+	<br><br>
+	<hr>
+	<br>
+	<%= link_to "Crear Nueva Categoria", :controller=> 'admin', :action => 'new_product_category'	%>
+	

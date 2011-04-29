@@ -1,0 +1,2 @@
+module SupplierContactsHelper
+end

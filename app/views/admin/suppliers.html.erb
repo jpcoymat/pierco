@@ -1,0 +1,20 @@
+<h1>Marcas	</h1>
+	<% unless @suppliers.empty?	%>
+		<table>
+			<tr><th>Nombre Marca	</th>	<th>Direccion	</th>	<th>Ciudad	</th>	<th>Pais	</th>Website	</th></tr>
+			<% @suppliers.each do |supplier| %>
+				<tr><td><%= link_to supplier.name, :controller => 'admin', :action => 'view_supplier', :supplier => supplier	%>	</td>
+					<td><%= supplier.address_1																					%>	</td>
+					<td><%= supplier.city																						%>	</td>
+					<td><%= supplier.website																					%>	</td>
+					<td><%= link_to "Modificar", :controller=> 'admin', :action => 'edit_supplier', :supplier => supplier		%>	</td>
+				</tr>
+			<% end %>
+		</table>
+	<% else %>
+		<p>Aun no se han creado marcas. :( 	</p>
+	<% end %>
+	<br><br>
+	<hr>
+	<br>
+	<%= link_to "Crear Nueva Marca",:controller => 'admin', :action => 'new_supplier'	%>

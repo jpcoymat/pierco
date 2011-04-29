@@ -1,0 +1,12 @@
+<h1>Nuevo Distribuidor	</h1>
+	<p>Por favor ingrese los datos del nuevo distribuidor que desea crear</p>
+	
+	<%= form_for :distributor, :url => {:controller => 'admin', :action => 'create_distributor'} do |form|	%>
+		<%= form.hidden_field :company_id, :value => @company.id			%>
+		<%= render :partial => 'distributor', :locals => {:form => form}	%>
+		<%= submit_tag "Crear Distribuidor"									%>
+	<% end 	%>
+	<br><br>
+	<hr>
+	<br>
+	<%= link_to "Regresar", :back	%>

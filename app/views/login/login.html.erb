@@ -1,0 +1,10 @@
+<h1>Admin</h1>
+
+	<%= form_for :user_login, :url=> {:controller => 'login', :action => 'login'} do |form| %>
+		<table>
+			<tr><td>Nombre de Usuario 	</td>	<td><%= form.text_field :username 		%>	</td></tr>
+			<tr><td>Contrase&ntilde;a	</td>	<td><%= form.password_field :password	%>	</td></tr>
+		</table>
+		<%= submit_tag "Ingresar"	%>
+	<% end %>
+		

@@ -1,0 +1,13 @@
+<h1>Detalles Producto	</h1>
+
+	<table>
+		<tr><td>Nombre Product 	</td>		<td><%= @product.name																						%>	</td></tr>
+		<tr><td>Marca			</td>		<td><%= @product.supplier.name																				%>	</td></tr>
+		<tr><td>Categoria		</td>		<td><%= @product.product_category.nil? ? "" : @product.product_category.name 								%>	</td></tr>
+		<tr><td>Subcategoria	</td>		<td><%= @product.product_subcategory.nil? ? "" : @product.product_subcategory.name							%>	</td></tr>
+		<tr><td>Imagen			</td>		<td><%= @product.image_filename.nil? ? "" : image_tag(@product.image_filename, :size => "100x100")			%>	</td></tr>
+		<tr><td>Activo			</td>		<td><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30")	%>	</td></tr>
+	</table>
+	
+	<%= link_to "Modificar",:controller => 'admin',:action => 'edit_product',:product => @product	%>	| 
+	<%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product', :product => @product}, :confirm => "Esta seguro que desea eliminar este producto?", :method =>:delete)%>		

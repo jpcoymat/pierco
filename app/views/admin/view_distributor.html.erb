@@ -1,0 +1,19 @@
+<h1>Distribuidor	</h1>
+
+	<table>
+		<tr><td>Nombre			</td>	<td><%= @distributor.name			%>	</td></tr>
+		<tr><td>Direccion		</td>	<td><%= @distributor.address_1		%>	</td></tr>
+		<tr><td>Direccion (2)	</td>	<td><%= @distributor.address_2		%>	</td></tr>
+		<tr><td>Ciudad			</td>	<td><%= @distributor.city			%>	</td></tr>
+		<tr><td>Departamento	</td>	<td><%= @distributor.state			%>	</td></tr>
+		<tr><td>Pais			</td>	<td><%= @distributor.country		%>	</td></tr>
+		<tr><td>Codigo Postal	</td>	<td><%= @distributor.postal_code	%>	</td></tr>
+		<tr><td>Telefono (1)	</td>	<td><%= @distributor.telephone_1	%>	</td></tr>
+		<tr><td>Telefono (2)	</td>	<td><%= @distributor.telephone_2	%>	</td></tr>
+		<tr><td>Telefono (3)	</td>	<td><%= @distributor.telephone_3	%>	</td></tr>
+		<tr><td>Email			</td>	<td><%= @distributor.email			%>	</td></tr>
+	</table>
+	
+	<p>
+		<%= link_to "Regresar", :back %> | <%= link_to "Modificar", :controller => 'admin', :action => 'edit_distributor', :distributor	=> @distributor %>
+	</p>

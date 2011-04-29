@@ -1,0 +1,7 @@
+<h1>Modificar Producto	</h1>
+
+	<%= form_for :product, :url =>{:controller => 'admin', :action => 'update_product'} do |form|	%>
+		<%= form.hidden_field	:id										%>
+		<%= render :partial => 'product', :locals => {:form => form}	%>
+		<%= submit_tag "Actualizar"										%>
+	<% end %>

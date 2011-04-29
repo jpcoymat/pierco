@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  supplier_id: 1
+  name: MyString
+  active: false
+  attribute_1: MyString
+  attribute_2: MyString
+  attribute_3: MyString
+  attribute_4: MyString
+  attribute_5: MyString
+
+two:
+  supplier_id: 1
+  name: MyString
+  active: false
+  attribute_1: MyString
+  attribute_2: MyString
+  attribute_3: MyString
+  attribute_4: MyString
+  attribute_5: MyString

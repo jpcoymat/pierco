@@ -1,0 +1,7 @@
+<h1>Modificar Marca	</h1>
+
+	<%= form_for :supplier, :url => {:controller => 'admin', :action => 'update_supplier'} do |form|	%>
+		<%= form.hidden_field :id	%>
+		<%= render :partial => 'supplier', :locals => {:form => form}	%>
+		<%= submit_tag "Actualizar"	%>
+	<% end %>

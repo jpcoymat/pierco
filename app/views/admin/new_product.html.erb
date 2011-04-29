@@ -1,0 +1,6 @@
+<h1>Nuevo Producto	</h1>
+
+	<%= form_for :product, :url => {:controller => 'admin', :action=> 'create_product'}, :html => {:multipart => true} do |form|	%>
+		<%= render :partial => 'product', :locals => {:form => form}	%>
+		<%= submit_tag "Crear Producto"									%>
+	<% end %>

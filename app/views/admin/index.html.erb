@@ -1,0 +1,13 @@
+<h1><%= @user.company.name %>	</h1>
+	<h2>Bienvenido <%= @user.full_name %>	</h2>
+	
+	<nav>
+		<ul>
+			<li><%= link_to "Compañia",			:controller => 'admin', :action => 'companies'				%>	</li>
+			<li><%= link_to "Marcas", 			:controller => 'admin', :action => 'suppliers'				%>	</li>
+			<li><%= link_to "Categorias",		:controller => 'admin', :action => 'product_categories'		%>	</li>
+			<li><%= link_to "Subcategorias", 	:controller => 'admin', :action => 'product_subcategories'	%>	</li>
+			<li><%= link_to "Productos",		:controller => 'admin', :action => 'products'				%>	</li>
+			<li><%= link_to "Distribuidores",	:controller => 'admin', :action => 'distributors'			%>	</li>
+		</ul>
+	</nav>

@@ -1,0 +1,6 @@
+<h1>Nueva Marca	</h1>
+	<%= form_for :supplier, :url => {:controller => 'admin', :action => 'create_supplier'}, :html => {:multipart => true} do |form|	%>
+		<%= form.hidden_field :company_id, :value => @company.id	%>
+		<%= render :partial => 'supplier',:locals =>{:form => form}	%>
+		<%= submit_tag "Crear Marca"								%>
+	<% end %>
