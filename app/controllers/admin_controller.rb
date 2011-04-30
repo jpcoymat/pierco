@@ -77,8 +77,8 @@ class AdminController < ApplicationController
     picture_file = params[:product][:image_file]
     params[:product].delete("image_file")
     @product = Product.new(params[:product])
-    if @product.save
-      @product.set_picture_file(picture_file) if picture_file          
+    @product.set_picture_file(picture_file) if picture_file  
+    if @product.save        
       flash[:notice] = "Producto creado exitosamnte"
       redirect_to :controller=> 'admin', :action => 'view_product', :product => @product
     else

@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   validates :name,  :supplier_id, :presence => true
   validates :name,  :uniqueness => true
   validates :image_filename, :format => {
-    :with	=> %r{\.(gif|jpg|png)$}i, :message => 'Imagen debe ser tipo GIF, JPG or PNG.'
+    :with	=> %r{\.(gif|jpeg|jpg|png)$}i, :message => 'Imagen debe ser tipo GIF, JPG or PNG.'
   }   
   
   belongs_to :supplier

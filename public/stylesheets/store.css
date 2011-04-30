@@ -27,3 +27,8 @@ header#page_header nav ul, #page_footer nav ul{
 	margin: 0 20px 0 0 ;
 	display: inline;
 }
+
+footer#page_footer {
+	font-size: 75%;
+	text-align: center;
+}
