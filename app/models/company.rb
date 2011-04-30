@@ -37,6 +37,12 @@ class Company < ActiveRecord::Base
     @product_subcategories
   end
   
+  def active_products
+    @active_products = products
+    @active_products.delete_if {|product| !(product.active)}
+    @active_products  
+  end
+  
   
 
 end
