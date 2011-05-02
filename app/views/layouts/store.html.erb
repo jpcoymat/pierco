@@ -18,7 +18,7 @@
 		<ul>
 			<li><%= link_to "Sobre Nosotros", 		:controller => 'store', :action => 'about_us'		%>	</li>
 			<li><%= link_to "Nuestras Marcas", 		:controller => 'store', :action => 'suppliers'		%>	</li>
-			<li><%= link_to "Nuestros Productos",	:controller => 'store', :action => 'products'		%>	</li>
+			<li><%= link_to "Nuestros Productos",	:controller => 'store', :action => 'products', 	:product_category => @company.product_categories.first		%>	</li>
 			<li><%= link_to "Distribuidores",		:controller => 'store', :action => 'distributors'	%>	</li>
 			<li><%= link_to "Contactenos",			:controller => 'store', :action => 'contact_us'		%>	</li>
 		</ul>	

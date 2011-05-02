@@ -10,17 +10,17 @@ class StoreController < ApplicationController
   
   def suppliers
     @company = Company.first
-    @suppliers = @company.suppliers
+    @suppliers= @company.suppliers
   end
   
   def products
     @company = Company.first
-    @products = @company.active_products
+    @products = Product.where(:product_category_id => params[:product_category]).all  
   end
   
   def distributors
     @company = Company.first
-    @distributors = @company.distributors
+    @cities = Distributor.find_by_sql("select distinct city from distributors where company_id = #{@company.id} order by city")
   end
   
   def contact_us

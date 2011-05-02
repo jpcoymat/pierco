@@ -1,0 +1,19 @@
+<h2>Distribuidores	</h2>
+	
+	<% @company.distributor_cities.each do |city|	%>
+		<h3><%= city %>	</h3>
+		<% @company.distributor_by_city(city).each do |distributor| %>
+			<p>
+				<%= distributor.name	%>
+			</p>
+			<p>
+				<%= distributor.full_address	%>
+			</p>
+			<p>
+				Telefonos: <%= distributor.telephones	%>
+			</p>
+			<p>
+				Email: <%= distributor.email	%>
+			</p>
+		<% end %>
+	<% end %>

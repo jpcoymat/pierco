@@ -57,6 +57,18 @@ class Company < ActiveRecord::Base
     telephones      
   end
   
+  def distributor_by_city(city)
+    Distributor.where(:company_id => self.id, :city => city).all
+  end
+  
+  def distributor_cities
+    @distributor_cities = []
+    self.distributors.each do |distributor|
+      @distributor_cities << distributor.city unless @distributor_cities.include?(distributor.city)
+    end
+    @distributor_cities
+  end
+  
   
 
 end

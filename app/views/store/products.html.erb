@@ -1,0 +1,16 @@
+<nav id="sidebar_nav">
+	<ul>
+		<% @company.product_categories.each do |product_category|	%>
+			<li><%= link_to product_category.name, :controller => 'store', :action => 'products', :product_category => product_category%></li>
+		<% end %>
+	<ul>
+</nav>
+
+<div id="products">
+	<table id="products_table">
+		<% @products.each do |product|%>
+			<tr><td><%= image_tag(product.image_filename, :size => "100x100")%></tr></td>
+		<% end %>
+	</table>
+</div>	
+		
