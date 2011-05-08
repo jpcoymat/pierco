@@ -13,7 +13,13 @@ p, li{
 }
 
 header#page_header{
-	width: 100%;
+	float: right;
+	width: 200px;
+}
+
+header#contact_info{
+	float: left;
+	margin-right: 200px;
 }
 
 header#page_header nav ul, #page_footer nav ul{

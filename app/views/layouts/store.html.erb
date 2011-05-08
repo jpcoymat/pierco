@@ -11,16 +11,21 @@
 	<div id="image_logo">
 		<%= image_tag(@company.image_filename, :size =>"300x195")	%>
 	</div>
-	
+	<div id="contact_info">
+		<p><%= @company.name 		%></p>
+		<p><%= @company.full_address 	%></p>
+		<p><%= @company.city_country 	%></p>
+		<p><%= @company.telephones	%></p>
+	</div>	
 	<h1><%= @company.name %></h1>
 	
 	<nav>
 		<ul>
-			<li><%= link_to "Sobre Nosotros", 		:controller => 'store', :action => 'about_us'		%>	</li>
-			<li><%= link_to "Nuestras Marcas", 		:controller => 'store', :action => 'suppliers'		%>	</li>
-			<li><%= link_to "Nuestros Productos",	:controller => 'store', :action => 'products', 	:product_category => @company.product_categories.first		%>	</li>
-			<li><%= link_to "Distribuidores",		:controller => 'store', :action => 'distributors'	%>	</li>
-			<li><%= link_to "Contactenos",			:controller => 'store', :action => 'contact_us'		%>	</li>
+			<li><%= link_to "Sobre Nosotros", 	:controller => 'store', :action => 'about_us'		%></li>
+			<li><%= link_to "Nuestras Marcas", 	:controller => 'store', :action => 'suppliers'		%></li>
+			<li><%= link_to "Nuestros Productos",	:controller => 'store', :action => 'products', 	:product_category => @company.product_categories.first	%></li>
+			<li><%= link_to "Distribuidores",	:controller => 'store', :action => 'distributors'	%></li>
+			<li><%= link_to "Contactenos",		:controller => 'store', :action => 'contact_us'		%></li>
 		</ul>	
 	</nav>
 </header>

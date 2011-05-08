@@ -18,6 +18,10 @@ class Company < ActiveRecord::Base
     self.address_2.nil? ? self.address_1 : self.address_1 + "\n" + self.address_2
   end
 
+  def city_country
+    self.city + ", " + self.country
+  end
+
 
   def products
     @products = []

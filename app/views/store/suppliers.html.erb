@@ -2,7 +2,7 @@
 
 	<table>
 		<% @suppliers.each do |supplier| %>
-			<tr><td><%= link_to image_tag(supplier.image_filename, :size => "500x100"), supplier.website	%></td></tr>
+			<tr><td><%= supplier.name	%></td><td><%= link_to image_tag(supplier.image_filename, :size => "500x100"), supplier.website	%></td></tr>
 		<% end %>
 	</table>
 			
