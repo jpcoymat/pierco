@@ -14,25 +14,53 @@ p, li{
 
 header#page_header{
 	float: right;
-	width: 200px;
+	width: 100%;
 }
 
-header#contact_info{
-	float: left;
-	margin-right: 200px;
+header#page_header div#logo_image{
+	text-align: center;
 }
 
-header#page_header nav ul, #page_footer nav ul{
+
+
+header#page_header nav ul{
+	background: #E5E5E5;
+	background: -moz-linear-gradient(top,#E5E5E5 0%, #C4C4C4 100%);
+	background: -webkit-gradient(linear,left top, left bottom, color-stop(0%,#E5E5E5),color-stop(100%,#C4C4C4));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E5E5E5', endColorstr='#C4C4C4',GradientType=0);
 	list-style: none;
-	margin: 0;
-	padding: 0;
+	border: 1px solid #757575;
+	border-bottom: 3px solid #A30000;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	padding: 10px 20px;
 } 
 
-#page_header nav ul li, footer#page_footer ul li{
+#page_header nav ul li{
 	padding: 0;
-	margin: 0 20px 0 0 ;
+	margin: 0 50px 0 0 ;
 	display: inline;
 }
+
+#page_header nav ul li a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #1d1d1d;
+	border-left: 1px solid #6f6f6f;
+	padding: 10px 0px;
+}
+
+
+#page_header nav ul li:first-child a{
+	border-left: none;
+}
+
+
+#page_header nav ul li a:hover{
+	background: rba(0,0,0,0.1);
+}
+
 
 footer#page_footer {
 	font-size: 75%;

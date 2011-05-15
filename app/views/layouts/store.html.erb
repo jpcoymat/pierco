@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pierco</title>
-  <%= stylesheet_link_tag "store" %>
-  <%= javascript_include_tag :all%>
-  <%= csrf_meta_tag %>
+	<!-- [if lt IE 9]>
+		<script type="text/javascript">
+			document.createElement("nav");
+			document.createElement("header");
+			document.createElement("footer");
+		</script>
+	<![endif] -->
+  	<title>Pierco</title>
+  	<%= stylesheet_link_tag "store" %>
+  	<%= javascript_include_tag :all%>
+  	<%= csrf_meta_tag %>
 </head>
 
 <header id="page_header">
-	<div id="image_logo">
-		<%= image_tag(@company.image_filename, :size =>"300x195")	%>
+	<div id="logo_image">
+	<%= image_tag(@company.image_filename, :size =>"300x195")	%>
 	</div>
-	<div id="contact_info">
-		<p><%= @company.name 		%></p>
-		<p><%= @company.full_address 	%></p>
-		<p><%= @company.city_country 	%></p>
-		<p><%= @company.telephones	%></p>
-	</div>	
-	<h1><%= @company.name %></h1>
-	
 	<nav>
 		<ul>
 			<li><%= link_to "Sobre Nosotros", 	:controller => 'store', :action => 'about_us'		%></li>

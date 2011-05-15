@@ -55,7 +55,7 @@ class Company < ActiveRecord::Base
     telephones = ""
     attributes.each do |k,v|
       if k.to_s.include?("telephone_") and !(v.blank?)
-        telephones += v.to_s + " "
+        telephones += v.to_s + " - "
       end
     end
     telephones      
