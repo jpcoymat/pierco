@@ -137,6 +137,7 @@ footer#page_footer {
 
 table#products_table{
 	width: 750px;
+	height: 750px;
 	
 }
 
@@ -152,8 +153,8 @@ table#products_table tr td{
 
 
 table#products_table tr td p{
-	font-size: 60%;
-	line-height: 10pt;
+	font-size: 75%;
+	line-height: 12pt;
 	margin: 0 0 0 0;
 	text-align: center;
 }

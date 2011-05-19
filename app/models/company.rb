@@ -58,6 +58,8 @@ class Company < ActiveRecord::Base
         telephones += v.to_s + " - "
       end
     end
+    telephones.chop!
+    telephones.chop!
     telephones      
   end
   
