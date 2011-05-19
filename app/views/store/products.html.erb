@@ -1,16 +1,25 @@
-<nav id="sidebar_nav">
+<section id="categories">
+<nav id="sidebar_menu">
+	<h4>Categorias</h4>
 	<ul>
 		<% @company.product_categories.each do |product_category|	%>
 			<li><%= link_to product_category.name, :controller => 'store', :action => 'products', :product_category => product_category%></li>
 		<% end %>
-	<ul>
+	</ul>
 </nav>
-
-<div id="products">
+</section>
+<section id="products">
 	<table id="products_table">
+		<% cell_count = 1 %>
 		<% @products.each do |product|%>
-			<tr><td><%= image_tag(product.image_filename, :size => "100x100")%></tr></td>
+			<%= "<tr>".html_safe if cell_count%3 == 1 %>
+			<td><%= image_tag(product.image_filename, :class =>"product_image")	%>
+				<p><%= product.name				%></p>
+				<p><%= product.supplier.name	%></p>
+			</td>
+			<%= "</tr>".html_safe if cell_count%3 == 0%>
+			<% cell_count +=  1 %>
 		<% end %>
 	</table>
-</div>	
+</section>	
 		

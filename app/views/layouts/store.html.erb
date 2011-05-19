@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pierco</title>
-  <%= stylesheet_link_tag "store" %>
-  <%= javascript_include_tag :all%>
-  <%= csrf_meta_tag %>
+	<!-- [if lt IE 9]>
+		<script type="text/javascript">
+			document.createElement("nav");
+			document.createElement("header");
+			document.createElement("footer");
+		</script>
+	<![endif] -->
+  	<title>Pierco</title>
+  	<%= stylesheet_link_tag "store" %>
+  	<%= javascript_include_tag :all%>
+  	<%= csrf_meta_tag %>
 </head>
 
 <header id="page_header">
-	<div id="image_logo">
-		<%= image_tag(@company.image_filename, :size =>"300x195")	%>
+	<div id="logo_image">
+	<%= image_tag(@company.image_filename, :size =>"300x195")	%>
 	</div>
+<<<<<<< HEAD
 	<div id="contact_info">
 		<p><%= @company.full_address 	%></p>
 		<p><%= @company.city_country 	%></p>
@@ -18,8 +26,11 @@
 	</div>	
 	<h1><%= @company.name %></h1>
 	
+=======
+>>>>>>> f1c1be4626b6ec4eef11d9f027b9db35a45e436a
 	<nav>
 		<ul>
+			<li><%= link_to "Inicio", :controller => 'store', :action => 'index'					%></li>
 			<li><%= link_to "Sobre Nosotros", 	:controller => 'store', :action => 'about_us'		%></li>
 			<li><%= link_to "Nuestras Marcas", 	:controller => 'store', :action => 'suppliers'		%></li>
 			<li><%= link_to "Nuestros Productos",	:controller => 'store', :action => 'products', 	:product_category => @company.product_categories.first	%></li>
@@ -28,9 +39,7 @@
 		</ul>	
 	</nav>
 </header>
-<p>
 	<%= yield %>
-</p>
 <footer id="page_footer">
 	<p>&copy Pierco Ltda. 2011 </p>
 </footer>
