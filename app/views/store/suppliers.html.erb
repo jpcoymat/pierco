@@ -1,8 +1,14 @@
 <h2>Nuestras Marcas	</h2>
-
+	<p>
+		Somos distribuidores autorizados para todas las marcas que manejamos.  Haga click sobre el logo de cualquier marca para ser redireccionado a su pagina principal.
+	</p> 
 	<table>
+		<tr><th>Marca	</th><th>Logo	</th>	<th>Pais de Origen</th>
 		<% @suppliers.each do |supplier| %>
-			<tr><td><%= supplier.name	%></td><td><%= link_to image_tag(supplier.image_filename, :size => "500x100"), supplier.website	%></td></tr>
+			<tr><td class="supplier_row"><%= supplier.name	%></td>
+				<td class="image_logo"><%= link_to image_tag(supplier.image_filename, :size => "300x55"), supplier.website	%></td>
+				<td><%= supplier.country	%>	</td>
+			</tr>
 		<% end %>
 	</table>
 			
