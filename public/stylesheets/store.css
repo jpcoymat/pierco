@@ -13,11 +13,15 @@ p, li{
 }
 
 header#page_header{
+	width: 100%;
+}
+
+#contact_info{
 	float: right;
 	width: 200px;
 }
 
-header#contact_info{
+#image_logo{
 	float: left;
 	margin-right: 200px;
 }
