@@ -82,14 +82,8 @@ header#page_header{
 	width: 100%;
 }
 
-<<<<<<< HEAD
-#image_logo{
-	float: left;
-	margin-right: 200px;
-=======
 header#page_header div#logo_image{
 	text-align: center;
->>>>>>> f1c1be4626b6ec4eef11d9f027b9db35a45e436a
 }
 
 
