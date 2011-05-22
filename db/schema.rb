@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522162427) do
+ActiveRecord::Schema.define(:version => 20110522163157) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",           :limit => 100, :null => false
@@ -81,11 +81,6 @@ ActiveRecord::Schema.define(:version => 20110522162427) do
     t.integer  "supplier_id",                                            :null => false
     t.string   "name",                   :limit => 50,                   :null => false
     t.boolean  "active",                               :default => true, :null => false
-    t.string   "attribute_1"
-    t.string   "attribute_2"
-    t.string   "attribute_3"
-    t.string   "attribute_4"
-    t.string   "attribute_5"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_filename",         :limit => 50
