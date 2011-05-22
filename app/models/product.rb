@@ -8,8 +8,9 @@ class Product < ActiveRecord::Base
     :with	=> %r{\.(gif|jpeg|jpg|png)$}i, :message => 'Imagen debe ser tipo GIF, JPG or PNG.'
   }   
   
-  belongs_to :supplier
-  belongs_to :product_category
-  belongs_to :product_subcategory
+  belongs_to  :supplier
+  belongs_to  :product_category
+  belongs_to  :product_subcategory
+  has_many    :product_attributes
 
 end
