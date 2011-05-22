@@ -46,11 +46,11 @@ section#categories nav#sidebar_menu ul li a{
 
 }
 
-section#categories nav ul li:first-child a{
+section#categories nav#sidebar_menu ul li:first-child a{
 	border-left: none;
 }
 
-section#categories nav ul li:last-child a{
+section#categories nav#sidebar_menu ul li:last-child a{
  -webkit-border-top-right-radius: .5em;
   -moz-border-radius-topright: .5em;
   border-top-left-radius: .5em;
@@ -60,7 +60,7 @@ section#categories nav ul li:last-child a{
 }
 
 
-section#categories nav ul li a:hover{
+section#categories nav#sidebar_menu ul li a:hover{
 	background: rgba(0,0,0,0.1);
 }
 
@@ -77,10 +77,6 @@ header#page_header{
 	width: 100%;
 }
 
-#contact_info{
-	float: right;
-	width: 100%;
-}
 
 header#page_header div#logo_image{
 	text-align: center;
@@ -179,7 +175,7 @@ img .product_image {
 
 section#contact_info{
 	float: left;
-	width: 350px;
+	width: 450px;
 	text-align: left;
 	
 }
@@ -196,6 +192,9 @@ section#contact_form{
 .pagination {
 	text-align: center;
 	position: relative;
+	font-size: 75%;
 }
+
+
 
 

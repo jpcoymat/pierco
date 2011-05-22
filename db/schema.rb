@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110428045114) do
+ActiveRecord::Schema.define(:version => 20110522161317) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",           :limit => 100, :null => false
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(:version => 20110428045114) do
     t.string   "telephone_2", :limit => 15
     t.string   "telephone_3", :limit => 15
     t.string   "email",       :limit => 50
+  end
+
+  create_table "product_attributes", :force => true do |t|
+    t.integer  "product_id",                :null => false
+    t.string   "attribute_1", :limit => 10
+    t.string   "attribute_2", :limit => 10
+    t.string   "attribute_3", :limit => 10
+    t.string   "attribute_4", :limit => 10
+    t.string   "attribute_5", :limit => 10
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "product_categories", :force => true do |t|

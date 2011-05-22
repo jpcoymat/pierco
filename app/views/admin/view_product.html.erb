@@ -10,4 +10,5 @@
 	</table>
 	
 	<%= link_to "Modificar",:controller => 'admin',:action => 'edit_product',:product => @product	%>	| 
-	<%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product', :product => @product}, :confirm => "Esta seguro que desea eliminar este producto?", :method =>:delete)%>		
+	<%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product', :product => @product}, :confirm => "Esta seguro que desea eliminar este producto?", :method =>:delete)%>		|
+	<%= link_to "Nuevo Producto", :controller => 'admin', :action => 'new_product' %>

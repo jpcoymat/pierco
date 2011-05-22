@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- [if lt IE 9]>
+	<! [if lt IE 9]>
 		<script type="text/javascript">
 			document.createElement("nav");
+			document.createElement("section")
 			document.createElement("header");
 			document.createElement("footer");
 		</script>
-	<![endif] -->
-  	<title>Pierco</title>
+	<![endif] >
+  	<title><%= @company.name%></title>
   	<%= stylesheet_link_tag "store" %>
   	<%= javascript_include_tag :all%>
   	<%= csrf_meta_tag %>
@@ -30,6 +31,7 @@
 	</nav>
 </header>
 	<%= yield %>
+	<br><br><br>
 <footer id="page_footer">
 	<p>&copy Pierco Ltda. 2011 </p>
 </footer>
