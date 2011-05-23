@@ -8,7 +8,40 @@
 		<tr><td>Imagen			</td>		<td><%= @product.image_filename.nil? ? "" : image_tag(@product.image_filename, :size => "100x100")			%>	</td></tr>
 		<tr><td>Activo			</td>		<td><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30")	%>	</td></tr>
 	</table>
+	<p>
+		<%= link_to "Modificar",:controller => 'admin',:action => 'edit_product',:product => @product	%>	| 
+		<%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product', :product => @product}, :confirm => "Esta seguro que desea eliminar este producto?", :method =>:delete)%>
+	</p>
+	<h2>Dimensiones de Producto </h2>
+	<% unless @product.product_attributes.empty?%>
+		<table>
+			<tr><th>Dimension 1 </th> <th>Dimension 2 </th> <th>Dimension 3 </th> <th>Dimension 4 </th> <th>Dimension 5 </th></tr>
+			<% @product.product_attributes.each do |product_attribute| %>
+				<tr><td><%= product_attribute.product_attribute_1 %> </td>
+					<td><%= product_attribute.product_attribute_2 %> </td>
+					<td><%= product_attribute.product_attribute_3 %> </td>
+					<td><%= product_attribute.product_attribute_4 %> </td>
+					<td><%= product_attribute.product_attribute_5 %> </td>
+					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product_attribute', :product_attribute => product_attribute %></td>
+					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_attrbute', :product_attribute => product_attribute}, :method => :delete, :confirm => "Esta seguro que desea eliminar este registro?")%>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+	<%= form_for :product_attribute, :url => {:controller => 'admin', :action => 'create_product_attribute'} do |form| %>
+		<%= form.hidden_field :product_id, :value => @product.id	%>
+			<table>
+				<tr><th>Dimension 1 </th> <th>Dimension 2 </th> <th>Dimension 3 </th> <th>Dimension 4 </th> <th>Dimension 5 </th></tr>
+				<tr><td><%= form.text_field :product_attribute_1, :size => 7	%>	</td>
+					<td><%= form.text_field :product_attribute_2, :size => 7	%>	</td>
+					<td><%= form.text_field :product_attribute_3, :size => 7	%>	</td>
+					<td><%= form.text_field :product_attribute_4, :size => 7	%>	</td>
+					<td><%= form.text_field :product_attribute_5, :size => 7	%>	</td>
+				</tr>
+			</table>
+			<%= submit_tag "Crear Dimension"%>
+	<% end %>
 	
-	<%= link_to "Modificar",:controller => 'admin',:action => 'edit_product',:product => @product	%>	| 
-	<%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product', :product => @product}, :confirm => "Esta seguro que desea eliminar este producto?", :method =>:delete)%>		|
-	<%= link_to "Nuevo Producto", :controller => 'admin', :action => 'new_product' %>
+	<p>
+		<%= link_to "Nuevo Producto", :controller => 'admin', :action => 'new_product' %>
+	</p>

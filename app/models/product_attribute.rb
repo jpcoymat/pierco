@@ -11,14 +11,14 @@ class ProductAttribute < ActiveRecord::Base
     @product_attributes
   end
   
+  def active_product_attributes
+    @active_product_attributes = product_attributes
+    @active_product_attributes.delete_if {|k,v| v.blank?}
+    @active_product_attributes
+  end
+  
   def validate_attributes
-    attributes_validated = false
-    index = 1
-    while attributes_validated == false
-      key = "product_attribute_" + index.to_s
-      attributes_validated = true if !(@product_attributes[nonvalid_attribute].blank?)
-    end
-    attributes_validated 
+    active_product_attributes.length > 0
   end
 
 end

@@ -333,5 +333,23 @@ class AdminController < ApplicationController
     flash[:notice] = "Marca eliminada exitosamente"
     redirect_to :controller => 'admin', :action => 'suppliers'
   end
+  
+  def delete_product_attribute
+    @product = ProductAttribute.find(params[:product_attribute]).product
+    ProductAttribute.destroy(params[:product_attribute])
+    flash[:notice] = "Dimension eliminada exitosamente"
+    redirect_to :controller => 'admin', :action => 'view_product', :product => @product
+  end
+  
+  def create_product_attribute
+    @product = Product.find(params[:product_attribute][:product_id])
+    @product_attribute = ProductAttribute.new(params[:product_attribute])
+    if @product_attribute.save
+      flash[:notice] = "Dimension creada exitosamente"
+    else
+      flash[:notice]= "Error creando dimension de producto"
+    end
+    redirect_to :controller => 'admin', :action => 'view_product', :product => @product
+  end
 
 end
