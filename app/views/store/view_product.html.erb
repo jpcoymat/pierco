@@ -1,0 +1,24 @@
+<section id="categories">
+<nav id="sidebar_menu">
+	<h4>Categorias</h4>
+	<ul>
+		<% @company.product_categories.each do |product_category|	%>
+			<li><%= link_to product_category.name, :controller => 'store', :action => 'products', :product_category => product_category%></li>
+		<% end %>
+	</ul>
+</nav>
+</section>
+<section id="product_details">
+	
+	<%= image_tag(@product.image_filename, :class =>"product_image")%>
+	<p>
+		<%= @product.description	%>
+	</p>
+	<h4>Dimensiones Disponibles</h4>
+	<% unless @product.product_attributes.empty?	%>
+		<table>
+			<tr><th>Dimesiones	</th>	
+	<% else 	%>
+		<p>No hay dimensiones establecidas para este producto.</p>
+	<% end %>
+</section>

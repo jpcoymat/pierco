@@ -1,0 +1,10 @@
+<h1>Actualizar Dimension de Producto</h1>
+	
+	<p>Nombre de Producto: <%= @product_attribute.product.name	%>	</p>
+	<p>Por favor ingrese los nuevos valores de esta dimension		</p>
+	<%= form_for :product_attribute, :url => {:controller => 'admin', :action => 'update_product_attribute'} do |form|%>
+		<%= form.hidden_field :id		%>
+		<%= render :partial => 'product_attribute', :locals => {:form => form}	%>
+		<%= submit_tag "Actualizar Dimension"%>
+	<% end %>
+	

@@ -1,0 +1,12 @@
+<h1>Crear Nueva Dimension	</h1>
+
+	<p>Producto: <%= @product.name	%></p>
+
+	<p>Por favor ingrese los datos de las nuevas dimensiones del producto.</p>
+	
+	<%= form_for :product_attribute, :url => {:controller => 'admin', :action => 'create_product_attribute'} do |form| %>
+		<%= form.hidden_field :product_id, :value => @product.id				%>
+		<%= render :partial => 'product_attribute', :locals => {:form => form}	%>
+		<%= submit_tag "Crear Dimension"%>
+	<% end %>
+		
