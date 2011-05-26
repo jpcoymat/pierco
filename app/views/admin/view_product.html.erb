@@ -1,11 +1,12 @@
 <h1>Detalles Producto	</h1>
 
 	<table>
-		<tr><td>Nombre Product 	</td>		<td><%= @product.name																						%>	</td></tr>
-		<tr><td>Marca			</td>		<td><%= @product.supplier.name																				%>	</td></tr>
-		<tr><td>Categoria		</td>		<td><%= @product.product_category.nil? ? "" : @product.product_category.name 								%>	</td></tr>
-		<tr><td>Subcategoria	</td>		<td><%= @product.product_subcategory.nil? ? "" : @product.product_subcategory.name							%>	</td></tr>
+		<tr><td>Nombre Producto </td>		<td><%= @product.name											%>	</td></tr>
+		<tr><td>Marca			</td>		<td><%= @product.supplier.name									%>	</td></tr>
+		<tr><td>Categoria		</td>		<td><%= @product.product_category.nil? ? "" : @product.product_category.name 	%>	</td></tr>
+		<tr><td>Subcategoria	</td>		<td><%= @product.product_subcategory.nil? ? "" : @product.product_subcategory.name	%>	</td></tr>
 		<tr><td>Imagen			</td>		<td><%= @product.image_filename.nil? ? "" : image_tag(@product.image_filename, :size => "100x100")			%>	</td></tr>
+		<tr><td>Descripcion		</td>		<td><%= @product.description									%>	</td></tr>
 		<tr><td>Activo			</td>		<td><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30")	%>	</td></tr>
 	</table>
 	<p>
@@ -15,33 +16,23 @@
 	<h2>Dimensiones de Producto </h2>
 	<% unless @product.product_attributes.empty?%>
 		<table>
-			<tr><th>Dimension 1 </th> <th>Dimension 2 </th> <th>Dimension 3 </th> <th>Dimension 4 </th> <th>Dimension 5 </th></tr>
+			<tr><th>Dimension  </th> <th>Diametro </th> <th>Largo </th> <th>Ancho </th> <th>Presion Maxima </th> <th>Peso Maxima </th></tr>
 			<% @product.product_attributes.each do |product_attribute| %>
-				<tr><td><%= product_attribute.product_attribute_1 %> </td>
-					<td><%= product_attribute.product_attribute_2 %> </td>
-					<td><%= product_attribute.product_attribute_3 %> </td>
-					<td><%= product_attribute.product_attribute_4 %> </td>
-					<td><%= product_attribute.product_attribute_5 %> </td>
+				<tr><td><%= product_attribute.product_attribute	%> </td>
+					<td><%= product_attribute.diameter 			%> </td>
+					<td><%= product_attribute.length 			%> </td>
+					<td><%= product_attribute.width 			%> </td>
+					<td><%= product_attribute.maximum_pressure 	%> </td>
+					<td><%= product_attribute.maximum_weight 	%> </td>
 					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product_attribute', :product_attribute => product_attribute %></td>
 					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_attrbute', :product_attribute => product_attribute}, :method => :delete, :confirm => "Esta seguro que desea eliminar este registro?")%>
 				</tr>
 			<% end %>
 		</table>
 	<% end %>
-	<%= form_for :product_attribute, :url => {:controller => 'admin', :action => 'create_product_attribute'} do |form| %>
-		<%= form.hidden_field :product_id, :value => @product.id	%>
-			<table>
-				<tr><th>Dimension 1 </th> <th>Dimension 2 </th> <th>Dimension 3 </th> <th>Dimension 4 </th> <th>Dimension 5 </th></tr>
-				<tr><td><%= form.text_field :product_attribute_1, :size => 7	%>	</td>
-					<td><%= form.text_field :product_attribute_2, :size => 7	%>	</td>
-					<td><%= form.text_field :product_attribute_3, :size => 7	%>	</td>
-					<td><%= form.text_field :product_attribute_4, :size => 7	%>	</td>
-					<td><%= form.text_field :product_attribute_5, :size => 7	%>	</td>
-				</tr>
-			</table>
-			<%= submit_tag "Crear Dimension"%>
-	<% end %>
-	
+	<p>
+		<%= link_to "Agregar Dimension", :controller => 'admin', :action => 'new_product_attribute', :product => @product	%>
+	</p>
 	<p>
 		<%= link_to "Nuevo Producto", :controller => 'admin', :action => 'new_product' %>
 	</p>

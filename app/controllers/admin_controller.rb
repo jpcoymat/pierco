@@ -341,6 +341,11 @@ class AdminController < ApplicationController
     redirect_to :controller => 'admin', :action => 'view_product', :product => @product
   end
   
+  def new_product_attribute
+    @product = Product.find(params[:product]) 
+    
+  end
+  
   def create_product_attribute
     @product = Product.find(params[:product_attribute][:product_id])
     @product_attribute = ProductAttribute.new(params[:product_attribute])
@@ -350,6 +355,24 @@ class AdminController < ApplicationController
       flash[:notice]= "Error creando dimension de producto"
     end
     redirect_to :controller => 'admin', :action => 'view_product', :product => @product
+  end
+  
+  def edit_product_attribute
+    @product_attribute = ProductAttribute.find(params[:product_attribute])
+    
+  end
+
+
+  def update_product_attribute
+    @product_attribute = ProductAttribute.find(params[:product_attribute][:id])    
+    if @product_attribute.update_attributes(params[:product_attribute ])
+      flash[:notice] = "Dimension actualizada exitosamente"
+      redirect_to :controller => 'admin', :action => 'view_product', :product => @product_attribute.product
+    else
+      flash[:notice] = "Error actualizando Dimension"
+      redirect_to :controller => 'admin', :action => 'edit_product_attribute', :product_attribute => @product_attribute
+    end
+    
   end
 
 end

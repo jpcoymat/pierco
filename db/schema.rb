@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522163157) do
+ActiveRecord::Schema.define(:version => 20110526165109) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",           :limit => 100, :null => false
@@ -51,14 +51,15 @@ ActiveRecord::Schema.define(:version => 20110522163157) do
   end
 
   create_table "product_attributes", :force => true do |t|
-    t.integer  "product_id",                        :null => false
-    t.string   "product_attribute_1", :limit => 10
-    t.string   "product_attribute_2", :limit => 10
-    t.string   "product_attribute_3", :limit => 10
-    t.string   "product_attribute_4", :limit => 10
-    t.string   "product_attribute_5", :limit => 10
+    t.integer  "product_id",                                                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "diameter",                        :precision => 9, :scale => 2
+    t.decimal  "width",                           :precision => 9, :scale => 2
+    t.decimal  "maximum_pressure",                :precision => 9, :scale => 2
+    t.decimal  "maximum_weight",                  :precision => 9, :scale => 2
+    t.decimal  "length",                          :precision => 9, :scale => 2
+    t.string   "product_attribute", :limit => 20,                               :null => false
   end
 
   create_table "product_categories", :force => true do |t|
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20110522163157) do
     t.string   "image_filename",         :limit => 50
     t.integer  "product_category_id"
     t.integer  "product_subcategory_id"
+    t.text     "description"
   end
 
   create_table "supplier_contacts", :force => true do |t|

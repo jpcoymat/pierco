@@ -28,6 +28,11 @@ class StoreController < ApplicationController
     @company = Company.first  
 
   end
+  
+  def view_product
+    @company = Company.first
+    @product = Product.find(params[:product])
+  end
 
 
 
