@@ -14,24 +14,26 @@
 		<%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product', :product => @product}, :confirm => "Esta seguro que desea eliminar este producto?", :method =>:delete)%>
 	</p>
 	<h2>Dimensiones de Producto </h2>
-	<% unless @product.product_attributes.empty?%>
+	<% unless @product.product_dimensions.empty?%>
 		<table>
-			<tr><th>Dimension  </th> <th>Diametro </th> <th>Largo </th> <th>Ancho </th> <th>Presion Maxima </th> <th>Peso Maxima </th></tr>
-			<% @product.product_attributes.each do |product_attribute| %>
-				<tr><td><%= product_attribute.product_attribute	%> </td>
-					<td><%= product_attribute.diameter 			%> </td>
-					<td><%= product_attribute.length 			%> </td>
-					<td><%= product_attribute.width 			%> </td>
-					<td><%= product_attribute.maximum_pressure 	%> </td>
-					<td><%= product_attribute.maximum_weight 	%> </td>
-					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product_attribute', :product_attribute => product_attribute %></td>
-					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_attrbute', :product_attribute => product_attribute}, :method => :delete, :confirm => "Esta seguro que desea eliminar este registro?")%>
+			<tr>
+				<% @product.product_category.active_dimension_fields.each do |active_field|	%>
+					<th><%= ProductDimension.attribute_dictionary[active_field]%></th>
+				<% end %>
+			</tr>
+			<% @product.product_dimension.each do |product_dimension|	%>
+				<tr>
+					<% @product.product_category.active_dimension_fields.each do |active_field|	%>
+						<td><%= product_dimension.attributes[active_field]	%></td>
+					<% end %>
+					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product_dimension', :product_attribute => product_attribute %></td>
+					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_dimension', :product_attribute => product_attribute}, :method => :delete, :confirm => "Esta seguro que desea eliminar este registro?")%>
 				</tr>
 			<% end %>
 		</table>
 	<% end %>
 	<p>
-		<%= link_to "Agregar Dimension", :controller => 'admin', :action => 'new_product_attribute', :product => @product	%>
+		<%= link_to "Agregar Dimension", :controller => 'admin', :action => 'new_product_dimension', :product => @product	%>
 	</p>
 	<p>
 		<%= link_to "Nuevo Producto", :controller => 'admin', :action => 'new_product' %>

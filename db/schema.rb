@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110526165109) do
+ActiveRecord::Schema.define(:version => 20110527212019) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",           :limit => 100, :null => false
@@ -50,24 +50,29 @@ ActiveRecord::Schema.define(:version => 20110526165109) do
     t.string   "email",       :limit => 50
   end
 
-  create_table "product_attributes", :force => true do |t|
-    t.integer  "product_id",                                                    :null => false
+  create_table "product_categories", :force => true do |t|
+    t.integer  "company_id",                                         :null => false
+    t.string   "name",             :limit => 50,                     :null => false
+    t.string   "description",      :limit => 100,                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "diameter",                        :precision => 9, :scale => 2
-    t.decimal  "width",                           :precision => 9, :scale => 2
-    t.decimal  "maximum_pressure",                :precision => 9, :scale => 2
-    t.decimal  "maximum_weight",                  :precision => 9, :scale => 2
-    t.decimal  "length",                          :precision => 9, :scale => 2
-    t.string   "product_attribute", :limit => 20,                               :null => false
+    t.boolean  "length",                          :default => false
+    t.boolean  "width",                           :default => false
+    t.boolean  "maximum_pressure",                :default => false
+    t.boolean  "maximum_weight",                  :default => false
+    t.string   "color",            :limit => 25
   end
 
-  create_table "product_categories", :force => true do |t|
-    t.integer  "company_id",                 :null => false
-    t.string   "name",        :limit => 50,  :null => false
-    t.string   "description", :limit => 100, :null => false
+  create_table "product_dimensions", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "name",                                                          :null => false
+    t.decimal  "length",                         :precision => 10, :scale => 2
+    t.decimal  "width",                          :precision => 10, :scale => 2
+    t.decimal  "maximum_pressure",               :precision => 10, :scale => 2
+    t.decimal  "maximum_weight",                 :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color",            :limit => 25
   end
 
   create_table "product_subcategories", :force => true do |t|

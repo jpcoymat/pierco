@@ -2,10 +2,16 @@
 	
 	<% unless @product_categories.empty?	%>
 		<table>
-			<tr><th>Categoria	</th>	<th>Descripcion	</th></tr>
+			<tr><th>Categoria	</th>	<th>Descripcion	</th>	<th colspan = 5>Propiedades	</th></tr>
 			<% @product_categories.each do |product_category| %>
-				<tr><td><%= product_category.name																										%>	</td>
-					<td><%= product_category.description																								%>	</td>
+				<tr><td><%= product_category.name			%>	</td>
+					<td><%= product_category.description	%>	</td>
+					<td><%= product_category.length ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
+					<td><%= product_category.width ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
+					<td><%= product_category.maximum_pressure ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")	%></td>
+					<td><%= product_category.maximum_weight ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")	%></td>
+					<td><%= product_category.color ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
+					
 					<td><%= link_to "Subcategorias", :controller => 'admin', :action=> 'product_subcategories', :product_category => product_category	%>	</td>
 					<td><%= link_to "Modificiar",:controller => 'admin', :action => 'edit_product_category', :product_category => product_category		%>	</td>
 					<td><%= product_category.deleteable? ? link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_category', :product_category => product_category},	

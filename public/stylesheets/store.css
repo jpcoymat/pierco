@@ -1,7 +1,10 @@
 body{
 	width: 960px;
 	margin: 15px auto;
-	font-family: Arial, "MS Trebuchet", sans-serif;
+  	font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+  	font-size: 14px;
+
+	/*font-family: Arial, "MS Trebuchet", sans-serif;*/
 }
 
 p{

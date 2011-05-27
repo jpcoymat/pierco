@@ -334,45 +334,42 @@ class AdminController < ApplicationController
     redirect_to :controller => 'admin', :action => 'suppliers'
   end
   
-  def delete_product_attribute
-    @product = ProductAttribute.find(params[:product_attribute]).product
-    ProductAttribute.destroy(params[:product_attribute])
+  def new_product_dimension
+    @product = Product.find(params[:product])
+  end
+
+  def create_product_dimension
+    @product_dimension = ProductDimension.new(params[:product_dimension])
+    if @product_dimension.save
+      flash[:notice] = "Dimension creada exitosamente"
+      redirect_to :controller => 'admin', :action => 'view_product', :product=> @product_dimension.product
+    else
+      flash[:notice] = "Error creando dimension de producto"
+      redirect_to :controller => 'admin', :action => 'new_product_dimension', :product => Product.find(params[:product_dimension][:product_id])
+    end
+  end
+  
+  def edit_product_dimension
+    @product_dimension = ProductDimension.find(params[:product_dimension])
+  end
+  
+  def update_product_dimension
+    @product_dimension = ProductDimension.find(params[:product_dimension][:id])
+    if @product_dimension.update_attributes(params[:product_dimension])
+      flash[:notice] = "Dimension actualizada exitosamente"
+      redirect_to :controller => 'admin', :action => 'view_product', :product => @product_dimension.product
+    else
+      flash[:notice] = "Error actualizando dimension"
+      redirect_to :controller => 'admin', :action => 'edit_product_dimension', :product_dimension => @product_dimension
+    end
+  end
+  
+  def delete_product_dimension
+    @product = Product.find(params[:product_dimension][:product_id])
+    ProductDimension.destroy(params[:product_dimension])
     flash[:notice] = "Dimension eliminada exitosamente"
     redirect_to :controller => 'admin', :action => 'view_product', :product => @product
   end
   
-  def new_product_attribute
-    @product = Product.find(params[:product]) 
-    
-  end
-  
-  def create_product_attribute
-    @product = Product.find(params[:product_attribute][:product_id])
-    @product_attribute = ProductAttribute.new(params[:product_attribute])
-    if @product_attribute.save
-      flash[:notice] = "Dimension creada exitosamente"
-    else
-      flash[:notice]= "Error creando dimension de producto"
-    end
-    redirect_to :controller => 'admin', :action => 'view_product', :product => @product
-  end
-  
-  def edit_product_attribute
-    @product_attribute = ProductAttribute.find(params[:product_attribute])
-    
-  end
-
-
-  def update_product_attribute
-    @product_attribute = ProductAttribute.find(params[:product_attribute][:id])    
-    if @product_attribute.update_attributes(params[:product_attribute ])
-      flash[:notice] = "Dimension actualizada exitosamente"
-      redirect_to :controller => 'admin', :action => 'view_product', :product => @product_attribute.product
-    else
-      flash[:notice] = "Error actualizando Dimension"
-      redirect_to :controller => 'admin', :action => 'edit_product_attribute', :product_attribute => @product_attribute
-    end
-    
-  end
 
 end
