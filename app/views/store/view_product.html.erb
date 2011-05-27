@@ -17,8 +17,20 @@
 	<h4>Dimensiones Disponibles</h4>
 	<% unless @product.product_attributes.empty?	%>
 		<table>
-			<tr><th>Dimesiones	</th>	
-	<% else 	%>
+			<tr>
+				<% @product.active_product_attributes_fields.each do |product_attribute_field|	%>
+					<th><%= display product_attribute_field	%></th>
+				<% end 	%>
+			</tr>
+			<% @product.product_attributes.each do |product_attribute|	%>
+				<tr>
+					<%@product.active_product_attributes_fields.	each do |product_attribute_field|	%>
+						<td><%= product_attribute.attributes[product_attribute_field]	%></td>
+					<% end 	%>
+				</tr>
+			<%	end %>
+		</table>
+	<% else 	 %>
 		<p>No hay dimensiones establecidas para este producto.</p>
 	<% end %>
 </section>
