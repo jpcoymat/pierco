@@ -1,0 +1,13 @@
+<table>
+<tr><td>Dimension	</td>	<td><%= form.text_field	:name		%>	</td></tr>
+<%= @product.product_category.diameter ? "<tr><td>Diametro</td><td>".html_safe + form.text_field(:diameter) + "</td></tr>".html_safe : "" %>
+<%= @product.product_category.length ? "<tr><td> Largo </td> <td>".html_safe + form.text_field(:length) + "</td></tr>".html_safe : "" %>
+<%= @product.product_category.width ? "<tr><td> Ancho </td> <td>".html_safe + form.text_field(:width) + "</td></tr>".html_safe : ""	 %>
+<%= @product.product_category.maximum_pressure ? "<tr><td> Presion Maxima </td> <td>".html_safe + form.text_field(:maximum_pressure) + "</td></tr>".html_safe : ""	 %>
+<%= @product.product_category.maximum_weight ? "<tr><td> Peso Maximo </td> <td>".html_safe + form.text_field(:maximum_weight) + "</td></tr>".html_safe : ""	 %>
+<%= @product.product_category.color ? "<tr><td>Color </td> <td>".html_safe + form.text_field(:color) + "</td></tr>".html_safe : ""	 %>
+
+</table>
+	
+
+	

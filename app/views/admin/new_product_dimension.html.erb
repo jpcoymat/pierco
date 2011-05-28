@@ -1,0 +1,9 @@
+<h1>Nueva Dimension de Producto </h1>
+	<p>Nombre de Producto: <%= @product.name	%></p>
+	
+	<%= form_for :product_dimension, :url => {:controller => 'admin', :action => 'create_product_dimension'} do |form| %>
+		<%= form.hidden_field	:product_id, :value => @product.id				%>
+		<%= render :partial => 'product_dimension', :locals => {:form => form}	%>
+		<%= submit_tag "Crear Dimension"	%>
+	<% end %>
+	
