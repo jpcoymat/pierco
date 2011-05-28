@@ -1,5 +1,7 @@
 class ProductDimension < ActiveRecord::Base
 
+  belongs_to  :product
+
   validates :product_id, :name, :presence => true
   validates_uniqueness_of :name, :scope => :product_id
   
@@ -8,7 +10,8 @@ class ProductDimension < ActiveRecord::Base
                               "maximum_weight" => "Peso Maximo",
                               "length" => "Largo",
                               "width" => "Ancho",
-                              "color" => "Color" }
+                              "color" => "Color",
+                              "diameter" => "Diametro" }
   end
   
   def self.dimension_attributes

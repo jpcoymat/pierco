@@ -16,18 +16,18 @@
 	<h2>Dimensiones de Producto </h2>
 	<% unless @product.product_dimensions.empty?%>
 		<table>
-			<tr>
+			<tr><th>Dimension	</th>
 				<% @product.product_category.active_dimension_fields.each do |active_field|	%>
 					<th><%= ProductDimension.attribute_dictionary[active_field]%></th>
 				<% end %>
 			</tr>
-			<% @product.product_dimension.each do |product_dimension|	%>
-				<tr>
+			<% @product.product_dimensions.each do |product_dimension|	%>
+				<tr><td><%= product_dimension.name		%>	</td>
 					<% @product.product_category.active_dimension_fields.each do |active_field|	%>
 						<td><%= product_dimension.attributes[active_field]	%></td>
 					<% end %>
-					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product_dimension', :product_attribute => product_attribute %></td>
-					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_dimension', :product_attribute => product_attribute}, :method => :delete, :confirm => "Esta seguro que desea eliminar este registro?")%>
+					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product_dimension', :product_dimension => product_dimension %></td>
+					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_dimension', :product_dimension => product_dimension}, :method => :delete, :confirm => "Esta seguro que desea eliminar este registro?")%>
 				</tr>
 			<% end %>
 		</table>

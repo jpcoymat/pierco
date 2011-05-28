@@ -351,6 +351,7 @@ class AdminController < ApplicationController
   
   def edit_product_dimension
     @product_dimension = ProductDimension.find(params[:product_dimension])
+    @product = @product_dimension.product
   end
   
   def update_product_dimension

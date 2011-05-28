@@ -2,10 +2,19 @@
 	
 	<% unless @product_categories.empty?	%>
 		<table>
-			<tr><th>Categoria	</th>	<th>Descripcion	</th>	<th colspan = 5>Propiedades	</th></tr>
+			<tr><th>Categoria		</th>
+				<th>Descripcion		</th>	
+				<th>Diametro?		</th> 
+				<th>Largo?			</th> 
+				<th>Ancho?			</th>
+				<th>Maxima Presion	</th>
+				<th>Maximo Peso		</th>
+				<th>Color			</th>
+			</tr>
 			<% @product_categories.each do |product_category| %>
 				<tr><td><%= product_category.name			%>	</td>
 					<td><%= product_category.description	%>	</td>
+					<td><%= product_category.diameter ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
 					<td><%= product_category.length ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
 					<td><%= product_category.width ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
 					<td><%= product_category.maximum_pressure ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")	%></td>

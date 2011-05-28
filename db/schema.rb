@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110527212019) do
+ActiveRecord::Schema.define(:version => 20110527230332) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",           :limit => 100, :null => false
@@ -60,7 +60,8 @@ ActiveRecord::Schema.define(:version => 20110527212019) do
     t.boolean  "width",                           :default => false
     t.boolean  "maximum_pressure",                :default => false
     t.boolean  "maximum_weight",                  :default => false
-    t.string   "color",            :limit => 25
+    t.boolean  "color",                           :default => false
+    t.boolean  "diameter",                        :default => false
   end
 
   create_table "product_dimensions", :force => true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20110527212019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color",            :limit => 25
+    t.decimal  "diameter",                       :precision => 10, :scale => 2
   end
 
   create_table "product_subcategories", :force => true do |t|
