@@ -1,7 +1,7 @@
 <h1>Marcas	</h1>
 	<% unless @suppliers.empty?	%>
 		<table>
-			<tr><th>Nombre Marca	</th>	<th>Direccion	</th>	<th>Ciudad	</th>	<th>Pais	</th>Website	</th></tr>
+			<tr><th>Nombre Marca	</th>	<th>Direccion	</th>	<th>Ciudad	</th>	<th>Pais	</th><th>Website	</th></tr>
 			<% @suppliers.each do |supplier| %>
 				<tr><td><%= link_to supplier.name, :controller => 'admin', :action => 'view_supplier', :supplier => supplier	%>	</td>
 					<td><%= supplier.address_1																					%>	</td>
