@@ -3,9 +3,10 @@
 		<table>
 			<tr><th>Nombre Marca	</th>	<th>Direccion	</th>	<th>Ciudad	</th>	<th>Pais	</th><th>Website	</th></tr>
 			<% @suppliers.each do |supplier| %>
-				<tr><td><%= link_to supplier.name, :controller => 'admin', :action => 'view_supplier', :supplier => supplier	%>	</td>
+				<tr><td><%= link_to supplier.name, :controller => 'admin', :action => 'view_supplier', :supplier => supplier 	%>	</td>
 					<td><%= supplier.address_1																					%>	</td>
 					<td><%= supplier.city																						%>	</td>
+					<td><%= supplier.country																					%>	</td>
 					<td><%= supplier.website																					%>	</td>
 					<td><%= link_to "Modificar", :controller=> 'admin', :action => 'edit_supplier', :supplier => supplier		%>	</td>
 				</tr>
