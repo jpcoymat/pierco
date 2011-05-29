@@ -67,6 +67,7 @@ class AdminController < ApplicationController
   end
   
   def new_product
+    @product = Product.new
     @company = User.find(session[:user_id]).company
     @suppliers = @company.suppliers
     @product_categories = @company.product_categories

@@ -15,7 +15,7 @@
 
 
 	<%= form_for :product_category, :url => {:controller => 'admin', :action=> 'create_product_category'} do |form| %>
-		<%= form.hidden_field :company_id, :value => @company.id				%>
+		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company				%>
 		<%= render :partial => 'product_category', :locals => {:form => form}	%>
 		<%= submit_tag "Crear Categoria"										%>
 	<% end %>

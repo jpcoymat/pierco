@@ -42,7 +42,9 @@ es:
                     attributes:
                         name:
                             blank: "Nombre no puede estar en blanco"
-                            taken: "Categoria ya existe"    
+                            taken: "Categoria ya existe"
+                        description:
+                            blank: "Descripcion no puede estar en blanco"    
                 product_subcategory:
                     attributes:
                         name:
