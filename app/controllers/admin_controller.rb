@@ -83,7 +83,7 @@ class AdminController < ApplicationController
       redirect_to :controller=> 'admin', :action => 'view_product', :product => @product
     else
       flash[:notice] = "Error creando producto"
-      redirect_to :controller=> 'admin', :action => 'new_product'
+      render :action => 'new_product'
     end
   end
   
@@ -105,7 +105,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'view_product',:product => @product
     else
       flash[:notice] = "Error actualizando producto"
-      redirect_to :controller => 'admin', :action => 'edit_product',:product => @product      
+      render :action => 'edit_product'    
     end
   end
   
@@ -131,7 +131,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'product_categories'
     else
       flash[:notice] = "Error creando categoria"
-      redirect_to :controller => 'admin', :action => 'new_product_category'
+      render :action => 'new_product_category'
     end
   end
   
@@ -146,7 +146,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'product_categories'
     else
       flash[:notice] = "Error actualizando categoria"
-      redirect_to :controller => 'admin', :action => 'edit_product_category', :product_category => @product_category      
+      render :action => 'edit_product_category'      
     end
   end
   
@@ -186,7 +186,7 @@ class AdminController < ApplicationController
       redirect_to :controller=> 'admin', :action => 'product_subcategories', :product_category => @product_subcategory.product_category
     else
       flash[:notice] = "Error actualizando subcategoria"
-      redirect_to :controller => 'admin', :action => 'edit_product_subcategory', :product_subcategory => @product_subcategory
+      render :action => 'edit_product_subcategory'
     end
   end
   
@@ -346,7 +346,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'view_product', :product=> @product_dimension.product
     else
       flash[:notice] = "Error creando dimension de producto"
-      redirect_to :controller => 'admin', :action => 'new_product_dimension', :product => Product.find(params[:product_dimension][:product_id])
+      render :action => 'new_product_dimension'
     end
   end
   
@@ -362,7 +362,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'view_product', :product => @product_dimension.product
     else
       flash[:notice] = "Error actualizando dimension"
-      redirect_to :controller => 'admin', :action => 'edit_product_dimension', :product_dimension => @product_dimension
+      render :action => 'edit_product_dimension'
     end
   end
   

@@ -53,5 +53,21 @@ es:
                         name:
                             blank: "Nombre no puede estar en blanco"
                             taken: "Dimension ya existe"
+                user:
+                    attributes:
+                        username:
+                            blank: "Nombre de usuario no puede estar en blanco"
+                            taken: "Nombre de usuario ya existe"
+                            too_short: "Nombre de usuario debe ser de por lo menos 3 caracteres"
+                            too_long: "Nombre de usuario no puede tener mas de 40 caracteres"
+                            confirmation: "Contrasena no ha sido confirmada"
+                        first_name:
+                            blank: "Nombre no puede estar en blanco"
+                        last_name:
+                            blank: "Apellido no puede estar en blanco"
+                        email:
+                            blank: "Email no puede estar en blanco"
+                        hashed_password:
+                            blank: "Contrasena no puede estar en blanco"
                     
                     
