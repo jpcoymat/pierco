@@ -1,0 +1,57 @@
+es:
+    activerecord:
+        errors:
+            models:
+                supplier:
+                    attributes:
+                        name:
+                            blank: "Nombre no puede estar en blanco"
+                            taken: "Marca ya existe"
+                        address_1:
+                            blank: "Direccion no puede estar en blanco"
+                        city:
+                            blank: "Ciudad no puede estar en blanco"
+                        country:
+                            blank: "Pais no puede estar en blanco"
+                        company_id:
+                            blank: "Compania no puede estar en blanco"
+                        image_filename:
+                            format: "Tipo de Imagen"
+                distributor:
+                    attributes:
+                        name:
+                            blank: "Nombre no puede estar en blanco"
+                            taken: "Distribuidor ya existe"
+                        address_1:
+                            blank: "Direccion no puede estar en blanco"
+                        city:
+                            blank: "Ciudad no puede estar en blanco"
+                        country:
+                            blank: "Pais no puede estar en blanco"
+                        company_id:
+                            blank: "Compania no puede estar en blanco"
+                product:
+                    attributes:
+                        name:
+                            blank: "Nombre no puede estar en blanco"
+                            taken: "Producto ya existe"
+                        supplier_id: 
+                            blank: "Marca no puede estar en blanco"
+                            taken: "Nombre ya existe"
+                product_category:
+                    attributes:
+                        name:
+                            blank: "Nombre no puede estar en blanco"
+                            taken: "Categoria ya existe"    
+                product_subcategory:
+                    attributes:
+                        name:
+                            blank: "Nombre no puede estar en blanco"
+                            taken: "Subcategoria ya existe"
+                product_dimension:
+                    attributes:
+                        name:
+                            blank: "Nombre no puede estar en blanco"
+                            taken: "Dimension ya existe"
+                    
+                    
