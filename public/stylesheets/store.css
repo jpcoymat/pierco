@@ -157,7 +157,7 @@ table#products_table tr td{
 
 
 table#products_table tr td p{
-	font-size: 75%;
+	font-size: 8pt;
 	line-height: 12pt;
 	margin: 0 0 0 0;
 	text-align: center;
@@ -195,9 +195,34 @@ section#contact_form{
 .pagination {
 	text-align: center;
 	position: relative;
-	font-size: 75%;
+	font-size: 85%;
+}
+
+section#product_details {
+	padding: 10px 10px 10px 10px;
+	
+}
+
+section#product_details img {
+	display: block;   
+	margin-left: 0;   
+	margin-right: auto;
+	
+	
 }
 
 
+tr.list_line_even {
+	
+	border-collapse: collapse;
+	background: #E5E5E5;
+}
 
 
+section#product_details p#product_description {
+	text-align: right;
+	display: block;   
+	margin-left: auto;   
+	margin-right: 0;
+	
+}

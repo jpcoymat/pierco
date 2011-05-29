@@ -1,6 +1,17 @@
 <h1>Nueva Marca	</h1>
+
+	<% if @supplier.errors.any? %>
+		<div id="error_explanation">
+  			<h2>Hay <%= @supplier.errors.count.to_s %> error(es) con esta marca :</h2>
+  				<ul>
+  					<% @supplier.errors.each do |key,value| %>
+    					<li><%= value %></li>
+  					<% end %>
+  				</ul>
+		</div>
+	<% end %>
 	<%= form_for :supplier, :url => {:controller => 'admin', :action => 'create_supplier'}, :html => {:multipart => true} do |form|	%>
-		<%= form.hidden_field :company_id, :value => @company.id	%>
+		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company.id	%>
 		<%= render :partial => 'supplier',:locals =>{:form => form}	%>
 		<%= submit_tag "Crear Marca"								%>
 	<% end %>

@@ -2,14 +2,20 @@
 
 	<% unless @distributors.empty?	%>
 		<table>
-			<tr><th>Nombre Distribuidor	</th>	<th>Direccion	</th>	<th>Ciudad	</th> <th>Telefono 1</th>	<th>Telefono 2	</th>	<th>Email	</th>	</tr>
+			<tr><th>Nombre Distribuidor	</th>	
+				<th>Direccion			</th>	
+				<th>Ciudad				</th> 
+				<th>Telefono 1			</th>	
+				<th>Telefono 2			</th>	
+				<th>Email				</th>	
+			</tr>
 			<% @distributors.each do |distributor| %>
 				<tr><td><%= link_to distributor.name, :controller => 'admin', :action => 'view_distributor', :distributor => distributor	%>	</td>
-					<td><%= distributor.full_address																						%>	</td>
-					<td><%= distributor.city																								%>	</td>
-					<td><%= number_to_phone(distributor.telephone_1)																		%>	</td>
-					<td><%= number_to_phone(distributor.telephone_2)																		%>	</td>
-					<td><%= distributor.email																								%>	</td>
+					<td><%= distributor.full_address													%>	</td>
+					<td><%= distributor.city															%>	</td>
+					<td><%= number_to_phone(distributor.telephone_1)									%>	</td>
+					<td><%= number_to_phone(distributor.telephone_2)									%>	</td>
+					<td><%= distributor.email															%>	</td>
 					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_distributor', :distributor => distributor			%>	</td>
 					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_distributor', :distributor => distributor}, :confirm => "Esta seguro que desea eliminar a este distribuidor?", :method => :delete)	%>
 				</tr>

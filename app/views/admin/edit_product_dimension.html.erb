@@ -1,5 +1,20 @@
 <h1>Actualizar Dimension de Producto </h1>
+
+
 	<p>Nombre de Producto: <%= @product.name	%></p>
+
+
+	<% if @product_dimension.errors.any? %>
+		<div id="error_explanation">
+			<h2>Hay <%= @product_dimension.errors.count.to_s %> error(es) con esta dimension :</h2>
+				<ul>
+					<% @product_dimension.errors.each do |key,value| %>
+	  					<li><%= value %></li>
+						<% end %>
+				</ul>
+		</div>
+	<% end %>
+
 	
 	<%= form_for :product_dimension, :url => {:controller => 'admin', :action => 'update_product_dimension'} do |form| %>
 		<%= form.hidden_field	:id												%>

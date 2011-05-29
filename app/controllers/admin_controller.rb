@@ -203,6 +203,7 @@ class AdminController < ApplicationController
   
   def new_distributor
     @company = User.find(session[:user_id]).company
+    @distributor = Distributor.new
   end
   
   def view_distributor
@@ -217,7 +218,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'distributors'
     else
       flash[:notice] = "Error creando distribuidor"
-      redirect_to :controller => 'admin', :action => 'new_distributor'
+      render :action => 'new_distributor'
     end
   end
   
@@ -232,7 +233,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'distributors'
     else
       flash[:notice] = "Error actualizando distribuidor"
-      redirect_to :controller => 'admin', :action => 'edit_distributor', :distributor => @distributor
+      render :action => 'edit_distributor'
     end
   end
   
@@ -293,7 +294,7 @@ class AdminController < ApplicationController
   end
 
   def new_supplier
-    @company = User.find(session[:user_id]).company
+    @supplier = Supplier.new
   end
   
   def create_supplier
@@ -306,7 +307,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'view_supplier',:supplier => @supplier
     else
       flash[:notice] = "Error crendo nueva marca"
-      redirect_to :controller => 'admin', :action => 'new_supplier'
+      render :action => 'new_supplier'
     end
   end
   
@@ -324,7 +325,7 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'view_supplier', :supplier => @supplier
     else
       flash[:notice] = "Error actualizand Marca"
-      redirect_to :controller => 'admin', :action => 'edit_supplier', :supplier => @supplier
+      render :action => 'edit_supplier'
     end
   end
   

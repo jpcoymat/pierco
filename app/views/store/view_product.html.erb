@@ -11,18 +11,18 @@
 <section id="product_details">
 	
 	<%= image_tag(@product.image_filename, :class =>"product_image")%>
-	<p>
+	<p id="product_description">
 		<%= @product.description	%>
 	</p>
 	<% unless @product.product_dimensions.empty?	%>
-		<table>
+		<table id="product_dimension_table">
 			<tr><th>Dimension	</th>
 				<% @product.product_category.active_dimension_fields.each do |active_field|	%>
 					<th><%= ProductDimension.attribute_dictionary[active_field]	%></th>
 				<% end %>
 			</tr>
 			<% @product.product_dimensions.each do |product_dimension|	%>
-				<tr><td><%= product_dimension.name	%></td>
+				<tr class= <%= cycle('list_line_odd', 'list_line_even') %> ><td><%= product_dimension.name	%></td>
 					<% @product.product_category.active_dimension_fields.each do |active_field|	%>
 						<td><%= product_dimension.attributes[active_field]	%></td>
 					<% end %>

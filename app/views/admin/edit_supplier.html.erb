@@ -1,5 +1,16 @@
 <h1>Modificar Marca	</h1>
 
+	<% if @supplier.errors.any? %>
+		<div id="error_explanation">
+			<h2>Hay <%= @supplier.errors.count.to_s %> error(es) con esta marca :</h2>
+				<ul>
+					<% @supplier.errors.each do |key,value| %>
+						<li><%= value %></li>
+					<% end %>
+				</ul>
+		</div>
+	<% end %>
+
 	<%= form_for :supplier, :url => {:controller => 'admin', :action => 'update_supplier'} do |form|	%>
 		<%= form.hidden_field :id	%>
 		<%= render :partial => 'supplier', :locals => {:form => form}	%>

@@ -1,5 +1,19 @@
 <h1>Nuevo Producto	</h1>
 
+	<% if @product.errors.any? %>
+  		<div id="error_explanation">
+    		<h2>Hay <%= @product.errors.count.to_s %> error(es) con este producto :</h2>
+
+    		<ul>
+    			<% @product.errors.each do |key,value| %>
+      				<li><%= value %></li>
+    			<% end %>
+    		</ul>
+  		</div>
+	<% end %>
+
+
+
 	<%= form_for :product, :url => {:controller => 'admin', :action=> 'create_product'}, :html => {:multipart => true} do |form|	%>
 		<%= render :partial => 'product', :locals => {:form => form}	%>
 		<%= submit_tag "Crear Producto"									%>

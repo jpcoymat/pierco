@@ -1,8 +1,21 @@
 <h1>Nuevo Distribuidor	</h1>
 	<p>Por favor ingrese los datos del nuevo distribuidor que desea crear</p>
 	
+	<% if @distributor.errors.any? %>
+    <div id="error_explanation">
+      <h2>Hay <%= @distributor.errors.count.to_s %> error(es) con este distribuidor :</h2>
+
+      <ul>
+      <% @distributor.errors.each do |key,value| %>
+        <li><%= value %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	
 	<%= form_for :distributor, :url => {:controller => 'admin', :action => 'create_distributor'} do |form|	%>
-		<%= form.hidden_field :company_id, :value => @company.id			%>
+		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company			%>
 		<%= render :partial => 'distributor', :locals => {:form => form}	%>
 		<%= submit_tag "Crear Distribuidor"									%>
 	<% end 	%>

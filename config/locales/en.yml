@@ -2,4 +2,11 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+      attributes:
+          supplier:
+              name: "Nombre"
+              address_1: "Direccion"
+              city: "Ciudad"
+              company_id: "Compania"
+              image_filename: "Nombre Imagen"
