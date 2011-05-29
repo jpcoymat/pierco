@@ -226,3 +226,57 @@ section#product_details p#product_description {
 	margin-right: 0;
 	
 }
+
+
+
+section#homepage {
+	display: block;
+	width: 100%;
+	height: 300px;
+}
+
+
+section#homepage header#homepage {
+	font-size: 16pt;
+	
+}
+
+section#homepage  p{
+	
+}
+
+section#about_us {
+	display: block;
+	width: 100%;
+	height: 300px;
+}
+
+
+section#about_us header#about_us {
+	font-size: 16pt;
+	
+}
+
+section#about_us  p{
+	
+}
+
+section#suppliers {
+	display: block;
+	width: 100%;
+	height: 300px;
+}
+
+
+section#suppliers header#suppliers {
+	font-size: 16pt;
+	bottom-padding:10px;
+	top-padding: 10px;
+}
+
+section#suppliers  p{
+	top-padding: 10px;
+	
+}
+
+
