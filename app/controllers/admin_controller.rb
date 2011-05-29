@@ -338,10 +338,12 @@ class AdminController < ApplicationController
   
   def new_product_dimension
     @product = Product.find(params[:product])
+    @product_dimension
   end
 
   def create_product_dimension
     @product_dimension = ProductDimension.new(params[:product_dimension])
+    @product = Product.find(params[:product_dimension][:product_id])
     if @product_dimension.save
       flash[:notice] = "Dimension creada exitosamente"
       redirect_to :controller => 'admin', :action => 'view_product', :product=> @product_dimension.product
