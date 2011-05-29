@@ -71,5 +71,19 @@ es:
                             blank: "Email no puede estar en blanco"
                         hashed_password:
                             blank: "Contrasena no puede estar en blanco"
+                company:
+                    attributes:
+                        name:
+                            blank: "Nombre de Compania no puede estar en blanco"
+                            taken: "Compania ya existe"
+                        address_1:
+                            blank: "Direccion no puede estar en blanco"
+                        city:
+                            blank: "Ciudad no puede estar en blanco"
+                        state:
+                            blank:"Departamento no puede estar en blanco"
+                        country:
+                            blank: "Pais no puede estar en blanco"
+                                
                     
                     

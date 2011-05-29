@@ -1,5 +1,17 @@
 <h1>Actualizar Datos de Compa&ntilde;ia</h1>
 
+	<% if @company.errors.any? %>
+		<div id="error_explanation">
+			<h2>Hay <%= @company.errors.count.to_s %> error(es) con este distribuidor :</h2>
+				<ul>
+					<% @company.errors.each do |key,value| %>
+  						<li><%= value %></li>
+					<% end %>
+				</ul>
+		</div>
+	<% end %>
+
+
 	<%= form_for :company, :url=> {:controller => 'admin', :action => 'update_company'},:html => {:multipart => true} do |form|	%>
 		<%= form.hidden_field :id, :value => @company.id				%>
 		<%= render :partial => 'company', :locals => {:form => form}	%>

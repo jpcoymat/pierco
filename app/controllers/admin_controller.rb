@@ -20,7 +20,6 @@ class AdminController < ApplicationController
       flash[:notice] = "Compa&ntilde;ia creada exitosamente"
       redirect_to :controller => 'admin', :action => 'companies'
     else
-      flash[:notice] = "Error creando Compa&ntilde;ia ".html_safe
       redirect_to :controller => 'admin', :action => 'new_company'
     end
   end
@@ -40,8 +39,7 @@ class AdminController < ApplicationController
       flash[:notice] = "Compa&ntilde;ia actualizada exitosamente".html_safe
       redirect_to :controller => 'admin', :action => 'companies'
     else
-      flash[:notice] = "Error actualizad Compa&ntilde;ia ".html_safe
-      redirect_to :controller => 'admin', :action => 'edit_company', :company => @company
+      render :action => 'edit_company'
     end
   end
   
@@ -83,7 +81,10 @@ class AdminController < ApplicationController
       flash[:notice] = "Producto creado exitosamnte"
       redirect_to :controller=> 'admin', :action => 'view_product', :product => @product
     else
-      flash[:notice] = "Error creando producto"
+      @company = User.find(session[:user_id]).company
+      @suppliers = @company.suppliers
+      @product_categories = @company.product_categories
+      @product_subcategories = @company.product_subcategories
       render :action => 'new_product'
     end
   end
@@ -105,7 +106,10 @@ class AdminController < ApplicationController
       flash[:notice] = "Producto actualizado exitosamente"
       redirect_to :controller => 'admin', :action => 'view_product',:product => @product
     else
-      flash[:notice] = "Error actualizando producto"
+      @company = User.find(session[:user_id]).company
+      @suppliers = @company.suppliers
+      @product_categories = @company.product_categories
+      @product_subcategories = @company.product_subcategories
       render :action => 'edit_product'    
     end
   end
@@ -131,7 +135,7 @@ class AdminController < ApplicationController
       flash[:notice] = "Categoria creada exitosamente"
       redirect_to :controller => 'admin', :action => 'product_categories'
     else
-      flash[:notice] = "Error creando categoria"
+      @company = User.find(session[:user_id]).company
       render :action => 'new_product_category'
     end
   end
@@ -146,7 +150,6 @@ class AdminController < ApplicationController
       flash[:notice] = "Categoria actalizada exitosamente"
       redirect_to :controller => 'admin', :action => 'product_categories'
     else
-      flash[:notice] = "Error actualizando categoria"
       render :action => 'edit_product_category'      
     end
   end
@@ -170,8 +173,6 @@ class AdminController < ApplicationController
     @product_subcategory = ProductSubcategory.new(params[:product_subcategory])
     if @product_subcategory.save
       flash[:notice] = "Subcategoria creada exitosamente"
-    else
-      flash[:notice] = "Error creand subcategoria"
     end
     redirect_to :controller => 'admin', :action => 'product_subcategories', :product_category => @product_subcategory.product_category
   end
@@ -186,7 +187,6 @@ class AdminController < ApplicationController
       flash[:notice] = "Subcategoria actualizada exitosamente"
       redirect_to :controller=> 'admin', :action => 'product_subcategories', :product_category => @product_subcategory.product_category
     else
-      flash[:notice] = "Error actualizando subcategoria"
       render :action => 'edit_product_subcategory'
     end
   end
@@ -218,7 +218,6 @@ class AdminController < ApplicationController
       flash[:notice] = "Distrtibuidor creado exitosamente"
       redirect_to :controller => 'admin', :action => 'distributors'
     else
-      flash[:notice] = "Error creando distribuidor"
       render :action => 'new_distributor'
     end
   end
@@ -233,7 +232,6 @@ class AdminController < ApplicationController
       flash[:notice] = "Distribuidor actualizado exitosamente"
       redirect_to :controller => 'admin', :action => 'distributors'
     else
-      flash[:notice] = "Error actualizando distribuidor"
       render :action => 'edit_distributor'
     end
   end
@@ -260,7 +258,6 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'users'
     else
       flash[:notice] = "Error creando usuario"
-      redirect_to :controller => 'admin', :action => 'new_user'
     end
   end
   
@@ -275,7 +272,6 @@ class AdminController < ApplicationController
       redirect_to :controller => 'admin', :action => 'users'
     else
       flash[:notice] = "Error actualizando usuario"
-      redirect_to :controller => 'admin', :action => 'edit_user', :user => @user
     end
   end
   
@@ -307,7 +303,6 @@ class AdminController < ApplicationController
       flash[:notice] = "Marca creada exitosamente"
       redirect_to :controller => 'admin', :action => 'view_supplier',:supplier => @supplier
     else
-      flash[:notice] = "Error crendo nueva marca"
       render :action => 'new_supplier'
     end
   end
@@ -325,7 +320,6 @@ class AdminController < ApplicationController
       flash[:notice] = "Marca actualizada exitosamente"
       redirect_to :controller => 'admin', :action => 'view_supplier', :supplier => @supplier
     else
-      flash[:notice] = "Error actualizand Marca"
       render :action => 'edit_supplier'
     end
   end
@@ -338,17 +332,16 @@ class AdminController < ApplicationController
   
   def new_product_dimension
     @product = Product.find(params[:product])
-    @product_dimension
+    @product_dimension = ProductDimension.new
   end
 
   def create_product_dimension
     @product_dimension = ProductDimension.new(params[:product_dimension])
-    @product = Product.find(params[:product_dimension][:product_id])
     if @product_dimension.save
       flash[:notice] = "Dimension creada exitosamente"
       redirect_to :controller => 'admin', :action => 'view_product', :product=> @product_dimension.product
     else
-      flash[:notice] = "Error creando dimension de producto"
+      @product = Product.find(params[:product_dimension][:product_id])
       render :action => 'new_product_dimension'
     end
   end
@@ -364,7 +357,7 @@ class AdminController < ApplicationController
       flash[:notice] = "Dimension actualizada exitosamente"
       redirect_to :controller => 'admin', :action => 'view_product', :product => @product_dimension.product
     else
-      flash[:notice] = "Error actualizando dimension"
+      @product = Product.find(params[:product_dimension][:product_id])
       render :action => 'edit_product_dimension'
     end
   end
