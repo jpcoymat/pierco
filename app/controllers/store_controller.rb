@@ -15,8 +15,10 @@ class StoreController < ApplicationController
   
   def products
     @company = Company.first
+    @product_subcategories = ProductSubcategory.where(:product_category_id => params[:product_category])
+    product_subcategory = params[:product_subcategory] || @product_subcategories.first.id
     @page = params[:page] || 1
-    @products = Product.where(:product_category_id => params[:product_category]).paginate(:page => @page, :order => 'name ASC', :per_page => 6)
+    @products = Product.where(:product_category_id => params[:product_category], :product_subcategory_id => product_subcategory).paginate(:page => @page, :order => 'name ASC', :per_page => 6)
   end
   
   def distributors

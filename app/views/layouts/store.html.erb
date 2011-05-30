@@ -13,6 +13,7 @@
   	<%= stylesheet_link_tag "store" %>
   	<%= javascript_include_tag :all%>
   	<%= csrf_meta_tag %>
+	<%= yield(:head)%>
 </head>
 <body>
 <header id="page_header">

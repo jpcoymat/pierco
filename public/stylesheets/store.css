@@ -35,8 +35,9 @@ section#categories nav#sidebar_menu ul{
 
 section#categories nav#sidebar_menu ul li{
 	padding: 1px;
-	margin: 50px 60px 0 0 ;
+	margin: 50px 60px 10px 10px ;
 	text-align: left;
+	vertical-align: middle;
 	list-style-type: none;
 
 }
@@ -45,7 +46,7 @@ section#categories nav#sidebar_menu ul li{
 section#categories nav#sidebar_menu ul li a{
 	text-decoration: none;
 	color: #1d1d1d;
-	padding: 3px 1px;
+	vertical-align: middle;
 
 }
 
@@ -277,6 +278,50 @@ section#suppliers header#suppliers {
 section#suppliers  p{
 	top-padding: 10px;
 	
+}
+
+section#subcategories {
+	float: right;
+	width: 700px;
+	height: 20px;
+}
+
+section#subcategories nav#subcategories ul{
+	background: #E5E5E5;
+	background: -moz-linear-gradient(top,#E5E5E5 0%, #C4C4C4 100%);
+	background: -webkit-gradient(linear,left top, left bottom, color-stop(0%,#E5E5E5),color-stop(100%,#C4C4C4));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E5E5E5', endColorstr='#C4C4C4',GradientType=0);
+	border: 1px solid #757575;
+	border-bottom: 3px solid #A30000;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	padding: 10px 10px;
+} 
+
+section#subcategories nav#subcategories ul li{
+	padding: 1px;
+	margin: 0 75px 0 0 ;
+	display: inline;
+	text-align: center;
+	list-style-type: none;
+}
+
+section#subcategories nav#subcategories ul li a{
+	text-decoration: none;
+	color: #1d1d1d;
+	padding: 10px 0px;
+}
+
+
+section#subcategories nav#subcategories ul li:first-child a{
+	border-left: none;
+}
+
+
+
+section#subcategories nav#subcategories ul li a:hover{
+	background: rgba(0,0,0,0.1);
 }
 
 

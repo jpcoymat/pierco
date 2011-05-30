@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pierco</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+  	<title>Pierco</title>
+  	<%= stylesheet_link_tag :all %>
+  	<%= javascript_include_tag :defaults %>
+  	<%= csrf_meta_tag %>
+	<%= yield(:head)%>
 </head>
 <header>
 	<p><%=link_to "Inicio",:controller => 'admin', :action => 'index'%> | <%= link_to "Logout", :controller => 'login', :action => 'logout' %>

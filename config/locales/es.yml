@@ -37,7 +37,10 @@ es:
                             taken: "Producto ya existe"
                         supplier_id: 
                             blank: "Marca no puede estar en blanco"
-                            taken: "Nombre ya existe"
+                        product_category_id:
+                            blank: "Categoria no puede estar en blanco"
+                        product_subcategory_id:
+                            blank: "Subcategoria no puede estar en blanco"
                 product_category:
                     attributes:
                         name:
