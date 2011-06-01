@@ -6,7 +6,8 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.customer_feedback_received.subject
   #
-  def customer_feedback_received
+  def customer_feedback_received(contact)
+    @contact = contact
     @greeting = "Hi"
     
     mail(:to => "Pierco Ltda <pierco@pierco.com.co>", :subject => "Feedback Received")

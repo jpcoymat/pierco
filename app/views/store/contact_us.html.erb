@@ -16,7 +16,35 @@
 	</p>
 </section>
 <section id="contact_form">
-</section>
-<%= form_for :contact, :url => {:controller => 'store', :action => 'send_email'} do |form|	%>
-	<%= submit_tag "Send Email"	%>
-<% end %>
+
+	<% if @contact.errors.any? %>
+  		<div id="error_explanation">
+    		<h2>Favor corregir los siguientes errores :</h2>
+
+    		<ul>
+    			<% @contact.errors.each do |key,value| %>
+      				<li><%= value %></li>
+    			<% end %>
+    		</ul>
+  		</div>
+	<% end %>
+
+	<%= form_for :contact, :url => {:controller => 'store', :action => 'create_contact'} do |form|	%>
+		<%= form.hidden_field :company_id, :value => @company %>
+		<table>
+		<tr>
+			<td>Nombre	</td>	
+			<td><%= form.text_field :name	%></tr>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><%= form.text_field :email	%> </td>
+		</tr>
+		<tr>
+			<td>Mensaje</td>
+			<td><%= form.text_area :message, :rows => 20, :cols => 40%></td>
+
+		</tr>
+		</table>
+		<%= submit_tag "Enviar"	%>
+	<% end %></section>

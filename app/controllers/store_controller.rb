@@ -28,7 +28,7 @@ class StoreController < ApplicationController
   
   def contact_us
     @company = Company.first  
-
+    @contact = Contact.new
   end
   
   def view_product
@@ -36,9 +36,13 @@ class StoreController < ApplicationController
     @product = Product.find(params[:product])
   end
 
-  def send_email
-    @company = Company.first 
-    Notifier.customer_feedback_received.deliver
+  def create_contact
+    @company = Company.first
+    @contact = Contact.new(params[:contact])
+    if @contact.save
+      Notifier.customer_feedback_received(@contact).deliver
+      flash[:notice] = "Su mensaje ha sido enviado exitosamente"      
+    end
     render :action =>'contact_us'
   end
 

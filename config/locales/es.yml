@@ -87,6 +87,15 @@ es:
                             blank:"Departamento no puede estar en blanco"
                         country:
                             blank: "Pais no puede estar en blanco"
+                contact:
+                    attributes:
+                        name:
+                            blank: "Nombrte no puede estar en blanco"
+                        email:
+                            blank: "Email no puede estar en blanco"
+                        message:
+                            blank: "Mensaje no puede estar en blanco"
+                                
                                 
                     
                     
