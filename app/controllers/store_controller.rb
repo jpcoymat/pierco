@@ -43,7 +43,7 @@ class StoreController < ApplicationController
       Notifier.customer_feedback_received(@contact).deliver
       redirect_to :action =>'thank_you'
     else      
-      render :action => contact_us
+      render :action => 'contact_us'
     end
   end
   
