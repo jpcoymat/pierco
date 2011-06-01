@@ -47,7 +47,7 @@ class StoreController < ApplicationController
   end
   
   def thank_you
-    
+    @company = Company.first
   end
 
 
