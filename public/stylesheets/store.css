@@ -71,6 +71,7 @@ section#categories nav#sidebar_menu ul li a:hover{
 section#products {
 	float: right;
 	width: 760px;
+	display: block;
 }
 
 p, li{
@@ -283,7 +284,7 @@ section#suppliers  p{
 section#subcategories {
 	float: right;
 	width: 700px;
-	height: 20px;
+	height: 50px;
 }
 
 section#subcategories nav#subcategories ul{
@@ -301,7 +302,7 @@ section#subcategories nav#subcategories ul{
 
 section#subcategories nav#subcategories ul li{
 	padding: 1px;
-	margin: 0 75px 0 0 ;
+	margin: 10px 75px 10px 10px ;
 	display: inline;
 	text-align: center;
 	list-style-type: none;

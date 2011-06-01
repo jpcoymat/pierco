@@ -7,7 +7,7 @@ class Distributor < ActiveRecord::Base
 
 
   def full_address
-    self.address_1 + "\n" + self.address_2
+    self.address_2.nil? ? self.address_1 : self.address_1 + "\n" + self.address_2
   end
 
 

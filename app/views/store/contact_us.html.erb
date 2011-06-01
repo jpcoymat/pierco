@@ -17,3 +17,6 @@
 </section>
 <section id="contact_form">
 </section>
+<%= form_for :contact, :url => {:controller => 'store', :action => 'send_email'} do |form|	%>
+	<%= submit_tag "Send Email"	%>
+<% end %>

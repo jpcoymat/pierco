@@ -36,6 +36,12 @@ class StoreController < ApplicationController
     @product = Product.find(params[:product])
   end
 
+  def send_email
+    @company = Company.first 
+    Notifier.customer_feedback_received.deliver
+    render :action =>'contact_us'
+  end
+
 
 
 end

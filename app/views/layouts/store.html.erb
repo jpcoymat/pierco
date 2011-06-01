@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<! [if lt IE 9]>
+	<% if request.env['HTTP_USER_AGENT'].downcase =~ /msie/i	%>
 		<script type="text/javascript">
 			document.createElement("nav");
 			document.createElement("section")
 			document.createElement("header");
 			document.createElement("footer");
 		</script>
-	<![endif] >
+	<% end %>
   	<title><%= @company.name%></title>
   	<%= stylesheet_link_tag "store" %>
   	<%= javascript_include_tag :all%>
   	<%= csrf_meta_tag %>
-	<%= yield(:head)%>
 </head>
 <body>
 <header id="page_header">
