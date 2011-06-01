@@ -16,7 +16,8 @@
 	</p>
 </section>
 <section id="contact_form">
-
+	<h4>Preguntas o Comentarios?</h4>
+	<p>Si tienes alguna duda sobre nuestra compa&ntilde;ia, o tienes algun comentario que quisieras compartir con nosotros, por favor dejanos un mensaje!</p>
 	<% if @contact.errors.any? %>
   		<div id="error_explanation">
     		<h2>Favor corregir los siguientes errores :</h2>
@@ -28,7 +29,7 @@
     		</ul>
   		</div>
 	<% end %>
-
+	
 	<%= form_for :contact, :url => {:controller => 'store', :action => 'create_contact'} do |form|	%>
 		<%= form.hidden_field :company_id, :value => @company %>
 		<table>

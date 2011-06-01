@@ -43,7 +43,11 @@ class StoreController < ApplicationController
       Notifier.customer_feedback_received(@contact).deliver
       flash[:notice] = "Su mensaje ha sido enviado exitosamente"      
     end
-    render :action =>'contact_us'
+    redirect_to :action =>'contact_us'
+  end
+  
+  def thank_you
+    
   end
 
 
