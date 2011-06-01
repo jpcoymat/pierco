@@ -54,7 +54,7 @@ class AdminController < ApplicationController
     @product_subcategories = User.find(session[:user_id]).company.product_subcategories
     @products = User.find(session[:user_id]).company.products
     if request.post?
-      product_search = params[:product_search].clone
+      product_search = params[:product].clone
       product_search.delete_if {|k,v| v.blank? }
       @products = Product.where(product_search).order('name ASC').all
     end
