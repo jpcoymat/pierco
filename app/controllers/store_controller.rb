@@ -41,9 +41,10 @@ class StoreController < ApplicationController
     @contact = Contact.new(params[:contact])
     if @contact.save
       Notifier.customer_feedback_received(@contact).deliver
-      flash[:notice] = "Su mensaje ha sido enviado exitosamente"      
+      redirect_to :action =>'thank_you'
+    else      
+      render :action => contact_us
     end
-    redirect_to :action =>'thank_you'
   end
   
   def thank_you
