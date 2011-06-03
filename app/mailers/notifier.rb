@@ -10,6 +10,6 @@ class Notifier < ActionMailer::Base
     @contact = contact
     @greeting = "Hi"
     
-    mail(:to => "Pierco Ltda <pierco@pierco.com.co>", :subject => "Feedback Received")
+    mail(:to => @contact.company.email, :subject => "Mensaje Pagina Web", :from => @contact.email)
   end
 end
