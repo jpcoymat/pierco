@@ -31,7 +31,7 @@
 	<% end %>
 	
 	<%= form_for :contact, :url => {:controller => 'store', :action => 'create_contact'} do |form|	%>
-		<%= form.hidden_field :company_id, :value => @company %>
+		<%= form.hidden_field :company_id, :value => @company.id %>
 		<table>
 		<tr>
 			<td>Nombre	</td>	
