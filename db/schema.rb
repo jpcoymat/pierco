@@ -10,16 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110601150624) do
+ActiveRecord::Schema.define(:version => 20110831165056) do
 
   create_table "companies", :force => true do |t|
-    t.string   "name",           :limit => 100, :null => false
-    t.string   "address_1",      :limit => 100, :null => false
+    t.string   "name",           :limit => 100,                                :null => false
+    t.string   "address_1",      :limit => 100,                                :null => false
     t.string   "address_2"
-    t.string   "city",           :limit => 100, :null => false
-    t.string   "state",          :limit => 50,  :null => false
-    t.string   "postal_code",    :limit => 10,  :null => false
-    t.string   "country",        :limit => 100, :null => false
+    t.string   "city",           :limit => 100,                                :null => false
+    t.string   "state",          :limit => 50,                                 :null => false
+    t.string   "postal_code",    :limit => 10,                                 :null => false
+    t.string   "country",        :limit => 100,                                :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_filename", :limit => 100
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20110601150624) do
     t.string   "telephone_5",    :limit => 20
     t.string   "fax",            :limit => 20
     t.string   "email",          :limit => 50
+    t.decimal  "latitude",                      :precision => 10, :scale => 5
+    t.decimal  "longitude",                     :precision => 10, :scale => 5
   end
 
   create_table "contacts", :force => true do |t|
@@ -43,20 +45,22 @@ ActiveRecord::Schema.define(:version => 20110601150624) do
   end
 
   create_table "distributors", :force => true do |t|
-    t.integer  "company_id",                 :null => false
-    t.string   "name",        :limit => 100, :null => false
-    t.string   "address_1",   :limit => 100, :null => false
+    t.integer  "company_id",                                                :null => false
+    t.string   "name",        :limit => 100,                                :null => false
+    t.string   "address_1",   :limit => 100,                                :null => false
     t.string   "address_2",   :limit => 100
-    t.string   "city",        :limit => 100, :null => false
+    t.string   "city",        :limit => 100,                                :null => false
     t.string   "state",       :limit => 100
     t.string   "postal_code", :limit => 10
-    t.string   "country",     :limit => 50,  :null => false
+    t.string   "country",     :limit => 50,                                 :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "telephone_1", :limit => 15
     t.string   "telephone_2", :limit => 15
     t.string   "telephone_3", :limit => 15
     t.string   "email",       :limit => 50
+    t.decimal  "latitude",                   :precision => 10, :scale => 5
+    t.decimal  "longitude",                  :precision => 10, :scale => 5
   end
 
   create_table "product_categories", :force => true do |t|

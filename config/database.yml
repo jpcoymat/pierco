@@ -40,7 +40,7 @@ test:
   database: pierco_test
   pool: 5
   username: pierco
-  password:
+  password: pierco
 
 production:
   adapter: postgresql
@@ -48,4 +48,4 @@ production:
   database: pierco_production
   pool: 5
   username: pierco
-  password:
+  password: pierco
