@@ -1,19 +1,55 @@
-<h2>Distribuidores	</h2>
-	
-	<% @company.distributor_cities.each do |city|	%>
-		<h3><%= city %>	</h3>
-		<% @company.distributor_by_city(city).each do |distributor| %>
-			<p>
-				<%= distributor.name	%>
-			</p>
-			<p>
-				<%= distributor.full_address	%>
-			</p>
-			<p>
-				Telefonos: <%= distributor.telephones	%>
-			</p>
-			<p>
-				Email: <%= distributor.email	%>
-			</p>
-		<% end %>
-	<% end %>
+<% content_for :title do %>
+  Distribuidores - Pierco
+<% end %>
+
+<div class="dealers wrapper clearfix">
+	<h2>Distribuidores</h2>
+	<div class="dealer-cities">
+		<div class="city">
+			<h2>Barranquilla</h2>
+			<ul>
+				<li>
+					<h5>Pierco Ltda</h5>
+					<p>Calle 68 No. 50 - 18</p>
+					<p>Telefonos: 3458123</p>
+					<p><a href="mailto:pcoymat@pierco.com.co">pcoymat@pierco.com.co</a></p>
+				</li>
+				<li>
+					<h5>Rines y llantas Juandi</h5>
+					<p>Calle 67 No. 42 - 55</p>
+					<p>Telefonos: 3406065</p>
+				</li>
+				<li>
+					<h5>Auto Rapido</h5>
+					<p>Carrera 43 No. 66 - 65</p>
+					<p>Telefonos: 3510229 - 3693906</p>
+				</li>
+				<li>
+					<h5>Garcillantas Barranquilla S.A.</h5>
+					<p>Carrera 43 No. 69F - 13</p>
+					<p>Telefonos: 3588372</p>
+				</li>
+				<li>
+					<h5>Auto mundo superllantas S.A.S.</h5>
+					<p>Calle 74 No. 45 - 07</p>
+					<p>Telefonos: 3686114</p>
+				</li>
+			</ul>
+		</div><!--end class city-->
+		<div class="city">
+			<h2>Medellin</h2>
+			<ul>
+				<li>
+					<h5>Inversiones Velasquez Restrepo</h5>
+					<p>Calle 44 No. 64-37</p>
+					<p>Telefonos: 2306811 - 2602531</p>
+				</li>
+			</ul>
+		</div><!--end class city-->
+	</div><!--end class dealer-cities-->
+	<div class="sidebar-map">
+		<div class="gmap">
+			<img src="/images/gmap.png" alt="" />
+		</div>
+	</div><!--end class Sidebar-map-->
+</div><!--end class wrapper-->

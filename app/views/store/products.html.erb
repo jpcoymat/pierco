@@ -1,35 +1,40 @@
-<section id="categories">
-<nav id="sidebar_menu">
-	<h4>Categorias</h4>
-	<ul>
-		<% @company.product_categories.each do |product_category|	%>
-			<li><%= link_to product_category.name, :controller => 'store', :action => 'products', :product_category => product_category%></li>
-		<% end %>
-	</ul>
-</nav>
-</section>
-<section id= "subcategories">
-	<nav id="subcategories">
-		<ul>
-			<% @product_subcategories.each do |product_subcategory| %>
-				<li><%= link_to product_subcategory.name, :controller => 'store', :action => 'products', :product_category=> product_subcategory.product_category, :product_subcategory => product_subcategory %></li>
-			<% end %>
-		</ul>
-	</nav>
-</section>
-<section id="products">
-	<table id="products_table">
-		<% cell_count = 1 %>
-		<% @products.each do |product|%>
-			<%= "<tr>".html_safe if cell_count%3 == 1 %>
-			<td><%= link_to(image_tag(product.image_filename, :class =>"product_image"), :controller => 'store', :action =>'view_product', :product => product)	%>
-				<p><%= product.name				%></p>
-				<p><%= product.supplier.name	%></p>
-			</td>
-			<%= "</tr>".html_safe if cell_count%3 == 0%>
-			<% cell_count +=  1 %>
-		<% end %>
-	</table>
-	<%= will_paginate @products%>
-</section>	
-		
+<% content_for :title do %>
+  Productos
+<% end %>
+
+<div class="store wrapper general clearfix">
+	<h2>Store</h2>
+	<div class="store-cat">
+		<div class="brand clearfix">
+				<h3>Store</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
+				</p>
+		</div><!--end class brand-products-->
+	</div><!--end class store-cat-->
+	<aside>
+		<nav>
+			<h3>Categorias</h3>
+			<ul>
+				<li>
+					<a href="" class="accordion"><span><span>Llantas</span></span></a>
+					<ul class="nav-content">
+						<li><a href="/store_llantas">Llantas Automoviles</a></li>
+						<li><a href="/store_llantas">Llantas Camionetas</a></li>
+						<li><a href="/store_llantas">Llantas High Performance</a></li>
+					</ul>
+				</li>
+				<li><a href="" class="accordion"><span><span>Rines</span></span></a>
+					<ul class="nav-content">
+						<li><a href="/store_rines">Rines Automoviles</a></li>
+						<li><a href="/store_rines">Rines Camionetas</a></li>
+						<li><a href="/store_rines">Rines High Performance</a></li>
+					</ul>
+				</li>
+				<li><a href="">Accesorios</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+</div><!--end class wrapper-->
