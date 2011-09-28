@@ -8,46 +8,39 @@
 		<div class="contact">
 			<ul>
 				<li>
-					<h5>Pierco Ltda</h5>
-					<p>Calle 68 Nº 50 - 18</p>
-					<p>Barranquilla, Colombia</p>
+					<h5><%= @company.name	%></h5>
+					<p><%= @company.address_1	%></p>
+					<p><%= @company.city + ', ' + @company.country%></p>
 				</li>
 				<li>
 					<p>Telefonos:</p>
 					<p>
-						57 (5) 3458123 - 57 (5) 3451278 - 57 (5) 3582739 57 (5) 3586509 - 57 (5) 3586442
+						<%= @company.telephones	%>
 					</p>
 					<p>
-						Fax: 3451278
+						<%= "Fax: " + @company.fax unless @company.fax.nil?	%>
 					</p>
 				</li>
 				<li>
-					<a href="mailto:pierco@pierco.com.co">Email: pierco@pierco.com.co</a>
+					<%= mail_to @company.email	%>
 				</li>
 			</ul>
 		</div><!--end class contact-->
-		<div class="follow">
-			<h2>Siguenos en:</h2>
-			<ul>
-				<li><a href="#">Twitter</a></li>
-				<li><a href="#">Vimeo</a></li>
-				<li><a href="#">Facebook</a></li>
-			</ul>
-		</div><!--end class follow-->
 	</div><!--end class contact-info-->
 	<div class="ask">
 		<h3>Preguntas o Comentarios?</h3>
 		<p>Si tienes alguna duda sobre nuestra compañia, o tienes algun comentario que quisieras compartir con nosotros, por favor dejanos un mensaje!</p>
-		<form>
-			<label>Nombre</label>
-			<input type="text" class="text" />
-			<label>Apellido</label>
-			<input type="text" class="text" />
-			<label>Email</label>
-			<input type="text" class="text" />
-			<label>Comentario</label>
-			<textarea class="text"></textarea>
-			<input type="submit" value="Enviar" class="button submit" />
-		</form>
+
+		<%= form_for :contact, :url => {:controller => 'store', :action => 'create_contact'} do |form|	%>
+		<label>Nombre</label>
+		<%= form.text_field :name 	%>
+		<label>Email</label>
+		<%= form.text_field :email 	%>
+		<label>Comentario</label>
+		<%= form.text_area :message	%>
+		<%= submit_tag "Enviar"		%>
+		<% end %>
+
+
 	</div><!--end class ask-->
 </div><!--end class wrapper-->

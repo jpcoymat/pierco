@@ -5,6 +5,19 @@
 <div class="dealers wrapper clearfix">
 	<h2>Distribuidores</h2>
 	<div class="dealer-cities">
+		<% @company.distributor_cities.each do |city| %>
+		<div class="city">
+			<h2><%= city %></h2>
+			<ul>
+				<%= @company.distributor_by_city(city).each do |distributor|	%>
+					<li>
+						<h5><%= distributor.name	%></h5>
+						<p><%= distributor.full_address	%></p>
+						<p><%= distributor.telephones	%>	</p>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
 		<div class="city">
 			<h2>Barranquilla</h2>
 			<ul>

@@ -17,9 +17,22 @@
 		<nav>
 			<h3>Categorias</h3>
 			<ul>
-				<li>
+				
+					<% @company.product_categories.each do |product_category| %>
+						<li><%= link_to(product_category.name, {:controller => 'store', :action => 'products'}, :class => 'accordion') do %>
+							<span><%= product_category.name%>
+						<% end %>
+						<ul class="nav-content">
+						<% product_category.product_subcategories do |product_subcategory| %>
+							<li><%= link_to product_subcategory.name, {:controller => 'store', :action => 'products'}%></li>
+						</li>
+					<% end %>
+					
+							
+					
+					
 					<a href="" class="accordion"><span><span>Llantas</span></span></a>
-					<ul class="nav-content">
+					<ul class="nav-content">	
 						<li><a href="/store_llantas">Llantas Automoviles</a></li>
 						<li><a href="/store_llantas">Llantas Camionetas</a></li>
 						<li><a href="/store_llantas">Llantas High Performance</a></li>
