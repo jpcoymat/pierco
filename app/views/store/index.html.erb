@@ -1,8 +1,55 @@
-<section id="homepage">
-	<header id="homepage">
-		Bienvenido a la pagina de <%= @company.name	%>!
-	</header>
-	<p>
-		Por mas de veinte a&ntilde;os, Pierco Ltda. se ha establecido como el lider en la venta y distribucion de llantas y rines importadas.  Tenemos un extenso catalogo de productos garantizando encontrar la llanta perfecta para su vehiculo, sin importar marca o modelo.  
-	</p>
-</section>			
+<% content_for :title do %>
+  <Pierco>
+<% end %>
+<div class="body-content wrapper">
+	<h2>"Mas de 20 años distribuyendo las mejores llantas y rines importados"</h2>
+	<h3>Productos Destacados</h3>
+	<%= link_to "Ir a la tienda", {:controller => 'store', :action => 'products'}, :class => 'button' %>
+	<div class="wheels-showcase-holder">
+
+		<ul class="wheels-showcase clearfix">
+			<li><a href="#"><img src="/images/rin-1.jpg" alt="" /><p><em>BBS </em>- Momo Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-2.jpg" alt="" /><p><em>Win 2 </em>- Momo Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-3.jpg" alt="" /><p><em>Ipsum </em>- Pierco Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-4.jpg" alt="" /><p><em>BBS </em>- Momo Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-5.jpg" alt="" /><p><em>Ipsum </em>- Pierco Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-2.jpg" alt="" /><p><em>Win 2 </em>- Momo Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-3.jpg" alt="" /><p><em>Ipsum </em>- Pierco Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-4.jpg" alt="" /><p><em>BBS </em>- Momo Wheels</p></a></li>
+			<li><a href="#"><img src="/images/rin-5.jpg" alt="" /><p><em>Ipsum </em>- Pierco Wheels</p></a></li>
+		</ul>
+		<a href="#" class="arrows prev"></a>
+		<a href="#" class="arrows right next"></a>
+	</div>
+	<div class="newsletter clearfix">
+		<p>Suscribase a nuestro boletin de noticias y reciba ofertas en su mail</p>
+		<form>
+			<input type="mail" name="mail" class="text">
+			<input type="submit" value="Enviar" class="button submit">
+		</form>
+	</div><!--end newsletter div-->
+	<div class="news-section">
+		<h3>Noticias y Promociones</h3>
+		<ul>
+			<li>
+				<img src="/images/news1.jpg" alt="" />
+				<h5>Lorem Ipsum Dolor sit amet</h5>
+				<span class="news-date">mayo 6 de 2011</span>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et magna tempus non porttitor metus accumsan. In auctor, mi et iaculis bibendum lorem ipsum dolor sit...
+				</p>
+			</li>
+			<li>
+				<img src="/images/news2.jpg" alt="" />
+				<h5>Lorem Ipsum Dolor sit amet</h5>
+				<span class="news-date">mayo 30 de 2011</span>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et magna tempus non porttitor metus accumsan. In auctor, mi et iaculis bibendum lorem ipsum dolor sit...
+				</p>
+			</li>
+		</ul>
+	</div><!-- end class news-section-->
+	<div class="main-ad">
+		<img src="/images/add.jpg" alt="#" />
+	</div>
+</div><!--end class wrapper-->

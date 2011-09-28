@@ -1,52 +1,53 @@
-<section id="contact_info">
-	<p>
-		<%= @company.full_address	%>
-	</p>
-	<p>	
-		<%= @company.city_country	%>
-	</p>
-	<p>
-		Telefonos: 	<%= @company.telephones	%>
-	</p>
-	<p>
-		Fax:		<%= @company.fax		%>
-	</p>
-	<p>
-		Email:		<%= @company.email		%>
-	</p>
-</section>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=255x255&maptype=roadmap&sensor=false&markers=color:red|label:A|" + @company.latitude.to_s + ", " + @company.longitude.to_s  %>
+<% content_for :title do %>
+  Contacto - Pierco
+<% end %>
 
-	<h4>Preguntas o Comentarios?</h4>
-	<p>Si tienes alguna duda sobre nuestra compa&ntilde;ia, o tienes algun comentario que quisieras compartir con nosotros, por favor dejanos un mensaje!</p>
-	<% if @contact.errors.any? %>
-  		<div id="error_explanation">
-    		<h2>Favor corregir los siguientes errores :</h2>
-
-    		<ul>
-    			<% @contact.errors.each do |key,value| %>
-      				<li><%= value %></li>
-    			<% end %>
-    		</ul>
-  		</div>
-	<% end %>
-	
-	<%= form_for :contact, :url => {:controller => 'store', :action => 'create_contact'} do |form|	%>
-		<%= form.hidden_field :company_id, :value => @company.id %>
-		<table>
-		<tr>
-			<td>Nombre	</td>	
-			<td><%= form.text_field :name	%></tr>
-		</tr>
-		<tr>
-			<td>Email</td>
-			<td><%= form.text_field :email	%> </td>
-		</tr>
-		<tr>
-			<td>Mensaje</td>
-			<td><%= form.text_area :message, :rows => 20, :cols => 40%></td>
-
-		</tr>
-		</table>
-		<%= submit_tag "Enviar"	%>
-	<% end %></section>
+<div class="wrapper contact-us clearfix">
+	<h2>Contacto</h2>
+	<div class="contact-info">
+		<div class="contact">
+			<ul>
+				<li>
+					<h5>Pierco Ltda</h5>
+					<p>Calle 68 Nº 50 - 18</p>
+					<p>Barranquilla, Colombia</p>
+				</li>
+				<li>
+					<p>Telefonos:</p>
+					<p>
+						57 (5) 3458123 - 57 (5) 3451278 - 57 (5) 3582739 57 (5) 3586509 - 57 (5) 3586442
+					</p>
+					<p>
+						Fax: 3451278
+					</p>
+				</li>
+				<li>
+					<a href="mailto:pierco@pierco.com.co">Email: pierco@pierco.com.co</a>
+				</li>
+			</ul>
+		</div><!--end class contact-->
+		<div class="follow">
+			<h2>Siguenos en:</h2>
+			<ul>
+				<li><a href="#">Twitter</a></li>
+				<li><a href="#">Vimeo</a></li>
+				<li><a href="#">Facebook</a></li>
+			</ul>
+		</div><!--end class follow-->
+	</div><!--end class contact-info-->
+	<div class="ask">
+		<h3>Preguntas o Comentarios?</h3>
+		<p>Si tienes alguna duda sobre nuestra compañia, o tienes algun comentario que quisieras compartir con nosotros, por favor dejanos un mensaje!</p>
+		<form>
+			<label>Nombre</label>
+			<input type="text" class="text" />
+			<label>Apellido</label>
+			<input type="text" class="text" />
+			<label>Email</label>
+			<input type="text" class="text" />
+			<label>Comentario</label>
+			<textarea class="text"></textarea>
+			<input type="submit" value="Enviar" class="button submit" />
+		</form>
+	</div><!--end class ask-->
+</div><!--end class wrapper-->

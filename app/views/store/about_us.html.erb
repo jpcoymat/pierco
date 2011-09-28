@@ -1,8 +1,31 @@
-<section id= "about_us">
-	<header id="about_us">
-		Sobre Nosotros
-	</header>
-	<p>
-		<%= @company.about_us%>
-	</p>
-</section>
+<% content_for :title do %>
+  Sobre Nosotros - Pierco
+<% end %>
+
+<div class="about-us wrapper">
+	<h2>Sobre Nosotros</h2>
+	<div class="about clearfix">
+		<ul>
+			<li><img src="/images/about-us1.jpg" alt="" /><h3>Lorem Ipsum</h3><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p></li>
+			<li><img src="/images/about-us2.jpg" alt="" /><h3>Lorem Ipsum</h3><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p></li>
+			<li><img src="/images/about-us3.jpg" alt="" /><h3>Lorem Ipsum</h3><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p></li>
+		</ul>
+	</div><!--end class about-->
+	<div class="features clearfix">
+		<div class="feature-img">
+			<img src="/images/feature-img.jpg" alt="" />
+		</div>
+		<div class="feature">
+			<h2>Lorem Ipsum Dolor</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+			</p>
+			<p>
+				Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+			</p>
+			<p>
+				Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum
+			</p>
+		</div><!--end class feature-->
+	</div><!--end class features-->
+</div><!--end class wrapper-->

@@ -1,38 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<% if request.env['HTTP_USER_AGENT'].downcase =~ /msie/i	%>
-		<script type="text/javascript">
-			document.createElement("nav");
-			document.createElement("section")
-			document.createElement("header");
-			document.createElement("footer");
-		</script>
-	<% end %>
-  	<title><%= @company.name%></title>
-  	<%= stylesheet_link_tag "store" %>
-  	<%= javascript_include_tag :all%>
-  	<%= csrf_meta_tag %>
-</head>
-<body>
-<header id="page_header">
-	<div id="logo_image">
-	<%= image_tag(@company.image_filename, :size =>"300x195")	%>
-	</div>
-	<nav>
-		<ul>
-			<li><%= link_to "Inicio", :controller => 'store', :action => 'index'					%></li>
-			<li><%= link_to "Sobre Nosotros", 	:controller => 'store', :action => 'about_us'		%></li>
-			<li><%= link_to "Nuestras Marcas", 	:controller => 'store', :action => 'suppliers'		%></li>
-			<li><%= link_to "Nuestros Productos",	:controller => 'store', :action => 'products', 	:product_category => @company.product_categories.first	%></li>
-			<li><%= link_to "Distribuidores",	:controller => 'store', :action => 'distributors'	%></li>
-			<li><%= link_to "Contactenos",		:controller => 'store', :action => 'contact_us'		%></li>
-		</ul>	
-	</nav>
-</header>
-	<%= yield %>
-	<br><br><br>
-<footer id="page_footer">
-	<p>&copy Pierco Ltda. 2011 </p>
-</footer>
-</body>
+<html class="no-js <%= @page_name %>" lang="en">
+
+  <%= render :partial => "head" %>
+
+  <!--[if lte IE 7 ]> <body class="ie8 ie7"> <![endif]-->
+  <!--[if IE 8 ]> <body class="ie8"> <![endif]-->
+  <!--[if IE 9 ]> <body class="ie9"> <![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
+    <div id="wrapper">
+      <%= render :partial => "header" %>
+
+      <div id="content">
+        <%= yield %>
+      </div><!-- #content -->
+    </div><!-- #wrapper -->
+    
+    <%= render :partial => "footer" %>
+  
+    <%= render :partial => "scripts" %>
+  </body>
+</html>
