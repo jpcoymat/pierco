@@ -9,7 +9,7 @@
 		<div class="city">
 			<h2><%= city %></h2>
 			<ul>
-				<%= @company.distributor_by_city(city).each do |distributor|	%>
+				<% @company.distributor_by_city(city).each do |distributor|	%>
 					<li>
 						<h5><%= distributor.name											%>	</h5>
 						<p>	<%= distributor.full_address									%>	</p>
