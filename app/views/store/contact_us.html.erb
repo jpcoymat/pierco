@@ -33,11 +33,11 @@
 
 		<%= form_for :contact, :url => {:controller => 'store', :action => 'create_contact'} do |form|	%>
 		<label>Nombre</label>
-		<%= form.text_field :name 	%>
+		<%= form.text_field :name , :class=> 'text'	%>
 		<label>Email</label>
-		<%= form.text_field :email 	%>
+		<%= form.text_field :email, :class=> 'text'	%>
 		<label>Comentario</label>
-		<%= form.text_area :message	%>
+		<%= form.text_area :message, :class=>'text'	%>
 		<%= submit_tag "Enviar"		%>
 		<% end %>
 
