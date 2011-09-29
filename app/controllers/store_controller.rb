@@ -24,7 +24,7 @@ class StoreController < ApplicationController
   
   def distributors
     @company = Company.first
-    @cities = Distributor.find_by_sql("select distinct city from distributors where company_id = #{@company.id} order by city")
+    @cities = @company.distributor_cities
   end
   
   def contact_us
