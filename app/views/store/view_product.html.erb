@@ -1,33 +1,92 @@
-<section id="categories">
-<nav id="sidebar_menu">
-	<h4>Categorias</h4>
-	<ul>
-		<% @company.product_categories.each do |product_category|	%>
-			<li><%= link_to product_category.name, :controller => 'store', :action => 'products', :product_category => product_category%></li>
-		<% end %>
-	</ul>
-</nav>
-</section>
-<section id="product_details">
-	
-	<%= image_tag(@product.image_filename, :class =>"product_image")%>
-	<p id="product_description">
-		<%= @product.description	%>
-	</p>
-	<% unless @product.product_dimensions.empty?	%>
-		<table id="product_dimension_table">
-			<tr><th>Dimension	</th>
-				<% @product.product_category.active_dimension_fields.each do |active_field|	%>
-					<th><%= ProductDimension.attribute_dictionary[active_field]	%></th>
-				<% end %>
-			</tr>
-			<% @product.product_dimensions.each do |product_dimension|	%>
-				<tr class= <%= cycle('list_line_odd', 'list_line_even') %> ><td><%= product_dimension.name	%></td>
-					<% @product.product_category.active_dimension_fields.each do |active_field|	%>
-						<td><%= product_dimension.attributes[active_field]	%></td>
-					<% end %>
-				</tr>
-			<% end %>
-		</table>
-	<% end %>
-</section>
+<% content_for :stylesheets do %>
+  	#header{
+  		background:#000 url(/images/backgrounds/store-header-bg.jpg) no-repeat top;
+		height:432px;
+		margin-bottom:23px;
+		position:relative;
+	}
+<% end %>
+
+<div class="wrapper general clearfix">
+	<h2>Store</h2>
+	<div class="store-cat">
+		<div class="rin brand clearfix">
+			<div class="text-wrap">
+				<h3>Maxxis:</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
+				</p>
+			</div><!--end text-wrap-->
+			<ul>
+				<li><p>Escoja la marca que desea ver<p></li>
+				<li><a href=""><img src="/images/maxxis.jpg" alt="maxxis" /></a></li>
+				<li><a href=""><img src="/images/momo.jpg" alt="momo" /></a></li>
+			</ul>
+		</div><!--end class brand-->
+		<div class="brand-products">
+			<h3>Rines Momo</h3>
+			<div class="detail-image">
+				<img src="/images/rin-detail.jpg" alt="rin" />
+			</div><!--End class detail-image-->
+			<div class="product-detail">
+				<h3>MOMO <span>- Ref: 001</span></h3>
+				<p>
+					El HT750 es el Rin ideal para camionetas livianas urbanas. Maxima calidad de 10 lomas, es el rin ideal para la ciudad.
+				</p>
+				<table class="table-detail">
+					<tr>
+						<th scope="col">Dimension</th>
+						<th scope="col">Ancho</th>
+						<th scope="col">Presion Maxima</th>
+						<th scope="col">Peso Maximo</th>
+						<th scope="col">Diametro</th>
+					</tr>
+					<tr>
+						<td>P235/60R14</td>
+						<td>34.0</td>
+						<td>44.0</td>
+						<td>1670.0</td>
+						<td>25.1</td>
+					</tr>
+					<tr>
+						<td>P225/70R14</td>
+						<td>9.2</td>
+						<td>35.0</td>
+						<td>1675.0</td>
+						<td>26.6</td>
+					</tr>
+					<tr>
+						<td>P225/70R15</td>
+						<td>9.3</td>
+						<td>35.0</td>
+						<td>1670.0</td>
+						<td>27.6</td>
+					</tr>
+				</table>
+			</div><!--End class product-detail-->
+		</div><!--end class brand-products-->
+	</div><!--end class store-cat-->
+	<aside>
+		<nav>
+			<h3>Categorias</h3>
+			<ul>
+				<li>
+					<a href="" class="accordion"><span><span>Llantas</span></span></a>
+					<ul class="nav-content">
+						<li><a href="/store_llantas">Llantas Automoviles</a></li>
+						<li><a href="/store_llantas">Llantas Camionetas</a></li>
+						<li><a href="/store_llantas">Llantas High Performance</a></li>
+					</ul>
+				</li>
+				<li><a href="" class="accordion"><span><span>Rines</span></span></a>
+					<ul class="nav-content">
+						<li><a href="/store_rines" class="active">Rines Automoviles</a></li>
+						<li><a href="/store_rines">Rines Camionetas</a></li>
+						<li><a href="/store_rines">Rines High Performance</a></li>
+					</ul>
+				</li>
+				<li><a href="">Accesorios</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+</div><!--end class wrapper-->
