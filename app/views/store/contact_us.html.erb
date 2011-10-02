@@ -37,6 +37,7 @@
 		<p>Si tienes alguna duda sobre nuestra compañia, o tienes algun comentario que quisieras compartir con nosotros, por favor dejanos un mensaje!</p>
 
 		<%= form_for :contact, :url => {:controller => 'store', :action => 'create_contact'} do |form|	%>
+		<%= form.hidden_field :company_id, :value => @company.id %>
 		<label>Nombre</label>
 		<%= form.text_field :name , :class=> 'text'	%>
 		<label>Email</label>
