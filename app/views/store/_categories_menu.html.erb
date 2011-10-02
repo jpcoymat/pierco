@@ -7,10 +7,10 @@
 					<span><%= product_category.name%></span>
 					<% end %>
 					<ul class="nav-content">
-					<% product_category.product_subcategories do |product_subcategory| %>
-						<li><%= link_to product_subcategory.name, {:controller => 'store', :action => 'products'}%></li>
+						<% product_category.product_subcategories do |product_subcategory| %>
+							<li><%= link_to product_subcategory.name, {:controller => 'store', :action => 'products'}%></li>
+						<% end %>
 					</ul>
-				<% end %>
 				</li>
 			<% end %>
 		</ul>
