@@ -65,28 +65,5 @@
 			</div><!--End class product-detail-->
 		</div><!--end class brand-products-->
 	</div><!--end class store-cat-->
-	<aside>
-		<nav>
-			<h3>Categorias</h3>
-			<ul>
-				<li>
-					<a href="" class="accordion"><span><span>Llantas</span></span></a>
-					<ul class="nav-content">
-						<li><a href="/store_llantas">Llantas Automoviles</a></li>
-						<li><a href="/store_llantas">Llantas Camionetas</a></li>
-						<li><a href="/store_llantas">Llantas High Performance</a></li>
-					</ul>
-				</li>
-				<li><a href="" class="accordion"><span><span>Rines</span></span></a>
-					<ul class="nav-content">
-						<li><a href="/store_rines" class="active">Rines Automoviles</a></li>
-						<li><a href="/store_rines">Rines Camionetas</a></li>
-						<li><a href="/store_rines">Rines High Performance</a></li>
-					</ul>
-				</li>
-				<li><a href="">Accesorios</a>
-				</li>
-			</ul>
-		</nav>
-	</aside>
+	<% render :partial => 'categories_menu'%>
 </div><!--end class wrapper-->
