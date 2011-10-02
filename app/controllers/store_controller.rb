@@ -2,6 +2,7 @@ class StoreController < ApplicationController
 
   def index
     @company = Company.first
+    @products = @company.products
   end
   
   def about_us
