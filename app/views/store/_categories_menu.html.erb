@@ -8,7 +8,7 @@
 					<% end %>
 					<ul class="nav-content">
 						<% product_category.product_subcategories.each do |product_subcategory| %>
-							<li><%= link_to product_subcategory.name, {:controller => 'store', :action => 'products', :product_category => product_subcategory.product_category, :product_subcategory => produt_subcategory }%></li>
+							<li><%= link_to product_subcategory.name, {:controller => 'store', :action => 'products', :product_category => product_category, :product_subcategory => product_subcategory }%></li>
 						<% end %>
 					</ul>
 				</li>
