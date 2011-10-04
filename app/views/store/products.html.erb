@@ -25,7 +25,7 @@
 			<% @products.each do |product| %>
 			<li><%= link_to image_tag(product.image_filename, :size => "160x144"), {:controller => 'store', :action => 'view_product', :product => product} %>
 				<div>
-					<p><strong><%= product.supplier.name %></strong></p>
+					<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
 				</div>
 			</li>
 			<% end %>
