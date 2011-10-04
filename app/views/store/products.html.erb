@@ -20,21 +20,25 @@
 				<img src="/images/maxxis.jpg" alt="maxxis" />
 			</div><!--end brand-images -->
 		</div><!--end class brand clearfix -->
-	<div class="brand-products">
-		<ul>
-			<% @products.each do |product| %>
-			<li><%= link_to image_tag(product.image_filename, :size => "160x144"), {:controller => 'store', :action => 'view_product', :product => product} %>
+		<div class="brand-products">
+			<ul>
+				<% @products.each do |product| %>
+					<li><%= link_to image_tag(product.image_filename, :size => "160x144"), {:controller => 'store', :action => 'view_product', :product => product} %>
 				<div>
 					<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
 				</div>
 			</li>
 			<% end %>
-		</ul>
-		<div class="brand-nav-bar">
-			<ul class="nav-buttons">
-				<%= will_paginate @products %>
 			</ul>
-		</div>
-	</div><!--end class brand-products-->
+			<div class="brand-nav-bar">
+				<ul class="nav-buttons">
+					<%= will_paginate @products %>
+				</ul>
+			</div><!--end class brand-nav-bar-->
+		</div><!--end class brand-products-->
+	</div><!--end class store-cat-->
 	<%= render :partial => 'categories_menu'%>
 </div><!--end class wrapper-->
+
+
+
