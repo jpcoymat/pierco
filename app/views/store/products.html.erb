@@ -11,17 +11,19 @@
 	<h2>Store</h2>
 	<div class="store-cat">
 		<div class="brand clearfix">
-				<h3>Store</h3>
+			<div class="text-wrap">
+				<h3>Maxxis:</h3>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
-				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
-				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
 				</p>
-		</div><!--end class brand-products-->
-	</div><!--end class brand clearfix-->
+			</div>
+			<div class="brand-images">
+				<img src="/images/maxxis.jpg" alt="maxxis" />
+			</div>
+		</div><!--end class brand-->
 	<div class="brand-products">
 		<ul>
 			<% @products.each do |product| %>
-			<li><%= link_to image_tag(product.image_filename, :size => "160x44"), {:controller => 'store', :action => 'view_product', :product => product} %>
+			<li><%= link_to image_tag(product.image_filename, :size => "160x144"), {:controller => 'store', :action => 'view_product', :product => product} %>
 				<div>
 					<p><strong><%= product.supplier.name %></strong></p>
 				</div>
