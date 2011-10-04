@@ -15,10 +15,10 @@
 				<h3>Maxxis:</h3>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
 				</p>
-			</div>
+			</div><!--end text-wrap -->
 			<div class="brand-images">
 				<img src="/images/maxxis.jpg" alt="maxxis" />
-			</div>
+			</div><!--end brand-images -->
 		</div><!--end class brand-->
 	<div class="brand-products">
 		<ul>
@@ -32,10 +32,8 @@
 		</ul>
 			<div class="brand-nav-bar">
 			<ul class="nav-buttons">
-				<li><a href="#">Prev</a></li>
-				<li><a href="#">Sig</a></li>
+				<%= will_paginate @products %>
 			</ul>
-			<p>1 / 2</p>
 		</div><!--end class brand-nav-bar-->
 	</div><!--end class brand-products-->
 	<%= render :partial => 'categories_menu'%>
