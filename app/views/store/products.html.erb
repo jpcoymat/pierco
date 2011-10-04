@@ -17,6 +17,23 @@
 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
 				</p>
 		</div><!--end class brand-products-->
-	</div><!--end class store-cat-->
+	</div><!--end class brand clearfix-->
+	<div class="brand-products">
+		<ul>
+			<% @products.each do |product| %>
+			<li><%= link_to image_tag(product.image_filename, :size => "160x44"), {:controller => 'store', :action => 'view_product', :product => product} %>
+				<div>
+					<p><strong><%= product.supplier.name %></strong></p>
+				</div>
+			</li>
+		</ul>
+			<div class="brand-nav-bar">
+			<ul class="nav-buttons">
+				<li><a href="#">Prev</a></li>
+				<li><a href="#">Sig</a></li>
+			</ul>
+			<p>1 / 2</p>
+		</div><!--end class brand-nav-bar-->
+	</div><!--end class brand-products-->
 	<%= render :partial => 'categories_menu'%>
 </div><!--end class wrapper-->
