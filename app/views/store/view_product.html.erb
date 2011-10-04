@@ -37,7 +37,7 @@
 						<tr>
 						<th>Dimension</th>
 						<% @product.product_category.active_dimension_fields.each do |field| %>
-							<th scope="col"><%= field %></th>
+							<th scope="col"><%= ProductDimension.attribute_dictionary[field] %></th>
 						<% end %>
 						</tr>
 						<% @product.product_dimensions.each do |product_dimension| %>
