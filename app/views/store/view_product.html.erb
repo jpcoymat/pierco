@@ -23,45 +23,32 @@
 			</ul>
 		</div><!--end class brand-->
 		<div class="brand-products">
-			<h3>Rines Momo</h3>
+			<h3><%= @product.supplier.name %></h3>
 			<div class="detail-image">
-				<img src="/images/rin-detail.jpg" alt="rin" />
+				<%= image_tag @product.image_filename %>
 			</div><!--End class detail-image-->
 			<div class="product-detail">
-				<h3>MOMO <span>- Ref: 001</span></h3>
+				<h3><%= @product.supplier.name %> <span>- <%= @product.name %></span></h3>
 				<p>
-					El HT750 es el Rin ideal para camionetas livianas urbanas. Maxima calidad de 10 lomas, es el rin ideal para la ciudad.
+					<%= @product.description %>
 				</p>
-				<table class="table-detail">
-					<tr>
-						<th scope="col">Dimension</th>
-						<th scope="col">Ancho</th>
-						<th scope="col">Presion Maxima</th>
-						<th scope="col">Peso Maximo</th>
-						<th scope="col">Diametro</th>
-					</tr>
-					<tr>
-						<td>P235/60R14</td>
-						<td>34.0</td>
-						<td>44.0</td>
-						<td>1670.0</td>
-						<td>25.1</td>
-					</tr>
-					<tr>
-						<td>P225/70R14</td>
-						<td>9.2</td>
-						<td>35.0</td>
-						<td>1675.0</td>
-						<td>26.6</td>
-					</tr>
-					<tr>
-						<td>P225/70R15</td>
-						<td>9.3</td>
-						<td>35.0</td>
-						<td>1670.0</td>
-						<td>27.6</td>
-					</tr>
-				</table>
+				<% if @product.product_dimensions.count > 0 %>
+					<table class="table-detail">
+						<tr>
+						<th>Dimension</th>
+						<% @product.product_category.active_dimension_fields.each do |field| %>
+							<th scope="col"><%= field %></th>
+						<% end %>
+						</tr>
+						<% @product.product_dimensions.each do |product_dimension| %>
+							<tr><td><%= product_dimension.name %> </td>
+								<% @product.product_category.active_dimension_fields.each do |field| %>
+									<td><%= product_dimension.attributes[field] %></td>
+								<% end %>
+							</tr>
+						<% end %>
+					</table>
+				<% end %>				
 			</div><!--End class product-detail-->
 		</div><!--end class brand-products-->
 	</div><!--end class store-cat-->
