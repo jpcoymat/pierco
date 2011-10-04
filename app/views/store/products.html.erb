@@ -19,7 +19,7 @@
 			<div class="brand-images">
 				<img src="/images/maxxis.jpg" alt="maxxis" />
 			</div><!--end brand-images -->
-		</div><!--end class brand-->
+		</div><!--end class brand clearfix -->
 	<div class="brand-products">
 		<ul>
 			<% @products.each do |product| %>
@@ -30,11 +30,11 @@
 			</li>
 			<% end %>
 		</ul>
-			<div class="brand-nav-bar">
+		<div class="brand-nav-bar">
 			<ul class="nav-buttons">
 				<%= will_paginate @products %>
 			</ul>
-		</div><!--end class brand-nav-bar-->
+		</div>
 	</div><!--end class brand-products-->
 	<%= render :partial => 'categories_menu'%>
 </div><!--end class wrapper-->
