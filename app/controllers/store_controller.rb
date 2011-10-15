@@ -26,7 +26,12 @@ class StoreController < ApplicationController
   def distributors
     @company = Company.first
     @cities = @company.distributor_cities
-    @distributor = Distributor.find(params[:distributor]) || @company.default_distributor
+    @distributor = nil
+    if params[:distributor].nil?
+      @distributor = @company.default_distributor
+    else
+      @distributor = Distributor.find(params[:distributor]) 
+    end
   end
   
   def contact_us
