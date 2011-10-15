@@ -10,30 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015034329) do
+ActiveRecord::Schema.define(:version => 20111015034713) do
 
   create_table "companies", :force => true do |t|
-    t.string   "name",                :limit => 100,                                :null => false
-    t.string   "address_1",           :limit => 100,                                :null => false
+    t.string   "name",                   :limit => 100,                                :null => false
+    t.string   "address_1",              :limit => 100,                                :null => false
     t.string   "address_2"
-    t.string   "city",                :limit => 100,                                :null => false
-    t.string   "state",               :limit => 50,                                 :null => false
-    t.string   "postal_code",         :limit => 10,                                 :null => false
-    t.string   "country",             :limit => 100,                                :null => false
+    t.string   "city",                   :limit => 100,                                :null => false
+    t.string   "state",                  :limit => 50,                                 :null => false
+    t.string   "postal_code",            :limit => 10,                                 :null => false
+    t.string   "country",                :limit => 100,                                :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_filename",      :limit => 100
+    t.string   "image_filename",         :limit => 100
     t.text     "about_us"
-    t.string   "telephone_1",         :limit => 20
-    t.string   "telephone_2",         :limit => 20
-    t.string   "telephone_3",         :limit => 20
-    t.string   "telephone_4",         :limit => 20
-    t.string   "telephone_5",         :limit => 20
-    t.string   "fax",                 :limit => 20
-    t.string   "email",               :limit => 50
-    t.decimal  "latitude",                           :precision => 10, :scale => 5
-    t.decimal  "longitude",                          :precision => 10, :scale => 5
-    t.integer  "default_distributor"
+    t.string   "telephone_1",            :limit => 20
+    t.string   "telephone_2",            :limit => 20
+    t.string   "telephone_3",            :limit => 20
+    t.string   "telephone_4",            :limit => 20
+    t.string   "telephone_5",            :limit => 20
+    t.string   "fax",                    :limit => 20
+    t.string   "email",                  :limit => 50
+    t.decimal  "latitude",                              :precision => 10, :scale => 5
+    t.decimal  "longitude",                             :precision => 10, :scale => 5
+    t.integer  "default_distributor_id"
   end
 
   create_table "contacts", :force => true do |t|
