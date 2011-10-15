@@ -75,6 +75,9 @@ class Company < ActiveRecord::Base
     @distributor_cities
   end
   
+  def default_distributor
+    Distributor.find(self.default_distributor_id)
+  end
   
 
 end
