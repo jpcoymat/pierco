@@ -14,12 +14,12 @@
 		<div class="city">
 			<h2><%= city %></h2>
 			<ul>
-				<% @company.distributor_by_city(city).each do |distributor|	%>
+				<% @company.distributor_by_city(city).each do |dist|		%>
 					<li>
-						<h5><%= distributor.name											%>	</h5>
-						<p>	<%= distributor.full_address									%>	</p>
-						<p>	<%= distributor.telephones										%>	</p>
-						<p>	<%= distributor.email.nil? ? "" : mail_to(distributor.email)	%>	</p>
+						<h5><%= dist.name									%>	</h5>
+						<p>	<%= dist.full_address							%>	</p>
+						<p>	<%= dist.telephones								%>	</p>
+						<p>	<%= dist.email.nil? ? "" : mail_to(dist.email)	%>	</p>
 					</li>
 				<% end %>
 			</ul>
@@ -28,6 +28,7 @@
 	</div>
 	<div class="sidebar-map">
 		<div class="gmap">
+			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=366x303&maptype=roadmap&sensor=false&markers=color:red|label:A|#{}" %>
 			<img src="/images/gmap.png" alt="" />
 		</div>
 	</div><!--end class Sidebar-map-->
