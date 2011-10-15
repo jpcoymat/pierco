@@ -17,9 +17,9 @@
 				<% @company.distributor_by_city(city).each do |distributor|		%>
 					<li>
 						<h5><%= link_to distributor.name, :controller => 'store', :action => 'distributors', :distributor => distributor		%>	</h5>
-						<p>	<%= distributor.full_address									%>	</p>
-						<p>	Telefonos: <%= distributor.telephones										%>	</p>
-						<p>	<%= distributor.email.nil? ? "" : "Email" + mail_to(distributor.email)	%>	</p>
+						<p>	<%= distributor.full_address														%>	</p>
+						<p>	Telefonos: <%= distributor.telephones												%>	</p>
+						<p>	<%= distributor.email.nil? ? "" : "Email: " + mail_to(distributor.email).html_safe	%>	</p>
 					</li>
 				<% end %>
 			</ul>
