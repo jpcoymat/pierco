@@ -26,6 +26,7 @@
 		</div>
 		<% end %>
 	</div>
+	<p>The default distributor is <%= @distributor.name %></p>
 	<div class="sidebar-map">
 		<div class="gmap">
 			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=366x303&maptype=roadmap&sensor=false&markers=color:red|label:A|" + @distributor.latitude.to_s + "," + @distributor.longitude.to_s, :alt => "" %>
