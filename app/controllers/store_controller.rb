@@ -26,7 +26,7 @@ class StoreController < ApplicationController
   def distributors
     @company = Company.first
     @cities = @company.distributor_cities
-    @distributor = @company.default_distributor
+    @distributor = Distributor.find(params[:distributor]) || @company.default_distributor
   end
   
   def contact_us
