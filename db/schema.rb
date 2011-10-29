@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015034713) do
+ActiveRecord::Schema.define(:version => 20111029190750) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",                   :limit => 100,                                :null => false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20111015034713) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_filename",         :limit => 100
-    t.text     "about_us"
+    t.text     "about_us_main"
     t.string   "telephone_1",            :limit => 20
     t.string   "telephone_2",            :limit => 20
     t.string   "telephone_3",            :limit => 20
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20111015034713) do
     t.decimal  "latitude",                              :precision => 10, :scale => 5
     t.decimal  "longitude",                             :precision => 10, :scale => 5
     t.integer  "default_distributor_id"
+    t.string   "slogan",                 :limit => 150
+    t.text     "headline_1_content"
+    t.text     "headline_2_content"
+    t.text     "headline_3_content"
+    t.string   "headline_1_title",       :limit => 50
+    t.string   "headline_2_title",       :limit => 50
+    t.string   "headline_3_title",       :limit => 50
   end
 
   create_table "contacts", :force => true do |t|

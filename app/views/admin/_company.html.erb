@@ -13,6 +13,13 @@
 	<tr><td>Telefono 5   	</td>   <td><%= form.text_field :telephone_5    						%>	</td></tr>
 	<tr><td>Fax  			</td>   <td><%= form.text_field :fax    								%>  </td></tr>
 	<tr><td>Email   		</td>   <td><%= form.text_field :email    								%>	</td></tr>
-	<tr><td>Sobre Nosotros	</td>	<td><%= form.text_area :about_us, :rows => 10, :columns => 50	%>	</td></tr>
 	<tr><td>Imagen Logo		</td>	<td><%= form.file_field	:logo_picture							%>	</td></tr>
+</table>
+<table>
+	<tr><td>Seccion 1 Titulo 	</td>	<td><%= form.text_field	:headline_1_title 					%>	</td></tr>
+	<tr><td>Seccion 1 Contenido </td>	<td><%= form.text_area 	:headline_1_content					%>	</td></tr>
+	<tr><td>Seccion 2 Titulo 	</td>	<td><%= form.text_field	:headline_2_title 					%>	</td></tr>
+	<tr><td>Seccion 2 Contenido </td>	<td><%= form.text_area 	:headline_2_content					%>	</td></tr>
+	<tr><td>Seccion 3 Titulo 	</td>	<td><%= form.text_field	:headline_3_title 					%>	</td></tr>
+	<tr><td>Seccion 4 Contenido </td>	<td><%= form.text_area 	:headline_3_content					%>	</td></tr>
 </table>

@@ -1,5 +1,5 @@
 <div class="body-content wrapper">
-	<h2>"Mas de 20 años distribuyendo las mejores llantas y rines importados"</h2>
+	<h2><%= @company.slogan %></h2>
 	<h3>Productos Destacados</h3>
 	<%= link_to "Ir a la tienda", {:controller => 'store', :action => 'products'}, :class => 'button' %>
 	<div class="wheels-showcase-holder">
