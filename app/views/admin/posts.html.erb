@@ -1,0 +1,22 @@
+<h1>Noticias</h1>
+
+	<% if @posts.empty? %>
+		<p>Todavia no se han creado noticias.</p>
+	<% else %>
+		<table>
+			<tr><th>Fecha Creacion </th>	<th>Titulo Noticia </th> <th>Contenido</th></tr>
+			<% @posts.each do |post| %>
+				<tr><td><%= post.created_at.to_s	%>  </td>
+					<td><%= post.title				%>  </td>
+					<td><%= post.content			%>	</td>
+					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_post', :post => post %>	</td>
+					<td><%= link_to "Eliminar", {:controller => 'admin', :action => 'delete_post', :post => post}, 
+								:confirm => "Esta seguro que desea eliminar esta noticia?", :method => :post %> </td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+	
+	<p>
+		<%= link_to "Crear Noticia", :controller => 'admin', :action => 'new_post' %>
+	</p>
