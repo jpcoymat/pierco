@@ -1,5 +1,5 @@
 <div class="body-content wrapper">
-	<h2>"Mas de 20 años distribuyendo las mejores llantas y rines importados"</h2>
+	<h2><%= @company.slogan %></h2>
 	<h3>Productos Destacados</h3>
 	<%= link_to "Ir a la tienda", {:controller => 'store', :action => 'products'}, :class => 'button' %>
 	<div class="wheels-showcase-holder">
@@ -17,23 +17,15 @@
 	<div class="news-section">
 		<h3>Noticias y Promociones</h3>
 		<ul>
-			<li>
-				<img src="/images/news1.jpg" alt="" />
-				<h5>Lorem Ipsum Dolor sit amet</h5>
-				<span class="news-date">mayo 6 de 2011</span>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et magna tempus non porttitor metus accumsan. In auctor, mi et iaculis bibendum lorem ipsum dolor sit...
-				</p>
-			</li>
-			<li>
-				<img src="/images/news2.jpg" alt="" />
-				<h5>Lorem Ipsum Dolor sit amet</h5>
-				<span class="news-date">mayo 30 de 2011</span>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dui et magna tempus non porttitor metus accumsan. In auctor, mi et iaculis bibendum lorem ipsum dolor sit...
-				</p>
-			</li>
-		</ul>
+			<% @company.most_recent_posts.each do |post| %>
+				<li>
+					<h5><%= post.title %></h5>
+					<span class="news-date"><%= post.created_at.to_s %></span>
+					<p>
+						<%= post.content %>
+					</p>
+				</li>
+			<% end %>
 	</div><!-- end class news-section-->
 	<div class="main-ad">
 		<img src="/images/add.jpg" alt="#" />

@@ -13,6 +13,7 @@ class Company < ActiveRecord::Base
   has_many  :suppliers
   has_many  :product_categories
   has_many  :distributors
+  has_many  :posts
   
   def full_address
     self.address_2.nil? ? self.address_1 : self.address_1 + "\n" + self.address_2
@@ -77,6 +78,10 @@ class Company < ActiveRecord::Base
   
   def default_distributor
     Distributor.find(self.default_distributor_id)
+  end
+  
+  def most_recent_posts
+    @most_recent_posts = Post.where(:company_id => self.id).limit(3)
   end
   
 
