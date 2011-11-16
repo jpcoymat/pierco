@@ -18,9 +18,18 @@ class Distributor < ActiveRecord::Base
         telephones += v.to_s + " - "
       end
     end
-    telephones.chop!
-    telephones.chop!
+    2.times {telephones.chop!}
     telephones      
+  end
+  
+  def geolocation
+    @geolocation = nil
+    if self.latitude.nil? or self.longitude.nil?
+      @geolocation = self.full_address + ", " + self.city + ", " + self.country
+    else
+      @geolocation = self.latitude + "," + self.longitude
+    end
+    @geolocation
   end
 
 
