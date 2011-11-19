@@ -28,7 +28,7 @@
 	</div>
 	<div class="sidebar-map">
 		<div class="gmap">
-			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=366x303&maptype=roadmap&sensor=false&markers=color:red|label:" + @distributor.name + "|" + @distributor.geolocation, :alt => "" %>
+			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=366x303&maptype=roadmap&sensor=false&markers=color:red|label:'" + @distributor.name + "'|" + @distributor.geolocation, :alt => "" %>
 		</div>
 	</div><!--end class Sidebar-map-->
 </div><!--end class wrapper-->
