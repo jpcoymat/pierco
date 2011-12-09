@@ -6,17 +6,17 @@ class ProductDimension < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :product_id
   
   def self.attribute_dictionary
-    @@attribute_dictionary = {"maximum_pressure" => "Presion (lbls)",
-                              "maximum_weight" => "Peso (lbls)",
-                              "length" => "Largo",
-                              "width" => "Ancho",
+    @@attribute_dictionary = {"maximum_pressure" => "Presion (lbs)",
+                              "maximum_weight" => "Peso (lbs)",
+                              "length" => "Largo (in)",
+                              "width" => "Ancho (in)",
                               "color" => "Color",
-                              "diameter" => "Diametro (pulg)", 
+                              "diameter" => "Diametro (in)", 
                               "part_number" => "Num. Pieza",
                               "service_description" => "Desc. Servicio",
                               "lateral_wall" => "Pared Lateral",
                               "rim_width_range" => "Ancho Rin",
-                              "tred_depth" => "Prof. Banda Rdmnto (pulg)"}
+                              "tred_depth" => "Prof. Banda Rdmnto (in)"}
   end
   
   def self.dimension_attributes
