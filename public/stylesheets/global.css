@@ -706,7 +706,7 @@ h2{font-size:22px;}
 
 .product-detail{
 	float:right;
-	width:345px;
+	width:500px;
 }
 
 .product-detail h3{margin-bottom:12px;}
@@ -715,7 +715,7 @@ h2{font-size:22px;}
 .product-detail p{
 	color:#666;
 	margin-bottom:33px;
-	width:192px;
+	width:500px;
 }
 
 .product-detail table{font-size:12px;}
