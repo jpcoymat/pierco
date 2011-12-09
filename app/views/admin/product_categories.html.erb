@@ -2,14 +2,19 @@
 	
 	<% unless @product_categories.empty?	%>
 		<table>
-			<tr><th>Categoria		</th>
-				<th>Descripcion		</th>	
-				<th>Diametro?		</th> 
-				<th>Largo?			</th> 
-				<th>Ancho?			</th>
-				<th>Maxima Presion	</th>
-				<th>Maximo Peso		</th>
-				<th>Color			</th>
+			<tr><th>Categoria				</th>
+				<th>Descripcion				</th>	
+				<th>Diametro?				</th> 
+				<th>Largo?					</th> 
+				<th>Ancho?					</th>
+				<th>Maxima Presion			</th>
+				<th>Maximo Peso				</th>
+				<th>Color					</th>
+				<th>Num. Pieza				</th>
+				<th>Descripcion de Servicio	</th>
+				<th>Pared Lateral			</th>
+				<th>Rango Ancho Rin			</th>
+				<th>Banda Rodamiento		</th>
 			</tr>
 			<% @product_categories.each do |product_category| %>
 				<tr><td><%= product_category.name			%>	</td>
@@ -20,7 +25,11 @@
 					<td><%= product_category.maximum_pressure ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")	%></td>
 					<td><%= product_category.maximum_weight ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")	%></td>
 					<td><%= product_category.color ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
-					
+					<td><%= product_category.part_number ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
+					<td><%= product_category.service_description ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
+					<td><%= product_category.lateral_wall ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
+					<td><%= product_category.rim_width_range ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
+					<td><%= product_category.tred_depth ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15")%></td>
 					<td><%= link_to "Subcategorias", :controller => 'admin', :action=> 'product_subcategories', :product_category => product_category	%>	</td>
 					<td><%= link_to "Modificiar",:controller => 'admin', :action => 'edit_product_category', :product_category => product_category		%>	</td>
 					<td><%= product_category.deleteable? ? link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_category', :product_category => product_category},	
