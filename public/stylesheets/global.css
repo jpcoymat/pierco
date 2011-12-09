@@ -715,8 +715,8 @@ h2{font-size:22px;}
 .product-detail p{
 	color:#666;
 	margin-bottom:33px;
-	width:200px;
-	float:right;
+	width:300px;
+	float:left;
 }
 
 .product-detail table{font-size:12px;}
