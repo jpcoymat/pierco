@@ -719,16 +719,19 @@ h2{font-size:22px;}
 	float:left;
 }
 
-.product-detail table{font-size:12px;}
+.table-detail table{
+	font-size:12px;
+	width: ;
+}
 
-.product-detail table th{
+.table-detail table th{
 	background:url(/images/backgrounds/table-border-bg.png) no-repeat right bottom;
 	font-size:13px;
 	font-weight:normal;
 	padding:8px 2px;
 }
 
-.product-detail table td{
+.table-detail table td{
 	border-bottom:1px solid #EAEAEA;
 	color:#333;
 	font-weight:bold;

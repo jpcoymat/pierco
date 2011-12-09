@@ -19,13 +19,15 @@
 				<p>
 					<%= @product.description %>
 				</p>
-				<% if @product.product_dimensions.count > 0 %>
-					<table class="table-detail">
+			</div><!--End class product-detail-->
+			<% if @product.product_dimensions.count > 0 %>
+				<div class="table-detail">
+					<table>
 						<tr>
-						<th>Dimension</th>
-						<% @product.product_category.active_dimension_fields.each do |field| %>
+							<th>Dimension</th>
+							<% @product.product_category.active_dimension_fields.each do |field| %>
 							<th scope="col"><%= ProductDimension.attribute_dictionary[field] %></th>
-						<% end %>
+							<% end %>
 						</tr>
 						<% @product.product_dimensions.each do |product_dimension| %>
 							<tr><td><%= product_dimension.name %> </td>
@@ -35,8 +37,8 @@
 							</tr>
 						<% end %>
 					</table>
-				<% end %>				
-			</div><!--End class product-detail-->
+				</div><!-- End of class table-detail-->
+			<% end %>				
 		</div><!--end class brand-products-->
 	</div><!--end class store-cat-->
 	<%= render :partial => 'categories_menu'%>
