@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111029192935) do
+ActiveRecord::Schema.define(:version => 20111209180933) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",                   :limit => 100,                                :null => false
@@ -80,30 +81,40 @@ ActiveRecord::Schema.define(:version => 20111029192935) do
   end
 
   create_table "product_categories", :force => true do |t|
-    t.integer  "company_id",                                         :null => false
-    t.string   "name",             :limit => 50,                     :null => false
-    t.string   "description",      :limit => 100,                    :null => false
+    t.integer  "company_id",                                            :null => false
+    t.string   "name",                :limit => 50,                     :null => false
+    t.string   "description",         :limit => 100,                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "length",                          :default => false
-    t.boolean  "width",                           :default => false
-    t.boolean  "maximum_pressure",                :default => false
-    t.boolean  "maximum_weight",                  :default => false
-    t.boolean  "color",                           :default => false
-    t.boolean  "diameter",                        :default => false
+    t.boolean  "length",                             :default => false
+    t.boolean  "width",                              :default => false
+    t.boolean  "maximum_pressure",                   :default => false
+    t.boolean  "maximum_weight",                     :default => false
+    t.boolean  "color",                              :default => false
+    t.boolean  "diameter",                           :default => false
+    t.boolean  "part_number",                        :default => false
+    t.boolean  "service_description",                :default => false
+    t.boolean  "lateral_wall",                       :default => false
+    t.boolean  "rim_width_range",                    :default => false
+    t.boolean  "tred_depth",                         :default => false
   end
 
   create_table "product_dimensions", :force => true do |t|
     t.integer  "product_id"
-    t.string   "name",                                                          :null => false
-    t.decimal  "length",                         :precision => 10, :scale => 2
-    t.decimal  "width",                          :precision => 10, :scale => 2
-    t.decimal  "maximum_pressure",               :precision => 10, :scale => 2
-    t.decimal  "maximum_weight",                 :precision => 10, :scale => 2
+    t.string   "name",                                                             :null => false
+    t.decimal  "length",                            :precision => 10, :scale => 2
+    t.decimal  "width",                             :precision => 10, :scale => 2
+    t.decimal  "maximum_pressure",                  :precision => 10, :scale => 2
+    t.decimal  "maximum_weight",                    :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "color",            :limit => 25
-    t.decimal  "diameter",                       :precision => 10, :scale => 2
+    t.string   "color",               :limit => 25
+    t.decimal  "diameter",                          :precision => 10, :scale => 2
+    t.string   "part_number",         :limit => 75
+    t.string   "service_description", :limit => 20
+    t.string   "lateral_wall",        :limit => 20
+    t.string   "rim_width_range",     :limit => 20
+    t.string   "tred_depth",          :limit => 20
   end
 
   create_table "product_subcategories", :force => true do |t|

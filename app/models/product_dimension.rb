@@ -11,7 +11,12 @@ class ProductDimension < ActiveRecord::Base
                               "length" => "Largo",
                               "width" => "Ancho",
                               "color" => "Color",
-                              "diameter" => "Diametro" }
+                              "diameter" => "Diametro" 
+                              "part_number" => "Numero de Pieza",
+                              "service_description" => "Descripcion Servicio",
+                              "lateral_wall" => "Pared Lateral",
+                              "rim_width_range" => "Rango Ancho Rin",
+                              "tred_depth" => "Profundidad Banda Rodamiento"}
   end
   
   def self.dimension_attributes
