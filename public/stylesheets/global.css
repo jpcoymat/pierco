@@ -705,8 +705,8 @@ h2{font-size:22px;}
 .detail-image img{margin:0 auto;}
 
 .product-detail{
-	float:right;
-	width:500px;
+	float:left;
+	width:400px;
 }
 
 .product-detail h3{margin-bottom:12px;}
