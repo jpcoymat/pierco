@@ -726,6 +726,8 @@ h2{font-size:22px;}
 	width: ;
 }
 
+.table-detail h3 span{color:#333;}
+
 .table-detail table th{
 	background:url(/images/backgrounds/table-border-bg.png) no-repeat right bottom;
 	font-size:13px;
