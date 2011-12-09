@@ -700,6 +700,7 @@ h2{font-size:22px;}
 	float:left;
 	overflow:hidden;
 	padding:0 20px;
+	width: 200px;
 }
 
 .detail-image img{margin:0 auto;}
