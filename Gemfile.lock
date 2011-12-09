@@ -49,6 +49,8 @@ GEM
     pg (0.12.0)
       rake-compiler (~> 0.7)
     polyglot (0.3.3)
+    prototype-rails (3.1.0)
+      rails (~> 3.1)
     rack (1.3.5)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -96,5 +98,6 @@ PLATFORMS
 DEPENDENCIES
   mongrel (>= 1.2.0.pre2)
   pg
+  prototype-rails
   rails (>= 3.0.0)
   will_paginate (~> 3.0.pre2)
