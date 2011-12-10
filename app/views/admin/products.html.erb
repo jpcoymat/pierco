@@ -32,7 +32,7 @@
 					<tr><td><%= link_to product.name, :controller=> 'admin', :action => 'view_product', :product => product		%>	</td>
 						<td><%= product.supplier.name																			%>	</td>
 						<td><%= product.product_category.nil? ? "" : product.product_category.name								%>	</td>
-						<td><%= product.image_filename.nil? ? "" : image_tag(product.image_filename, :size => "20x20")			%>	</td>
+						<td><%= product.image_filename.nil? ? "" : image_tag(product.image_filename, :size => "40x40")			%>	</td>
 						<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product', :product => product		%>	</td>
 						<td><%= link_to "Eliminar", {:controller => 'admin', :action => 'delete_product', :product => product},
 										:confirm => "Esta seguro que desea eliminar este producto?",:method => :delete 			%>	</td>
