@@ -25,16 +25,17 @@
 					<h3><span>Medidas Disponibles</span></h3>
 					<table>
 						<tr>
-							<th>Dimension</th>
-							<% @product.product_category.active_dimension_fields.each do |field| %>
-							<th scope="col"><%= ProductDimension.attribute_dictionary[field] %></th>
+							<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
+								<% if @product.product_category.attributes[ordered_attribute]	%>
+									<th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%>
+								<% end %>
 							<% end %>
 						</tr>
 						<% @product.product_dimensions.each do |product_dimension| %>
-							<tr><td><%= product_dimension.name %> </td>
-								<% @product.product_category.active_dimension_fields.each do |field| %>
-									<td><%= product_dimension.attributes[field] %></td>
-								<% end %>
+							<tr>
+								<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
+									<td><%= product_dimension.attributes[ordered_attribute]	%></td>
+								<% end %>								
 							</tr>
 						<% end %>
 					</table>

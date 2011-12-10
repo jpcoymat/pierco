@@ -16,7 +16,8 @@ class ProductDimension < ActiveRecord::Base
                               "service_description" => "Desc. Servicio",
                               "lateral_wall" => "Pared Lateral",
                               "rim_width_range" => "Ancho Rin",
-                              "tred_depth" => "Prof. Banda Rdmnto (in)"}
+                              "tred_depth" => "Prof. Banda Rdmnto (in)",
+                              "name" => "Dimension"}
   end
   
   def self.dimension_attributes
@@ -30,6 +31,8 @@ class ProductDimension < ActiveRecord::Base
     @@dimension_attributes
   end
 
-  
+  def self.ordered_attributes
+    @@ordered_attributes = ["part_number","name","service_description","lateral_wall","diameter","width","maximum_pressure","maximum_weight","rim_width_range","tred_depth"]
+  end
 
 end
