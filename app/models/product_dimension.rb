@@ -32,7 +32,7 @@ class ProductDimension < ActiveRecord::Base
   end
 
   def self.ordered_attributes
-    @@ordered_attributes = ["part_number","name","service_description","lateral_wall","diameter","width","maximum_pressure","maximum_weight","rim_width_range","tred_depth"]
+    @@ordered_attributes = ["part_number","name","service_description","lateral_wall","diameter","width","maximum_pressure","maximum_weight","rim_width_range","tred_depth","color"]
   end
 
 end
