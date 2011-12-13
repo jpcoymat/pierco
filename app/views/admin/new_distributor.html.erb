@@ -15,7 +15,7 @@
   
 	
 	<%= form_for :distributor, :url => {:controller => 'admin', :action => 'create_distributor'} do |form|	%>
-		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company			%>
+		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company.id			%>
 		<%= render :partial => 'distributor', :locals => {:form => form}	%>
 		<%= submit_tag "Crear Distribuidor"									%>
 	<% end 	%>
