@@ -1,6 +1,6 @@
 <table>
 	<tr>
-		<td><%= ProductDimension.attribute_dictionary[:name]	%>	</td>	
+		<td><%= ProductDimension.attribute_dictionary["name"]	%>	</td>	
 		<td><%= form.text_field	:name							%>	</td>
 	</tr>
 	<% ProductDimension.dimension_attributes.each do |dim_attr|  %>
