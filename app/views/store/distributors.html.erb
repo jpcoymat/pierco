@@ -9,22 +9,28 @@
 
 <div class="dealers wrapper clearfix">
 	<h2>Distribuidores</h2>
-	<div class="dealer-cities">
+	<div class="dealer-cities-list">
+		<ul>
 		<% @cities.each do |city| %>
-		<div class="city">
-			<h2><%= city %></h2>
-			<ul>
-				<% @company.distributor_by_city(city).each do |distributor|		%>
-					<li>
-						<h5><%= link_to distributor.name, :controller => 'store', :action => 'distributors', :distributor => distributor		%>	</h5>
-						<p>	<%= distributor.full_address											%>	</p>
-						<p>	Telefonos: <%= distributor.telephones									%>	</p>
-						<p>	<%= distributor.email.nil? ? "" : mail_to(distributor.email).html_safe	%>	</p>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-		<% end %>
+			<li><%= city == @city ? city : link_to(city, :controller => 'admin', :action => 'distributors', :city => city) %> </li>
+		<% end %> 
+		</ul>
+	</div>
+
+	<div class="dealer-cities">
+	  <div class="city">
+	    <h2><%= @city %></h2>
+		<ul>
+		  <% @distributors.each do |distributor|		%>
+		    <li>
+		      <h5><%= link_to distributor.name, :controller => 'store', :action => 'distributors', :distributor => distributor, :city => distributor.city %>	</h5>
+		      <p><%= distributor.full_address						%>	</p>
+		      <p>Telefonos: <%= distributor.telephones					%>	</p>
+		      <p><%= distributor.email.nil? ? "" : mail_to(distributor.email).html_safe	%>	</p>
+		    </li>
+		  <% end %>
+		</ul>
+	  </div>
 	</div>
 	<div class="sidebar-map">
 		<div class="gmap">

@@ -32,6 +32,13 @@ class StoreController < ApplicationController
     else
       @distributor = Distributor.find(params[:distributor]) 
     end
+    @city = nil
+    if params[:city].nil?
+      @city = @distributor.city
+    else
+      @city = params[:city]
+    end
+    @distributors = @company.distributor_by_city(@city)
   end
   
   def contact_us
