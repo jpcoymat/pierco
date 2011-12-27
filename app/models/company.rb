@@ -65,7 +65,8 @@ class Company < ActiveRecord::Base
   end
   
   def distributor_by_city(city)
-    Distributor.where(:company_id => self.id, :city => city).all
+    @distributors_by_city = Distributor.where(:company_id => self.id, :city => city).order(:name).all
+    @distributors_by_city
   end
   
   def distributor_cities
@@ -73,6 +74,7 @@ class Company < ActiveRecord::Base
     self.distributors.each do |distributor|
       @distributor_cities << distributor.city unless @distributor_cities.include?(distributor.city)
     end
+    @distributor_cities.sort!
     @distributor_cities
   end
   

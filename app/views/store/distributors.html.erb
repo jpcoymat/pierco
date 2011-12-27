@@ -12,7 +12,7 @@
 	<div class="dealer-cities-list">
 		<ul>
 		<% @cities.each do |city| %>
-			<li><%= city == @city ? city : link_to(city, :controller => 'admin', :action => 'distributors', :city => city) %> </li>
+			<li><%= city == @city ? city : link_to(city, :controller => 'store', :action => 'distributors', :city => city) %> </li>
 		<% end %> 
 		</ul>
 	</div>
