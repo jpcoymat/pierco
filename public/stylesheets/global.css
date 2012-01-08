@@ -397,7 +397,7 @@ h2{font-size:22px;}
 	background:url(/images/backgrounds/red-icon.png) no-repeat top left;
 	border-bottom:1px solid #F0F0F0;
 	float:left;
-	height:80px;
+	height:100px;
 	padding:0 0 0 40px;
 	width:220px;
 }
@@ -423,7 +423,13 @@ h2{font-size:22px;}
 .city ul li h5{
 	margin-bottom:5px;
 }
-
+.dealer-cities-list {
+	height: 100px;
+        width: 360px;
+	padding: 0 0 0 40px;
+	font-size: 14px;
+	color:#666;
+}
 /* Contact-page
 ============================================================ */
 .contact-us{
