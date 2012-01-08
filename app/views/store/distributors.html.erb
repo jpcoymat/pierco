@@ -10,11 +10,16 @@
 <div class="dealers wrapper clearfix">
 	<h2>Distribuidores</h2>
 	<div class="dealer-cities-list">
-		<ul>
-		<% @cities.each do |city| %>
-			<li><%= city == @city ? city : link_to(city, :controller => 'store', :action => 'distributors', :city => city) %> </li>
-		<% end %> 
-		</ul>
+		
+
+		<p>Por favor seleccione la ciudad.</p>
+		<%= form_tag(:controller => 'store', :action => 'distributors'. :method => "get") do %>
+			<%= select_tag "city", @cities.collect {|cty| [cty,cty]} %>
+			<%= submit_tag "Buscar" %>
+		<% end %>
+ 
+
+
 	</div>
 
 	<div class="dealer-cities">
