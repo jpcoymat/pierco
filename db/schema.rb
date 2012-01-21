@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111209180933) do
+ActiveRecord::Schema.define(:version => 20120121201635) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",                   :limit => 100,                                :null => false
@@ -97,6 +97,10 @@ ActiveRecord::Schema.define(:version => 20111209180933) do
     t.boolean  "lateral_wall",                       :default => false
     t.boolean  "rim_width_range",                    :default => false
     t.boolean  "tred_depth",                         :default => false
+    t.boolean  "offset",                             :default => false
+    t.boolean  "pcd",                                :default => false
+    t.boolean  "holes",                              :default => false
+    t.boolean  "x_factor",                           :default => false
   end
 
   create_table "product_dimensions", :force => true do |t|
@@ -115,6 +119,10 @@ ActiveRecord::Schema.define(:version => 20111209180933) do
     t.string   "lateral_wall",        :limit => 20
     t.string   "rim_width_range",     :limit => 20
     t.string   "tred_depth",          :limit => 20
+    t.string   "offset",              :limit => 10
+    t.string   "pcd",                 :limit => 10
+    t.string   "holes",               :limit => 10
+    t.string   "x_factor",            :limit => 10
   end
 
   create_table "product_subcategories", :force => true do |t|

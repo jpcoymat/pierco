@@ -6,18 +6,22 @@ class ProductDimension < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :product_id
   
   def self.attribute_dictionary
-    @@attribute_dictionary = {"maximum_pressure" => "Presion (lbs)",
-                              "maximum_weight" => "Peso (lbs)",
-                              "length" => "Largo (in)",
-                              "width" => "Ancho (in)",
-                              "color" => "Color",
-                              "diameter" => "Diametro (in)", 
-                              "part_number" => "Num. Pieza",
-                              "service_description" => "Desc. Servicio",
-                              "lateral_wall" => "Pared Lateral",
-                              "rim_width_range" => "Ancho Rin",
-                              "tred_depth" => "Prof. Banda Rdmnto (in)",
-                              "name" => "Dimension"}
+    @@attribute_dictionary = {	"maximum_pressure" => "Presion (lbs)",
+                              	"maximum_weight" => "Peso (lbs)",
+                              	"length" => "Largo (in)",
+                              	"width" => "Ancho (in)",
+                              	"color" => "Color",
+                              	"diameter" => "Diametro (in)", 
+                              	"part_number" => "Num. Pieza",
+                              	"service_description" => "Desc. Servicio",
+                              	"lateral_wall" => "Pared Lateral",
+                              	"rim_width_range" => "Ancho Rin",
+                              	"tred_depth" => "Prof. Banda Rdmnto (in)",
+                              	"name" => "Dimension",
+				"offset" => "Offset",
+				"pcd" => "PCD",
+				"holes" => "Huecos",
+				"x_factor" => "X-Factor"}
   end
   
   def self.dimension_attributes
@@ -32,7 +36,7 @@ class ProductDimension < ActiveRecord::Base
   end
 
   def self.ordered_attributes
-    @@ordered_attributes = ["part_number","name","service_description","lateral_wall","diameter","width","maximum_pressure","maximum_weight","rim_width_range","tred_depth","color"]
+    @@ordered_attributes = ["part_number","name","service_description","lateral_wall","diameter","width","maximum_pressure","maximum_weight","rim_width_range","tred_depth","offset","pcd","holes","x_factor","color"]
   end
 
 end
