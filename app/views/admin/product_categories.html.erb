@@ -13,7 +13,7 @@
 				<tr><td><%= product_category.name			%>	</td>
 					<td><%= product_category.description	%>	</td>
 					<% ProductDimension.dimension_attributes.each do |attrbt| %> 
-					<td><%=  product_category.attributes[attrbt.to_sym] ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15") %></td>
+					<td><%=  product_category.attributes[attrbt] ? image_tag("check.png", :size => "15x15") : image_tag("x.png", :size => "15x15") %></td>
 					<% end %>
 					<td><%= link_to "Subcategorias", :controller => 'admin', :action=> 'product_subcategories', :product_category => product_category	%>	</td>
 					<td><%= link_to "Modificiar",:controller => 'admin', :action => 'edit_product_category', :product_category => product_category		%>	</td>
