@@ -34,7 +34,9 @@
 						<% @product.product_dimensions.each do |product_dimension| %>
 							<tr>
 								<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
-									<td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
+									<% if @product.product_category.attributes[ordered_attribute] %>
+										<td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
+									<% end %>
 								<% end %>								
 							</tr>
 						<% end %>
