@@ -27,7 +27,7 @@
 						<tr>
 							<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
 								<% if @product.product_category.attributes[ordered_attribute]	%>
-									<th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%>
+									<th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%></th>
 								<% end %>
 							<% end %>
 						</tr>
