@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122015003) do
+ActiveRecord::Schema.define(:version => 20120122015500) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",                   :limit => 100,                                :null => false
@@ -112,16 +112,16 @@ ActiveRecord::Schema.define(:version => 20120122015003) do
     t.decimal  "maximum_weight",                    :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "color",               :limit => 25
+    t.string   "color",               :limit => 50
     t.decimal  "diameter",                          :precision => 10, :scale => 2
     t.string   "part_number",         :limit => 75
     t.string   "service_description", :limit => 20
     t.string   "lateral_wall",        :limit => 20
     t.string   "rim_width_range",     :limit => 20
     t.string   "tred_depth",          :limit => 20
-    t.string   "offset",              :limit => 20
-    t.string   "pcd",                 :limit => 20
-    t.string   "holes",               :limit => 10
+    t.string   "offset",              :limit => 50
+    t.string   "pcd",                 :limit => 50
+    t.string   "holes",               :limit => 50
     t.string   "x_factor",            :limit => 50
   end
 
