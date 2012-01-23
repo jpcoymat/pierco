@@ -459,12 +459,12 @@ h2{font-size:22px;}
 
 .contact{
 	border-bottom:1px solid #E4E4E4;
-	padding:37px 0;
+	padding:20px 0;
 	margin-bottom:32px;
 }
 
 .contact ul{
-	padding-left:49px;
+	padding-left:25px;
 }
 
 .contact ul li a{
@@ -475,7 +475,7 @@ h2{font-size:22px;}
 	background:url(/images/backgrounds/contact-sprite.png) no-repeat;
 	padding-left:19px;
 	margin-bottom:19px;
-	width:316px;
+	width:345px;
 }
 
 .contact ul li:nth-child(2){
@@ -546,7 +546,6 @@ h2{font-size:22px;}
 }
 
 .ask label:after{
-	content:" *";
 	color:#FFB20B;
 }
 
@@ -883,9 +882,6 @@ aside nav ul li a:hover{
 .ie7 .text{border:1px solid #CCC;}
 .ie8 .text{border:1px solid #CCC;}
 
-.submit{
-	cursor:pointer;
-}
 
 /* Tables
 ============================================================ */

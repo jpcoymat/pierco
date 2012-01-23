@@ -16,7 +16,7 @@
 		<%= form_tag({:controller => 'store', :action => 'distributors'}, :method => "get") do %>
 			<% options_string = ""; @cities.each {|cty| cty==@city ? options_string += "<option selected=\"selected\" value=#{cty}>#{cty}</option>" : options_string += "<option value=#{cty}>#{cty}</option>"} %>
 			<%= select_tag "city", options_string.html_safe %>
-			<%= submit_tag "Buscar" %>
+			<%= submit_tag "Buscar", :class => "search" %>
 		<% end %>
  
 
