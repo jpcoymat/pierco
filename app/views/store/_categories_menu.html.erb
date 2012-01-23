@@ -3,7 +3,7 @@
 		<h3>Categorias</h3>
 		<ul>
 			<% @company.product_categories.each do |product_category| %>
-				<li><a href="" class="accordion"><span><%= product_category.name %></span></a>
+				<li><a href="" ><span><%= product_category.name %></span></a>
 					<ul class="nav-content">
 						<% product_category.product_subcategories.each do |product_subcategory| %>
 							<li><%= link_to product_subcategory.name, {:controller => 'store', :action => 'products', :product_category => product_category, :product_subcategory => product_subcategory }%></li>
