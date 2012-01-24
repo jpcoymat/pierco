@@ -713,6 +713,8 @@ h2{font-size:22px;}
 .product-detail{
 	float:left;
 	width:400px;
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 .product-detail h3{margin-bottom:12px;}

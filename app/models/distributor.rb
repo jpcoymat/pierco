@@ -25,7 +25,7 @@ class Distributor < ActiveRecord::Base
   def geolocation
     @geolocation = nil
     if self.latitude.nil? or self.longitude.nil?
-      @geolocation = self.full_address + ", " + self.city + ", " + self.country
+      @geolocation = self.address_1.sub(" ","+") + "," + self.city + "," + self.country
     else
       @geolocation = self.latitude.to_s + "," + self.longitude.to_s
     end
