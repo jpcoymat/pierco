@@ -192,9 +192,10 @@ class AdminController < ApplicationController
   end
   
   def delete_product_subcategory
+    product_category = ProductSubcategory.find(params[:product_subcategory]).product_category
     ProductSubcategory.destroy(params[:product_subcategory])
     flash[:notice] = "Subcategoria eliminada exitosamente"
-    redirect_to :controller=> 'admin', :action => 'product_subcategories'
+    redirect_to :controller=> 'admin', :action => 'product_subcategories', :product_category => product_category
   end
 
 
