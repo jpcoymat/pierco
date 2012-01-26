@@ -63,6 +63,8 @@ p{
 }
 
 a{
+        text-align: justify;
+        text-justify: inter-word;
 	text-decoration:none;
 	-moz-transition:color 0.2s linear;
 	-webkit-transition:color 0.2s linear;

@@ -4,7 +4,7 @@ class ProductSubcategory < ActiveRecord::Base
   has_many   :products
   
   validates :product_category_id, :name, :description, :presence => true
-  validates :name, :uniqueness => true
+  validates_uniqueness_of :name, :scope => :product_category_id
   
   
   
