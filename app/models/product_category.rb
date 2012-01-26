@@ -5,7 +5,7 @@ class ProductCategory < ActiveRecord::Base
   
   belongs_to  :company
   has_many    :products
-  has_many    :product_subcategories
+  has_many    :product_subcategories, :order => 'display_priority'
   
   def deleteable?
     self.products.empty?
