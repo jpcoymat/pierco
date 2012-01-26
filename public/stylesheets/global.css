@@ -56,15 +56,15 @@ body{
 }
 
 p{
-        text-align: justify;
-        text-justify: inter-word;
+
+
 	font-size:13px;
 	line-height:1.2em;
 }
 
 a{
-        text-align: justify;
-        text-justify: inter-word;
+
+
 	text-decoration:none;
 	-moz-transition:color 0.2s linear;
 	-webkit-transition:color 0.2s linear;
@@ -340,11 +340,15 @@ h2{font-size:22px;}
 	font-size:12px;
 	font-weight:bold;
 	margin-bottom:14px;
+        text-align: justify;
+        text-justify: inter-word;
 }
 
 .features{
 	clear:both;
 	margin-bottom:139px;
+        text-align: justify;
+        text-justify: inter-word;
 }
 
 .feature-img{
@@ -540,6 +544,8 @@ h2{font-size:22px;}
 .ask p{
 	margin-bottom:37px;
 	width:365px;
+        text-align: justify;
+        text-justify: inter-word;
 }
 
 .ask label{
@@ -578,7 +584,7 @@ h2{font-size:22px;}
 .general{margin-bottom:108px;}
 
 .store-cat{
-	background:url(/images/backgrounds/store-shadow.png) no-repeat 0 -30px;
+
 	float:right;
 	width:685px;
 }
@@ -603,7 +609,7 @@ h2{font-size:22px;}
 .ie7 .brand-products > ul{margin-bottom:41px;}
 
 .brand-products > ul li{
-	background:url(/images/backgrounds/brand-products-bg.png) no-repeat -6px 128px;
+
 	float:left;
 	margin-bottom:22px;
 	text-align:center;
@@ -613,6 +619,7 @@ h2{font-size:22px;}
 .brand-products ul li div{
 	background:#FFF;
 	padding-top: 9px;
+	text-align: center;
 }
 
 .brand-products ul li div p strong{color:#F90;}

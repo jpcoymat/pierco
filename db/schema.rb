@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122015500) do
+ActiveRecord::Schema.define(:version => 20120126034920) do
 
   create_table "companies", :force => true do |t|
     t.string   "name",                   :limit => 100,                                :null => false
@@ -126,11 +126,12 @@ ActiveRecord::Schema.define(:version => 20120122015500) do
   end
 
   create_table "product_subcategories", :force => true do |t|
-    t.integer  "product_category_id",                :null => false
-    t.string   "name",                :limit => 50,  :null => false
-    t.string   "description",         :limit => 100, :null => false
+    t.integer  "product_category_id",                               :null => false
+    t.string   "name",                :limit => 50,                 :null => false
+    t.string   "description",         :limit => 100,                :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "display_priority",                   :default => 0
   end
 
   create_table "products", :force => true do |t|

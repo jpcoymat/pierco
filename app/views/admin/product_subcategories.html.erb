@@ -3,10 +3,11 @@
 	
 		<% unless @product_category.product_subcategories.empty?	%>
 			<table>
-				<tr><th>Subcategoria	</th>	<th>Descripcion	</th></tr>
+				<tr><th>Subcategoria	</th>	<th>Descripcion	</th> <th>Orden Muestra </th></tr>
 				<% @product_category.product_subcategories.each do |product_subcategory| %>
-					<tr><td><%= product_subcategory.name																										%>	</td>
-						<td><%= product_subcategory.description																									%>	</td>
+					<tr><td><%= product_subcategory.name											%>	</td>
+						<td><%= product_subcategory.description										%>	</td>
+						<td><%= product_subcategory.display_priority									%>	</td>
 						<td><%= link_to "Modificar",:controller => 'admin', :action => 'edit_product_subcategory', :product_subcategory => product_subcategory	%>	</td>
 						<td><%= product_subcategory.deleteable? ? link_to("Eliminar",{:controller => 'admin', :action => 'delete_product_subcategory', :product_subcategory =>  				product_subcategory},:confirm => 'Esta seguro que desea eliminar esta subcategoria?',:method => :delete ) : ""	%>													</td>
 					</tr>

@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
   belongs_to  :supplier
   belongs_to  :product_category
   belongs_to  :product_subcategory
-  has_many    :product_dimensions, :dependent => :destroy
+  has_many    :product_dimensions, :dependent => :destroy, :order => "name"
 
 
 end
