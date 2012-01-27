@@ -309,6 +309,11 @@ h2{font-size:22px;}
 	margin-bottom:46px;
 }
 
+.about ul {
+	
+	width: 960px;
+}
+
 .about ul li{
 	background:url(/images/backgrounds/about-separator.jpg) no-repeat center right;
 	float:left;
