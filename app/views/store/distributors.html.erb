@@ -43,4 +43,15 @@
 			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=366x303&maptype=roadmap&sensor=false&markers=color:red|label:A|" + @distributor.geolocation, :alt => "" %>
 		</div>
 	</div><!--end class Sidebar-map-->
+	<div class="dealer-info">
+	  <ul>
+	    <li>
+	      <h5><%= @distributor.name %></h5>
+	      <p><%= @distributor.full_address                                           %>      </p>
+              <p>Telefonos: <%= @distributor.telephones                                  %>      </p>
+              <p><%= @distributor.email.nil? ? "" : mail_to(@distributor.email).html_safe %>      </p>
+	    </li>		
+	  </ul>
+	</div><!--end class dealer-info-->
+	
 </div><!--end class wrapper-->

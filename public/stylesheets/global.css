@@ -396,6 +396,39 @@ h2{font-size:22px;}
 	text-decoration:none;
 }
 
+
+.dealer-info {
+	float: left;
+	width: 365px;
+}
+
+.dealer-info ul{
+        overflow:hidden;
+        padding-top:26px;
+}
+
+.dealer-info ul li{
+        background:url(/images/backgrounds/red-icon.png) no-repeat top left;
+        border-bottom:1px solid #F0F0F0;
+        float:left;
+        height:100px;
+        padding:0 0 0 40px;
+        width:220px;
+}
+
+.dealer-info ul li:last-child{
+        border-bottom:none;
+}
+
+.dealer-info ul li h5, .dealer-info ul li p, .city ul li a{font-size:14px;}
+
+.dealer-info ul li h5{
+        color:#FFB20B;
+        font-weight:bold;
+}
+
+.dealer-info ul li p{color:#8C8C8C;}
+
 .dealer-cities ul{
 	overflow:hidden;
 	padding-top:26px;
