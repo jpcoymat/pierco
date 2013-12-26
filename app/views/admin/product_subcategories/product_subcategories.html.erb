@@ -1,0 +1,28 @@
+<h1>Subcategoria	</h1>
+	<h4>Categoria: <%= @product_category.name	%>	</h4>
+	
+		<% unless @product_category.product_subcategories.empty?	%>
+			<table>
+				<tr><th>Subcategoria	</th>	<th>Descripcion	</th> <th>Orden Muestra </th></tr>
+				<% @product_category.product_subcategories.each do |product_subcategory| %>
+					<tr><td><%= product_subcategory.name											%>	</td>
+						<td><%= product_subcategory.description										%>	</td>
+						<td><%= product_subcategory.display_priority									%>	</td>
+						<td><%= link_to "Modificar",:controller => 'admin', :action => 'edit_product_subcategory', :product_subcategory => product_subcategory	%>	</td>
+						<td><%= product_subcategory.deleteable? ? link_to("Eliminar",{:controller => 'admin', :action => 'delete_product_subcategory', :product_subcategory =>  				product_subcategory},:confirm => 'Esta seguro que desea eliminar esta subcategoria?',:method => :delete ) : ""	%>													</td>
+					</tr>
+				<% end %>
+			</table>
+		<% else %>
+			<p>
+				No hay subcategorias para la categoria <%= @product_category.name	%>
+			</p>
+		<% end %>
+		<br><br>
+		<hr>
+		<br>
+		<%= form_for :product_subcategory, :url => {:controller => 'admin', :action => 'create_product_subcategory'} do |form|	%>
+			<%= form.hidden_field :product_category_id, :value => @product_category.id	%>
+			<%= render :partial => 'product_subcategory',:locals => {:form => form}		%>
+			<%= submit_tag "Crear Subcategoia"											%>
+		<% end %>

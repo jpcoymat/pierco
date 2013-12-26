@@ -1,0 +1,21 @@
+<h1>Modificar Subcategory	</h1>
+
+<% if @product_subcategory.errors.any? %>
+	<div id="error_explanation">
+		<h2>Hay <%= @product_subcategory.errors.count.to_s %> error(es) con esta subcategoria :</h2>
+			<ul>
+				<% @product_subcategory.errors.each do |key,value| %>
+  					<li><%= value %></li>
+					<% end %>
+			</ul>
+	</div>
+<% end %>
+
+
+	<%= form_for :product_subcategory, :url => {:controller=> 'admin', :action => 'update_product_subcategory'} do |form|	%>
+		<%= form.hidden_field :id	%>
+		<%= render :partial => 'product_subcategory', :locals => {:form => form}	%>
+		<%= submit_tag "Actualizar"		%>
+	<% end %>
+	
+	<%= link_to "Regresar", :back	%>
