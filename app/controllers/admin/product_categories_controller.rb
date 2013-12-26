@@ -1,0 +1,48 @@
+class ProductCategoriesController < ApplicationController
+
+  before_filter :authorize
+
+  def index
+    @product_categories = User.find(session[:user_id]).company.product_categories
+  end
+  
+  def new
+    @company = User.find(session[:user_id]).company
+    @product_category = ProductCategory.new
+  end
+  
+  def create
+    @product_category = ProductCategory.new(params[:product_category])
+    if @product_category.save
+      flash[:notice] = "Categoria creada exitosamente"
+      redirect_to :controller => 'admin', :action => 'product_categories'
+    else
+      @company = User.find(session[:user_id]).company
+      render :action => 'new_product_category'
+    end
+  end
+  
+  def edit
+    @product_category = ProductCategory.find(params[:product_category])
+  end
+  
+  def update
+    @product_category = ProductCategory.find(params[:product_category][:id])
+    if @product_category.update_attributes(params[:product_category])
+      flash[:notice] = "Categoria actalizada exitosamente"
+      redirect_to :controller => 'admin', :action => 'product_categories'
+    else
+      render :action => 'edit_product_category'      
+    end
+  end
+  
+  def destroy
+    ProductCategory.destroy(params[:product_category])
+    flash[:notice] = "Catgoria eliminada exitosamente"
+    redirect_to :controller => 'admin', :action => 'product_categories'
+  end
+
+
+end
+
+  
