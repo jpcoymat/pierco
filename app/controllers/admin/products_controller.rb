@@ -33,13 +33,13 @@ class ProductsController < ApplicationController
     @product.set_picture_file(picture_file) if picture_file  
     if @product.save        
       flash[:notice] = "Producto creado exitosamnte"
-      redirect_to :controller=> 'admin', :action => 'view_product', :product => @product
+      redirect_to admin_product_path @product
     else
       @company = User.find(session[:user_id]).company
       @suppliers = @company.suppliers
       @product_categories = @company.product_categories
       @product_subcategories = @company.product_subcategories
-      render :action => 'new_product'
+      render :action => 'new'
     end
   end
   
@@ -58,20 +58,20 @@ class ProductsController < ApplicationController
     if @product.update_attributes(params[:product])
       @product.set_picture_file(picture_file) if picture_file          
       flash[:notice] = "Producto actualizado exitosamente"
-      redirect_to :controller => 'admin', :action => 'view_product',:product => @product
+      redirect_to admin_product_path @product
     else
       @company = User.find(session[:user_id]).company
       @suppliers = @company.suppliers
       @product_categories = @company.product_categories
       @product_subcategories = @company.product_subcategories
-      render :action => 'edit_product'    
+      render :action => 'edit'    
     end
   end
   
   def destroy
     Product.destroy(params[:product])
     flash[:notice] ="Producto eliminado exitosamente"
-    redirect_to :controller => 'admin', :action => 'products'
+    redirect_to admin_product_index_path
   end
 
 

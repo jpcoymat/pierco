@@ -57,10 +57,13 @@ Pierco::Application.routes.draw do
     resources :company
     resources :contact
     resources :distributor
-    resources :product
-    resources :product_category
-    resources :product_subcategory
-    resources :product_dimension
+    resources :post
+    resources :product do
+      resources :product_dimension
+    end      
+    resources :product_category do
+      resources :product_subcategory
+    end
     resources :supplier
     resources :supplier_contact
     resources :user

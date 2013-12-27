@@ -8,7 +8,7 @@ class LoginController < ApplicationController
       if @user
         flash[:notice] = "Bienvenido!"
         session[:user_id] = @user.id
-        redirect_to :controller => 'admin', :action => 'index'
+        redirect_to :controller => 'main', :action => 'index'
       else
         flash[:notice] ="Usuario/contrasena invalida"
         redirect_to :controller => 'login', :action => 'login'

@@ -23,9 +23,9 @@ class Admin::CompaniesController < ApplicationController
         @company.set_picture_file(picture_file)
       end
       flash[:notice] = "Compa&ntilde;ia actualizada exitosamente".html_safe
-      redirect_to :controller => 'admin', :action => 'companies'
+      redirect_to admin_company_index_path
     else
-      render :action => 'edit_company'
+      render :action => 'edit'
     end
   end
   
@@ -36,7 +36,7 @@ class Admin::CompaniesController < ApplicationController
     @company = Company.new(params[:company])
     if @company.save
       flash[:notice] = "Compa&ntilde;ia creada exitosamente"
-      redirect_to companies_path
+      redirect_to admin_company_index_path
     else
       flash[:notice] = "Error creando Compa&ntilde;ia"
       render action: 'new'

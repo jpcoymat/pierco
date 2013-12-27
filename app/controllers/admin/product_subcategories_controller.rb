@@ -15,7 +15,7 @@ class ProductSubcategoriesController < ApplicationController
      if @product_subcategory.save
        flash[:notice] = "Subcategoria creada exitosamente"
      end
-     redirect_to :controller => 'admin', :action => 'product_subcategories', :product_category => @product_subcategory.product_category
+     redirect_to admin_product_category_product_subcategories_path(@product_subcategory.product_category_id)
    end
 
    def edit
@@ -26,9 +26,9 @@ class ProductSubcategoriesController < ApplicationController
      @product_subcategory = ProductSubcategory.find(params[:product_subcategory][:id])
      if @product_subcategory.update_attributes(params[:product_subcategory])
        flash[:notice] = "Subcategoria actualizada exitosamente"
-       redirect_to :controller=> 'admin', :action => 'product_subcategories', :product_category => @product_subcategory.product_category
+       redirect_to admin_product_category_product_subcategory_index_path @product_subcategory.product_category_id
      else
-       render :action => 'edit_product_subcategory'
+       render :action => 'edit'
      end
    end
 
@@ -36,7 +36,7 @@ class ProductSubcategoriesController < ApplicationController
      product_category = ProductSubcategory.find(params[:product_subcategory]).product_category
      ProductSubcategory.destroy(params[:product_subcategory])
      flash[:notice] = "Subcategoria eliminada exitosamente"
-     redirect_to :controller=> 'admin', :action => 'product_subcategories', :product_category => product_category
+     redirect_to admin_product_category_product_subcategory_index_path @product_subcategory.product_category_id
    end
   
 

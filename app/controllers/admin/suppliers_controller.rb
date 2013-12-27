@@ -21,9 +21,9 @@ class Admin::SuppliersController < ApplicationController
     @supplier.set_picture_file(picture_file) if picture_file
     if @supplier.save
       flash[:notice] = "Marca creada exitosamente"
-      redirect_to :controller => 'admin', :action => 'view_supplier',:supplier => @supplier
+      redirect_to admin_supplier_path @supplier
     else
-      render :action => 'new_supplier'
+      render :action => 'new'
     end
   end
   
@@ -38,16 +38,16 @@ class Admin::SuppliersController < ApplicationController
     if @supplier.update_attributes(params[:supplier])
       @supplier.set_picture_file(picture_file) if picture_file
       flash[:notice] = "Marca actualizada exitosamente"
-      redirect_to :controller => 'admin', :action => 'view_supplier', :supplier => @supplier
+      redirect_to admin_supplier_path @supplier
     else
-      render :action => 'edit_supplier'
+      render :action => 'edit'
     end
   end
   
   def delete
     Supplier.destroy(params[:supplier])
     flash[:notice] = "Marca eliminada exitosamente"
-    redirect_to :controller => 'admin', :action => 'suppliers'
+    redirect_to admin_supplier_index_path
   end
    
 end
