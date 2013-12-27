@@ -12,7 +12,7 @@
 <% end %>
 
 
-	<%= form_for :product_subcategory, :url => {:controller=> 'admin', :action => 'update_product_subcategory'} do |form|	%>
+	<%= form_for [:admin, @product_category, @product_subcategory] do |form|	%>
 		<%= form.hidden_field :id	%>
 		<%= render :partial => 'product_subcategory', :locals => {:form => form}	%>
 		<%= submit_tag "Actualizar"		%>

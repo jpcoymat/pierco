@@ -24,5 +24,5 @@
 		<tr><td>Seccion 3 Titulo 	</td>	<td><%= @company.headline_3_title 					%>	</td></tr>
 		<tr><td>Seccion 4 Contenido </td>	<td><%= @company.headline_3_content					%>	</td></tr>
 	</table>
-	<%= link_to "Editar Datos Compañia", :controller => 'admin', :action=> 'edit_company',:company => @company	%>
+	<%= link_to "Editar Datos Compañia", edit_admin_company_path @company	%>
 			

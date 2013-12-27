@@ -1,6 +1,6 @@
 <h1>Modificar Noticia </h1>
 	
-	<%= form_for :post, :url => {:controller => 'admin', :action => 'update_post'} do |form| %>
+	<%= form_for [:admin, @post] do |form| %>
 		<%= form.hidden_field :id, :value => @post.id %>
 		<%= render :partial => 'post', :locals => {:form => form} %>
 		<%= submit_tag "Modificar Noticia" %>
