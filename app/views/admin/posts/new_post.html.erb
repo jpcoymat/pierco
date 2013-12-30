@@ -1,7 +1,0 @@
-<h1>Crear Noticia </h1>
-	
-	<%= form_for [:admin,@post] do |form| %>
-		<%= form.hidden_field :company_id, :value => @company.id %>
-		<%= render :partial => 'post', :locals => {:form => form} %>
-		<%= submit_tag "Crear Noticia" %>
-	<% end %>
