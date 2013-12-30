@@ -1,0 +1,24 @@
+<h1>Modificar Distribuidor	</h1>
+
+	<% if @distributor.errors.any? %>
+  		<div id="error_explanation">
+    		<h2>Hay <%= @distributor.errors.count.to_s %> error(es) con este distribuidor :</h2>
+    			<ul>
+    				<% @distributor.errors.each do |key,value| %>
+      					<li><%= value %></li>
+    					<% end %>
+    			</ul>
+  		</div>
+	<% end %>
+
+
+	<%= form_for [:admin, @distributor] do |form|	%>
+		<%= form.hidden_field :id										%>
+		<%= render :partial => 'distributor', :locals => {:form => form}	%>
+		<%= submit_tag "Actualizar"										%>
+	<% end %>
+	
+	<br><br>
+	<hr>
+	<br>
+	<%= link_to "Regresar", :back %>
