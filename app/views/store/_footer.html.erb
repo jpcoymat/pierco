@@ -3,10 +3,10 @@
 		<a href="index"><img src="/images/logo-footer-pierco.png" alt="pierco" /></a>
 		<nav>
 		  <ul>
-		  		<li><%= link_to "Sobre Nosotros", :controller => 'store', :action => 'about_us'%></li>
-				<li><%= link_to "Productos", :controller => 'store', :action => 'products'%></li>
-				<li><%= link_to "Distribuidores", :controller => 'store', :action => 'distributors'%></li>
-				<li><%= link_to "Contacto", :controller => 'store', :action => 'contact_us'%></li>
+		  		<li><%= link_to "Sobre Nosotros", about_us_path		%></li>
+				<li><%= link_to "Productos", products_path 		%></li>
+				<li><%= link_to "Distribuidores", distributors_path	%></li>
+				<li><%= link_to "Contacto", contact_us_path		%></li>
 		  </ul>
 		</nav>
 	</div><!--end wrapper-->

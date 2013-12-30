@@ -5,10 +5,6 @@ class Supplier < ActiveRecord::Base
   validates_presence_of :name, :address_1, :city, :country, :company_id, :presence => {:message => "no pueden estar en blanco"}
   validates :name, :uniqueness => {:message => "ya existe"}
   
-  validates :image_filename, :format => {
-    :with	=> %r{\.(gif|jpg|png)$}i, :message => 'Imagen debe ser de tipo GIF, JPG or PNG.'
-  }
-  
   belongs_to :company
   
   has_many :products

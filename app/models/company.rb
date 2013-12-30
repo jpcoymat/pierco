@@ -4,10 +4,6 @@ class Company < ActiveRecord::Base
   
   validates :name, :address_1, :city, :state, :country,:presence => true
   validates :name, :uniqueness => true
-  validates :image_filename, :format => {
-    :with	=> %r{\.(gif|jpg|png)$}i, :message => 'Imagen debe ser tipo GIF, JPG or PNG.'
-  }
-  
   
   has_many  :users
   has_many  :suppliers
