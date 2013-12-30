@@ -17,10 +17,10 @@ class StoreController < ApplicationController
   def products
     @company = Company.first
     product_category = params[:product_category] || @company.product_categories.first
-    @product_subcategories = ProductSubcategory.where(:product_category_id => product_category)
-    product_subcategory = params[:product_subcategory] || @product_subcategories.first.id
+    @product_subcategories = ProductSubcategory.where(:product_category_id => product_category.id)
+    product_subcategory = params[:product_subcategory] || @product_subcategories.first
     @page = params[:page] || 1
-    @products = Product.where(:product_category_id => product_category, :product_subcategory_id => product_subcategory).paginate(:page => @page, :order => 'supplier_id ASC, name ASC', :per_page => 6)
+    @products = Product.where(:product_category_id => product_category.id, :product_subcategory_id => product_subcategory.id).paginate(:page => @page, :order => 'supplier_id ASC, name ASC', :per_page => 6)
   end
   
   def distributors
@@ -52,17 +52,6 @@ class StoreController < ApplicationController
   def view_product
     @company = Company.first
     @product = Product.find(params[:product])
-  end
-
-  def create_contact
-    @company = Company.first
-    @contact = Contact.new(params[:contact])
-    if @contact.save
-      Notifier.customer_feedback_received(@contact).deliver
-      redirect_to :action =>'thank_you'
-    else      
-      render :action => 'contact_us'
-    end
   end
   
   def thank_you

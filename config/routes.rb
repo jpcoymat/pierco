@@ -1,4 +1,5 @@
 Pierco::Application.routes.draw do
+
   get "login/login"
 
   get "login/logout"
@@ -68,7 +69,24 @@ Pierco::Application.routes.draw do
     resources :supplier_contact
     resources :user
   end
-  
+
+  resources :contacts
+
+  controller :main do
+    get 'index' 
+  end  
+
+  controller :store do
+    get 'index' => :index
+    get 'about_us' => :about_us
+    get 'suppliers' => :suppliers
+    get 'products' => :products
+    get 'distributors' => :distributors
+    get 'contact_us' => :contact_us
+    get 'view_product' => :view_product
+    get 'thank_you' => :thank_you
+    post 'create_contact' => :create_contact
+  end
   
   root :to => "store#index", :as => 'store'
 
