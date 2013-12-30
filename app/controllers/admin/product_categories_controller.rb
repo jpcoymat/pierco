@@ -15,7 +15,7 @@ class ProductCategoriesController < ApplicationController
     @product_category = ProductCategory.new(params[:product_category])
     if @product_category.save
       flash[:notice] = "Categoria creada exitosamente"
-      redirect_to admin_product_category_index_path
+      redirect_to admin_product_categories_path
     else
       @company = User.find(session[:user_id]).company
       render :action => 'new_product_category'
@@ -30,7 +30,7 @@ class ProductCategoriesController < ApplicationController
     @product_category = ProductCategory.find(params[:product_category][:id])
     if @product_category.update_attributes(params[:product_category])
       flash[:notice] = "Categoria actalizada exitosamente"
-      redirect_to admin_product_category_index_path
+      redirect_to admin_product_categories_path
     else
       render :action => 'edit'      
     end
@@ -39,7 +39,7 @@ class ProductCategoriesController < ApplicationController
   def destroy
     ProductCategory.destroy(params[:product_category])
     flash[:notice] = "Catgoria eliminada exitosamente"
-    redirect_to admin_product_category_index_path
+    redirect_to admin_product_categories_path
   end
 
 

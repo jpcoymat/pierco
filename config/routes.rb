@@ -55,19 +55,23 @@ Pierco::Application.routes.draw do
   # just remember to delete public/index.html.
   
   namespace 'admin' do 
-    resources :company
-    resources :contact
-    resources :distributor
-    resources :post
-    resources :product do
-      resources :product_dimension
+    resources :companies
+    resources :contacts
+    resources :distributors
+    resources :posts
+    resources :products do
+      resources :product_dimensions
+      collection do
+        get 'lookup'
+        post 'lookup'
+      end
     end      
-    resources :product_category do
-      resources :product_subcategory
+    resources :product_categories do
+      resources :product_subcategories
     end
-    resources :supplier
-    resources :supplier_contact
-    resources :user
+    resources :suppliers
+    resources :supplier_contacts
+    resources :users
   end
 
   resources :contacts

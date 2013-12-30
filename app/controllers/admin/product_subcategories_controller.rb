@@ -36,7 +36,7 @@ class ProductSubcategoriesController < ApplicationController
      product_category = ProductSubcategory.find(params[:product_subcategory]).product_category
      ProductSubcategory.destroy(params[:product_subcategory])
      flash[:notice] = "Subcategoria eliminada exitosamente"
-     redirect_to admin_product_category_product_subcategory_index_path @product_subcategory.product_category_id
+     redirect_to admin_product_category_product_subcategories_path @product_subcategory.product_category_id
    end
   
 

@@ -10,7 +10,7 @@
   				</ul>
 		</div>
 	<% end %>
-	<%= form_for :supplier, :url => {:controller => 'admin', :action => 'create_supplier'}, :html => {:multipart => true} do |form|	%>
+	<%= form_for @supplier, :html => {:multipart => true} do |form|	%>
 		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company.id	%>
 		<%= render :partial => 'supplier',:locals =>{:form => form}	%>
 		<%= submit_tag "Crear Marca"								%>

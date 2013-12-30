@@ -16,10 +16,10 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     if @post.save
       flash[:notice] = "Noticia creada"
-      redirect_to admin_post_index_path
+      redirect_to admin_posts_path
     else
       flash[:notice] = "Error creando noticia"
-      redirect_to admin_post_index_path
+      redirect_to admin_posts_path
     end
   end
   
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post][:id])
     if @post.update_attributes(params[:post])
       flash[:notice] = "Noticia actualizada exitosamente"
-      redirect_to admin_post_index_path
+      redirect_to admin_posts_path
     else
       flash[:notice] = "Error actualizando noticia"
       render action: 'edit'
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   
   def destroy
     Post.destroy(params[:post])
-    redirect_to admin_post_index_path
+    redirect_to admin_posts_path
   end  
 
 

@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   before_filter :authorize
 
-  def index
+  def lookup 
     @suppliers = User.find(session[:user_id]).company.suppliers
     @product_categories = User.find(session[:user_id]).company.product_categories
     @product_subcategories = User.find(session[:user_id]).company.product_subcategories

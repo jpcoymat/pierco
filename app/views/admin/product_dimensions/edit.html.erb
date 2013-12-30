@@ -16,7 +16,7 @@
 	<% end %>
 
 	
-	<%= form_for [:admin, @product_dimension] do |form| %>
+	<%= form_for [:admin,@product, @product_dimension] do |form| %>
 		<%= form.hidden_field	:id												%>
 		<%= render :partial => 'product_dimension', :locals => {:form => form}	%>
 		<%= submit_tag "Actualizar Dimension"	%>
