@@ -1,9 +1,9 @@
 Pierco::Application.routes.draw do
 
   get "login/login"
-
+  get "main/index"
   get "login/logout"
-
+  post "login/login"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
