@@ -29,13 +29,12 @@
 			<table>
 				<tr><th>Nombre	</th>	<th>Marca	</th>	<th>Categoria	</th>	<th>Imagen	</th></tr>
 				<% @products.each do |product|	%>
-					<tr><td><%= link_to product.name, :controller=> 'admin', :action => 'view_product', :product => product		%>	</td>
-						<td><%= product.supplier.name																			%>	</td>
-						<td><%= product.product_category.nil? ? "" : product.product_category.name								%>	</td>
+					<tr><td><%= link_to product.name, admin_product_path(product)		%>	</td>
+						<td><%= product.supplier.name									%>	</td>
+						<td><%= product.product_category.nil? ? "" : product.product_category.name	%>	</td>
 						<td><%= product.image_filename.nil? ? "" : image_tag(product.image_filename, :size => "40x40")			%>	</td>
-						<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product', :product => product		%>	</td>
-						<td><%= link_to "Eliminar", {:controller => 'admin', :action => 'delete_product', :product => product},
-										:confirm => "Esta seguro que desea eliminar este producto?",:method => :delete 			%>	</td>
+						<td><%= link_to "Modificar", edit_admin_product_path(product)	%>	</td>
+						<td><%= link_to "Eliminar", admin_product_path(product),method: :delete 			%>	</td>
 					</tr>
 				<% end %>
 			</table>
@@ -46,4 +45,4 @@
 	<br><br>
 	<hr>
 	<br>
-	<%= link_to "Crear Nuevo Producto", :controller => 'admin', :action => 'new_product'	%>
+	<%= link_to "Crear Nuevo Producto", new_admin_product_path	%>

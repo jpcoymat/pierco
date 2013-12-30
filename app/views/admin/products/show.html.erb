@@ -26,15 +26,15 @@
 					<% @product.product_category.active_dimension_fields.each do |active_field|	%>
 						<td><%= product_dimension.attributes[active_field]	%></td>
 					<% end %>
-					<td><%= link_to "Modificar", :controller => 'admin', :action => 'edit_product_dimension', :product_dimension => product_dimension %></td>
-					<td><%= link_to("Eliminar", {:controller => 'admin', :action => 'delete_product_dimension', :product_dimension => product_dimension}, :method => :delete, :confirm => "Esta seguro que desea eliminar este registro?")%>
+					<td><%= link_to("Modificar", edit_admin_product_product_dimension_path(@product, product_dimension)) %></td>
+					<td><%= link_to("Eliminar", admin_product_product_dimension_path(@product, product_dimension}, method: :delete)%>
 				</tr>
 			<% end %>
 		</table>
 	<% end %>
 	<p>
-		<%= link_to "Agregar Dimension", :controller => 'admin', :action => 'new_product_dimension', :product => @product	%>
+		<%= link_to "Agregar Dimension", new_admin_product_product_dimension_path(@product)	%>
 	</p>
 	<p>
-		<%= link_to "Nuevo Producto", :controller => 'admin', :action => 'new_product' %>
+		<%= link_to "Nuevo Producto", new_admin_product_path %>
 	</p>

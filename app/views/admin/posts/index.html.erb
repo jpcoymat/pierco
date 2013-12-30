@@ -9,8 +9,8 @@
 				<tr><td><%= post.created_at.to_s	%>  </td>
 					<td><%= post.title				%>  </td>
 					<td><%= post.content			%>	</td>
-					<td><%= link_to "Modificar", edit_admin_post_path post %>	</td>
-					<td><%= link_to "Eliminar", {admin_post_path post}, 
+					<td><%= link_to "Modificar", edit_admin_post_path(post) %>	</td>
+					<td><%= link_to "Eliminar", admin_post_path(post), 
 								:confirm => "Esta seguro que desea eliminar esta noticia?", :method => :post %> </td>
 				</tr>
 			<% end %>

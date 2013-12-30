@@ -15,7 +15,7 @@
 
 
 
-	<%= form_for :product, :url => {:controller => 'admin', :action=> 'create_product'}, :html => {:multipart => true} do |form|	%>
+	<%= form_for [:admin, @product], :html => {:multipart => true} do |form|	%>
 		<%= render :partial => 'product', :locals => {:form => form}	%>
 		<%= submit_tag "Crear Producto"									%>
 	<% end %>

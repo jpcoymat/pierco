@@ -8,7 +8,7 @@
 					<td><%= supplier.city						%>	</td>
 					<td><%= supplier.country					%>	</td>
 					<td><%= supplier.website					%>	</td>
-					<td><%= link_to "Modificar", edit_admin_supplier_path supplier	%>	</td>
+					<td><%= link_to "Modificar", edit_admin_supplier_path(supplier)	%>	</td>
 				</tr>
 			<% end %>
 		</table>
@@ -18,4 +18,4 @@
 	<br><br>
 	<hr>
 	<br>
-	<%= link_to "Crear Nueva Marca",:controller => 'admin', :action => 'new_supplier'	%>
+	<%= link_to "Crear Nueva Marca",new_admin_supplier_path	%>
