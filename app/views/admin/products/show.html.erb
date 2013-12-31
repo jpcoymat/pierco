@@ -27,7 +27,7 @@
 						<td><%= product_dimension.attributes[active_field]	%></td>
 					<% end %>
 					<td><%= link_to("Modificar", edit_admin_product_product_dimension_path(@product, product_dimension)) %></td>
-					<td><%= link_to("Eliminar", admin_product_product_dimension_path(@product, product_dimension}, method: :delete)%>
+					<td><%= link_to("Eliminar", admin_product_product_dimension_path(@product, product_dimension), method: :delete)%>
 				</tr>
 			<% end %>
 		</table>
