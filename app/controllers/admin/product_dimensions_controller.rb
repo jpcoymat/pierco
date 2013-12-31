@@ -1,5 +1,6 @@
 class Admin::ProductDimensionsController < ApplicationController
   
+  layout 'admin'
   before_filter :authorize
   
   def new

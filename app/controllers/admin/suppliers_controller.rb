@@ -1,5 +1,6 @@
 class Admin::SuppliersController < ApplicationController
   
+  layout 'admin'
   before_filter :authorize
 
   def index
@@ -7,7 +8,7 @@ class Admin::SuppliersController < ApplicationController
   end
   
   def show
-    @supplier = Supplier.find(params[:supplier])
+    @supplier = Supplier.find(params[:id])
   end
 
   def new
@@ -28,7 +29,7 @@ class Admin::SuppliersController < ApplicationController
   end
   
   def edit
-    @supplier = Supplier.find(params[:supplier])
+    @supplier = Supplier.find(params[:id])
   end
 
   def update

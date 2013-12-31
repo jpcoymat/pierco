@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  layout 'admin'
   before_filter :authorize
 
   def index

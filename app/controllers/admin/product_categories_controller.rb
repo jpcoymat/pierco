@@ -1,6 +1,7 @@
-class ProductCategoriesController < ApplicationController
+class Admin::ProductCategoriesController < ApplicationController
 
   before_filter :authorize
+  layout 'admin'
 
   def index
     @product_categories = User.find(session[:user_id]).company.product_categories
@@ -23,7 +24,7 @@ class ProductCategoriesController < ApplicationController
   end
   
   def edit
-    @product_category = ProductCategory.find(params[:product_category])
+    @product_category = ProductCategory.find(params[:id])
   end
   
   def update

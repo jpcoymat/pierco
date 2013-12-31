@@ -9,7 +9,7 @@
 				<td><%= product_subcategory.description										%>	</td>
 				<td><%= product_subcategory.display_priority									%>	</td>
 				<td><%= link_to "Modificar",edit_admin_product_category_product_subcategory_path(@product_category, product_subcategory)	%>	</td>
-				<td><%= product_subcategory.deleteable? ? link_to("Eliminar",admin_product_category_product_subcategory_path(@product_category, product_subcategory),:method: :delete ) : ""	%>													</td>
+				<td><%= product_subcategory.deleteable? ? link_to("Eliminar",admin_product_category_product_subcategory_path(@product_category, product_subcategory),method: :delete ) : ""	%>													</td>
 					</tr>
 				<% end %>
 			</table>

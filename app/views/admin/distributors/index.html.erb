@@ -10,12 +10,12 @@
 				<th>Email				</th>	
 			</tr>
 			<% @distributors.each do |distributor| %>
-				<tr><td><%= link_to distributor.name, admin_distributor_path distributor	%>	</td>
-					<td><%= distributor.full_address													%>	</td>
-					<td><%= distributor.city															%>	</td>
-					<td><%= number_to_phone(distributor.telephone_1)									%>	</td>
-					<td><%= number_to_phone(distributor.telephone_2)									%>	</td>
-					<td><%= distributor.email															%>	</td>
+				<tr><td><%= link_to distributor.name, admin_distributor_path(distributor)	%>	</td>
+					<td><%= distributor.full_address					%>	</td>
+					<td><%= distributor.city						%>	</td>
+					<td><%= number_to_phone(distributor.telephone_1)			%>	</td>
+					<td><%= number_to_phone(distributor.telephone_2)			%>	</td>
+					<td><%= distributor.email						%>	</td>
 					<td><%= link_to "Modificar", edit_admin_distributor_path(distributor)			%>	</td>
 					<td><%= link_to("Eliminar", admin_distributor_path(distributor), :method => :delete)	%>
 				</tr>

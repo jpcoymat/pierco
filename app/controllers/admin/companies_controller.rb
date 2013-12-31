@@ -1,6 +1,7 @@
 class Admin::CompaniesController < ApplicationController
 
   before_filter :authorize
+  layout 'admin'
 
   def index
     @company = User.find(session[:user_id]).company
@@ -11,7 +12,7 @@ class Admin::CompaniesController < ApplicationController
   end
   
   def edit
-    @company = Company.find(params[:company])
+    @company = Company.find(params[:id])
   end
   
   def update

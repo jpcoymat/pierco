@@ -1,6 +1,7 @@
 class Admin::DistributorsController < ApplicationController
 
   before_filter :authorize
+  layout 'admin'
 
   def index
     @distributors = User.find(session[:user_id]).company.distributors
@@ -12,7 +13,7 @@ class Admin::DistributorsController < ApplicationController
   end
   
   def show
-    @distributor = Distributor.find(params[:distributor])
+    @distributor = Distributor.find(params[:id])
   end
   
   
@@ -27,7 +28,7 @@ class Admin::DistributorsController < ApplicationController
   end
   
   def edit
-    @distributor = Distributor.find(params[:distributor])
+    @distributor = Distributor.find(params[:id])
   end
   
   def update

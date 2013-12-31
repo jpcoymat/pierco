@@ -3,7 +3,7 @@
 		<table>
 			<tr><th>Nombre Marca	</th>	<th>Direccion	</th>	<th>Ciudad	</th>	<th>Pais	</th><th>Website	</th></tr>
 			<% @suppliers.each do |supplier| %>
-				<tr><td><%= link_to supplier.name, admin_supplier_path supplier 	%>	</td>
+				<tr><td><%= link_to supplier.name, admin_supplier_path(supplier) 	%>	</td>
 					<td><%= supplier.address_1					%>	</td>
 					<td><%= supplier.city						%>	</td>
 					<td><%= supplier.country					%>	</td>

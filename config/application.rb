@@ -34,6 +34,7 @@ module Pierco
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 
     # Configure the default encoding used in templates for Ruby 1.9.
+    config.action_controller.permit_all_parameters = true
     config.encoding = "utf-8"
 
     # Enable the asset pipeline

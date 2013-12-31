@@ -11,6 +11,6 @@
 	</table>
 	
 	<p>
-		<%= link_to "Modificar", admin_supplier_path @supplier		%> |
+		<%= link_to "Modificar", edit_admin_supplier_path(@supplier)		%> |
 		<%= @supplier.deleteable? ? link_to("Eliminar", admin_supplier_path(@supplier), :method => :delete ) : ""	%> 
 	

@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-
+  layout 'admin'
   before_filter :authorize
 
   def index 

@@ -11,7 +11,7 @@
 		</div>
 	<% end %>
 
-	<%= form_for @supplier do |form|	%>
+	<%= form_for [:admin,@supplier] do |form|	%>
 		<%= form.hidden_field :id	%>
 		<%= render :partial => 'supplier', :locals => {:form => form}	%>
 		<%= submit_tag "Actualizar"	%>

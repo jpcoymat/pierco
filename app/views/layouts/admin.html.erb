@@ -14,7 +14,7 @@
 	<%= yield(:head)%>
 </head>
 <header>
-	<p><%=link_to "Inicio",:controller => 'admin', :action => 'index'%> | <%= link_to "Logout", :controller => 'login', :action => 'logout' %>
+	<p><%=link_to "Inicio",main_index_path %> | <%= link_to "Logout", login_logout_path %>
 </header>
 <body>
 

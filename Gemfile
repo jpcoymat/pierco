@@ -10,7 +10,7 @@ gem 'mongrel', '>= 1.2.0.pre2'
 gem 'jquery-rails','>= 1.0.12'
 # Use unicorn as the web server
 # gem 'unicorn'
-
+ruby '2.0.0'
 # Deploy with Capistrano
 # gem 'capistrano'
 
