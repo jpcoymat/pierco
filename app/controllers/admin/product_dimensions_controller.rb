@@ -4,7 +4,7 @@ class Admin::ProductDimensionsController < ApplicationController
   before_filter :authorize
   
   def new
-    @product = Product.find(params[:product])
+    @product = Product.find(params[:product_id])
     @product_dimension = ProductDimension.new
   end
 
@@ -20,7 +20,7 @@ class Admin::ProductDimensionsController < ApplicationController
   end
   
   def edit
-    @product_dimension = ProductDimension.find(params[:product_dimension])
+    @product_dimension = ProductDimension.find(params[:id])
     @product = @product_dimension.product
   end
   
