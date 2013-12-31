@@ -16,7 +16,7 @@ class Admin::ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find(params[:product])
+    @product = Product.find(params[:id])
   end
   
   def new
@@ -45,7 +45,7 @@ class Admin::ProductsController < ApplicationController
   end
   
   def edit
-    @product = Product.find(params[:product])
+    @product = Product.find(params[:id])
     @company = User.find(session[:user_id]).company
     @suppliers = @company.suppliers
     @product_categories = @company.product_categories
