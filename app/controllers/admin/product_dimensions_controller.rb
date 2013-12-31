@@ -15,7 +15,7 @@ class Admin::ProductDimensionsController < ApplicationController
       redirect_to admin_product_path @product_dimension.product_id
     else
       @product = Product.find(params[:product_dimension][:product_id])
-      render :action => 'new_product_dimension'
+      render :action => 'new'
     end
   end
   
@@ -29,7 +29,7 @@ class Admin::ProductDimensionsController < ApplicationController
     @product = @product_dimension.product
     if @product_dimension.update_attributes(params[:product_dimension])
       flash[:notice] = "Dimension actualizada exitosamente"
-      redirect_to admin_product @product
+      redirect_to admin_product_path(@product)
     else
       render :action => 'edit'
     end
@@ -39,7 +39,7 @@ class Admin::ProductDimensionsController < ApplicationController
     @product = Product.find(params[:product_dimension][:product_id])
     ProductDimension.destroy(params[:product_dimension])
     flash[:notice] = "Dimension eliminada exitosamente"
-    redirect_to admin_product_path @product_dimension.product_id
+    redirect_to admin_product_path(@product_dimension.product_id)
   end
   
 end
