@@ -2,7 +2,7 @@
 <h1>Products </h1>
 
 	<p>Seleccione el criterio que desea para filtrar los resultados </p>
-	<%= form_for :product, :url => {:controller => 'admin', :action => 'products'} do |form| %>
+	<%= form_for :product, :url => lookup_admin_products_path do |form| %>
 		<table>
 			<tr>
 				<td>Marca			</td>	
