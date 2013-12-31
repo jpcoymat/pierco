@@ -14,7 +14,7 @@
 	</div>
 <% end %>
 
-	<%= form_for :product, :url =>{:controller => 'admin', :action => 'update_product'} do |form|	%>
+	<%= form_for [:admin, @product] do |form|	%>
 		<%= form.hidden_field	:id										%>
 		<%= render :partial => 'product', :locals => {:form => form}	%>
 		<%= submit_tag "Actualizar"										%>
