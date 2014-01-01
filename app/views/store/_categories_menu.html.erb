@@ -8,7 +8,7 @@
 					<ul class="nav-content">
 						<% product_category.product_subcategories.each do |product_subcategory| %>
 						  <% if product_subcategory.products.count > 0 %>
-				                    <li><%= link_to(product_subcategory.name, products_path, :product_category => product_category, :product_subcategory => product_subcategory) %></li>
+				                    <li><%= link_to(product_subcategory.name, controller: 'store', action: 'products', product_subcat: product_subcategory.id) %></li>
                                                   <% end %>
 						<% end %>
 					</ul>
