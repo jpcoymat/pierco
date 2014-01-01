@@ -1,13 +1,13 @@
 <header id="header">
 	<div class="header-wrap wrapper">
 		<h1 id="logo">
-			<%= link_to image_tag(@company.image_filename), :controller => 'store', :action => 'index' %>
+			<%= link_to(image_tag(@company.image_filename), store_path) %>
 			
 		</h1>
 	</div><!--end  header-wrap-->
   <nav class="">
     <ul class="wrapper clearfix">
-      	<li><%= link_to "Inicio", index_path 			%></li>
+      	<li><%= link_to "Inicio", store_path 			%></li>
       	<li><%= link_to "Sobre Nosotros", about_us_path		%></li>
       	<li><%= link_to "Productos", products_path		%></li>
 	<li><%= link_to "Distribuidores", distributors_path	%></li>

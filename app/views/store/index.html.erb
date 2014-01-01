@@ -1,15 +1,14 @@
 <div class="body-content wrapper">
 	<h2><%= @company.slogan %></h2>
 	<h3>Productos Destacados</h3>
-	<%= link_to "Ir a la tienda", {:controller => 'store', :action => 'products'}, :class => 'button' %>
+	<%= link_to("Ir a la tienda", products_path, class: 'button') %>
 	<div class="wheels-showcase-holder">
 
 		<ul class="wheels-showcase clearfix">
-			<% @products.each do |product| %>
-				<li> <%= link_to image_tag(product.image_filename, :size => "104x100").html_safe +
-				"<p><em>".html_safe + product.name   + "</em>-".html_safe +  product.supplier.name + "</p>".html_safe,  {:controller => 'store', :action => 'view_product', :product => product.id} %>
-				</li>						
-			<% end %>
+		  <% @products.each do |product| %>
+                    <li> <%= link_to(image_tag(product.image_filename, :size => "104x100").html_safe + "<p><em>".html_safe + product.name   + "</em>-".html_safe +  product.supplier.name + "</p>".html_safe,  view_product_path(product: product.id)) %>
+                    </li>
+		  <% end %>
 		</ul>
 		<a href="#" class="arrows prev"></a>
 		<a href="#" class="arrows right next"></a>
