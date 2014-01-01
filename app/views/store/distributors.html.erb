@@ -13,7 +13,7 @@
 		
 
 		<p>Por favor seleccione la ciudad.</p>
-		<%= form_tag({:controller => 'store', :action => 'distributors'}, :method => "get") do %>
+		<%= form_tag(distributors_path, method: :get) do %>
 			<% options_string = ""; @cities.each {|cty| cty==@city ? options_string += "<option selected=\"selected\" value=#{cty}>#{cty}</option>" : options_string += "<option value=#{cty}>#{cty}</option>"} %>
 			<%= select_tag "city", options_string.html_safe %>
 			<%= submit_tag "Buscar", :class => "search" %>
@@ -29,7 +29,7 @@
 		<ul>
 		  <% @distributors.each do |distributor|		%>
 		    <li>
-		      <h5><%= link_to distributor.name, :controller => 'store', :action => 'distributors', :distributor => distributor, :city => distributor.city %>	</h5>
+		      <h5><%= link_to distributor.name, distributors_path(distributor: distributor, city: distributor.city) %>	</h5>
 		      <p><%= distributor.full_address						%>	</p>
 		      <p>Telefonos: <%= distributor.telephones					%>	</p>
 		      <p><%= distributor.email.nil? ? "" : mail_to(distributor.email).html_safe	%>	</p>
