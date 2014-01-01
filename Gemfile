@@ -8,6 +8,7 @@ gem 'pg'
 gem 'will_paginate', "~> 3.0.pre2"
 gem 'mongrel', '>= 1.2.0.pre2'
 gem 'jquery-rails','>= 1.0.12'
+gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 # Use unicorn as the web server
 # gem 'unicorn'
 ruby '2.0.0'
