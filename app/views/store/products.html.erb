@@ -8,10 +8,11 @@
 <% end %>
 
 <div class="store wrapper general clearfix">
-	<h2><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h2>
+
 	<div class="store-cat">
 		<div class="brand-products">
-			<ul>
+			<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
+                        <ul>
 				<% @products.each do |product| %>
 					<li><%= link_to(image_tag(product.image_filename, :size => "160x144"), view_product_path(:product => product)) %>
 						<div>
