@@ -17,6 +17,7 @@ class StoreController < ApplicationController
   def products
     @company = Company.first
     product_subcat_id = params[:product_subcat] || @company.product_categories.first.product_subcategories.first.id
+    @product_subcategory = ProductSubcategory.find(product_subcat_id)
     @page = params[:page] || 1
     @products = Product.where(product_subcategory_id: product_subcat_id).paginate(page: @page, order: 'supplier_id ASC, name ASC', per_page: 6)
   end
