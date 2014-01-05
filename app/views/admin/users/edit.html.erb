@@ -1,4 +1,5 @@
 <h2>Modificar Usuario</h2>
 <%= form_for [:admin, @user] do |form| %>
 <%= render partial: 'user', locals: {form: form} %>
+<%= submit_tag "Actualizar Usuario" %>
 <% end %>

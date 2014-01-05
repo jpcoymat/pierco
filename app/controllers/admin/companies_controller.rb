@@ -16,7 +16,7 @@ class Admin::CompaniesController < ApplicationController
   end
   
   def update
-    @company = Company.find(params[:company][:id])
+    @company = Company.find(params[:id])
     picture_file = params[:company][:logo_picture] if !(params[:company][:logo_picture].nil?)
     params[:company].delete("logo_picture")
     if @company.update_attributes(params[:company])

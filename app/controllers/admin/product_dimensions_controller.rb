@@ -25,7 +25,7 @@ class Admin::ProductDimensionsController < ApplicationController
   end
   
   def update
-    @product_dimension = ProductDimension.find(params[:product_dimension][:id])
+    @product_dimension = ProductDimension.find(params[:id])
     @product = @product_dimension.product
     if @product_dimension.update_attributes(params[:product_dimension])
       flash[:notice] = "Dimension actualizada exitosamente"
@@ -36,10 +36,10 @@ class Admin::ProductDimensionsController < ApplicationController
   end
   
   def destroy
-    @product = Product.find(params[:product_dimension][:product_id])
-    ProductDimension.destroy(params[:product_dimension])
+    @product = ProductDimension.find(params[:id]).product
+    ProductDimension.destroy(params[:id])
     flash[:notice] = "Dimension eliminada exitosamente"
-    redirect_to admin_product_path(@product_dimension.product_id)
+    redirect_to admin_product_path(@product)
   end
   
 end

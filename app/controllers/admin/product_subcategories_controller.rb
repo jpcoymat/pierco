@@ -26,7 +26,7 @@ class Admin::ProductSubcategoriesController < ApplicationController
    end
 
    def update
-     @product_subcategory = ProductSubcategory.find(params[:product_subcategory][:id])
+     @product_subcategory = ProductSubcategory.find(params[:id])
      if @product_subcategory.update_attributes(params[:product_subcategory])
        flash[:notice] = "Subcategoria actualizada exitosamente"
        redirect_to admin_product_category_product_subcategories_path(@product_subcategory.product_category_id)
@@ -36,10 +36,10 @@ class Admin::ProductSubcategoriesController < ApplicationController
    end
 
    def destroy
-     product_category = ProductSubcategory.find(params[:product_subcategory]).product_category
-     ProductSubcategory.destroy(params[:product_subcategory])
+     product_category = ProductSubcategory.find(params[:id]).product_category
+     ProductSubcategory.destroy(params[:id])
      flash[:notice] = "Subcategoria eliminada exitosamente"
-     redirect_to admin_product_category_product_subcategories_path @product_subcategory.product_category_id
+     redirect_to(admin_product_category_product_subcategories_path(@product_subcategory.product_category_id))
    end
   
 

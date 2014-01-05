@@ -8,6 +8,7 @@ class Admin::UsersController < ApplicationController
   
   def new
     @user = User.new
+    @company = User.find(session[:user_id]).company
   end
   
   def create
@@ -21,11 +22,11 @@ class Admin::UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:user])
+    @user = User.find(params[:id])
   end
   
   def update
-    @user= User.find([:user][:id])
+    @user= User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Usuario actualizado exitosamente"
       redirect_to admin_users_path
@@ -35,7 +36,7 @@ class Admin::UsersController < ApplicationController
     end
   end
   
-  def delete_user
+  def destroy
     User.destroy(params[:user])
     flash[:notice] = "Usuario eliminado"
     redirect_to admin_users_path

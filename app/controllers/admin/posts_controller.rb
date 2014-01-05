@@ -24,11 +24,11 @@ class Admin::PostsController < ApplicationController
   end
   
   def edit
-    @post = Post.find(params[:post])
+    @post = Post.find(params[:id])
   end
   
   def update
-    @post = Post.find(params[:post][:id])
+    @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
       flash[:notice] = "Noticia actualizada exitosamente"
       redirect_to admin_posts_path
@@ -39,7 +39,7 @@ class Admin::PostsController < ApplicationController
   end
   
   def destroy
-    Post.destroy(params[:post])
+    Post.destroy(params[:id])
     redirect_to admin_posts_path
   end  
 

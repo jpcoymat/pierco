@@ -2,13 +2,13 @@
 
 <table>
 <tr><th>Nombre Completo </th> <th>Nombre Usuario </th> <th> Correo</th></tr>
-<% @users.each do |user|
+<% @users.each do |user| %>
 <tr>
 <td><%= user.full_name %></td>
 <td><%= user.username %></td>
 <td><%= user.email  %> </td>
-<td><%= link_to("Editar", user_path(user)) %></td>
+<td><%= link_to("Editar", edit_admin_user_path(user)) %></td>
 <% end %>
 </table>
 
-<%= link_to("Creare Nuevo Ususario", new_users_path %>
+<%= link_to("Creare Nuevo Ususario", new_admin_user_path) %>
