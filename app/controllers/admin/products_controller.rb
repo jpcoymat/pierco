@@ -72,7 +72,7 @@ class Admin::ProductsController < ApplicationController
   def destroy
     Product.destroy(params[:id])
     flash[:notice] ="Producto eliminado exitosamente"
-    redirect_to admin_product_index_path
+    redirect_to lookup_admin_products_path
   end
 
 
