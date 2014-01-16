@@ -9,6 +9,7 @@
 					<td><%= supplier.country					%>	</td>
 					<td><%= supplier.website					%>	</td>
 					<td><%= link_to "Modificar", edit_admin_supplier_path(supplier)	%>	</td>
+					<td><%= supplier.deleteable? ?  button_to("Eliminar",admin_supplier(supplier), method: :delete %></td>
 				</tr>
 			<% end %>
 		</table>
