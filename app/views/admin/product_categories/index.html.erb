@@ -17,7 +17,7 @@
 					<% end %>
 					<td><%= link_to "Subcategorias", admin_product_category_product_subcategories_path(product_category)	%>	</td>
 					<td><%= link_to "Modificiar",edit_admin_product_category_path(product_category)		%>	</td>
-					<td><%= product_category.deleteable? ? link_to("Eliminar", admin_product_category_path(product_category), method: :delete) : "" %></td>
+					<td><%= product_category.deleteable? ? button_to("Eliminar", admin_product_category_path(product_category), method: :delete) : "" %></td>
 				</tr>
 			<% end %>
 		</table>

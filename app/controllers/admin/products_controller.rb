@@ -55,7 +55,7 @@ class Admin::ProductsController < ApplicationController
   def update
     picture_file = params[:product][:image_file]
     params[:product].delete("image_file")
-    @product = Product.find(params[:product][:id])
+    @product = Product.find(params[:id])
     if @product.update_attributes(params[:product])
       @product.set_picture_file(picture_file) if picture_file          
       flash[:notice] = "Producto actualizado exitosamente"
@@ -70,9 +70,9 @@ class Admin::ProductsController < ApplicationController
   end
   
   def destroy
-    Product.destroy(params[:product])
+    Product.destroy(params[:id])
     flash[:notice] ="Producto eliminado exitosamente"
-    redirect_to admin_product_index_path
+    redirect_to lookup_admin_products_path
   end
 
 

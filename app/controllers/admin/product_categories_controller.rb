@@ -28,7 +28,7 @@ class Admin::ProductCategoriesController < ApplicationController
   end
   
   def update
-    @product_category = ProductCategory.find(params[:product_category][:id])
+    @product_category = ProductCategory.find(params[:id])
     if @product_category.update_attributes(params[:product_category])
       flash[:notice] = "Categoria actalizada exitosamente"
       redirect_to admin_product_categories_path
@@ -38,7 +38,7 @@ class Admin::ProductCategoriesController < ApplicationController
   end
   
   def destroy
-    ProductCategory.destroy(params[:product_category])
+    ProductCategory.destroy(params[:id])
     flash[:notice] = "Catgoria eliminada exitosamente"
     redirect_to admin_product_categories_path
   end

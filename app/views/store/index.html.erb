@@ -19,7 +19,7 @@
 			<% @company.most_recent_posts.each do |post| %>
 				<li>
 					<h5><%= post.title %></h5>
-					<span class="news-date"><%= post.created_at.to_s %></span>
+					<span class="news-date"><%= post.created_at.strftime('%Y-%m-%d %H:%M') %></span>
 					<p>
 						<%= post.content %>
 					</p>

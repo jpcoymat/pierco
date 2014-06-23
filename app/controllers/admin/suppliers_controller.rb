@@ -46,7 +46,7 @@ class Admin::SuppliersController < ApplicationController
   end
   
   def destroy
-    Supplier.destroy(params[:supplier])
+    Supplier.destroy(params[:id])
     flash[:notice] = "Marca eliminada exitosamente"
     redirect_to admin_suppliers_path
   end

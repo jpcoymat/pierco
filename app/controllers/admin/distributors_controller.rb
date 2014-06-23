@@ -32,7 +32,7 @@ class Admin::DistributorsController < ApplicationController
   end
   
   def update
-    @distributor = Distributor.find(params[:distributor][:id])
+    @distributor = Distributor.find(params[:id])
     if @distributor.update_attributes(params[:distributor])
       flash[:notice] = "Distribuidor actualizado exitosamente"
       redirect_to admin_distributors_path
@@ -42,7 +42,7 @@ class Admin::DistributorsController < ApplicationController
   end
   
   def destroy
-    Distributor.destroy(params[:distributor])
+    Distributor.destroy(params[:id])
     flash[:notice] = "Distribuidor eliminado exitosamente"
     redirect_to admin_distributors_path
   end

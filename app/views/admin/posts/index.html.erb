@@ -6,7 +6,7 @@
 		<table>
 			<tr><th>Fecha Creacion </th>	<th>Titulo Noticia </th> <th>Contenido</th></tr>
 			<% @posts.each do |post| %>
-				<tr><td><%= post.created_at.to_s	%>  </td>
+				<tr><td><%= post.created_at.strftime('%Y-%m-%d %H:%M')	%>  </td>
 					<td><%= post.title				%>  </td>
 					<td><%= post.content			%>	</td>
 					<td><%= link_to "Modificar", edit_admin_post_path(post) %>	</td>

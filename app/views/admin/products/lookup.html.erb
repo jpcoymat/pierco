@@ -34,7 +34,7 @@
 						<td><%= product.product_category.nil? ? "" : product.product_category.name	%>	</td>
 						<td><%= product.image_filename.nil? ? "" : image_tag(product.image_filename, :size => "40x40")			%>	</td>
 						<td><%= link_to "Modificar", edit_admin_product_path(product)	%>	</td>
-						<td><%= link_to "Eliminar", admin_product_path(product),method: :delete 			%>	</td>
+						<td><%= button_to("Eliminar", admin_product_path(product),method: :delete) 			%>	</td>
 					</tr>
 				<% end %>
 			</table>
