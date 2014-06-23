@@ -15,7 +15,7 @@
 
 
 
-	<%= form_for [:admin, @product], :html => {:multipart => true} do |form|	%>
-		<%= render :partial => 'product', :locals => {:form => form}	%>
-		<%= submit_tag "Crear Producto"									%>
+	<%= form_for [:admin, @product], :html => {{class: "form-horizontal", multipart: true} do |form|	%>
+		<%= render partial: 'product', locals: {form: form}	%>
+		<%= submit_tag "Crear Producto",  {class: "btn btn-primary"}	%>
 	<% end %>

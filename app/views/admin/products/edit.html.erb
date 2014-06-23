@@ -14,8 +14,8 @@
 	</div>
 <% end %>
 
-	<%= form_for [:admin, @product] do |form|	%>
+	<%= form_for [:admin, @product], html: {class: "form-horizontal"} do |form|	%>
 		<%= form.hidden_field	:id										%>
-		<%= render :partial => 'product', :locals => {:form => form}	%>
-		<%= submit_tag "Actualizar"										%>
+		<%= render partial: 'product', locals: {form: form}	%>
+		<%= submit_tag "Actualizar",  {class: "btn btn-primary"} %>
 	<% end %>

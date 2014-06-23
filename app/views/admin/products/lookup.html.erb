@@ -1,24 +1,17 @@
 <% javascript 'dynamic_subcategories'%>
-<h1>Products </h1>
+<h1>Productos </h1>
 
 	<p>Seleccione el criterio que desea para filtrar los resultados </p>
-	<%= form_for :product, :url => lookup_admin_products_path do |form| %>
-		<table>
-			<tr>
-				<td>Marca			</td>	
-				<td><%= form.select :supplier_id, @suppliers.collect {|s| [s.name, s.id]}, :include_blank => true	%>	</td>
-				<td>Categoria		</td>	
-				<td><%= form.select :product_category_id, @product_categories.collect {|pc| [pc.name, pc.id]}, :include_blank =>true	%>	</td>
-				<td>Nombre Producto	</td>	
-				<td><%= form.text_field :name											%>	</td>
-			</tr>
-			<tr id = "product_subcategory_field">
-				<td >Subcategoria	</td>	
-				<td><%= form.select :product_subcategory_id,	@product_subcategories.collect {|ps| [ps.name, ps.id]}, :include_blank => true	%>	</td>
-				
-			</tr>
-		</table>
-		<%= submit_tag "Buscar"	%>
+	<%= form_for :product, url: lookup_admin_products_path, html: {class: "form-search"} do |form| %>
+		<%= form.label "Marca" %>	
+		<%= form.select :supplier_id, @suppliers.collect {|s| [s.name, s.id]}, include_blank: true	%>
+		<%= form.label "Categoria"	%>	
+		<%= form.select :product_category_id, @product_categories.collect {|pc| [pc.name, pc.id]}, include_blank: true	%>
+		<%= form.label "Nombre Producto" %>
+		<%= form.text_field :name	%>
+		<%= form.label "Subcategoria" %>	
+		<%= form.select :product_subcategory_id,	@product_subcategories.collect {|ps| [ps.name, ps.id]}, include_blank: true	%>	
+		<%= submit_tag "Buscar", {class: "btn btn-primary"}	%>
 	<% end %>
 	
 	<br><br>
@@ -26,7 +19,7 @@
 	<br>
 	<% if request.post?	%>
 		<% unless @products.empty?	%>
-			<table>
+			<table class="table table-striped">
 				<tr><th>Nombre	</th>	<th>Marca	</th>	<th>Categoria	</th>	<th>Imagen	</th></tr>
 				<% @products.each do |product|	%>
 					<tr><td><%= link_to product.name, admin_product_path(product)		%>	</td>
