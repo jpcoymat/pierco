@@ -29,7 +29,7 @@
 		<ul>
 		  <% @distributors.each do |distributor|		%>
 		    <li>
-		      <h5><%= link_to distributor.name, distributors_path(distributor: distributor, city: distributor.city) %>	</h5>
+		      <h5><%= distributor.name  						%>	</h5>
 		      <p><%= distributor.full_address						%>	</p>
 		      <p>Telefonos: <%= distributor.telephones					%>	</p>
 		      <p><%= distributor.email.nil? ? "" : mail_to(distributor.email).html_safe	%>	</p>
@@ -38,20 +38,6 @@
 		</ul>
 	  </div>
 	</div>
-	<div class="sidebar-map">
-		<div class="gmap">
-			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=366x303&maptype=roadmap&sensor=false&markers=color:red|label:A|" + @distributor.geolocation, :alt => "" %>
-		</div>
-	</div><!--end class Sidebar-map-->
-	<div class="dealer-info">
-	  <ul>
-	    <li>
-	      <h5><%= @distributor.name %></h5>
-	      <p><%= @distributor.full_address                                           %>      </p>
-              <p>Telefonos: <%= @distributor.telephones                                  %>      </p>
-              <p><%= @distributor.email.nil? ? "" : mail_to(@distributor.email).html_safe %>      </p>
-	    </li>		
-	  </ul>
-	</div><!--end class dealer-info-->
+	<%= render partial: "google_map", locals: {distributors: @distributors} %>
 	
 </div><!--end class wrapper-->

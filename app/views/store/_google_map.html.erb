@@ -1,0 +1,28 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["map"]});
+  google.setOnLoadCallback(drawGeoMap);
+
+  function drawGeoMap() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Latitude');
+      data.addColumn('number', 'Longitude');
+      data.addColumn('string', 'Loc Name');
+
+
+      <% @distributors.each do |distributor| %>
+        data.addRow([ <%= distributor.latitude %>, <%= distributor.longitude %>, '<%= j(distributor.name) %>' ]);
+      <% end %>
+
+      var map = new google.visualization.Map(document.getElementById('gmap'));
+      map.draw(data, {showTip: true});
+  };
+</script>
+
+
+<div class="sidebar-map">
+ <div class="gmap" id="gmap">
+  
+  </div>
+</div><!--end class Sidebar-map-->
+
