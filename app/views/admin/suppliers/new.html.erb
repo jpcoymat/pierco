@@ -10,8 +10,8 @@
   				</ul>
 		</div>
 	<% end %>
-	<%= form_for [:admin, @supplier], :html => {:multipart => true} do |form|	%>
-		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company.id	%>
-		<%= render :partial => 'supplier',:locals =>{:form => form}	%>
+	<%= form_for [:admin, @supplier], html: {{class: "form-horizontal", multipart: true} do |form|	%>
+		<%= form.hidden_field :company_id, value: User.find(session[:user_id]).company.id	%>
+		<%= render partial: 'supplier', locals: {form: form}	%>
 		<%= submit_tag "Crear Marca"								%>
 	<% end %>

@@ -1,12 +1,61 @@
-<table>
-	<tr><td>Nombre				</td>	<td><%= form.text_field	:name				%>	</td></tr>
-	<tr><td>Direccion			</td>	<td><%= form.text_field :address_1			%>	</td></tr>
-	<tr><td>Direccion 2			</td>	<td><%= form.text_field	:address_2			%>	</td></tr>
-	<tr><td>Ciudad				</td>	<td><%= form.text_field	:city				%>	</td></tr>
-	<tr><td>Departamento/Estado	</td>	<td><%= form.text_field :state				%>	</td></tr>
-	<tr><td>Codigo Postal		</td>	<td><%= form.text_field :postal_code		%>	</td></tr>
-	<tr><td>Pais				</td>	<td><%= form.text_field :country			%>	</td></tr>
-	<tr><td>Telefono			</td>	<td><%= form.text_field	:telephone			%>	</td></tr>
-	<tr><td>Website				</td>	<td><%= form.text_field	:website			%>	</td></tr>
-	<tr><td>Logo				</td>	<td><%= form.file_field	:logo_picture		%>	</td></tr>
-</table>
+<div class="form-group">
+  <%= forml.label "Nombre" %>
+  <div class="col-xs-4">
+    <%= form.text_field	:name		%>
+  </div>
+</div> 
+<div class="form-group">
+  <%= form.label "Direccion" %>
+  <div class="col-xs-4">
+    <%= form.text_field :address_1	%>	
+  </div>
+</div>
+<div class="form-group">
+  <%= forml.label "Direccion 2" %>
+  <div class="col-xs-4">	
+    <%= form.text_field	:address_2	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Ciudad" %>
+  <div class="col-xs-4">		
+    <%= form.text_field	:city		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Departamento/Estado" %>
+  <div class="col-xs-4">
+    <%= form.text_field :state		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Codigo Postal" %>
+  <div class="col-xs-4">
+    <%= form.text_field :postal_code	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Pais" %>		
+  <div class="col-xs-4">
+    <%= form.text_field :country	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Telefono" %>	
+  <div class="col-xs-4">
+    <%= form.text_field	:telephone	%>	
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Website" %>
+  <div class="col-xs-4">		
+    <%= form.text_field	:website	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Logo" %>		
+  <div class="col-xs-4">
+    <%= form.file_field	:logo_picture	%>
+  </div>
+</div>
+
