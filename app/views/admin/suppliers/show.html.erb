@@ -1,16 +1,16 @@
 <h1>Marca	</h1>
 	
-	<table>
-		<tr><td>Nombre Marca	</td>	<td><%= @supplier.name			%>	</td></tr>
-		<tr><td>Direccion		</td>	<td><%= @supplier.full_address		%>	</td></tr>
-		<tr><td>Ciudad			</td>	<td><%= @supplier.city			%>	</td></tr>
-		<tr><td>Estado			</td>	<td><%= @supplier.state			%>	</td></tr>
-		<tr><td>Codigo Postal	</td>	<td><%= @supplier.postal_code			%>	</td></tr>
-		<tr><td>Pais			</td>	<td><%= @supplier.country		%>	</td></tr>
-		<tr><td>Imagen			</td>	<td><%= @supplier.image_filename.nil? ? "" : image_tag(@supplier.image_filename)	%>	</td></tr>
-	</table>
-	
+	<dl class="dl-horizontal">
+          <dt>Nombre Marca	</dt>   <dd><%= @supplier.name			%></dd>	
+	  <dt>Direccion		</dt>   <dd><%= @supplier.full_address		%></dd>	
+	  <dt>Ciudad		</dt>   <dd><%= @supplier.city			%></dd>	
+	  <dt>Estado		</dt>   <dd><%= @supplier.state			%></dd>	
+	  <dt>Codigo Postal	</dt>   <dd><%= @supplier.postal_code		%></dd>	
+	  <dt>Pais		</dt>   <dd><%= @supplier.country		%></dd>	
+	  <dt>Imagen		</dt>   <dd><%= @supplier.image_filename.nil? ? "" : image_tag(@supplier.image_filename)	%></dd>
+	</dl>
 	<p>
 		<%= link_to "Modificar", edit_admin_supplier_path(@supplier)		%> |
 		<%= @supplier.deleteable? ? link_to("Eliminar", admin_supplier_path(@supplier), :method => :delete ) : ""	%> 
+	</p>
 	
