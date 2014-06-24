@@ -16,7 +16,7 @@ class Supplier < ActiveRecord::Base
   end
   
   def deleteable?
-    self.products.empty?
+    self.products.empty? && self.supplier_contacts.empty?
   end
   
 end
