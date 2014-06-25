@@ -1,7 +1,7 @@
 <h1>Distribuidores	</h1>
 
 	<% unless @distributors.empty?	%>
-		<table>
+		<table class="table table-striped">
 			<tr><th>Nombre Distribuidor	</th>	
 				<th>Direccion			</th>	
 				<th>Ciudad				</th> 
@@ -17,7 +17,7 @@
 					<td><%= number_to_phone(distributor.telephone_2)			%>	</td>
 					<td><%= distributor.email						%>	</td>
 					<td><%= link_to "Modificar", edit_admin_distributor_path(distributor)			%>	</td>
-					<td><%= link_to("Eliminar", admin_distributor_path(distributor), :method => :delete)	%>
+					<td><%= button_to("Eliminar", admin_distributor_path(distributor), method: :delete)	%>
 				</tr>
 			<% end %>
 		</table>

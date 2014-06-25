@@ -1,15 +1,79 @@
-<table>
-	<tr><td>Nombre			</td>	<td><%= form.text_field	:name			%>	</td></tr>
-	<tr><td>Direccion		</td>	<td><%= form.text_field	:address_1		%>	</td></tr>
-	<tr><td>Direccion (2)	</td>	<td><%= form.text_field	:address_2		%>	</td></tr>
-	<tr><td>Ciudad			</td>	<td><%= form.text_field	:city			%>	</td></tr>
-	<tr><td>Departamento	</td>	<td><%= form.text_field	:state			%>	</td></tr>
-	<tr><td>Pais			</td>	<td><%= form.text_field	:country		%>	</td></tr>
-	<tr><td>Codigo Postal	</td>	<td><%= form.text_field	:postal_code	%>	</td></tr>
-	<tr><td>Telefono (1)	</td>	<td><%= form.text_field	:telephone_1	%>	</td></tr>
-	<tr><td>Telefono (2)	</td>	<td><%= form.text_field	:telephone_2	%>	</td></tr>
-	<tr><td>Telefono (3)	</td>	<td><%= form.text_field	:telephone_3	%>	</td></tr>
-	<tr><td>Email			</td>	<td><%= form.text_field	:email			%>	</td></tr>
-        <tr><td>Latitude	</td>	<td><%= form.text_field :latitude	%>	</td></tr>
-	<tr><td>Longitude	</td>	<td><%= form.text_field :longitude	%>	</td></tr>
-</table>
+<div class="form-group">
+  <%= form.label "Nombre", class: "col-sm-2 control-label"		%>
+  <div class="col-xs-4">	
+    <%= form.text_field	:name, class: "form-control"		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Direccion", class: "col-sm-2 control-label"		%>		
+  <div class="col-xs-4">
+    <%= form.text_field	:address_1, class: "form-control"	%>
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Direccion (2)", class: "col-sm-2 control-label"	%>
+  <div class="col-xs-4">
+     <%= form.text_field :address_2, class: "form-control"	%>
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Ciudad", class: "col-sm-2 control-label"		%>
+ <div class="col-xs-4">		
+   <%= form.text_field	:city, class: "form-control"		%>
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Departamento", class: "col-sm-2 control-label"	%>
+  <div class="col-xs-4">	
+    <%= form.text_field	:state, class: "form-control"		%>
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Pais" , class: "col-sm-2 control-label"		%>
+  <div class="col-xs-4">	
+    <%= form.text_field	:country, class: "form-control"	%>	
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Codigo Postal", class: "col-sm-2 control-label"	%>
+  <div class="col-xs-4">	
+    <%= form.text_field	:postal_code, class: "form-control"	%>	
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Telefono (1)", class: "col-sm-2 control-label"		%>	
+  <div class="col-xs-4">
+    <%= form.text_field	:telephone_1, class: "form-control"	%>	
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Telefono (2)", class: "col-sm-2 control-label"		%>	
+  <div class="col-xs-4">
+    <%= form.text_field	:telephone_2, class: "form-control"	%>	
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Telefono (3)"	, class: "col-sm-2 control-label"	%>
+  <div class="col-xs-4">	
+    <%= form.text_field	:telephone_3, class: "form-control"	%>	
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Email", class: "col-sm-2 control-label"		%>	
+  <div class="col-xs-4">
+    <%= form.text_field	:email, class: "form-control"		%>	
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Latitude", class: "col-sm-2 control-label"		%>		
+  <div class="col-xs-4">
+    <%= form.text_field :latitude, class: "form-control"	%>
+ </div>
+</div>
+<div class="form-group">
+  <%= form.label "Longitude", class: "col-sm-2 control-label"		%>
+  <div class="col-xs-4">
+    <%= form.text_field :longitude, class: "form-control"	%>
+ </div>
+</div>
+

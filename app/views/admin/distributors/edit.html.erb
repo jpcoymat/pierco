@@ -12,10 +12,9 @@
 	<% end %>
 
 
-	<%= form_for [:admin, @distributor] do |form|	%>
-		<%= form.hidden_field :id										%>
+	<%= form_for [:admin, @distributor], html: {class: "form-horizontal"} do |form|	%>
 		<%= render :partial => 'distributor', :locals => {:form => form}	%>
-		<%= submit_tag "Actualizar"										%>
+		<%= submit_tag "Actualizar", {class: "btn btn-primary"} 		%>
 	<% end %>
 	
 	<br><br>

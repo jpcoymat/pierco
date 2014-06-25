@@ -14,10 +14,10 @@
   <% end %>
   
 	
-	<%= form_for [:admin, @distributor] do |form|	%>
-		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company.id			%>
-		<%= render :partial => 'distributor', :locals => {:form => form}	%>
-		<%= submit_tag "Crear Distribuidor"									%>
+	<%= form_for [:admin, @distributor], html: {class: "form-horizontal"} do |form|	%>
+		<%= form.hidden_field :company_id, :value => User.find(session[:user_id]).company.id	%>
+		<%= render :partial => 'distributor', locals: {form: form}				%>
+		<%= submit_tag "Crear Distribuidor", {class: "btn btn-primary"} 			%>
 	<% end 	%>
 	<br><br>
 	<hr>
