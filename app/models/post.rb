@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  validates :title, :content, :presence => true
+  validates :title, :content, presence: true
   
   belongs_to :company
 

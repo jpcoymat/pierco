@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
   include Upload
   
   validates :name, :address_1, :city, :state, :country,:presence => true
-  validates :name, :uniqueness => true
+  validates :name, uniqueness: true
   
   has_many  :users
   has_many  :suppliers
@@ -79,7 +79,7 @@ class Company < ActiveRecord::Base
   end
   
   def most_recent_posts
-    @most_recent_posts = Post.where(:company_id => self.id).limit(3)
+    @most_recent_posts = Post.where(company_id: self.id).limit(3)
   end
   
 

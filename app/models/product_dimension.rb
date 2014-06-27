@@ -2,8 +2,8 @@ class ProductDimension < ActiveRecord::Base
 
   belongs_to  :product
 
-  validates :product_id, :name, :presence => true
-  validates_uniqueness_of :name, :scope => :product_id
+  validates :product_id, :name, presence: true
+  validates_uniqueness_of :name, scope: :product_id
   
   def self.attribute_dictionary
     @@attribute_dictionary = {	"maximum_pressure" => "Presion (lbs)",

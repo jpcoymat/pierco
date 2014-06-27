@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  validates	:username, :length => {:within => 3..40}
-  validates	:username, :first_name, :last_name, :email, :hashed_password, :presence => true
-  validates	:username, :uniqueness => true
+  validates	:username, length: {:within => 3..40}
+  validates	:username, :first_name, :last_name, :email, :hashed_password, presence: true
+  validates	:username, uniqueness: true
 
-  validates	:password, :confirmation => true
+  validates	:password, confirmation: true
 
   validate 	:password_must_be_present
 
