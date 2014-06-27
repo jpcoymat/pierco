@@ -1,7 +1,7 @@
 <h1>Categorias de Productos	</h1>
 	
 	<% unless @product_categories.empty?	%>
-		<table>
+		<table class="table table-striped">
 			<tr><th>Categoria				</th>
 				<th>Descripcion				</th>	
 				<% ProductDimension.dimension_attributes.each do |attrbt| %> 

@@ -3,7 +3,7 @@
 	<% if @posts.empty? %>
 		<p>Todavia no se han creado noticias.</p>
 	<% else %>
-		<table>
+		<table class="table table-striped">
 			<tr><th>Fecha Creacion </th>	<th>Titulo Noticia </th> <th>Contenido</th></tr>
 			<% @posts.each do |post| %>
 				<tr><td><%= post.created_at.strftime('%Y-%m-%d %H:%M')	%>  </td>

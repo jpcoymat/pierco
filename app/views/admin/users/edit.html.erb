@@ -1,5 +1,7 @@
 <h2>Modificar Usuario</h2>
-<%= form_for [:admin, @user] do |form| %>
+<%= form_for [:admin, @user], html: {class: "form-horizontal"} do |form| %>
 <%= render partial: 'user', locals: {form: form} %>
-<%= submit_tag "Actualizar Usuario" %>
+<%= submit_tag "Actualizar Usuario", {class: "btn btn-primary"} %>
 <% end %>
+<br \><br \>
+<%= link_to "Regresar", admin_users_path %>

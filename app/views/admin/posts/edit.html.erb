@@ -1,8 +1,10 @@
 <h1>Modificar Noticia </h1>
 	
-	<%= form_for [:admin, @post] do |form| %>
+	<%= form_for [:admin, @post], html: {class: "form-horizontal"} do |form| %>
 		<%= form.hidden_field :id, :value => @post.id %>
 		<%= render :partial => 'post', :locals => {:form => form} %>
-		<%= submit_tag "Modificar Noticia" %>
+		<%= submit_tag "Modificar Noticia", {class: "btn btn-primary"} %>
 	<% end %>
+<br \><br \>
+<%= link_to "Regresar", admin_posts_path %>
 		

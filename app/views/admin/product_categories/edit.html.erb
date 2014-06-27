@@ -12,9 +12,10 @@
 <% end %>
 
 
-	<%= form_for [:admin, @product_category] do |form|	%>
+	<%= form_for [:admin, @product_category], html: {class: "form-horizontal"} do |form|	%>
 		<%= form.hidden_field :id	%>
 		<%= render :partial => 'product_category', :locals => {:form => form}	%>
-		<%= submit_tag "Actualizar"			%>
+		<%= submit_tag "Actualizar",  {class: "btn btn-primary"}		%>
 	<% end %>
-	<%= link_to "Regreso", :back %>
+        <br \><br \>
+	<%= link_to "Regreso", admin_product_categories_path %>

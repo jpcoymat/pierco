@@ -1,27 +1,138 @@
-<table>
-	<tr><td>Nombre 			</td>	<td><%= form.text_field	:name 					%>	</td></tr>
-	<tr><td>Direccion		</td>	<td><%= form.text_field :address_1				%>	</td></tr>
-	<tr><td>Direccion (2)		</td>	<td><%= form.text_field	:address_2				%>	</td></tr>
-	<tr><td>Ciudad			</td>	<td><%= form.text_field	:city					%>	</td></tr>
-	<tr><td>Departamento		</td>	<td><%= form.text_field	:state					%>	</td></tr>
-	<tr><td>Codigo Postal		</td>	<td><%= form.text_field	:postal_code				%>	</td></tr>
-	<tr><td>Pais   			</td>   <td><%= form.text_field :country    				%>	</td></tr>
-	<tr><td>Telefono 1   		</td>   <td><%= form.text_field :telephone_1    			%>	</td></tr>
-	<tr><td>Telefono 2   		</td>   <td><%= form.text_field :telephone_2    			%>	</td></tr>
-	<tr><td>Telefono 3   		</td>   <td><%= form.text_field :telephone_3   		 		%>  	</td></tr>
-	<tr><td>Telefono 4   		</td>   <td><%= form.text_field :telephone_4    			%>	</td></tr>
-	<tr><td>Telefono 5   		</td>   <td><%= form.text_field :telephone_5    			%>	</td></tr>
-	<tr><td>Fax  			</td>   <td><%= form.text_field :fax    				%>  	</td></tr>
-	<tr><td>Email   		</td>   <td><%= form.text_field :email    				%>	</td></tr>
-	<tr><td>Imagen Logo		</td>	<td><%= form.file_field	:logo_picture				%>	</td></tr>
-</table>
-<table>
-	<tr><td>Slogan			</td>	<td><%= form.text_field :slogan					%>	</td></tr>
-	<tr><td>Contenindo Principal	</td>	<td><%= form.text_area	:about_us_main				%>	</td></tr>
-	<tr><td>Seccion 1 Titulo 	</td>	<td><%= form.text_field	:headline_1_title 			%>	</td></tr>
-	<tr><td>Seccion 1 Contenido 	</td>	<td><%= form.text_area 	:headline_1_content			%>	</td></tr>
-	<tr><td>Seccion 2 Titulo 	</td>	<td><%= form.text_field	:headline_2_title 			%>	</td></tr>
-	<tr><td>Seccion 2 Contenido 	</td>	<td><%= form.text_area 	:headline_2_content			%>	</td></tr>
-	<tr><td>Seccion 3 Titulo 	</td>	<td><%= form.text_field	:headline_3_title 			%>	</td></tr>
-	<tr><td>Seccion 4 Contenido 	</td>	<td><%= form.text_area 	:headline_3_content			%>	</td></tr>
-</table>
+<div class="form-group">
+  <%= form. label "Nombre", class: "col-sm-2 control-label" %> 			
+  <div class="col-xs-4">
+    <%= form.text_field :name, class: "form-control" 		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Direccion", class: "col-sm-2 control-label" %>		
+  <div class="col-xs-4">
+    <%= form.text_field :address_1, class: "form-control"		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Direccion (2)", class: "col-sm-2 control-label" %>		
+  <div class="col-xs-4">
+    <%= form.text_field :address_2, class: "form-control"		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Ciudad", class: "col-sm-2 control-label" %>			
+  <div class="col-xs-4">
+    <%= form.text_field :city, class: "form-control"		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Departamento", class: "col-sm-2 control-label" %>		
+  <div class="col-xs-4">
+    <%= form.text_field :state, class: "form-control"		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Codigo Postal", class: "col-sm-2 control-label" %>		
+  <div class="col-xs-4">
+    <%= form.text_field :postal_code, class: "form-control"	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Pais", class: "col-sm-2 control-label" %>   			
+  <div class="col-xs-4">
+    <%= form.text_field :country, class: "form-control"    	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Telefono 1", class: "col-sm-2 control-label" %>   		
+  <div class="col-xs-4">
+    <%= form.text_field :telephone_1, class: "form-control"    	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Telefono 2", class: "col-sm-2 control-label" %>   		
+  <div class="col-xs-4">
+    <%= form.text_field :telephone_2, class: "form-control"    	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Telefono 3", class: "col-sm-2 control-label" %>   		
+  <div class="col-xs-4">
+    <%= form.text_field :telephone_3, class: "form-control"   	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Telefono 4", class: "col-sm-2 control-label" %>   		
+  <div class="col-xs-4">
+    <%= form.text_field :telephone_4, class: "form-control"    	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Telefono 5", class: "col-sm-2 control-label" %>   		
+  <div class="col-xs-4">
+    <%= form.text_field :telephone_5, class: "form-control"    	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Fax", class: "col-sm-2 control-label" %> 			
+  <div class="col-xs-4">
+    <%= form.text_field :fax, class: "form-control"    		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Email", class: "col-sm-2 control-label" %>   		
+  <div class="col-xs-4">
+    <%= form.text_field :email, class: "form-control"    		%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Imagen Logo", class: "col-sm-2 control-label" %>		
+  <div class="col-xs-4">
+    <%= form.file_field :logo_picture, class: "form-control"	%>
+  </div>
+</div>
+<div class="form-group">
+<%= form. label "Slogan", class: "col-sm-2 control-label" %>			
+  <div class="col-xs-4">
+    <%= form.text_field :slogan, class: "form-control"		%>
+  </div>
+</div>
+<div class="form-group">
+<%= form. label "Contenindo Principal", class: "col-sm-2 control-label" %>	
+  <div class="col-xs-4">
+    <%= form.text_area :about_us_main, class: "form-control"	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Seccion 1 Titulo", class: "col-sm-2 control-label" %> 	
+  <div class="col-xs-4">
+    <%= form.text_field :headline_1_title, class: "form-control" 	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Seccion 1 Contenido", class: "col-sm-2 control-label" %> 	
+  <div class="col-xs-4">
+    <%= form.text_area  :headline_1_content, class: "form-control"	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Seccion 2 Titulo", class: "col-sm-2 control-label" %> 	
+  <div class="col-xs-4">
+    <%= form.text_field :headline_2_title, class: "form-control" 	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Seccion 2 Contenido", class: "col-sm-2 control-label" %> 	
+  <div class="col-xs-4">
+    <%= form.text_area  :headline_2_content, class: "form-control"	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Seccion 3 Titulo", class: "col-sm-2 control-label" %> 	
+  <div class="col-xs-4">
+    <%= form.text_field :headline_3_title, class: "form-control" 	%>
+  </div>
+</div>
+<div class="form-group">
+  <%= form. label "Seccion 4 Contenido", class: "col-sm-2 control-label" %> 	
+  <div class="col-xs-4">
+    <%= form.text_area  :headline_3_content, class: "form-control"	%>
+  </div>
+</div>

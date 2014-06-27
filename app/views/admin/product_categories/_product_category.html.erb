@@ -1,7 +1,21 @@
-<table>
-	<tr><td>Nombre Categoria			</td>	<td><%= form.text_field	:name			%>	</td></tr>
-	<tr><td>Descripcion				</td>	<td><%= form.text_field	:description		%>	</td></tr>
-	<% ProductDimension.dimension_attributes.each do |attrbt| %>
-		<tr><td> Maneja <%= ProductDimension.attribute_dictionary[attrbt] %> </td> <td><%= form.check_box attrbt.to_sym %></td></tr>
-	<% end %>	
-</table>
+<div class="form-group">
+  <%= form.label "Nombre Categoria", class: "col-sm-2 control-label" %>	
+  <div class="col-xs-4">
+    <%= form.text_field	:name, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label "Descripcion", class: "col-sm-2 control-label" %>
+  <div class="col-xs-4">
+    <%= form.text_field	:description, class: "form-control"	%>
+  </div>	
+</div>
+<% ProductDimension.dimension_attributes.each do |attrbt| %>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Maneja <%= ProductDimension.attribute_dictionary[attrbt] %> </label>
+    <div class="col-xs-4">
+      <%= form.check_box attrbt.to_sym, class: "form-control" %>
+    </div>
+  </div>
+<% end %>	
+

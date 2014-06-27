@@ -1,28 +1,26 @@
 <h1>Compa&ntilde;ia	<%= @company.name	%>	</h1>
 	
-	
-	<table>
-		<tr><td>Direccion			</td>	<td><%= @company.full_address				%>	</td></tr>
-		<tr><td>Ciudad				</td>	<td><%= @company.city						%>	</td></tr>
-		<tr><td>Departamento		</td>	<td><%= @company.state						%>	</td></tr>
-		<tr><td>Codigo Postal		</td>	<td><%= @company.postal_code				%>	</td></tr>
-		<tr><td>Pais				</td>	<td><%= @company.country					%>	</td></tr>
-		<tr><td>Telefono 1          </td>   <td><%= @company.telephone_1                %>  </td></tr>
-		<tr><td>Telefono 2          </td>   <td><%= @company.telephone_2                %>  </td></tr>
-		<tr><td>Telefono 3          </td>   <td><%= @company.telephone_3                %>  </td></tr>
-		<tr><td>Telefono 4          </td>   <td><%= @company.telephone_4                %>  </td></tr>
-		<tr><td>Telefono 5          </td>   <td><%= @company.telephone_5                %>  </td></tr>
-		<tr><td>Fax                 </td>   <td><%= @company.fax                        %>  </td></tr>
-		<tr><td>Email               </td>   <td><%= @company.email                      %>  </td></tr>
-		<tr><td>Logo				</td>	<td><%= @company.image_filename.nil? ? "" : image_tag(@company.image_filename)	%>	</td></tr>
-	</table>
-	<table>
-		<tr><td>Seccion 1 Titulo 	</td>	<td><%= @company.headline_1_title 					%>	</td></tr>
-		<tr><td>Seccion 1 Contenido </td>	<td><%= @company.headline_1_content					%>	</td></tr>
-		<tr><td>Seccion 2 Titulo 	</td>	<td><%= @company.headline_2_title 					%>	</td></tr>
-		<tr><td>Seccion 2 Contenido </td>	<td><%= @company.headline_2_content					%>	</td></tr>
-		<tr><td>Seccion 3 Titulo 	</td>	<td><%= @company.headline_3_title 					%>	</td></tr>
-		<tr><td>Seccion 4 Contenido </td>	<td><%= @company.headline_3_content					%>	</td></tr>
-	</table>
-	<%= link_to "Editar Datos Compa&ntilde;ia", edit_admin_company_path(@company)	%>
+<dl class="dl-horizontal">	
+  <dt>Direccion		</dt>	<dd><%= @company.full_address		%></dd> 
+  <dt>Ciudad		</dt>	<dd><%= @company.city			%></dd> 
+  <dt>Departamento	</dt>	<dd><%= @company.state			%></dd> 
+  <dt>Codigo Postal	</dt>	<dd><%= @company.postal_code		%></dd> 
+  <dt>Pais		</dt>	<dd><%= @company.country		%></dd> 
+  <dt>Telefono 1         </dt>   <dd><%= @company.telephone_1            %></dd> 
+  <dt>Telefono 2         </dt>   <dd><%= @company.telephone_2            %></dd> 
+  <dt>Telefono 3         </dt>   <dd><%= @company.telephone_3            %></dd> 
+  <dt>Telefono 4         </dt>   <dd><%= @company.telephone_4            %></dd> 
+  <dt>Telefono 5         </dt>   <dd><%= @company.telephone_5            %></dd> 
+  <dt>Fax                </dt>   <dd><%= @company.fax                    %></dd> 
+  <dt>Email              </dt>   <dd><%= @company.email                  %></dd> 
+  <dt>Logo		</dt>	<dd><%= @company.image_filename.nil? ? "" : image_tag(@company.image_filename)	%>	</dd> 
+  <dt>Seccion 1 Titulo 	</dt>	<dd><%= @company.headline_1_title 	%></dd> 
+  <dt>Seccion 1 Contenido</dt>	<dd><%= @company.headline_1_content	%></dd> 
+  <dt>Seccion 2 Titulo 	</dt>	<dd><%= @company.headline_2_title 	%></dd> 
+  <dt>Seccion 2 Contenido</dt>	<dd><%= @company.headline_2_content	%></dd> 
+  <dt>Seccion 3 Titulo 	</dt>	<dd><%= @company.headline_3_title 	%></dd> 
+  <dt>Seccion 4 Contenido</dt>	<dd><%= @company.headline_3_content	%></dd> 
+</dl>
+<br \><br \>
+<%= link_to "Editar Datos Compa&ntilde;ia".html_safe, edit_admin_company_path(@company)	%>
 			
