@@ -1,0 +1,18 @@
+
+<div class="form-group">
+  <label class="sr-only" for="exampleInputEmail2">Nombre Distribuidor</label>
+  <script>
+  $(function() {
+    var distributors = [
+      <% @all_distributors.each do |distributor| %>
+        "<%= distributor.name %>",
+      <% end %>
+    ""];
+    $( "#distributor_name" ).autocomplete({
+      source: distributors
+    });
+  });
+  </script>
+  <%= form.text_field :name, {class: "form-control", placeholder: "Nombre Distribuidor"}   %>
+</div>
+
