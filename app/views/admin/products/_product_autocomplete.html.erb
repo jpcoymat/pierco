@@ -1,6 +1,7 @@
-<%= form.label "Nombre Producto" %>
-<script>
-$(function() {
+<div class="form-group">
+  <%= form.label "Nombre Producto", class: "col-sm-2 control-label" %>
+  <script>
+  $(function() {
     var product_names = [
       <% @all_products.each do |product| %>
         "<%= product.name %>", 
@@ -9,6 +10,9 @@ $(function() {
     $( "#product_name" ).autocomplete({
       source: product_names
     });
-});
-</script>
-<%= form.text_field :name, id: "product_name" %>
+  });
+  </script>
+  <div class="col-xs-4">
+    <%= form.text_field :name, id: "product_name", class: "form-control" %>
+  </div>
+</div>

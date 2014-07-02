@@ -3,6 +3,18 @@ class Admin::DistributorsController < ApplicationController
   before_filter :authorize
   layout 'admin'
 
+  def lookup
+    @user = User.find(session[:user_id])
+    @company = @user.company
+    @cities = @company.distributor_cities    
+    @all_distributors = @company.distributors
+    if request.post?
+      search_params = distributor_params.clone
+      search_params.delete_if {|k,v,| v.blank?} 
+      @distributors = Distributor.where(search_params)
+    end
+  end
+
   def index
     @distributors = User.find(session[:user_id]).company.distributors
   end
@@ -47,4 +59,10 @@ class Admin::DistributorsController < ApplicationController
     redirect_to admin_distributors_path
   end
   
+  private 
+    
+     def distributor_params
+       params.require(:distributor).permit(:name, :city)
+     end
+
 end

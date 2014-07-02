@@ -57,7 +57,12 @@ Pierco::Application.routes.draw do
   namespace 'admin' do 
     resources :companies
     resources :contacts
-    resources :distributors
+    resources :distributors do
+      collection do
+        get 'lookup'
+        post 'lookup'
+      end 
+    end
     resources :posts
     resources :products do
       resources :product_dimensions
@@ -73,8 +78,6 @@ Pierco::Application.routes.draw do
     resources :supplier_contacts
     resources :users
   end
-
-  resources :contacts
 
   controller :main do
     get 'index' 

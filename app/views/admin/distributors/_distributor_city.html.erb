@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label class="sr-only" for="exampleInputEmail2">Ciudad</label>
+  <script>
+  $(function() {
+    var cities = [
+      <% @cities.each do |city| %>
+        "<%= city %>",
+      <% end %>
+    ""];
+    $( "#distributor_city" ).autocomplete({
+      source: cities 
+    });
+  });
+  </script>
+  <%= form.text_field :city, {class: "form-control", placeholder: "Ingrese Ciudad"}  %>
+</div>
