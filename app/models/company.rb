@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   
   has_many  :users
   has_many  :suppliers
-  has_many  :product_categories, order: :name
+  has_many  :product_categories
   has_many  :distributors
   has_many  :posts
   

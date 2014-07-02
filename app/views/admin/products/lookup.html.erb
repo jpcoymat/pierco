@@ -1,4 +1,3 @@
-<% javascript 'dynamic_subcategories'%>
 <h1>Productos </h1>
 
 	<p>Seleccione el criterio que desea para filtrar los resultados </p>
@@ -7,13 +6,12 @@
 		<%= form.select :supplier_id, @suppliers.collect {|s| [s.name, s.id]}, include_blank: true	%>
 		<%= form.label "Categoria"	%>	
 		<%= form.select :product_category_id, @product_categories.collect {|pc| [pc.name, pc.id]}, include_blank: true	%>
-		<%= form.label "Nombre Producto" %>
-		<%= form.text_field :name	%>
+		<%= render partial: "product_autocomplete", locals: {form: form} %>
 		<%= form.label "Subcategoria" %>	
-		<%= form.select :product_subcategory_id,	@product_subcategories.collect {|ps| [ps.name, ps.id]}, include_blank: true	%>	
+		<%= form.select :product_subcategory_id, [["",""]]	%>	
 		<%= submit_tag "Buscar", {class: "btn btn-primary"}	%>
 	<% end %>
-	
+	<%= render partial: "dynamic_subcat_dropdown" %>
 	<br><br>
 	<hr>
 	<br>

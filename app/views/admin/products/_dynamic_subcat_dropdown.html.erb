@@ -1,0 +1,25 @@
+<script>
+$('#product_product_subcategory_id').hide();
+$('#product_product_category_id').change(function(){
+  
+  var product_subcategories = [
+    <% @product_subcategories.each do |product_subcategory| %>
+      [<%= product_subcategory.product_category_id %>, <%= product_subcategory.id %>, '<%= product_subcategory.name %>'] ,
+    <% end %>
+     ['','','']
+  ];
+
+  var product_category = $('#product_product_category_id').val;
+  if (product_category == "") {
+    $('#product_product_subcategory_id').hide();	
+  }
+  else {
+    $('#product_product_subcategory_id').show();
+    $.each(product_subcategories, function(index, subcategory) {
+      if (subcategory[0] == product_category) {
+        $('#product_product_subcategory_id').html("<option value=" + subcategory[1] + ">" + subcategory[2] + "</option>")  
+      }
+    });
+  }
+});
+</script>

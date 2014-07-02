@@ -7,7 +7,7 @@ class Admin::ProductsController < ApplicationController
     @suppliers = User.find(session[:user_id]).company.suppliers
     @product_categories = User.find(session[:user_id]).company.product_categories
     @product_subcategories = User.find(session[:user_id]).company.product_subcategories
-    @products = User.find(session[:user_id]).company.products
+    @all_products = User.find(session[:user_id]).company.products
     if request.post?
       product_search = params[:product].clone
       product_search.delete_if {|k,v| v.blank? }

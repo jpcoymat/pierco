@@ -7,7 +7,10 @@ gem 'prototype-rails'
 gem 'pg'
 gem 'will_paginate', "~> 3.0.pre2"
 gem 'mongrel', '>= 1.2.0.pre2'
-gem 'jquery-rails','>= 1.0.12'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem "twitter-bootstrap-rails"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
