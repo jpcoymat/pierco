@@ -1,3 +1,7 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.ui.all
+
 $(document).ready(function() {
 	
 	$('.ie7 .ask label').append('<span> *</span>')

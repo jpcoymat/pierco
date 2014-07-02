@@ -3,19 +3,7 @@
 <head>
   	<title>Pierco</title>
   	<%= stylesheet_link_tag "bootstrap" %>
-        <%= stylesheet_link_tag "bootstrap-theme-min" %>
-        <%= stylesheet_link_tag "bootstrap-theme" %>
-        <%= stylesheet_link_tag "bootstrap-min" %>
-        <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-  	<%= javascript_include_tag 'prototype', 'scriptaculous', 'jquery', 'jquery-ui', 'application' %>
-	<script>
-  		// this allows jquery to be called along with scriptaculous and YUI without any conflicts
-  		// the only difference is all jquery functions should be called with $j instead of $
-  		// e.g. $j('#div_id').stuff instead of $('#div_id').stuff
- 		var $j = jQuery.noConflict();
-	</script>
   	<%= csrf_meta_tag %>
-	<%= yield(:head)%>
 </head>
 <header>
 	<p><%=link_to "Inicio",main_index_path %> | <%= link_to "Logout", login_logout_path %>
