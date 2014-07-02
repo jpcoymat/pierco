@@ -2,13 +2,14 @@ class Admin::SuppliersController < ApplicationController
   
   layout 'admin'
   before_filter :authorize
+  before_action :set_supplier, only: [:edit, :update, :delete, :show]
 
   def index
     @suppliers = User.find(session[:user_id]).company.suppliers
   end
   
   def show
-    @supplier = Supplier.find(params[:id])
+    
   end
 
   def new
@@ -24,24 +25,26 @@ class Admin::SuppliersController < ApplicationController
       flash[:notice] = "Marca creada exitosamente"
       redirect_to admin_supplier_path @supplier
     else
-      render :action => 'new'
+      render action: 'new'
     end
   end
   
   def edit
-    @supplier = Supplier.find(params[:id])
+    
   end
 
   def update
     picture_file = params[:supplier][:logo_picture] if !(params[:supplier][:logo_picture].nil?)
-    @supplier = Supplier.find(params[:supplier][:id])
     params[:supplier].delete("logo_picture")
-    if @supplier.update_attributes(params[:supplier])
+    @supplier.assign_attributes(params[:supplier])
+    if @supplier.valid?
+      ChangeLog.record_changes_on(@supplier, User.find(session[:user_id]))
       @supplier.set_picture_file(picture_file) if picture_file
+      @supplier.save
       flash[:notice] = "Marca actualizada exitosamente"
       redirect_to admin_supplier_path @supplier
     else
-      render :action => 'edit'
+      render action: 'edit'
     end
   end
   
@@ -50,5 +53,12 @@ class Admin::SuppliersController < ApplicationController
     flash[:notice] = "Marca eliminada exitosamente"
     redirect_to admin_suppliers_path
   end
-   
+  
+  private 
+
+    def set_supplier
+      @supplier = Supplier.find(params[:id])
+    end
+
+ 
 end

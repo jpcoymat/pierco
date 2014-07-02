@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20120126034920) do
+ActiveRecord::Schema.define(version: 20140702200901) do
+
+  create_table "change_logs", force: true do |t|
+    t.integer  "reference_object_id"
+    t.string   "reference_object_type"
+    t.string   "reference_attribute"
+    t.string   "old_value"
+    t.string   "new_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "companies", force: true do |t|
     t.string   "name",                   limit: 100,                          null: false

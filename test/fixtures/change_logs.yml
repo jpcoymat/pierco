@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference_object_id: 
+  reference_object_type: Reference object
+  reference_attribute: MyString
+  old_value: MyString
+  new_value: MyString
+
+two:
+  reference_object_id: 
+  reference_object_type: Reference object
+  reference_attribute: MyString
+  old_value: MyString
+  new_value: MyString

@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   layout 'admin'
   before_filter :authorize
+  before_action :set_user, only: [:edit, :update, :destroy]
 
   def index 
     @users = User.find(session[:user_id]).company.users
@@ -22,12 +23,14 @@ class Admin::UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+    
   end
   
   def update
-    @user= User.find(params[:id])
-    if @user.update_attributes(params[:user])
+    @user.assign_attributes(params[:user])
+    if @user.valid?
+      ChangeLog.record_changes_on(@user, User.find(session[:user_id]))
+      @user.save
       flash[:notice] = "Usuario actualizado exitosamente"
       redirect_to admin_users_path
     else
@@ -37,9 +40,16 @@ class Admin::UsersController < ApplicationController
   end
   
   def destroy
-    User.destroy(params[:user])
+    @user.destroy
     flash[:notice] = "Usuario eliminado"
     redirect_to admin_users_path
   end
+
+  private
+    
+    def set_user
+      @user = User.find(params[:id])
+    end
+  
 
 end
