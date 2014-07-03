@@ -10,7 +10,7 @@ gem 'mongrel', '>= 1.2.0.pre2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "twitter-bootstrap-rails"
-
+gem "yaml_db"
 
 # Use unicorn as the web server
 # gem 'unicorn'

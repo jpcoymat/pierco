@@ -79,6 +79,8 @@ Pierco::Application.routes.draw do
     resources :users
   end
 
+  resources :contacts
+
   controller :main do
     get 'index' 
   end  
