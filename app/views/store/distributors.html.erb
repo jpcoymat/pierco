@@ -10,18 +10,24 @@
 <div class="dealers wrapper clearfix">
 	<h2>Distribuidores</h2>
 	<div class="dealer-cities-list">
+
+	<h4>Por favor seleccione la ciudad</h4>
 		
-
-		<p>Por favor seleccione la ciudad.</p>
-		<%= form_tag(distributors_path, method: :get) do %>
-			<% options_string = ""; @cities.each {|cty| cty==@city ? options_string += "<option selected=\"selected\" value=#{cty}>#{cty}</option>" : options_string += "<option value=#{cty}>#{cty}</option>"} %>
-			<%= select_tag "city", options_string.html_safe %>
-			<%= submit_tag "Buscar", :class => "search" %>
-		<% end %>
- 
-
+	<% options_string = ""; @cities.each {|cty| cty==@city ? options_string += "<option selected=\"selected\" value=#{cty}>#{cty}</option>" : options_string += "<option value=#{cty}>#{cty}</option>"} %>
+	<%= select_tag "city", options_string.html_safe %>
 
 	</div>
+
+	<script>
+	  $(document).ready(function(){	
+		$('#city').change(function() {
+			var selected_city = $('city').val();
+			window.location.href += "?city="+selected_city;
+			window.location.reload();
+	
+	    	});
+          });
+	</script>	
 
 	<div class="dealer-cities">
 	  <div class="city">
