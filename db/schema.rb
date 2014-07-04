@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140702200901) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "change_logs", force: true do |t|
     t.integer  "reference_object_id"
     t.string   "reference_object_type"
