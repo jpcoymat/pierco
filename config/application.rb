@@ -38,7 +38,7 @@ module Pierco
     config.encoding = "utf-8"
 
     # Enable the asset pipeline
-    config.assets.enabled = false
+    config.assets.enabled = true
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
   end
