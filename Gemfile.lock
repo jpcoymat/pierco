@@ -96,6 +96,7 @@ GEM
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
     will_paginate (3.0.6)
+    yaml_db (0.2.3)
 
 PLATFORMS
   ruby
@@ -109,3 +110,4 @@ DEPENDENCIES
   rails (>= 4.0.0)
   twitter-bootstrap-rails
   will_paginate (~> 3.0.pre2)
+  yaml_db
