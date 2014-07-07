@@ -955,7 +955,7 @@ aside nav ul li a:hover{
 	webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .6);
 	-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .6);
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .6);
-	text-shadow: 0px 1px 0 ##FF6600;
+	text-shadow: 0px 1px 0 #FF6600;
 }
 
 .button:hover, .nav-buttons em a:hover{
