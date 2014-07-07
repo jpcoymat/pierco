@@ -19,11 +19,11 @@
 	</div>
 
 	<script>
-		$('#city').change(function() {
-			var selected_city = $('city').val();
-			window.location.href += "?city="+selected_city;
-			window.location.reload();
-	
+		$(function () {
+			$('#city').change(function() {
+				var selected_city = this.value;
+				window.location.href = window.location.origin + "/distributors?city="+selected_city;
+			});
 	    	});
         
 	</script>	

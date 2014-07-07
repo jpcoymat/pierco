@@ -12,14 +12,14 @@ $(document).ready(function() {
 		next: ".next"
 	});
 
-$('.nav-content').hide();
-$('.open').parent('li').children('.nav-content').slideToggle();
+	$('.nav-content').hide();
+	//$('.open').parent('li').children('.nav-content').slideToggle();
 //accordeon for side menu
 	$('.accordion').click(function(event){
 		event.preventDefault();
 		if($(this).hasClass('open')){
-				$(this).parent('li').children('.nav-content').slideToggle();
-					$(this).toggleClass('open');
+			//$(this).parent('li').children('.nav-content').slideToggle();
+			//$(this).toggleClass('open');
 		}else{
 			$('.open').parent('li').children('.nav-content').slideToggle();
 			$('.open').toggleClass("open");
