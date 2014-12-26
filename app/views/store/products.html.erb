@@ -14,7 +14,7 @@
 			<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
                         <ul>
 				<% @products.each do |product| %>
-					<li><%= link_to(image_tag(product.image_filename, :size => "160x144"), view_product_path(:product => product)) %>
+					<li><%= link_to(image_tag(product.product_picture.url, size: "160x144"), view_product_path(product: product)) %>
 						<div>
 							<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
 						</div>

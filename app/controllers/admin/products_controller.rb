@@ -28,10 +28,7 @@ class Admin::ProductsController < ApplicationController
   end
   
   def create
-    picture_file = params[:product][:image_file]
-    params[:product].delete("image_file")
     @product = Product.new(params[:product])
-    @product.set_picture_file(picture_file) if picture_file  
     if @product.save        
       flash[:notice] = "Producto creado exitosamnte"
       redirect_to admin_product_path @product
@@ -53,11 +50,8 @@ class Admin::ProductsController < ApplicationController
   end
   
   def update
-    picture_file = params[:product][:image_file]
-    params[:product].delete("image_file")
     @product = Product.find(params[:id])
-    if @product.update_attributes(params[:product])
-      @product.set_picture_file(picture_file) if picture_file          
+    if @product.update_attributes(params[:product]) 
       flash[:notice] = "Producto actualizado exitosamente"
       redirect_to admin_product_path @product
     else
