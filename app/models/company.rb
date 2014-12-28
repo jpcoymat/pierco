@@ -1,7 +1,5 @@
 class Company < ActiveRecord::Base
-  
-  include Upload
-  
+    
   validates :name, :address_1, :city, :state, :country,:presence => true
   validates :name, uniqueness: true
   

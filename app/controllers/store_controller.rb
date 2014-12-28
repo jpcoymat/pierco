@@ -53,6 +53,14 @@ class StoreController < ApplicationController
     @product = Product.find(params[:product])
   end
   
+  def product_modal
+    @product = Product.find(params[:product])
+    respond_to do |format|
+      format.html {render partial: "product_modal"}
+      format.js
+    end
+  end
+  
   def thank_you
     @company = Company.first
   end

@@ -12,14 +12,14 @@
 	<div class="store-cat">
 		<div class="brand-products">
 			<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
-                        <ul>
-				<% @products.each do |product| %>
-					<li><%= link_to(image_tag(product.product_picture.url, size: "160x144"), view_product_path(product: product)) %>
-						<div>
-							<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
-						</div>
-					</li>
-				<% end %>
+            <ul>
+			<% @products.each do |product| %>
+			  <li> <a href="javascript:void(0)" onclick="getModal('<%= product.id %>')"> <%= image_tag(product.product_picture.url, size: "160x144") %></a>
+			    <div>
+			      <p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
+				</div>
+			  </li>
+			<% end %>
 			</ul>
 			<div class="brand-nav-bar">
 				<ul class="nav-buttons">
@@ -30,6 +30,21 @@
 	</div><!--end class store-cat-->
 	<%= render :partial => 'categories_menu'%>
 </div><!--end class wrapper-->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
 
 
+<script type="text/javascript">
+
+  function getModal(productId) {
+    var url = "/product_modal?product=" + productId;
+    $.get(url, function(data) {
+      $('#productModal').html(data);
+      $('#productModal').modal({});
+      $('#productModal').show();
+    }
+    );
+  }
+
+</script>
 

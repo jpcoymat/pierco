@@ -86,15 +86,16 @@ Pierco::Application.routes.draw do
   end  
 
   controller :store do
-    get 'index' => :index
-    get 'about_us' => :about_us
-    get 'suppliers' => :suppliers
-    get 'products' => :products
-    get 'distributors' => :distributors
-    get 'contact_us' => :contact_us
-    get 'view_product' => :view_product
-    get 'thank_you' => :thank_you
-    post 'create_contact' => :create_contact
+    get 'index', action: 'index'
+    get 'about_us', action: 'about_us'
+    get 'suppliers', action: 'suppliers'
+    get 'products', action: 'products'
+    get 'distributors', action: 'distributors'
+    get 'contact_us', action: 'contact_us'
+    get 'view_product', action: 'view_product'
+    get 'thank_you', action: 'thank_you'
+    post 'create_contact', action: 'create_contact'
+    get 'product_modal', action: 'product_modal'
   end
   
   root :to => "store#index", :as => 'store'
