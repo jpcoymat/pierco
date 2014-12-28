@@ -1,6 +1,5 @@
 class Supplier < ActiveRecord::Base
   
-  include Upload
   
   validates_presence_of :name, :address_1, :city, :country, :company_id, presence: {:message => "no pueden estar en blanco"}
   validates :name, uniqueness: {:message => "ya existe"}
