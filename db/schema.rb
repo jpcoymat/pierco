@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223224005) do
+ActiveRecord::Schema.define(version: 20141231221439) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "change_logs", force: :cascade do |t|
     t.integer  "reference_object_id"
@@ -34,7 +37,6 @@ ActiveRecord::Schema.define(version: 20141223224005) do
     t.string   "country",                limit: 100,                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_filename",         limit: 100
     t.text     "about_us_main"
     t.string   "telephone_1",            limit: 20
     t.string   "telephone_2",            limit: 20
@@ -53,6 +55,7 @@ ActiveRecord::Schema.define(version: 20141223224005) do
     t.string   "headline_1_title",       limit: 50
     t.string   "headline_2_title",       limit: 50
     t.string   "headline_3_title",       limit: 50
+    t.string   "company_picture"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -151,7 +154,6 @@ ActiveRecord::Schema.define(version: 20141223224005) do
     t.boolean  "active",                            default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_filename",         limit: 50
     t.integer  "product_category_id"
     t.integer  "product_subcategory_id"
     t.text     "description"
@@ -178,19 +180,19 @@ ActiveRecord::Schema.define(version: 20141223224005) do
   end
 
   create_table "suppliers", force: :cascade do |t|
-    t.string   "name",           limit: 100, null: false
-    t.string   "address_1",      limit: 255
-    t.string   "address_2",      limit: 255
-    t.string   "city",           limit: 255
-    t.string   "state",          limit: 255
-    t.string   "postal_code",    limit: 255
-    t.string   "country",        limit: 255
-    t.integer  "company_id",                 null: false
+    t.string   "name",             limit: 100, null: false
+    t.string   "address_1",        limit: 255
+    t.string   "address_2",        limit: 255
+    t.string   "city",             limit: 255
+    t.string   "state",            limit: 255
+    t.string   "postal_code",      limit: 255
+    t.string   "country",          limit: 255
+    t.integer  "company_id",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "website",        limit: 100
-    t.string   "image_filename", limit: 50
-    t.string   "telephone",      limit: 20
+    t.string   "website",          limit: 100
+    t.string   "telephone",        limit: 20
+    t.string   "supplier_picture"
   end
 
   create_table "users", force: :cascade do |t|

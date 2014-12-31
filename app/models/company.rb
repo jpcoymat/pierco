@@ -1,4 +1,6 @@
 class Company < ActiveRecord::Base
+  
+  mount_uploader :company_picture, CompanyPictureUploader
     
   validates :name, :address_1, :city, :state, :country,:presence => true
   validates :name, uniqueness: true
