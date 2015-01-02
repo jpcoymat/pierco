@@ -13,7 +13,7 @@
   <dt>Telefono 5         </dt>   <dd><%= @company.telephone_5            %></dd> 
   <dt>Fax                </dt>   <dd><%= @company.fax                    %></dd> 
   <dt>Email              </dt>   <dd><%= @company.email                  %></dd> 
-  <dt>Logo		</dt>	<dd><%= @company.image_filename.nil? ? "" : image_tag(@company.image_filename)	%>	</dd> 
+  <dt>Logo		</dt>	<dd><%= @company.company_picture.nil? ? "" : image_tag(@company.company_picture.url)	%>	</dd> 
   <dt>Seccion 1 Titulo 	</dt>	<dd><%= @company.headline_1_title 	%></dd> 
   <dt>Seccion 1 Contenido</dt>	<dd><%= @company.headline_1_content	%></dd> 
   <dt>Seccion 2 Titulo 	</dt>	<dd><%= @company.headline_2_title 	%></dd> 

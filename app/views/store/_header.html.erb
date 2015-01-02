@@ -1,7 +1,7 @@
 <header id="header">
 	<div class="header-wrap wrapper">
 		<h1 id="logo">
-			<%= link_to(image_tag(@company.image_filename), store_path) %>
+			<%= @company.company_picture.nil? ? "" : link_to(image_tag(@company.company_picture.url), store_path) %>
 			
 		</h1>
 	</div><!--end  header-wrap-->

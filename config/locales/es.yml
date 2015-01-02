@@ -15,8 +15,6 @@ es:
                             blank: "Pais no puede estar en blanco"
                         company_id:
                             blank: "Compania no puede estar en blanco"
-                        image_filename:
-                            format: "Tipo de Imagen"
                 distributor:
                     attributes:
                         name:

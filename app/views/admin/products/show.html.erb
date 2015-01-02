@@ -5,7 +5,7 @@
 		<dt>Marca		</dt>		<dd><%= @product.supplier.name		%>	</dd>
 		<dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
 		<dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
-		<dt>Imagen		</dt>		<dd><%= @product.image_filename.nil? ? "" : image_tag(@product.image_filename, :size => "100x100") %>	</dd>
+		<dt>Imagen		</dt>		<dd><%= @product.product_picture.nil? ? "" : image_tag(@product.product_picture.url, :size => "100x100") %>	</dd>
 		<dt>Descripcion		</dt>		<dd><%= @product.description			%>	</dd>
 		<dt>Activo		</dt>		<dd><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30") %>	</dd>
 	</dl>

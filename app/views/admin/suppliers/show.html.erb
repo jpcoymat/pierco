@@ -1,13 +1,13 @@
 <h1>Marca	</h1>
 	
 	<dl class="dl-horizontal">
-          <dt>Nombre Marca	</dt>   <dd><%= @supplier.name			%></dd>	
+      <dt>Nombre Marca	</dt>   <dd><%= @supplier.name			%></dd>	
 	  <dt>Direccion		</dt>   <dd><%= @supplier.full_address		%></dd>	
 	  <dt>Ciudad		</dt>   <dd><%= @supplier.city			%></dd>	
 	  <dt>Estado		</dt>   <dd><%= @supplier.state			%></dd>	
 	  <dt>Codigo Postal	</dt>   <dd><%= @supplier.postal_code		%></dd>	
-	  <dt>Pais		</dt>   <dd><%= @supplier.country		%></dd>	
-	  <dt>Imagen		</dt>   <dd><%= @supplier.image_filename.nil? ? "" : image_tag(@supplier.image_filename)	%></dd>
+	  <dt>Pais			</dt>   <dd><%= @supplier.country		%></dd>	
+	  <dt>Imagen		</dt>   <dd><%= @supplier.supplier_picture.nil? ? "" : image_tag(@supplier.supplier_picture.url)	%></dd>
 	</dl>
 	<p>
 		<%= link_to "Modificar", edit_admin_supplier_path(@supplier)		%> |

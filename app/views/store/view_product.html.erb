@@ -13,7 +13,7 @@
 		<div class="brand-products">
 			<h3><%= @product.product_category.name + " > " + @product.product_subcategory.name + " > " +  @product.name %></h3>
 			<div class="detail-image">
-				<%= image_tag(@product.image_filename, :size => "158x142")%>
+				<%= @product.product_picture.nil? ? "" : image_tag(@product.product_picture.url, :size => "158x142")%>
 			</div><!--End class detail-image-->
 			<div class="product-detail">
 				<p>

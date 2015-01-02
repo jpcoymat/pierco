@@ -6,7 +6,7 @@
 
 		<ul class="wheels-showcase clearfix">
 		  <% @products.each do |product| %>
-                    <li> <%= link_to(image_tag(product.image_filename, :size => "104x100").html_safe + "<p><em>".html_safe + product.name   + "</em>-".html_safe +  product.supplier.name + "</p>".html_safe,  view_product_path(product: product.id)) %>
+                    <li> <%= link_to(image_tag(product.product_picture.url, :size => "104x100").html_safe + "<p><em>".html_safe + product.name   + "</em>-".html_safe +  product.supplier.name + "</p>".html_safe,  view_product_path(product: product.id)) %>
                     </li>
 		  <% end %>
 		</ul>
