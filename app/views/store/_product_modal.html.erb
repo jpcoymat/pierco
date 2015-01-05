@@ -5,38 +5,36 @@
 	  <h4 class="modal-title" id="myModalLabel"><%= @product.name %></h4>
 	</div>
 	<div class="modal-body">
-	  <div class="detail-image">
-        <%= image_tag(@product.product_picture.url)%>
-	  </div><!--End class detail-image-->
-		  <div class="product-detail">
-			<p>
-			  <%= @product.description %>
-			</p>
-		  </div><!--End class product-detail-->
-		  <% if @product.product_dimensions.count > 0 %>
-		  <div class="table-detail">
-		    <h4><span>Medidas Disponibles</span></h4>
-			<table>
-			  <tr>
-		        <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
-				  <% if @product.product_category.attributes[ordered_attribute]	%>
-				    <th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%></th>
-			      <% end %>
-				<% end %>
-		      </tr>
-			  <% @product.product_dimensions.each do |product_dimension| %>
-			  <tr>
-			    <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
-				  <% if @product.product_category.attributes[ordered_attribute] %>
-				    <td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
-				  <% end %>
-				<% end %>								
-			  </tr>
+	  <%= image_tag(@product.product_picture.url)%>
+	  <div class="product-detail">
+	    <p>
+	       <%= @product.description %>
+		</p>
+      </div><!--End class product-detail-->
+	  <% if @product.product_dimensions.count > 0 %>
+	    <div class="table-detail">
+		  <h4><span>Medidas Disponibles</span></h4>
+          <table>
+            <tr>
+		    <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
+		      <% if @product.product_category.attributes[ordered_attribute]	%>
+			    <th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%></th>
 			  <% end %>
-			</table>
-	      </div><!-- End of class table-detail-->
-		  <% end %>				
-		</div><!--end class modal-body-->
+			<% end %>
+		    </tr>
+			<% @product.product_dimensions.each do |product_dimension| %>
+			<tr>
+			  <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
+			    <% if @product.product_category.attributes[ordered_attribute] %>
+				  <td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
+				<% end %>
+		      <% end %>								
+			</tr>
+			<% end %>
+          </table>
+	    </div><!-- End of class table-detail-->
+      <% end %>				
+    </div><!--end class modal-body-->
 
     <div class="modal-footer">
 	  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
