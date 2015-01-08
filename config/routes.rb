@@ -1,7 +1,6 @@
 Pierco::Application.routes.draw do
 
   get "login/login"
-  get "main/index"
   get "login/logout"
   post "login/login"
   # The priority is based upon order of creation:
@@ -70,6 +69,7 @@ Pierco::Application.routes.draw do
         get 'lookup'
         post 'lookup'
       end
+      resources :product_photos
     end      
     resources :product_categories do
       resources :product_subcategories
@@ -80,10 +80,6 @@ Pierco::Application.routes.draw do
   end
 
   resources :contacts
-
-  controller :main do
-    get 'index' 
-  end  
 
   controller :store do
     get 'index', action: 'index'

@@ -1,0 +1,18 @@
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+		<li><%= link_to "Compa&ntilde;ia".html_safe, admin_companies_path	%>	</li>
+		<li><%= link_to "Marcas", admin_suppliers_path						%>	</li>
+		<li><%= link_to "Categorias", admin_product_categories_path			%>	</li>
+		<li><%= link_to "Productos",	lookup_admin_products_path			%>	</li>
+		<li><%= link_to "Distribuidores", lookup_admin_distributors_path 	%>	</li>
+		<li><%= link_to "Noticias", admin_posts_path						%>	</li>
+        <li><%= link_to "Usuarios", admin_users_path            			%>  </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Cerrar Session", login_logout_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

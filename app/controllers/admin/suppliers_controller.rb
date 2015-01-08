@@ -17,10 +17,7 @@ class Admin::SuppliersController < ApplicationController
   end
   
   def create
-    picture_file = params[:supplier][:logo_picture] if !(params[:supplier][:logo_picture].nil?)
-    params[:supplier].delete("logo_picture")
     @supplier = Supplier.new(params[:supplier])
-    @supplier.set_picture_file(picture_file) if picture_file
     if @supplier.save
       flash[:notice] = "Marca creada exitosamente"
       redirect_to admin_supplier_path @supplier
@@ -34,12 +31,9 @@ class Admin::SuppliersController < ApplicationController
   end
 
   def update
-    picture_file = params[:supplier][:logo_picture] if !(params[:supplier][:logo_picture].nil?)
-    params[:supplier].delete("logo_picture")
     @supplier.assign_attributes(params[:supplier])
     if @supplier.valid?
       ChangeLog.record_changes_on(@supplier, User.find(session[:user_id]))
-      @supplier.set_picture_file(picture_file) if picture_file
       @supplier.save
       flash[:notice] = "Marca actualizada exitosamente"
       redirect_to admin_supplier_path @supplier

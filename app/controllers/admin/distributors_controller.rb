@@ -33,7 +33,7 @@ class Admin::DistributorsController < ApplicationController
     @distributor = Distributor.new(params[:distributor])
     if @distributor.save
       flash[:notice] = "Distrtibuidor creado exitosamente"
-      redirect_to admin_distributors_path
+      redirect_to lookup_admin_distributors_path
     else
       render :action => 'new'
     end
@@ -47,7 +47,7 @@ class Admin::DistributorsController < ApplicationController
     @distributor = Distributor.find(params[:id])
     if @distributor.update_attributes(params[:distributor])
       flash[:notice] = "Distribuidor actualizado exitosamente"
-      redirect_to admin_distributors_path
+      redirect_to lookup_admin_distributors_path
     else
       render :action => 'edit'
     end
@@ -56,7 +56,7 @@ class Admin::DistributorsController < ApplicationController
   def destroy
     Distributor.destroy(params[:id])
     flash[:notice] = "Distribuidor eliminado exitosamente"
-    redirect_to admin_distributors_path
+    redirect_to lookup_admin_distributors_path
   end
   
   private 

@@ -4,10 +4,11 @@ class Admin::ProductsController < ApplicationController
   before_filter :authorize
 
   def lookup 
-    @suppliers = User.find(session[:user_id]).company.suppliers
-    @product_categories = User.find(session[:user_id]).company.product_categories
-    @product_subcategories = User.find(session[:user_id]).company.product_subcategories
-    @all_products = User.find(session[:user_id]).company.products
+    @company = User.find(session[:user_id]).company
+    @suppliers = @company.suppliers
+    @product_categories = @company.product_categories
+    @product_subcategories = @company.product_subcategories
+    @all_products = @company.products
     if request.post?
       product_search = params[:product].clone
       product_search.delete_if {|k,v| v.blank? }
