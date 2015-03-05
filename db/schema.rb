@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20141231221439) do
 
   create_table "change_logs", force: :cascade do |t|
     t.integer  "reference_object_id"
-    t.string   "reference_object_type", limit: 255
-    t.string   "reference_attribute",   limit: 255
-    t.string   "old_value",             limit: 255
-    t.string   "new_value",             limit: 255
+    t.string   "reference_object_type"
+    t.string   "reference_attribute"
+    t.string   "old_value"
+    t.string   "new_value"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141231221439) do
   create_table "companies", force: :cascade do |t|
     t.string   "name",                   limit: 100,                          null: false
     t.string   "address_1",              limit: 100,                          null: false
-    t.string   "address_2",              limit: 255
+    t.string   "address_2"
     t.string   "city",                   limit: 100,                          null: false
     t.string   "state",                  limit: 50,                           null: false
     t.string   "postal_code",            limit: 10,                           null: false
@@ -119,15 +119,15 @@ ActiveRecord::Schema.define(version: 20141231221439) do
 
   create_table "product_dimensions", force: :cascade do |t|
     t.integer  "product_id"
-    t.string   "name",                limit: 255,                          null: false
-    t.decimal  "length",                          precision: 10, scale: 2
-    t.decimal  "width",                           precision: 10, scale: 2
-    t.decimal  "maximum_pressure",                precision: 10, scale: 2
-    t.decimal  "maximum_weight",                  precision: 10, scale: 2
+    t.string   "name",                                                    null: false
+    t.decimal  "length",                         precision: 10, scale: 2
+    t.decimal  "width",                          precision: 10, scale: 2
+    t.decimal  "maximum_pressure",               precision: 10, scale: 2
+    t.decimal  "maximum_weight",                 precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color",               limit: 50
-    t.decimal  "diameter",                        precision: 10, scale: 2
+    t.decimal  "diameter",                       precision: 10, scale: 2
     t.string   "part_number",         limit: 75
     t.string   "service_description", limit: 20
     t.string   "lateral_wall",        limit: 20
@@ -161,32 +161,32 @@ ActiveRecord::Schema.define(version: 20141231221439) do
   end
 
   create_table "supplier_contacts", force: :cascade do |t|
-    t.integer  "supplier_id",             null: false
-    t.string   "first_name",  limit: 50,  null: false
-    t.string   "last_name",   limit: 50,  null: false
-    t.string   "position",    limit: 255
-    t.string   "telephone",   limit: 255
-    t.string   "cell_phone",  limit: 255
-    t.string   "email",       limit: 255
-    t.string   "fax",         limit: 255
-    t.string   "address_1",   limit: 255
-    t.string   "address_2",   limit: 255
-    t.string   "city",        limit: 255
-    t.string   "state",       limit: 255
-    t.string   "postal_code", limit: 255
-    t.string   "country",     limit: 255
+    t.integer  "supplier_id",            null: false
+    t.string   "first_name",  limit: 50, null: false
+    t.string   "last_name",   limit: 50, null: false
+    t.string   "position"
+    t.string   "telephone"
+    t.string   "cell_phone"
+    t.string   "email"
+    t.string   "fax"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "suppliers", force: :cascade do |t|
     t.string   "name",             limit: 100, null: false
-    t.string   "address_1",        limit: 255
-    t.string   "address_2",        limit: 255
-    t.string   "city",             limit: 255
-    t.string   "state",            limit: 255
-    t.string   "postal_code",      limit: 255
-    t.string   "country",          limit: 255
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "country"
     t.integer  "company_id",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -196,12 +196,12 @@ ActiveRecord::Schema.define(version: 20141231221439) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",      limit: 50,  null: false
-    t.string   "last_name",       limit: 50,  null: false
-    t.string   "hashed_password", limit: 255, null: false
-    t.string   "username",        limit: 25,  null: false
+    t.string   "first_name",      limit: 50, null: false
+    t.string   "last_name",       limit: 50, null: false
+    t.string   "hashed_password",            null: false
+    t.string   "username",        limit: 25, null: false
     t.string   "email",           limit: 50
-    t.integer  "company_id",                  null: false
+    t.integer  "company_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
