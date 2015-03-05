@@ -1,0 +1,68 @@
+<h1>Distribuidores </h1>
+<p>Seleccione el criterio que desea para filtrar los resultados </p>
+<%= form_for :distributor, url: lookup_admin_distributors_path, html: {class: "form-horizontal"} do |form| %>
+  <%= form.hidden_field :company_id, value: @company.id %>
+  <div class="form-group">
+	  <%= form.label "Ciudad", class: "col-sm-1 control-label" %>
+	  <div class="col-sm-2">
+		  <%= form.select :city, @cities.collect {|city| [city, city]}, {include_blank: true},{class: "form-control"} %>
+		</div>
+	  <%= form.label "Nombre", class: "col-sm-1 control-label" %>
+	  <div class="col-sm-2">
+		  <%= form.text_field :name, class: "form-control" %>
+		</div>
+    <div class="col-sm-2">
+      <%= submit_tag "Buscar", {class: "btn btn-primary"}	%>
+    </div>
+  </div>
+<% end %>
+<script type="text/javascript">
+
+  var distributors = [
+  <% @all_distributors.each do |dist| %>
+    "<%= dist.name %>", 
+  <% end %>
+   ""
+  ];
+
+  $(function() {
+	  $("#distributor_name").autocomplete({source: distributors});
+  });
+
+</script>
+
+<br><br>
+<hr>
+<br>
+<% if request.post?	%>
+  <% unless @distributors.empty?	%>
+    <table class="table table-striped">
+      <tr>
+	    <th>Nombre Distribuidor	</th>	
+		<th>Direccion			</th>	
+		<th>Ciudad				</th> 
+		<th>Telefono 1			</th>	
+		<th>Telefono 2			</th>	
+		<th>Email				</th>	
+	  </tr>
+      <% @distributors.each do |distributor| %>
+      <tr>
+	    <td><%= link_to distributor.name, admin_distributor_path(distributor)	%>	</td>
+		<td><%= distributor.full_address					%>	</td>
+		<td><%= distributor.city						%>	</td>
+		<td><%= number_to_phone(distributor.telephone_1)			%>	</td>
+		<td><%= number_to_phone(distributor.telephone_2)			%>	</td>
+		<td><%= distributor.email						%>	</td>
+		<td><%= link_to "Modificar", edit_admin_distributor_path(distributor)			%>	</td>
+		<td><%= button_to("Eliminar", admin_distributor_path(distributor), method: :delete)	%></td>
+	  </tr>
+	  <% end %>
+	</table>
+  <% else %>
+	<p>No hay distribuidores que coincidan con su criterio de busqueda.  Por favor intente de nuevo.</p>
+  <% end 	%>
+<% end %>
+<br><br>
+<hr>
+<br>
+<%= link_to "Crear Nuevo Distribuidor", new_admin_distributor_path	%>

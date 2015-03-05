@@ -1,12 +1,55 @@
-<h1>Admin</h1>
-        <div class="row-fluid">
-        <div class="span4 well">
+<style>
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
 
-	<%= form_for :user_login, url: login_login_path do |form| %>
-		<table>
-			<tr><td>Nombre de Usuario 	</td>	<td><%= form.text_field :username 		%>	</td></tr>
-			<tr><td>Contrase&ntilde;a	</td>	<td><%= form.password_field :password	%>	</td></tr>
-		</table>
-		<%= submit_tag "Ingresar", {class: "btn btn-primary"} 	%>
-	<% end %>
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+</style>
+
+<div class="container">
+    <h1 class="text-center">Pierco SAS</h1>
+	<%= form_for :user_login, url: login_login_path, html: {class: "form-signin", role: "form"} do |form| %>
+	  <%= image_tag "logo-pierco.png" %>
+      <%= form.text_field :username, class: "form-control", placeholder: "Usuario"         %>
+      <%= form.password_field :password, class: "form-control",  placeholder: "Contraseña"    %>
+      <%= submit_tag "Ingresar", {class: "btn btn-lg btn-primary btn-block"}   %>
+    <% end %>
+</div>
+	
 		

@@ -1,58 +1,7 @@
 <div id="subcategorias">
-  <div class="form-group">
-    <%= form.label "Subcategoria", class: "col-sm-2 control-label"  %>
-    <div class="col-xs-4">
-      <%= form.select :product_subcategory_id, [["",""]], class: "form-control"  %>
-    </div>
+  <%= form.label "Subcategoria", class: "col-sm-2 control-label"  %>
+  <div class="col-xs-4">
+    <%= form.select :product_subcategory_id, [["",""]], class: "form-control"  %>
   </div>
 </div>
 
-<script>
-$(function() {
-
-  var product_subcategories = [
-    <% @product_subcategories.each do |product_subcategory| %>
-      [<%= product_subcategory.product_category_id %>, <%= product_subcategory.id %>, '<%= product_subcategory.name %>'], 
-    <% end %>
-    ['','','']
-  ];
-
-  
-  var product_category = $('#product_product_category_id').val();
-   
-  if (product_category == '') {
-    $('#subcategorias').hide();       
-  }
-  else {
-    var subcat_length = product_subcategories.length;
-    for (var i = 0; i < subcat_length; i++) {
-      var subcategory = product_subcategories[i];
-      if (subcategory[0] == product_category) {
-        $('#product_product_subcategory_id').append("<option value=" + subcategory[1] + ">" + subcategory[2] + "</option>");  
-      }
-    }
-    $('#subcategorias').show();
-  }
-    
-
-
-  $('#product_product_category_id').change(function(){ 
-    $('#product_product_subcategory_id').find('option').remove().end(); 
-    var product_category = $('#product_product_category_id').val();
-    $('#product_product_subcategory_id').append('<option value=""></option>');    
-    if (product_category == '') {
-      $('#subcategorias').hide();	
-    }
-    else {
-      var subcat_length = product_subcategories.length;
-      for (var i = 0; i < subcat_length; i++) {
-        var subcategory = product_subcategories[i];
-        if (subcategory[0] == product_category) {
-          $('#product_product_subcategory_id').append("<option value=" + subcategory[1] + ">" + subcategory[2] + "</option>");  
-        }
-      }
-      $('#subcategorias').show();
-    }
-  });
-});
-</script>

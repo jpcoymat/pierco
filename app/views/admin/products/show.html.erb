@@ -1,18 +1,19 @@
 <h1>Detalles Producto	</h1>
 
 	<dl class="dl-horizontal">
-		<dt>Nombre Producto     </dt>		<dd><%= @product.name				%>	</dd>
-		<dt>Marca		</dt>		<dd><%= @product.supplier.name		%>	</dd>
-		<dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
-		<dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
-		<dt>Imagen		</dt>		<dd><%= @product.product_picture.nil? ? "" : image_tag(@product.product_picture.url, :size => "100x100") %>	</dd>
-		<dt>Descripcion		</dt>		<dd><%= @product.description			%>	</dd>
-		<dt>Activo		</dt>		<dd><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30") %>	</dd>
+		<dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
+		<dt>Marca						</dt>		<dd><%= @product.supplier.name		%>	</dd>
+		<dt>Categoria				</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
+		<dt>Subcategoria		</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
+		<dt>Imagen					</dt>		<dd><%= @product.product_picture.nil? ? "" : image_tag(@product.product_picture.url, :size => "100x100") %>	</dd>
+		<dt>Descripcion			</dt>		<dd><%= @product.description			%>	</dd>
+		<dt>Activo					</dt>		<dd><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30") %>	</dd>
 	</dl>
 	<p>
 		<%= link_to "Modificar",edit_admin_product_path(@product)	%>	| 
 		<%= link_to("Eliminar", admin_product_path(@product), method: :delete)%>
 	</p>
+	
 	<h2>Dimensiones de Producto </h2>
 	<% unless @product.product_dimensions.empty?%>
 		<table  class="table table-striped">
