@@ -78,6 +78,10 @@ class Company < ActiveRecord::Base
     Distributor.find(self.default_distributor_id)
   end
   
+  def default_distributor=(distributor)
+    self.default_distributor_id = distributor.try(:id)
+  end
+  
   def most_recent_posts
     @most_recent_posts = Post.where(company_id: self.id).limit(3)
   end
