@@ -23,7 +23,6 @@ gem 'execjs'
 
 # Use unicorn as the web server
 # gem 'unicorn'
-ruby '2.0.0'
 # Deploy with Capistrano
 # gem 'capistrano'
 
