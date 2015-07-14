@@ -6,7 +6,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-c = Company.new(name: "Pierco", address_1: "Calle 68 No. 50 - 18", city: "Barranquilla", stat: "Atlantico", postal_code: "00000", country: "Colombia", telephone_1: "3458123", email: "pierco@pierco.com", latitude: 10.9909, longitude: -74.8046 )
+c = Company.new(name: "Pierco", address_1: "Calle 68 No. 50 - 18", city: "Barranquilla", state: "Atlantico", postal_code: "00000", country: "Colombia", telephone_1: "3458123", email: "pierco@pierco.com", latitude: 10.9909, longitude: -74.8046 )
 c.save
 d = Distributor.new(company: Company.first, name: "Pierco", address_1: "Calle 68 No. 50 - 18", city: "Barranquilla", state: "Atlantico", postal_code: "00000", country: "Colombia", telephone_1: "3458123", email: "pierco@pierco.com.co", latitude: 10.9909, longitude: -74.8046)
 d.save
