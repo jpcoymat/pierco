@@ -2,6 +2,7 @@ class Admin::ProductSubcategoriesController < ApplicationController
 
   before_filter :authorize
   layout 'admin'
+
   def index
      @product_category = ProductCategory.find(params[:product_category_id])
      @product_subcategory = ProductSubcategory.new
