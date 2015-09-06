@@ -39,4 +39,13 @@ class ProductDimension < ActiveRecord::Base
     @@ordered_attributes = ["part_number","name","service_description","lateral_wall","diameter","width","maximum_pressure","maximum_weight","rim_width_range","tred_depth","offset","pcd","holes","x_factor","color"]
   end
 
+  def product_name
+    self.product.try(:name)
+  end
+  
+  def product_name=(product_name)
+    self.product_id = Product.where(name: product_name).first.try(:id)
+  end
+
+
 end

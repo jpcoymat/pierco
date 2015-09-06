@@ -12,4 +12,28 @@ class Product < ActiveRecord::Base
   has_many    :product_photos, dependent: :destroy
 
 
+  def supplier_name
+    self.supplier.try(:name)
+  end
+  
+  def supplier_name=(supplier_name)
+    self.supplier_id = Supplier.where(name: supplier_name).first.try(:id)
+  end
+
+  def product_category_name
+    self.product_category.try(:name)
+  end
+  
+  def product_category_name=(category_name)
+    self.product_category_id = ProductCategory.where(name: category_name).first.try(:id)
+  end
+
+  def product_subcategory_name
+    self.product_subcategory.try(:id)
+  end
+  
+  def product_subcategory_name=(subcategory_name)
+    self.product_subcategory_id = ProductSubcategory.where(name: subcategory_name).first.try(:id)
+  end
+  
 end
