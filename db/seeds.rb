@@ -14,11 +14,22 @@ c.default_distributor = d
 c.save
 Supplier.create({name: "Maxxis", address_1: "8th Fl, World Trade Building", address_2: "50, Sec. 1 Shin-Sheng S. Rd", city: "Taipei",  country: "Taiwan", company: c})
 Supplier.create({name: "MOMO", address_1: "Via Winckelmann 2", city: "Milano", postal_code: "20146", country: "Italia", company: c})
+
 ProductCategory.create({name: "Llantas Automóvil", description: "Llantas Automóvil", length: true, width: true, maximum_pressure: true, maximum_weight: true, color: false, diameter: true, part_number: true, service_description: true, lateral_wall: true, rim_width_range: true, tred_depth: true, company: c})  
+ProductSubcategory.create(name: "Maxxis", product_category_name: "Llantas Automóvil", description: "Maxxis")
+ProductSubcategory.create(name: "MOMO Tires", product_category_name: "Llantas Automóvil", description: "MOMO Tires")
+
 ProductCategory.create({name: "Llantas Camioneta", description: "Llantas Camioneta", length: true, width: true, maximum_pressure: true, maximum_weight: true, color: false, diameter: true, part_number: true, service_description: true, lateral_wall: true, rim_width_range: true, tred_depth: true, company: c})  
+ProductSubcategory.create(name: "Maxxis", product_category_name: "Llantas Camioneta", description: "Maxxis")
+ProductSubcategory.create(name: "MOMO Tires", product_category_name: "Llantas Camioneta", description: "MOMO Tires")
+
 ProductCategory.create({name: "Llantas Camión", description: "Llantas Camión", length: true, width: true, maximum_pressure: true, maximum_weight: true, color: false, diameter: true, part_number: true, service_description: true, lateral_wall: true, rim_width_range: true, tred_depth: true, company: c})  
+
 ProductCategory.create({name: "Rin Automóvil", description: "Rin Automóvil", length: true,  part_number: true, offset: true, pcd: true, holes: true, x_factor: true, company: c})  
+ProductSubcategory.create(name: "MOMO Wheels", product_category_name: "Rin Automóvil", description: "MOMO Wheels")
+
 ProductCategory.create({name: "Rin Camioneta", description: "Rin Camioneta", length: true,  part_number: true, offset: true, pcd: true, holes: true, x_factor: true, company: c})  
+ProductSubcategory.create(name: "MOMO Wheels", product_category_name: "Rin Camioneta", description: "MOMO Tires")
 
 Distributor.create({company: c, name: 'AREA TUNING', address_1: 'CRA. 52 #38-11', city: 'Medellin', state: 'Antioquia', country: 'Colombia', telephone_1: '2324493', telephone_2: '2323035',email: 'areatuning@hotmail.com'})
 Distributor.create({company: c, name: 'DAKAR WHEELS ', address_1: 'CRA. 65 # 42-13', city: 'Medellin', state: 'Antioquia', country: 'Colombia', telephone_1: '5824957', email: 'dakarwheels@hotmail.com'})
