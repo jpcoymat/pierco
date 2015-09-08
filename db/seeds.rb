@@ -1058,6 +1058,6 @@ ProductDimension.create(product_name: 'WIN PRO', name: '7.0X16', holes: '5', col
 ProductDimension.create(product_name: 'WIN PRO', name: '7.0X17', holes: '4/5', color: 'Glossy Silver, Matt Black')
 
 Product.all.each do |prod|
-  File.open(RAILS_ROOT + "/public/pierco_products/" + prod.name + ".png") {|f| prod.product_picture  = f}
+  File.open(Rails.root.join('db','pierco_products').to_s + "/" + prod.name + ".png") {|f| prod.product_picture  = f}
   prod.save
 end
