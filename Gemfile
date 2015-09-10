@@ -13,6 +13,8 @@ gem "twitter-bootstrap-rails"
 gem "yaml_db"
 gem 'seed_dump'
 gem 'carrierwave'
+gem 'figaro'
+gem "fog", "~> 1.3.1"
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
