@@ -1,17 +1,20 @@
-<div class="modal-dialog ">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-	  <h4 class="modal-title" id="myModalLabel"><%= @product.name %></h4>
-	</div>
-	<div class="modal-body modal-lg">
-	  <%= image_tag(@product.product_picture.url)%>
-	  <div class="product-detail">
-	    <p>
-	       <%= @product.description %>
-		</p>
-      </div><!--End class product-detail-->
-	  <% if @product.product_dimensions.count > 0 %>
+<div id="product_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        	<span aria-hidden="true">&times;</span>
+        </button>
+	    <h4 class="modal-title" id="myModalLabel"><%= @product.name %></h4>
+	  </div>
+	  <div class="modal-body">
+	    <%= image_tag(@product.product_picture.url)%>
+	    <div class="product-detail">
+	      <p>
+	        <%= @product.description %>
+		  </p>
+        </div><!--End class product-detail-->
+	    <% if @product.product_dimensions.count > 0 %>
 	    <div class="table-detail">
 		  <h4><span>Medidas Disponibles</span></h4>
           <table>
@@ -26,19 +29,18 @@
 			<tr>
 			  <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
 			    <% if @product.product_category.attributes[ordered_attribute] %>
-				  <td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
+                  <td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
 				<% end %>
 		      <% end %>								
 			</tr>
-			<% end %>
+	        <% end %>
           </table>
 	    </div><!-- End of class table-detail-->
-      <% end %>				
-    </div><!--end class modal-body-->
-
-    <div class="modal-footer">
-	  <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        <% end %>				
+      </div><!--end class modal-body-->
+      <div class="modal-footer">
+	    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
     </div>
   </div>
 </div>
-
