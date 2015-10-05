@@ -17,12 +17,7 @@ class Admin::CompaniesController < ApplicationController
   
   def update
     @company = Company.find(params[:id])
-    picture_file = params[:company][:logo_picture] if !(params[:company][:logo_picture].nil?)
-    params[:company].delete("logo_picture")
     if @company.update_attributes(params[:company])
-      if picture_file
-        @company.set_picture_file(picture_file)
-      end
       flash[:notice] = "Compa&ntilde;ia actualizada exitosamente".html_safe
       redirect_to admin_companies_path
     else

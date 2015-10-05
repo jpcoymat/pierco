@@ -1,11 +1,5 @@
-<% content_for :stylesheets do %>
-  	#header{
-  		background:#000 url(/images/backgrounds/store-header-bg.jpg) no-repeat top;
-		height:278px;
-		margin-bottom:23px;
-		position:relative;
-	}
-<% end %>
+
+<%= render :partial => 'side_menu'%>
 
 <div class="store wrapper general clearfix">
 
@@ -28,7 +22,6 @@
 			</div><!--end class brand-nav-bar-->
 		</div><!--end class brand-products-->
 	</div><!--end class store-cat-->
-	<%= render :partial => 'categories_menu'%>
 </div><!--end class wrapper-->
 
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

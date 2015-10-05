@@ -1,5 +1,9 @@
 /*
 
 *= require jquery-ui/autocomplete
+*= require_self
+*= require jquery-ui
+ =require twitter-bootstrap-static/bootstrap
+ =require twitter-bootstrap-static/fontawesome
 
 */

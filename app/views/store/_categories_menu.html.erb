@@ -1,20 +1,20 @@
 <aside>
-	<nav>
-		<h3>Categorias</h3>
-		<ul>
-			<% @company.product_categories.each do |product_category| %>
-                          <% if product_category.products.count > 0 %>  
-				<li><a href="" class="accordion" ><span><%= product_category.name %></span></a>
-					<ul class="nav-content">
-						<% product_category.product_subcategories.each do |product_subcategory| %>
-						  <% if product_subcategory.products.count > 0 %>
-				                    <li><%= link_to(product_subcategory.name, products_path(product_subcat: product_subcategory.id)) %></li>
-                                                  <% end %>
-						<% end %>
-					</ul>
-				</li>
-                          <% end %>
-			<% end %>
-		</ul>
+  <nav>
+    <h3>Categorias</h3>
+	<ul>
+      <% @company.product_categories.each do |product_category| %>
+        <% if product_category.products.count > 0 %>  
+		  <li><a href="" class="accordion" ><span><%= product_category.name %></span></a>
+			<ul class="nav-content">
+			  <% product_category.product_subcategories.each do |product_subcategory| %>
+			    <% if product_subcategory.products.count > 0 %>
+			      <li><%= link_to(product_subcategory.name, products_path(product_subcat: product_subcategory.id)) %></li>
+                <% end %>
+			  <% end %>
+              </ul>
+            </li>
+          <% end %>
+        <% end %>
+	  </ul>
 	</nav>
 </aside>

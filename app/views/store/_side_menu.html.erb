@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <div class="panel-group" id="accordion">
+				<% @company.product_categories.each do |pc| %>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span><%= pc.name %></a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+							<% pc.product_subcategories.each do |psub| %>
+                                <tr>
+                                    <td>
+                                        <%= link_to(psub.name, products_path(product_subcat: psub.id)) %>
+                                    </td>
+                                </tr>
+							<% end %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+		        <% end %>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9">
+            <div class="well">
+                <h1>
+                    Accordion Menu With Icon</h1>
+                Admin Dashboard Accordion Menu
+            </div>
+        </div>
+    </div>
+</div>
+
