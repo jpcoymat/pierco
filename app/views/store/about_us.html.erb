@@ -32,7 +32,7 @@
 		<div class="feature">
 			<h2>Nuestras Marcas</h2>
 			<p>
-				<%= @company.about_us_main.html_safe %>
+				<%= @company.about_us_main.try(:html_safe) %>
 			</p>
 		</div><!--end class feature-->
 	</div><!--end class features-->

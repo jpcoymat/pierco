@@ -1,17 +1,32 @@
-<div class="body-content wrapper">
+<div class="container">
 	<h2><%= @company.slogan %></h2>
 	<h3>Productos Destacados</h3>
 	<%= link_to("Ir a la tienda", products_path, class: 'button') %>
-	<div class="wheels-showcase-holder">
-
-		<ul class="wheels-showcase clearfix">
-		  <% @products.each do |product| %>
-                    <li> <%= link_to(image_tag(product.product_picture.url, :size => "104x100").html_safe + "<p><em>".html_safe + product.name   + "</em>-".html_safe +  product.supplier.name + "</p>".html_safe,  view_product_path(product: product.id)) %>
-                    </li>
-		  <% end %>
-		</ul>
-		<a href="#" class="arrows prev"></a>
-		<a href="#" class="arrows right next"></a>
+	<div id="productCarousel" class="carousel slide" data-ride="carousel">
+		
+		<ol class="carousel-indicators">
+			<% (0 .. @products.count-1).each do |i|%>
+		    <li data-target="#myCarousel" data-slide-to="i"></li>
+			<% end %>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<% @products.each do |product| %>
+			<div class="item">
+				<%= image_tag(product.product_picture.url, alt: product.name, size: "100x100")%>
+				<div class="carousel-caption">
+					<h3><%= product.name %></h3>
+				</div>
+			</div>
+		<% end %>
+		</div>
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    		<span class="sr-only">Previous</span>
+		</a>
+  	  	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    	  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    	  <span class="sr-only">Next</span>
+  		</a>	
 	</div>
 	<div class="news-section">
 		<h3>Noticias y Promociones</h3>

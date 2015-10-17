@@ -16,7 +16,7 @@
 	    <% if @product.product_dimensions.count > 0 %>
 	    <div class="table-detail">
 		  <h4><span>Medidas Disponibles</span></h4>
-          <table>
+          <table class="table table-condensed">
             <tr>
 		    <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
 		      <% if @product.product_category.attributes[ordered_attribute]	%>

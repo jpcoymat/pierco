@@ -1,28 +1,34 @@
+<%= stylesheet_link_tag "side_menu" %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+		  <%= render partial: "side_menu" %>
+        </div>
+        <div class="col-sm-9 col-md-9">
+	    	<div class="store-cat">
+				<div class="brand-products">
+					<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
+            		<ul>
+					<% @products.each do |product| %>
+			  	  		<li> 
+							<a href="javascript:void(0)" onclick="getModal('<%= product.id %>')"> <%= image_tag(product.product_picture.url, size: "160x144") %></a>
+			    			<div>
+			      		  		<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
+							</div>
+			  			</li>
+					<% end %>
+					</ul>
+					<div class="brand-nav-bar">
+						<ul class="nav-buttons">
+							<%= will_paginate @products, class: 'apple_pagination', previous_label: "", next_label: "" %>
+						</ul>
+					</div><!--end class brand-nav-bar-->
+				</div><!--end class brand-products-->
+			</div><!--end class store-cat-->
+        </div>
+    </div>
+</div>
 
-<%= render :partial => 'side_menu'%>
-
-<div class="store wrapper general clearfix">
-
-	<div class="store-cat">
-		<div class="brand-products">
-			<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
-            <ul>
-			<% @products.each do |product| %>
-			  <li> <a href="javascript:void(0)" onclick="getModal('<%= product.id %>')"> <%= image_tag(product.product_picture.url, size: "160x144") %></a>
-			    <div>
-			      <p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
-				</div>
-			  </li>
-			<% end %>
-			</ul>
-			<div class="brand-nav-bar">
-				<ul class="nav-buttons">
-					<%= will_paginate @products, class: 'apple_pagination', previous_label: "", next_label: "" %>
-				</ul>
-			</div><!--end class brand-nav-bar-->
-		</div><!--end class brand-products-->
-	</div><!--end class store-cat-->
-</div><!--end class wrapper-->
 
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
