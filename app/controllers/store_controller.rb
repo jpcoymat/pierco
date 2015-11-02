@@ -2,7 +2,7 @@ class StoreController < ApplicationController
 
   def index
     @company = Company.first
-    @products = Product.limit(6)
+    @products = Product.all.limit(6)
   end
   
   def about_us

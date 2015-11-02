@@ -1,3 +1,10 @@
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+</style>
 <div class="container">
 	<h2><%= @company.slogan %></h2>
 	<h3>Productos Destacados</h3>
@@ -6,7 +13,7 @@
 		
 		<ol class="carousel-indicators">
 			<% (0 .. @products.count-1).each do |i|%>
-		    <li data-target="#myCarousel" data-slide-to="i"></li>
+		    <li data-target="#productCarousel" data-slide-to="<%=i %>" id="slide-<%= i %>"></li>
 			<% end %>
 		</ol>
 		<div class="carousel-inner" role="listbox">
@@ -19,11 +26,11 @@
 			</div>
 		<% end %>
 		</div>
-		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		<a class="left carousel-control" href="#productCarousel" role="button" data-slide="prev">
     		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     		<span class="sr-only">Previous</span>
 		</a>
-  	  	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+  	  	<a class="right carousel-control" href="#productCarousel" role="button" data-slide="next">
     	  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     	  <span class="sr-only">Next</span>
   		</a>	
@@ -45,3 +52,7 @@
 		<%= image_tag "pierco-afuera.jpg", :size => "445x240" %>
 	</div>
 </div><!--end class wrapper-->
+<script type="text/javascript">
+   $("#slide-0").addClass("active")
+
+</script>
