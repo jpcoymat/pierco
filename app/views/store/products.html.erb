@@ -5,26 +5,26 @@
 		  <%= render partial: "side_menu" %>
         </div>
         <div class="col-sm-9 col-md-9">
-	    	<div class="store-cat">
-				<div class="brand-products">
-					<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
-            		<ul>
-					<% @products.each do |product| %>
-			  	  		<li> 
-							<a href="javascript:void(0)" onclick="getModal('<%= product.id %>')"> <%= image_tag(product.product_picture.url, size: "160x144") %></a>
-			    			<div>
-			      		  		<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
-							</div>
-			  			</li>
-					<% end %>
-					</ul>
-					<div class="brand-nav-bar">
-						<ul class="nav-buttons">
-							<%= will_paginate @products, class: 'apple_pagination', previous_label: "", next_label: "" %>
-						</ul>
-					</div><!--end class brand-nav-bar-->
-				</div><!--end class brand-products-->
-			</div><!--end class store-cat-->
+	    	<div class="row">
+			<div class="col-lg-12">
+				<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
+            		</div>
+			<% @products.each do |product| %>
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb"> 
+				<a href="javascript:void(0)" onclick="getModal('<%= product.id %>')">
+					<%= image_tag(product.product_picture.url, size: "160x144") %>
+				</a>
+			    	<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
+			</div>
+		
+			<% end %>
+				
+			<div class="col-lg-12">
+				<ul class="nav-buttons">
+					<%= will_paginate @products, class: 'apple_pagination', previous_label: "", next_label: "" %>
+				</ul>
+			</div><!--end class brand-nav-bar-->
+		</div><!--end class store-cat-->
         </div>
     </div>
 </div>

@@ -22,6 +22,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 1.2'
 gem 'therubyracer'
 gem 'execjs'
+gem "less-rails"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

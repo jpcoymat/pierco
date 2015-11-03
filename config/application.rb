@@ -58,7 +58,7 @@ module Pierco
       end
     end
 
-    config.serve_static_files = true
+
 
   end
 end

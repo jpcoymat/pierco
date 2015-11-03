@@ -18,7 +18,7 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<% @products.each do |product| %>
-			<div class="item">
+			<div class="item" id="product-<%= product.id.to_s %>">
 				<%= image_tag(product.product_picture.url, alt: product.name, size: "100x100")%>
 				<div class="carousel-caption">
 					<h3><%= product.name %></h3>
@@ -53,6 +53,7 @@
 	</div>
 </div><!--end class wrapper-->
 <script type="text/javascript">
-   $("#slide-0").addClass("active")
-
+   $("#slide-0").addClass("active");
+   $("#product-<%=@products.first.id.to_s %>").addClass("active");
+   $("#productCarousel").carousel({interval: 3000});
 </script>
