@@ -35,6 +35,8 @@ module Pierco
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.action_controller.permit_all_parameters = true
+    config.assets.paths << "#{Rails.root}/app/assets/twitter/fonts" 
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.encoding = "utf-8"
 
     # Enable the asset pipeline

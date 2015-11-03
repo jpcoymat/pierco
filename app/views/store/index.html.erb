@@ -6,9 +6,19 @@
   }
 </style>
 <div class="container">
-	<h2><%= @company.slogan %></h2>
-	<h3>Productos Destacados</h3>
-	<%= link_to("Ir a la tienda", products_path, class: 'button') %>
+	<div class="row">
+		<div class="col-lg-12">
+			<h2><%= @company.slogan %></h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>Productos Destacados</h3>
+		</div>
+		<div class="col-lg-12">
+			<%= link_to("Ir a la tienda", products_path, class: 'btn btn-default', role: "button") %>
+		</div>
+	</div>
 	<div id="productCarousel" class="carousel slide" data-ride="carousel">
 		
 		<ol class="carousel-indicators">
