@@ -15,6 +15,7 @@ gem 'seed_dump'
 gem 'carrierwave'
 gem 'figaro'
 gem "fog", "~> 1.3.1"
+gem "mini_magick"
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'

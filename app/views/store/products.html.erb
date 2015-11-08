@@ -10,7 +10,7 @@
 				<h3><%= @product_subcategory.product_category.name + " > " + @product_subcategory.name %></h3>
             		</div>
 			<% @products.each do |product| %>
-			<div class="col-lg-3 col-md-4 col-xs-6 thumb"> 
+			<div class="col-lg-4 col-md-4 col-xs-6 thumb"> 
 				<a href="javascript:void(0)" onclick="getModal('<%= product.id %>')">
 					<%= image_tag(product.product_picture.url, size: "160x144") %>
 				</a>

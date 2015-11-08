@@ -82,6 +82,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.6.2)
+    mini_magick (4.3.6)
     minitest (5.8.2)
     mongrel (1.2.0.pre2)
       daemons (~> 1.0.10)
@@ -165,6 +166,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   less-rails
+  mini_magick
   mongrel (>= 1.2.0.pre2)
   pg
   rails
@@ -177,4 +179,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
