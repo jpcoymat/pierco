@@ -5,7 +5,7 @@ gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'pg'
-gem 'will_paginate', "~> 3.0.pre2"
+gem 'will_paginate-bootstrap'
 gem 'mongrel', '>= 1.2.0.pre2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

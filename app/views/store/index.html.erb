@@ -29,7 +29,7 @@
 		<div class="carousel-inner" role="listbox">
 			<% @products.each do |product| %>
 			<div class="item" id="product-<%= product.id.to_s %>">
-				<%= image_tag(product.product_picture.url, alt: product.name, size: "100x100")%>
+				<%= image_tag(product.product_picture.url, alt: product.name)%>
 				<div class="carousel-caption">
 					<h3><%= product.name %></h3>
 				</div>
