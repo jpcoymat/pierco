@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-
-  <%= render partial: "head" %>
-  <body>      
-	<div class="container">  
-	   <%= render partial: "top_menu" %>
-	
-       <%= yield %>
-    </div>
-  </body>
+<%= render partial: "head" %>
+	<body>      
+		<%= render partial: "top_menu" %>
+		<div class="container-lg">  
+			<div class="row"></div>
+			<%= yield %>
+		</div>
+	</body>
 </html>
