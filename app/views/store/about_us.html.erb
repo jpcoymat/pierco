@@ -1,39 +1,37 @@
-<% content_for :stylesheets do %>
-  	#header{
-  		background:#000 url(/images/backgrounds/about-header-bg.jpg) no-repeat top;
-		height:278px;
-		margin-bottom:23px;
-		position:relative;
-	}
-<% end %>
+<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<h2>Sobre Nosotros</h2>
+	</div>
+</div>
 
-<div class="about-us wrapper">
-	<h2>Sobre Nosotros</h2>
-	<div class="about clearfix">
-		<ul>
-			<li><img src="/images/about-us1.jpg" alt="" />
-				<h3><%= @company.headline_1_title%></h3>
-				<p><%= @company.headline_1_content %></p>
-			</li>
-			<li><img src="/images/about-us2.jpg" alt="" />
-				<h3><%= @company.headline_2_title%></h3>
-				<p><%= @company.headline_2_content %></p>
-			</li>
-			<li><img src="/images/about-us3.jpg" alt="" />
-				<h3><%= @company.headline_3_title%></h3>
-				<p><%= @company.headline_3_content %></p>
-				</li>
-		</ul>
-	</div><!--end class about-->
-	<div class="features clearfix">
-		<div class="feature-img">
-			<%= image_tag "marcas.jpg" %>
-		</div>
-		<div class="feature">
-			<h2>Nuestras Marcas</h2>
-			<p>
-				<%= @company.about_us_main.try(:html_safe) %>
-			</p>
-		</div><!--end class feature-->
-	</div><!--end class features-->
-</div><!--end class wrapper-->
+<div class="row">
+	<div class="col-lg-4">
+		<img src="/images/about-us1.jpg" alt="" />
+	</div>
+	<div class="col-lg-8">			
+		<h3><%= @company.headline_1_title%></h3>
+		<p><%= @company.headline_1_content %></p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-8">			
+		<h3><%= @company.headline_2_title%></h3>
+		<p><%= @company.headline_2_content %></p>
+	</div>
+	<div class="col-lg-4">
+		<img src="/images/about-us2.jpg" alt="" />
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-4">
+		<img src="/images/about-us3.jpg" alt="" />
+	</div>
+	<div class="col-lg-8">			
+		<h3><%= @company.headline_3_title%></h3>
+		<p><%= @company.headline_3_content %></p>
+	</div>
+</div>
+</div>
