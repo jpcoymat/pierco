@@ -1,44 +1,87 @@
-<h1>Detalles Producto	</h1>
+<div class="container" id="main_prod_info">
+	<h1>Detalles Producto	</h1>
 
 	<dl class="dl-horizontal">
 		<dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
-		<dt>Marca						</dt>		<dd><%= @product.supplier.name		%>	</dd>
-		<dt>Categoria				</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
-		<dt>Subcategoria		</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
-		<dt>Imagen					</dt>		<dd><%= @product.product_picture.nil? ? "" : image_tag(@product.product_picture.url, :size => "100x100") %>	</dd>
-		<dt>Descripcion			</dt>		<dd><%= @product.description			%>	</dd>
-		<dt>Activo					</dt>		<dd><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30") %>	</dd>
+		<dt>Marca			</dt>		<dd><%= @product.supplier.name		%>	</dd>
+		<dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
+		<dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
+		<dt>Imagen			</dt>		<dd><%= @product.product_picture.nil? ? "" : image_tag(@product.product_picture.url, :size => "100x100") %>	</dd>
+		<dt>Descripcion		</dt>		<dd><%= @product.description			%>	</dd>
+		<dt>Activo			</dt>		<dd><%= @product.active ? image_tag("check.png", :size => "30x30") : image_tag("x.png", :size => "30x30") %>	</dd>
 	</dl>
 	<p>
 		<%= link_to "Modificar",edit_admin_product_path(@product)	%>	| 
 		<%= link_to("Eliminar", admin_product_path(@product), method: :delete)%>
-	</p>
-	
+	</p>	
+</div>
+
+<div class="container" id="prod_dim_info">
 	<h2>Dimensiones de Producto </h2>
 	<% unless @product.product_dimensions.empty?%>
-		<table  class="table table-striped">
-			<tr><th>Dimension	</th>
-				<% @product.product_category.active_dimension_fields.each do |active_field|	%>
-					<th><%= ProductDimension.attribute_dictionary[active_field]%></th>
-				<% end %>
-			</tr>
-			<% @product.product_dimensions.each do |product_dimension|	%>
-				<tr><td><%= product_dimension.name		%>	</td>
-					<% @product.product_category.active_dimension_fields.each do |active_field|	%>
-						<td><%= product_dimension.attributes[active_field]	%></td>
-					<% end %>
-					<td><%= link_to("Modificar", edit_admin_product_product_dimension_path(@product, product_dimension)) %></td>
-					<td><%= button_to("Eliminar", admin_product_product_dimension_path(@product, product_dimension), method: :delete)%>
-				</tr>
+	<table  class="table table-striped">
+		<tr><th>Dimension	</th>
+			<% @product.product_category.active_dimension_fields.each do |active_field|	%>
+			<th><%= ProductDimension.attribute_dictionary[active_field]%></th>
 			<% end %>
-		</table>
+		</tr>
+		<% @product.product_dimensions.each do |product_dimension|	%>
+		<tr><td><%= product_dimension.name		%>	</td>
+		<% @product.product_category.active_dimension_fields.each do |active_field|	%>
+			<td><%= product_dimension.attributes[active_field]	%></td>
+		<% end %>
+			<td><%= link_to("Modificar", edit_admin_product_product_dimension_path(@product, product_dimension)) %></td>
+			<td><%= button_to("Eliminar", admin_product_product_dimension_path(@product, product_dimension), method: :delete)%>
+		</tr>
+		<% end %>
+	</table>
 	<% end %>
 	<p>
 		<%= link_to "Agregar Dimension", new_admin_product_product_dimension_path(@product)	%>
 	</p>
-	<p>
-		<%= link_to "Nuevo Producto", new_admin_product_path %>
-	</p>
-	<br \> <br \>
-        <%= link_to "Regresar", lookup_admin_products_path %>
+</div>
+
+<div class="container" id="prod_pictures">
+	<h2>Imagenes Adicionales</h2>
+	<% if @product.product_photos.empty? %>
+	<p>No hay imagenes adicionales para este producto.</p>
+	<% else %>
+	<% @product.product_photos.each_slice(3) do |slice| %>
+	<div class="row">
+		<% slice.each do |photo| %>
+		<div class="col-lg-4 col-md-4 col-xs-6 portfolio-item"> 
+			<a href="javascript:void(0)" onclick="getProductPhotographModal('<%= photo.id %>')">
+				<%= image_tag(photo.product_photograph.thumb.url) %>
+			</a>
+			   <p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
+				</div>
+		<% end %>
+	</div>
+	<% end %>	
+	<% end %>
+	
+</div>
+<p>
+	<%= link_to "Nuevo Producto", new_admin_product_path %>
+</p>
+<br \> <br \>
+<%= link_to "Regresar", lookup_admin_products_path %>
+
+
+<div class="modal fade" id="productPhotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<script type="text/javascript">
+function getProductPhotographModal(photoId) {
+	
+	var url = "/admin/products/<%= @product.id.to_s %>/product_photos/" + photoId;
+	$.get(url, function(data){
+		$('#productPhotoModal').html(data);
+		$('#productPhotoModal').modal();
+		$('#productPhotoModal').show();
+	})
+}
+</script>
+
+
 

@@ -65,10 +65,6 @@ Pierco::Application.routes.draw do
     resources :posts
     resources :products do
       resources :product_dimensions
-      collection do
-        get 'lookup'
-        post 'lookup'
-      end
       resources :product_photos
     end      
     resources :product_categories do
