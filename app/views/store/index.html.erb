@@ -22,16 +22,22 @@
 	<div id="productCarousel" class="carousel slide" data-ride="carousel">
 		
 		<ol class="carousel-indicators">
-			<% (0 .. @products.count-1).each do |i|%>
+			<% (0 .. @products.each_slice(4).count-1).each do |i|%>
 		    <li data-target="#productCarousel" data-slide-to="<%=i %>" id="slide-<%= i %>"></li>
 			<% end %>
 		</ol>
 		<div class="carousel-inner" role="listbox">
-			<% @products.each do |product| %>
-			<div class="item" id="product-<%= product.id.to_s %>">
-				<%= image_tag(product.product_picture.url, alt: product.name)%>
-				<div class="carousel-caption">
-					<h3><%= product.name %></h3>
+			<% @products.each_slice(4) do |slice| %>
+			<div class="item" id="slice-<%= slice.first.id.to_s %>">
+				<div class="row">
+					<% slice.each do |product| %>
+					<div class="col-lg-3 col-md-3">
+						<%= image_tag(product.product_picture.thumb.url, width: 250)%>
+						<div class="carousel-caption">
+							<h3><%= product.name %></h3>
+						</div>
+					</div> 
+					<% end %>
 				</div>
 			</div>
 		<% end %>
@@ -64,6 +70,6 @@
 </div><!--end class wrapper-->
 <script type="text/javascript">
    $("#slide-0").addClass("active");
-   $("#product-<%=@products.first.id.to_s %>").addClass("active");
+   $("#slice-<%=@products.each_slice(4).first.first.id.to_s %>").addClass("active");
    $("#productCarousel").carousel({interval: 3000});
 </script>
