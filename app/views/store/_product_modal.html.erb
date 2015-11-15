@@ -1,44 +1,58 @@
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-        	<span aria-hidden="true">&times;</span>
-        </button>
-	    <h4 class="modal-title" id="myModalLabel"><%= @product.name %></h4>
-	  </div>
-	  <div class="modal-body">
-	    <%= image_tag(@product.product_picture.url)%>
-	    <div class="product-detail">
-	      <p>
-	        <%= @product.description %>
-		  </p>
-        </div><!--End class product-detail-->
-	    <% if @product.product_dimensions.count > 0 %>
-	    <div class="table-detail">
-		  <h4><span>Medidas Disponibles</span></h4>
-          <table class="table table-condensed">
-            <tr>
-		    <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
-		      <% if @product.product_category.attributes[ordered_attribute]	%>
-			    <th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%></th>
-			  <% end %>
-			<% end %>
-		    </tr>
-			<% @product.product_dimensions.each do |product_dimension| %>
-			<tr>
-			  <% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
-			    <% if @product.product_category.attributes[ordered_attribute] %>
-                  <td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
-				<% end %>
-		      <% end %>								
-			</tr>
-	        <% end %>
-          </table>
-	    </div><!-- End of class table-detail-->
-        <% end %>				
-      </div><!--end class modal-body-->
-      <div class="modal-footer">
-	    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
+<div class="modal-dialog modal-lg" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+				<span aria-hidden="true">&times;</span>
+        	</button>
+	    	<h4 class="modal-title" id="myModalLabel"><%= @product.name %></h4>
+	  	</div>
+	  	<div class="modal-body">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active">
+					<a href="#main" aria-controls="main" role="tab" data-toggle="tab">Datos Principales</a>
+				</li>
+				<li role="presentation">
+					<a href="#dimensions" aria-controls="dimensions" role="tab" data-toggle="tab">Medidas Disponibles</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="main">
+					<div class="container">
+						<h4>Galeria de Fotos</h4>
+						<%= image_tag(@product.product_picture.url)%>
+						<p><%= @product.description %></p>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="dimensions">
+					<% if @product.product_dimensions.count > 0 %>
+					<div class="table-detail">
+						<table class="table table-condensed">
+							<tr>
+								<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
+								<% if @product.product_category.attributes[ordered_attribute]	%>
+								<th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%></th>
+								<% end %>
+							  	<% end %>
+						  	</tr>
+						  	<% @product.product_dimensions.each do |product_dimension| %>
+						  	<tr>
+								<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
+							  	<% if @product.product_category.attributes[ordered_attribute] %>
+							  	<td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
+							  	<% end %>
+  								<% end %>									  
+						  	</tr>
+						  	<% end %>
+						</table>
+					</div>
+					<% else %>
+					<div><p>No hay dimensiones definidas para este producto</p></div>
+					<% end %>
+				</div><!--end class table-detail-->
+			</div><!-- end class tab-content -->
+		</div><!-- end class modal-body-->
+		<div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+		</div><!-- end class modal-footer -->
+	</div><!-- end class modal-content -->
+</div><!-- end class modal-dialog -->
