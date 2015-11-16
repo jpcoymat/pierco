@@ -4,7 +4,7 @@ class Admin::ProductPhotosController < ApplicationController
   before_filter :authorize
 
   before_action :set_product_photo, only: [:show, :edit, :update, :destroy]
-  before_action :set_produdct
+  before_action :set_product
 
   def index
     @product_photos = @product.product_photos
@@ -19,8 +19,13 @@ class Admin::ProductPhotosController < ApplicationController
   end
 
   def create
-    @product_photo = ProductPhot.new(product_photo_parms)
-    if @product_photo.save
+    @product_photo = ProductPhoto.new(product_photo_parms)
+    respond_to do |format|
+      if @product_photo.save
+        format.json { render json: @product_photo, status: :ok}
+      else
+        format.json { render json: @product_photo.errors, status: :unprocessable_entity }
+      end
     end
   end
 

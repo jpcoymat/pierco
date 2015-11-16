@@ -18,6 +18,7 @@ class Admin::ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+    @product_photo = ProductPhoto.new
   end
   
   def new
@@ -38,7 +39,7 @@ class Admin::ProductsController < ApplicationController
       @suppliers = @company.suppliers
       @product_categories = @company.product_categories
       @product_subcategories = @company.product_subcategories
-      render :action => 'new'
+      render action: 'new'
     end
   end
   
@@ -60,7 +61,7 @@ class Admin::ProductsController < ApplicationController
       @suppliers = @company.suppliers
       @product_categories = @company.product_categories
       @product_subcategories = @company.product_subcategories
-      render :action => 'edit'    
+      render action: 'edit'    
     end
   end
   

@@ -18,10 +18,10 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="main">
 					<div class="row">
-						<div class="col-lg-4 col-md-4">
-							<%= image_tag(@product.product_picture.url, widht: 400)%>
+						<div class="col-lg-6 col-md-6">
+							<%= image_tag(@product.product_picture.url)%>
 						</div>
-						<div class="col-lg-8 col-md-8">
+						<div class="col-lg-6 col-md-6">
 							<dl class="dl-horizontal">
 								<dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
 								<dt>Marca			</dt>		<dd><%= @product.supplier.name		%>	</dd>
