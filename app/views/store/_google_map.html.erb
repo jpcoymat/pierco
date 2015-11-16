@@ -1,28 +1,43 @@
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<% content_for :head do %>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"]%>&callback=initMap"></script>
+
 <script type="text/javascript">
-  google.load("visualization", "1", {packages:["map"]});
-  google.setOnLoadCallback(drawGeoMap);
 
-  function drawGeoMap() {
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Latitude');
-      data.addColumn('number', 'Longitude');
-      data.addColumn('string', 'Loc Name');
+var map;
+var marker;
 
+function initMap() {
+	
+	var loc = {lat: <%= @company.default_distributor.latitude %>, lng: <%= @company.default_distributor.longitude %>};
+	
+	map = new google.maps.Map(document.getElementById('gmap'), {
+		center: loc,
+		zoom: 15
+	});
+	
+	marker = new google.maps.Marker({
+		position: loc,
+		map: map,
+		title: '<%= @company.default_distributor.name %>'
+  	});
+}
+	
 
-      <% @distributors.each do |distributor| %>
-        data.addRow([ <%= distributor.latitude %>, <%= distributor.longitude %>, '<%= j(distributor.name) %>' ]);
-      <% end %>
-
-      var map = new google.visualization.Map(document.getElementById('gmap'));
-      map.draw(data, {showTip: true});
-  };
 </script>
+<% end %>
+<div id="gmap" >
+	
+</div>
 
+<style type="text/css" media="screen">
+#gmap {
+   height: 400px;
+   border-radius: 16px 16px;
+   border-color: #fff;
+   border-style: solid;
+   box-shadow: 2px 2px 10px #B1B1B1;
+   margin-top: 25px;
+   border-width: 7px;
+ }
 
-<div class="sidebar-map">
- <div class="gmap" id="gmap">
-  
-  </div>
-</div><!--end class Sidebar-map-->
-
+</style>
