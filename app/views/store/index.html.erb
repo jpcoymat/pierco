@@ -32,7 +32,7 @@
 				<div class="row">
 					<% slice.each do |product| %>
 					<div class="col-lg-3 col-md-3">
-						<%= image_tag(product.product_picture.thumb.url, width: 250)%>
+						<%= image_tag(product.product_picture.thumb.url, height: 180)%>
 						<div class="carousel-caption">
 							<h3><%= product.name %></h3>
 						</div>

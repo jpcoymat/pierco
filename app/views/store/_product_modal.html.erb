@@ -17,10 +17,19 @@
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="main">
-					<div class="container">
-						<h4>Galeria de Fotos</h4>
-						<%= image_tag(@product.product_picture.url)%>
-						<p><%= @product.description %></p>
+					<div class="row">
+						<div class="col-lg-4 col-md-4">
+							<%= image_tag(@product.product_picture.url, widht: 400)%>
+						</div>
+						<div class="col-lg-8 col-md-8">
+							<dl class="dl-horizontal">
+								<dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
+								<dt>Marca			</dt>		<dd><%= @product.supplier.name		%>	</dd>
+								<dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
+								<dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
+								<dt>Descripción		</dt>		<dd><%= @product.description			%>	</dd>
+							</dl>
+						</div>
 					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="dimensions">
