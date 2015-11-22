@@ -1,71 +1,53 @@
 <div class="container">
 	<div class="row">
-  		<div class="col-lg-4 col-md-4 col-sm-12">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-		  			<h2>Contacto</h2>	
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h4><%= @company.name		%></h4>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p><%= 	@company.address_1						%></p>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p><%= 	@company.city + ', ' + @company.country	%></p>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h4>Telefonos: </h4>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p><%= @company.telephones	%> </p>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p><%= "Fax: " + @company.fax unless @company.fax.nil?	%> </p>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p><%= mail_to @company.email	%> </p>
-				</div>				
-			</div>
-		</div>
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			<h2>Contacto</h2>
+			<address>
+				<strong><%= @company.name %></strong>
+				<br><%= @company.address_1 %>
+				<br><%= @company.city + ', ' + @company.country	%>
+				<br>
+			</address>
+			<address>
+				<abbr title="Phone">T:</abbr> <%= @company.telephones %>
+				<br>
+				<abbr title="Email">E:</abbr> <%= mail_to @company.email %>
+			</address>
+		</div><!-- /.col-sm-4-->
 		<div class="col-lg-8 col-md-8 col-sm-12">
-			<div class="row">
-				<%= render partial: "google_map" %>
-			</div>
+			<%= render partial: "google_map" %>
 		</div>
 
 		<div class="col-lg-6 col-md-6 col-sm-12">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h3>Preguntas o Comentarios?</h3>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p>Si tienes alguna duda sobre nuestra compañia, o tienes algun comentario que quisieras compartir con nosotros, por favor dejanos un mensaje!</p>
-				</div>
-				<%= form_for @contact, html: {class: "form-horizontal"} do |form|	%>
-				<%= form.hidden_field :company_id, :value => @company.id %>
-				<div class="form-group">
-				  <%= form.label "Nombre", class: "col-lg-2 col-md-2 col-sm-2 control-label"  %> 
-				  <div class="col-lg-10 col-md-10 col-sm-10">
-				    <%= form.text_field :name, class: "form-control"  %>
-				  </div>
-				</div>
-				<div class="form-group">
-				  <%= form.label "Email", class: "col-lg-2 col-md-2 col-sm-2 control-label"  %> 
-				  <div class="col-lg-10 col-md-10 col-sm-10">
-				    <%= form.text_field :email, class: "form-control"  %>
-				  </div>
-				</div>
-				<div class="form-group">
-				  <%= form.label "Comentario", class: "col-lg-2 col-md-2 col-sm-2 control-label"  %> 
-				  <div class="col-lg-10 col-md-10 col-sm-10">
-				    <%= form.text_area :message, class: "form-control"  %>
-				  </div>
-				</div>
-				<%= submit_tag "Enviar", {class: "btn btn-primary"} %>
-				<% end %>
-							
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<h3>Preguntas o Comentarios?</h3>
 			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<p>Si tienes alguna duda sobre nuestra compañia, o tienes algun comentario que quisieras compartir con nosotros, por favor dejanos un mensaje!</p>
+			</div>
+			<%= form_for @contact, html: {class: "form-horizontal"} do |form|	%>
+			<%= form.hidden_field :company_id, :value => @company.id %>
+			<div class="form-group">
+			  <%= form.label "Nombre", class: "col-lg-2 col-md-2 col-sm-2 control-label"  %> 
+			  <div class="col-lg-10 col-md-10 col-sm-10">
+			    <%= form.text_field :name, class: "form-control"  %>
+			  </div>
+			</div>
+			<div class="form-group">
+				<%= form.label "Email", class: "col-lg-2 col-md-2 col-sm-2 control-label"  %> 
+				<div class="col-lg-10 col-md-10 col-sm-10">
+					<%= form.text_field :email, class: "form-control"  %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= form.label "Comentario", class: "col-lg-2 col-md-2 col-sm-2 control-label"  %> 
+				<div class="col-lg-10 col-md-10 col-sm-10">
+					<%= form.text_area :message, class: "form-control"  %>
+				</div>
+			</div>
+			<%= submit_tag "Enviar", {class: "btn btn-primary"} %>
+			<% end %>
+							
 		</div>
 	</div>
 </div>

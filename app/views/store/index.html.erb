@@ -18,7 +18,7 @@
 	
 	<div class="row">
 		<div class="col-sm-8">
-			<h2>What We Do</h2>
+			<h2><%= @company.slogan %></h2>
 			<p>Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.</p>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
 			<p>
@@ -26,17 +26,17 @@
 			</p>
 		</div><!-- col.sm.8-->
 		<div class="col-sm-4">
-			<h2>Contact Us</h2>
+			<h2>Contacto</h2>
 			<address>
-				<strong>Start Bootstrap</strong>
-				<br>3481 Melrose Place
-				<br>Beverly Hills, CA 90210
+				<strong><%= @company.name %></strong>
+				<br><%= @company.address_1 %>
+				<br><%= @company.city + ', ' + @company.country	%>
 				<br>
 			</address>
 			<address>
-				<abbr title="Phone">P:</abbr>(123) 456-7890
+				<abbr title="Phone">T:</abbr> <%= @company.telephones %>
 				<br>
-				<abbr title="Email">E:</abbr> <a href="mailto:#">name@example.com</a>
+				<abbr title="Email">E:</abbr> <%= mail_to @company.email %>
 			</address>
 		</div><!-- /.col-sm-4-->
 	</div><!-- /.row -->
@@ -44,21 +44,17 @@
 	<hr>
 	
 	<div class="row">
-		<div class="col-sm-4">
-			<img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+		<div class="col-sm-6">
+			<img class="img-circle img-responsive img-center" src="https://s3.amazonaws.com/pierco.com.co/images/maxxisLogo.gif" alt="" height="140">
 			<h2>Marketing Box #1</h2>
 			<p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
 		</div><!-- col-sm-4-->
-		<div class="col-sm-4">
-			<img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+		<div class="col-sm-6">
+			<img class="img-circle img-responsive img-center" src="https://s3.amazonaws.com/pierco.com.co/images/momo_logo.jpg" alt="" height="140">
 			<h2>Marketing Box #2</h2>
 			<p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
 		</div><!-- col-sm-4-->
-		<div class="col-sm-4">
-			<img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-			<h2>Marketing Box #3</h2>
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-		</div><!-- col-sm-4-->
+	
 	</div><!-- /.row -->
 	
 	 <hr>
