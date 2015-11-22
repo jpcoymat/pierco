@@ -86,7 +86,7 @@ Pierco::Application.routes.draw do
     get 'about_us', action: 'about_us'
     get 'suppliers', action: 'suppliers'
     get 'products', action: 'products'
-    get 'distributors', action: 'distributors'
+    #get 'distributors', action: 'distributors'
     get 'contact_us', action: 'contact_us'
     get 'view_product', action: 'view_product'
     get 'thank_you', action: 'thank_you'
