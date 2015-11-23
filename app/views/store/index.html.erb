@@ -39,16 +39,19 @@
 	<hr>
 	
 	<div class="row">
+		<div class="col-lg-12">
+			<h2>Nuestras Marcas</h2>
+		</div>
+		<% @suppliers.each do |supplier| %>
 		<div class="col-sm-6">
-			<img class="img-circle img-responsive img-center" src="https://s3.amazonaws.com/pierco.com.co/images/maxxis_logo.jpg" alt="" >
-			<h2>Maxxis Tires</h2>
-			<p></p>
-		</div><!-- col-sm-4-->
-		<div class="col-sm-6">
-			<img class="img-circle img-responsive img-center" src="https://s3.amazonaws.com/pierco.com.co/images/momo_logo.jpg" alt="" >
-			<h2>Marketing Box #2</h2>
-			<p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-		</div><!-- col-sm-4-->
+		
+			<strong><%= supplier.name %></strong>
+			<br><%= supplier.address_1 %>
+			<br><%= supplier.city + ', ' + @company.country	%>
+			<br>
+			<img class="img-circle img-responsive img-center" src="<%= supplier.supplier_picture.url %>" alt="" >
+		</div>
+		<% end %>
 	
 	</div><!-- /.row -->
 	

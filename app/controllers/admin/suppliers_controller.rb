@@ -32,9 +32,7 @@ class Admin::SuppliersController < ApplicationController
 
   def update
     @supplier.assign_attributes(params[:supplier])
-    if @supplier.valid?
-      ChangeLog.record_changes_on(@supplier, User.find(session[:user_id]))
-      @supplier.save
+    if @supplier.save
       flash[:notice] = "Marca actualizada exitosamente"
       redirect_to admin_supplier_path @supplier
     else
