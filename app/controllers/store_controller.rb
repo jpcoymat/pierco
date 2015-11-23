@@ -17,10 +17,12 @@ class StoreController < ApplicationController
   
   def products
     @company = Company.first
-    product_subcat_id = params[:product_subcat] || @company.product_categories.first.product_subcategories.first.id
-    @product_subcategory = ProductSubcategory.find(product_subcat_id)
+    @product_categories = @company.product_categories
+    @suppliers = @company.suppliers
+    params[:product_category_id].nil? ? @product_category = @product_categories.first : @product_category = ProductCategory.find(params[:product_category_id])
+    params[:supplier_id].nil? ? @supplier = @suppliers.first : @supplier = Supplier.find(params[:supplier_id])
     @page = params[:page] || 1
-    @products = Product.where(product_subcategory_id: product_subcat_id).paginate(page: @page, per_page: 9).order('supplier_id ASC, name ASC')
+    @products = Product.where(product_category_id: @product_category.id, supplier_id: @supplier.id).paginate(page: @page, per_page: 9).order('name ASC')
   end
   
   def distributors

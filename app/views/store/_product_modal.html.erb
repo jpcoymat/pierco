@@ -26,7 +26,6 @@
 								<dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
 								<dt>Marca			</dt>		<dd><%= @product.supplier.name		%>	</dd>
 								<dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
-								<dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
 								<dt>Descripción		</dt>		<dd><%= @product.description			%>	</dd>
 							</dl>
 						</div>

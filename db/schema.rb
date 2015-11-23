@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107230110) do
+ActiveRecord::Schema.define(version: 20151123002618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "change_logs", force: true do |t|
     t.integer  "reference_object_id"
-    t.string   "reference_object_type", limit: nil
-    t.string   "reference_attribute",   limit: nil
-    t.string   "old_value",             limit: nil
-    t.string   "new_value",             limit: nil
+    t.string   "reference_object_type"
+    t.string   "reference_attribute"
+    t.string   "old_value"
+    t.string   "new_value"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150107230110) do
   create_table "companies", force: true do |t|
     t.string   "name",                   limit: 100,                          null: false
     t.string   "address_1",              limit: 100,                          null: false
-    t.string   "address_2",              limit: nil
+    t.string   "address_2"
     t.string   "city",                   limit: 100,                          null: false
     t.string   "state",                  limit: 50,                           null: false
     t.string   "postal_code",            limit: 10,                           null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150107230110) do
     t.string   "headline_2_title",       limit: 50
     t.string   "headline_3_title",       limit: 50
     t.string   "company_picture",        limit: nil
+    t.text     "homepage_intro"
   end
 
   create_table "contacts", force: true do |t|
@@ -119,15 +120,15 @@ ActiveRecord::Schema.define(version: 20150107230110) do
 
   create_table "product_dimensions", force: true do |t|
     t.integer  "product_id"
-    t.string   "name",                limit: nil,                          null: false
-    t.decimal  "length",                          precision: 10, scale: 2
-    t.decimal  "width",                           precision: 10, scale: 2
-    t.decimal  "maximum_pressure",                precision: 10, scale: 2
-    t.decimal  "maximum_weight",                  precision: 10, scale: 2
+    t.string   "name",                                                    null: false
+    t.decimal  "length",                         precision: 10, scale: 2
+    t.decimal  "width",                          precision: 10, scale: 2
+    t.decimal  "maximum_pressure",               precision: 10, scale: 2
+    t.decimal  "maximum_weight",                 precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color",               limit: 50
-    t.decimal  "diameter",                        precision: 10, scale: 2
+    t.decimal  "diameter",                       precision: 10, scale: 2
     t.string   "part_number",         limit: 75
     t.string   "service_description", limit: 20
     t.string   "lateral_wall",        limit: 20
@@ -168,32 +169,32 @@ ActiveRecord::Schema.define(version: 20150107230110) do
   end
 
   create_table "supplier_contacts", force: true do |t|
-    t.integer  "supplier_id",             null: false
-    t.string   "first_name",  limit: 50,  null: false
-    t.string   "last_name",   limit: 50,  null: false
-    t.string   "position",    limit: nil
-    t.string   "telephone",   limit: nil
-    t.string   "cell_phone",  limit: nil
-    t.string   "email",       limit: nil
-    t.string   "fax",         limit: nil
-    t.string   "address_1",   limit: nil
-    t.string   "address_2",   limit: nil
-    t.string   "city",        limit: nil
-    t.string   "state",       limit: nil
-    t.string   "postal_code", limit: nil
-    t.string   "country",     limit: nil
+    t.integer  "supplier_id",            null: false
+    t.string   "first_name",  limit: 50, null: false
+    t.string   "last_name",   limit: 50, null: false
+    t.string   "position"
+    t.string   "telephone"
+    t.string   "cell_phone"
+    t.string   "email"
+    t.string   "fax"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "suppliers", force: true do |t|
     t.string   "name",             limit: 100, null: false
-    t.string   "address_1",        limit: nil
-    t.string   "address_2",        limit: nil
-    t.string   "city",             limit: nil
-    t.string   "state",            limit: nil
-    t.string   "postal_code",      limit: nil
-    t.string   "country",          limit: nil
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "country"
     t.integer  "company_id",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -203,12 +204,12 @@ ActiveRecord::Schema.define(version: 20150107230110) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name",      limit: 50,  null: false
-    t.string   "last_name",       limit: 50,  null: false
-    t.string   "hashed_password", limit: nil, null: false
-    t.string   "username",        limit: 25,  null: false
+    t.string   "first_name",      limit: 50, null: false
+    t.string   "last_name",       limit: 50, null: false
+    t.string   "hashed_password",            null: false
+    t.string   "username",        limit: 25, null: false
     t.string   "email",           limit: 50
-    t.integer  "company_id",                  null: false
+    t.integer  "company_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
