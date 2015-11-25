@@ -10,7 +10,7 @@
         		<ul class="list-group">
 				<% @product_categories.each do |pcat| %>
 				<% if Product.where(product_category_id: pcat.id, supplier_id: supplier.id).count > 0 %>
-            			<li class="list-group-item"><%= link_to(pcat.name, products_path(product_category_id: pcat.id, supplier_id: supplier.id)) %></li>
+            			<li class="list-group-item"><%= link_to(pcat.name, products_path(product_category_id: pcat.id, supplier_id: supplier.id), remote: true) %></li>
 				<% end %>
 				<% end %>
             		</ul>

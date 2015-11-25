@@ -3,31 +3,8 @@
         	<div class="col-sm-3 col-md-3">
 			<%= render partial: "side_menu" %>
         	</div>
-		<div class="col-sm-9 col-md-9">
-	    		<div class="row">
-				<div class="col-lg-12">
-					<h3><%= @supplier.name + " > " + @product_category.name %></h3>
-            			</div>
-			</div>
-			<% @products.each_slice(3) do |slice| %>
-			<div class="row">
-				<%slice.each do |product| %>
-				<div class="col-lg-4 col-md-4 col-xs-6 portfolio-item text-center"> 
-					<a href="javascript:void(0)" onclick="getModal('<%= product.id %>')">
-						<%= image_tag(product.product_picture.thumb.url, height: 180) %>
-					</a>
-				    	<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
-				</div>
-				<% end%>
-			</div>
-			<% end %>
-			<div class="row text-center">	
-				<div class="col-lg-12">
-					<ul class="pagination">
-						<%= will_paginate @products, renderer: BootstrapPagination::Rails, previous_label: "<<", next_label: ">>" %>
-					</ul>
-				</div>
-			</div>
+		<div class="col-sm-9 col-md-9" id="product_listing">
+			<%= render partial: "product_listing" %>
 		</div>
 	</div>
 </div>
