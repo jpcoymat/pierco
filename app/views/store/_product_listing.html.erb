@@ -7,9 +7,8 @@
 <div class="row">
 	<%slice.each do |product| %>
 	<div class="col-lg-4 col-md-4 col-xs-6 portfolio-item text-center"> 
-		<a href="javascript:void(0)" onclick="getModal('<%= product.id %>')">
-			<%= image_tag(product.product_picture.thumb.url, height: 180) %>
-		</a>
+		<%= link_to(image_tag(product.product_picture.thumb.url, height: 180), product_modal_path(product: product.id), remote: true) %>
+		
 		<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
 	</div>
 	<% end%>

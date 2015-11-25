@@ -14,17 +14,4 @@
 </div>
 
 
-<script type="text/javascript">
-
-  function getModal(productId) {
-    var url = "/product_modal?product=" + productId;
-    $.get(url, function(data) {
-      $('#productModal').html(data);
-      $('#productModal').modal({});
-      $('#productModal').show();
-    }
-    );
-  }
-
-</script>
 
