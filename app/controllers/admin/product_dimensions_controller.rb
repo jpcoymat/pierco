@@ -20,15 +20,14 @@ class Admin::ProductDimensionsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @product_dimension = @product.product_dimensions.create(params[:product_dimension])
-    if @product_dimension.save
-      @product = @product_dimension.product
-      flash[:notice] = "Dimension creada exitosamente"
-      respond_to do |format|
-        format.html {redirect_to admin_product_path @product.id}
-        format.js 
-      end
-    else
-      respond_to do |format|
+    respond_to do |format|
+      if @product_dimension.save
+        format.html do 
+          redirect_to admin_product_path @product.id
+          flash[:notice] = "Dimension creada exitosamente"
+        end
+        format.js
+      else
         format.html do 
           render :action => 'new'
         end
@@ -40,16 +39,26 @@ class Admin::ProductDimensionsController < ApplicationController
   def edit
     @product_dimension = ProductDimension.find(params[:id])
     @product = @product_dimension.product
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def update
     @product_dimension = ProductDimension.find(params[:id])
     @product = @product_dimension.product
-    if @product_dimension.update_attributes(params[:product_dimension])
-      flash[:notice] = "Dimension actualizada exitosamente"
-      redirect_to admin_product_path(@product)
-    else
-      render :action => 'edit'
+    respond_to do |format|
+      if @product_dimension.update_attributes(params[:product_dimension])
+        format.html do
+          flash[:notice] = "Dimension actualizada exitosamente"
+          redirect_to admin_product_path(@product)  
+        end
+        format.js
+      else
+        format.html {render :action => 'edit'}
+        format.js
+      end
     end
   end
   
