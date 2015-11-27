@@ -6,16 +6,34 @@ class Admin::ProductDimensionsController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
     @product_dimension = ProductDimension.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
+  def index
+    @product = Product.find(params[:product_id])
+    @product_dimensions = @product.product_dimensions
   end
 
   def create
-    @product_dimension = ProductDimension.new(params[:product_dimension])
+    @product = Product.find(params[:product_id])
+    @product_dimension = @product.product_dimensions.create(params[:product_dimension])
     if @product_dimension.save
+      @product = @product_dimension.product
       flash[:notice] = "Dimension creada exitosamente"
-      redirect_to admin_product_path @product_dimension.product_id
+      respond_to do |format|
+        format.html {redirect_to admin_product_path @product.id}
+        format.js 
+      end
     else
-      @product = Product.find(params[:product_dimension][:product_id])
-      render :action => 'new'
+      respond_to do |format|
+        format.html do 
+          render :action => 'new'
+        end
+        format.js
+      end
     end
   end
   

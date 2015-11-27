@@ -1,0 +1,22 @@
+<h2>Dimensiones de Producto </h2>
+<% unless @product.product_dimensions.empty?%>
+<table  class="table table-striped">
+	<tr><th>Dimension	</th>
+	<% @product.product_category.active_dimension_fields.each do |active_field|	%>
+		<th><%= ProductDimension.attribute_dictionary[active_field]%></th>
+	<% end %>
+	</tr>
+	<% @product.product_dimensions.each do |product_dimension|	%>
+	<tr><td><%= product_dimension.name		%>	</td>
+		<% @product.product_category.active_dimension_fields.each do |active_field|	%>
+		<td><%= product_dimension.attributes[active_field]	%></td>
+		<% end %>
+		<td><%= link_to("Modificar", edit_admin_product_product_dimension_path(@product, product_dimension)) %></td>
+		<td><%= button_to("Eliminar", admin_product_product_dimension_path(@product, product_dimension), method: :delete)%></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+<p>
+	<%= link_to "Agregar Dimension", new_admin_product_product_dimension_path(@product), remote: true	%>
+</p>

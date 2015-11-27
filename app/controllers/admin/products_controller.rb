@@ -13,6 +13,10 @@ class Admin::ProductsController < ApplicationController
       product_search = params[:product].clone
       product_search.delete_if {|k,v| v.blank? }
       @products = Product.where(product_search).order('name ASC').all
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
   
