@@ -1,12 +1,17 @@
 class ContactsController < ApplicationController
+
   def create
     @company = Company.first
     @contact = Contact.new(contact_params)
-    if @contact.save
-      Notifier.customer_feedback_received(@contact).deliver
-      redirect_to thank_you_path
-    else      
-      render :action => 'contact_us'
+    respond_to do |format|
+      if @contact.save
+        Notifier.customer_feedback_received(@contact).deliver
+        format.html {redirect_to thank_you_path}
+        format.js
+      else      
+        format.html {render :action => 'contact_us'}
+        format.js
+      end
     end
   end
   

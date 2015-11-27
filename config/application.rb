@@ -59,8 +59,17 @@ module Pierco
         false
       end
     end
-
-
-
+    
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :authentication => 'plain',                                                                                                                     
+      :domain => 'pierco.com.co',
+      :user_name => ENV["EMAIL_USERNAME"] + '@pierco.com.co',
+      :password => ENV["EMAIL_PASSWORD"]
+    }
+    
   end
 end

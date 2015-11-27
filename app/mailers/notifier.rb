@@ -8,6 +8,6 @@ class Notifier < ActionMailer::Base
   #
   def customer_feedback_received(contact)
     @contact = contact
-    mail(:to => @contact.company.email, :subject => "Mensaje Pagina Web")
+    mail(to: @contact.company.email, subject: "Mensaje Pagina Web - #{@contact.email}")
   end
 end
