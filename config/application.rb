@@ -67,7 +67,7 @@ module Pierco
       :port => 587,
       :authentication => 'plain',                                                                                                                     
       :domain => 'pierco.com.co',
-      :user_name => ENV["EMAIL_USERNAME"] + '@pierco.com.co',
+      :user_name => ENV["EMAIL_USERNAME"],
       :password => ENV["EMAIL_PASSWORD"]
     }
     
