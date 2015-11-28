@@ -35,7 +35,7 @@ module Pierco
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.action_controller.permit_all_parameters = true
-    config.assets.paths << "#{Rails.root}/app/assets/twitter/fonts" 
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.encoding = "utf-8"
 
@@ -44,21 +44,6 @@ module Pierco
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.assets.precompile << Proc.new do |path|
-      if path =~ /\.(css|js)\z/
-        full_path = Rails.application.assets.resolve(path).to_path
-        app_assets_path = Rails.root.join('app', 'assets').to_path
-        if full_path.starts_with? app_assets_path
-          puts "including asset: " + full_path
-          true
-        else
-          puts "excluding asset: " + full_path
-          false
-        end
-      else
-        false
-      end
-    end
     
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
