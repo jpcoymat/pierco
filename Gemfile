@@ -17,6 +17,7 @@ gem 'figaro'
 gem "fog", "~> 1.3.1"
 gem "mini_magick"
 gem 'chosen-rails'
+gem 'rails_12factor'
 
 
 gem 'sass-rails', '~> 4.0.0'
