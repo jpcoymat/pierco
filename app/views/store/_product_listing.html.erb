@@ -14,3 +14,13 @@
 	<% end%>
 </div>
 <% end %>
+<div class="row text-center" id="pagination_links">
+	<%= will_paginate @products, renderer: BootstrapPagination::Rails, previous_label: "<<", next_label: ">>" %>
+</div>
+<script type="text/javascript">
+	$("#pagination_links a").each( function() {
+		$(this).attr( 'data-remote', 'true' );
+	});
+  	
+  
+</script>

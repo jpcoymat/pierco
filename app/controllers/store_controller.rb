@@ -21,7 +21,8 @@ class StoreController < ApplicationController
     @suppliers = @company.suppliers
     params[:product_category_id].nil? ? @product_category = @product_categories.first : @product_category = ProductCategory.find(params[:product_category_id])
     params[:supplier_id].nil? ? @supplier = @suppliers.first : @supplier = Supplier.find(params[:supplier_id])
-    @products = Product.where(product_category_id: @product_category.id, supplier_id: @supplier.id).order('name ASC')
+    @page = params[:page] || 1
+    @products = Product.where(product_category_id: @product_category.id, supplier_id: @supplier.id).paginate(page: @page, per_page: 9).order('name ASC')
     respond_to do |format|
       format.html
       format.js 
