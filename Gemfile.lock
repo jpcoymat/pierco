@@ -188,7 +188,7 @@ DEPENDENCIES
   jquery-ui-rails
   less-rails
   mini_magick
-  mongrel (>= 1.2.0.pre2)
+  mongrel
   pg
   rails
   rails_12factor
