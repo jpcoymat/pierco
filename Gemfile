@@ -4,9 +4,9 @@ gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+
 gem 'pg'
 gem 'will_paginate-bootstrap'
-gem 'mongrel'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "twitter-bootstrap-rails"
@@ -22,6 +22,7 @@ gem 'coffee-rails'
 gem 'jbuilder'
 gem 'therubyracer'
 gem 'execjs'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
