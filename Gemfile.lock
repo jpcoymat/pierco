@@ -317,6 +317,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jquery-ui-rails
+  less-rails
   mini_magick
   pg
   rails

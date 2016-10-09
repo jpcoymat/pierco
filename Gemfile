@@ -23,7 +23,7 @@ gem 'jbuilder'
 gem 'therubyracer'
 gem 'execjs'
 
-
+gem 'less-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
 # Deploy with Capistrano
