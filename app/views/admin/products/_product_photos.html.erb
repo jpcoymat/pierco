@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>Imagenes Adicionales
+			<button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#addProductPhotograph">
+				<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+			</button>
+		</h2> 
+	</div>
+</div>
+<% if @product.product_photos.empty? %>
+<p>No hay imagenes adicionales para este producto.</p>
+<% else %>
+<% @product.product_photos.each_slice(3) do |slice| %>
+<div class="row">
+	<% slice.each do |photo| %>
+	<div class="col-lg-4 col-md-4 col-xs-6 portfolio-item"> 
+		<a href="javascript:void(0)" onclick="getProductPhotographModal('<%= photo.id %>')">
+<%= image_tag(photo.product_photograph.thumb.url) %>
+		</a>
+		<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
+	</div>
+	<% end %>
+</div>
+<% end %>	
+<% end %>

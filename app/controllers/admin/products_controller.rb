@@ -74,6 +74,17 @@ class Admin::ProductsController < ApplicationController
     flash[:notice] ="Producto eliminado exitosamente"
     redirect_to lookup_admin_products_path
   end
+  
+  
+  def search
+    product_search = params[:product].clone
+    product_search.delete_if {|k,v| v.blank? }
+    @products = Product.where(product_search).order('name ASC').all
+    respond_to do |format|
+      #format.html
+      format.js
+    end
+  end
 
 
 end

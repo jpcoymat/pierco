@@ -23,6 +23,7 @@ class Admin::ProductPhotosController < ApplicationController
     respond_to do |format|
       if @product_photo.save
         format.json { render json: @product_photo, status: :ok}
+        format.js
       else
         format.json { render json: @product_photo.errors, status: :unprocessable_entity }
       end

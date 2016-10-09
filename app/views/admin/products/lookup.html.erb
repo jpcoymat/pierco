@@ -1,7 +1,7 @@
 <h1>Productos </h1>
 
 <p>Seleccione el criterio que desea para filtrar los resultados </p>
-<%= form_for :product, url: lookup_admin_products_path, html: {class: "form-horizontal"}, remote: true do |form| %>
+<%= form_for :product, url: search_admin_products_path, html: {class: "form-horizontal"}, remote: true do |form| %>
 <div class="form-group">
 	<%= form.label "Marca", class: "col-sm-1 control-label" %>	
 	<div class="col-sm-2">
