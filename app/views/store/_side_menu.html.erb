@@ -1,8 +1,8 @@
 <div class="panel-group" id="accordion">
 	<% @company.suppliers.each do |supplier| %>
-	<div class="panel panel-default">
-    		<div class="panel-heading">
-        		<h4 class="panel-title">
+	<div class="card">
+    		<div class="card-header">
+        		<h4 class="card-title">
             			<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= supplier.id.to_s%>"><span class="glyphicon glyphicon-folder-close"></span><%= supplier.name %></a>
             		</h4>
         	</div>

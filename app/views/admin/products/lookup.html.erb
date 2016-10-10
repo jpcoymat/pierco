@@ -1,23 +1,23 @@
 <h1>Productos </h1>
 
 <p>Seleccione el criterio que desea para filtrar los resultados </p>
-<%= form_for :product, url: search_admin_products_path, html: {class: "form-horizontal"}, remote: true do |form| %>
+<%= form_for :product, url: search_admin_products_path, remote: true do |form| %>
 <div class="form-group">
-	<%= form.label "Marca", class: "col-sm-1 control-label" %>	
-	<div class="col-sm-2">
+	<%= form.label "Marca", class: "col-md-1 form-control-label" %>	
+	<div class="col-md-2">
 		<%= form.select :supplier_id, @suppliers.collect {|s| [s.name, s.id]}, {include_blank: true}, {class: "form-control"}	%>
 	</div>
-	<%= form.label "Categoria", class: "col-sm-1 control-label"	%>	
-	<div class="col-sm-2">
+	<%= form.label "Categoria", class: "col-md-1 form-control-label"	%>	
+	<div class="col-md-2">
 		<%= form.select :product_category_id, @product_categories.collect {|pc| [pc.name, pc.id]}, {include_blank: true}, {class: "form-control"}	%>
 	</div>
 	<div class="form-group">
-		<%= form.label "Nombre", class: "col-sm-1 control-label" %>	
-		<div class="col-sm-2">
+		<%= form.label "Nombre", class: "col-md-1 form-control-label" %>	
+		<div class="col-md-2">
 			<%= form.select :id, @all_products.collect {|prod| [prod.name, prod.id]}, {include_blank: true}, {class: "form-control chosen-select"} %>
 		</div>
 	</div>
-	<div class="col-sm-2">
+	<div class="col-md-2">
 		<%= submit_tag "Buscar", {class: "btn btn-primary"}	%>
 	</div>
 </div>

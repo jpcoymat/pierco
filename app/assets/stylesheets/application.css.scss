@@ -4,10 +4,9 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require chosen
  *= require bootstrap_and_overrides
- *= require_self
- *= require_tree .
 */
 
+@import "bootstrap";
 
 .portfolio-item {
     margin-bottom: 25px;

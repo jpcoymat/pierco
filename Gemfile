@@ -6,10 +6,11 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'bootstrap'
 gem 'will_paginate-bootstrap'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "twitter-bootstrap-rails"
+#gem "twitter-bootstrap-rails"
 gem "yaml_db"
 gem 'carrierwave'
 gem 'figaro'
