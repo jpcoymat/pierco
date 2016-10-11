@@ -13,7 +13,7 @@ gem 'jquery-ui-rails'
 #gem "twitter-bootstrap-rails"
 gem "yaml_db"
 gem 'carrierwave'
-gem 'figaro'
+#gem 'figaro'
 gem "fog"
 gem "mini_magick"
 gem 'chosen-rails'
