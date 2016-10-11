@@ -39,9 +39,10 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    arel (7.1.3)
+    arel (7.1.4)
     autoprefixer-rails (6.5.0.2)
       execjs
+    bcrypt (3.1.11)
     bootstrap (4.0.0.alpha4)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
@@ -143,7 +144,7 @@ GEM
       multi_json (~> 1.10)
     fog-local (0.3.0)
       fog-core (~> 1.27)
-    fog-openstack (0.1.14)
+    fog-openstack (0.1.15)
       fog-core (>= 1.40)
       fog-json (>= 1.0)
       ipaddress (>= 0.8)
@@ -308,6 +309,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bootstrap
   carrierwave
   chosen-rails
@@ -328,4 +330,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.12.5
+   1.13.2

@@ -1,4 +1,4 @@
-class Distributor < ActiveRecord::Base
+class Distributor < ApplicationRecord
 
   validates   :company_id, :name, :address_1, :city, :country, presence: {:message => "Nombre, Ciudad, Direccion no pueden estar en blanco"}
   validates   :name,  uniqueness: {:message => "Nombre ya existe"}

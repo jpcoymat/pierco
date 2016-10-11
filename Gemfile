@@ -17,7 +17,7 @@ gem 'figaro'
 gem "fog"
 gem "mini_magick"
 gem 'chosen-rails'
-
+gem 'bcrypt'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'jbuilder'

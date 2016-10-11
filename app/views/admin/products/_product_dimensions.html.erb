@@ -16,6 +16,8 @@
 	</tr>
 	<% end %>
 </table>
+<% else %>
+<p>No hay medidas para este producto.</p>
 <% end %>
 <p>
 	<%= link_to "Agregar Dimension", new_admin_product_product_dimension_path(@product), remote: true	%>

@@ -1,4 +1,4 @@
-class ProductDimension < ActiveRecord::Base
+class ProductDimension < ApplicationRecord
 
   belongs_to  :product
 

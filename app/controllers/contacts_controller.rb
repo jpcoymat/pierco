@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
 
+  skip_before_action :authorize
+
   def create
     @company = Company.first
     @contact = Contact.new(contact_params)

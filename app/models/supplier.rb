@@ -1,4 +1,4 @@
-class Supplier < ActiveRecord::Base
+class Supplier < ApplicationRecord
   
   mount_uploader :supplier_picture, SupplierPictureUploader
   

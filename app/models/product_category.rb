@@ -1,4 +1,4 @@
-class ProductCategory < ActiveRecord::Base
+class ProductCategory < ApplicationRecord
 
   validates :name, :description, :company_id, presence: true
   validates :name, uniqueness: true

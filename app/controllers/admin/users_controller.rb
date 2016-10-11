@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
+
   layout 'admin'
-  before_filter :authorize
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index 

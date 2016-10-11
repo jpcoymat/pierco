@@ -1,6 +1,5 @@
 class Admin::DistributorsController < ApplicationController
 
-  before_filter :authorize
   layout 'admin'
 
   def lookup

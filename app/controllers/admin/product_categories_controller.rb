@@ -1,6 +1,5 @@
 class Admin::ProductCategoriesController < ApplicationController
 
-  before_filter :authorize
   layout 'admin'
 
   def index

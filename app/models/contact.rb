@@ -1,4 +1,4 @@
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
   
   validates :company_id, :message, :email, :name, presence: true
   

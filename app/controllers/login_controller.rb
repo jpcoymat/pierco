@@ -4,8 +4,8 @@ class LoginController < ApplicationController
 
   def login
     if request.post?
-      @user = User.authenticate(params[:user_login][:username],params[:user_login][:password])
-      if @user
+      @user = User.where(username: params[:user_login][:username]).first
+      if @user.try(:authenticate, params[:user_login][:password])
         flash[:notice] = "Bienvenido!"
         session[:user_id] = @user.id
         redirect_to admin_companies_path

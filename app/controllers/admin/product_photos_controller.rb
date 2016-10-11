@@ -1,7 +1,6 @@
 class Admin::ProductPhotosController < ApplicationController
 
   layout 'admin'
-  before_filter :authorize
 
   before_action :set_product_photo, only: [:show, :edit, :update, :destroy]
   before_action :set_product

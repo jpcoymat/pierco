@@ -1,54 +1,51 @@
 <div class="container">
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="active">
-			<a href="#main" aria-controls="main" role="tab" data-toggle="tab">Datos Principales</a>
-		</li>
-		<li role="presentation">
-			<a href="#dimensions" aria-controls="dimensions" role="tab" data-toggle="tab">Medidas Disponibles</a>
-		</li>
-		<li role="presentation">
-			<a href="#gallery" aria-controls="gallery" role="tab" data-toggle="tab">Imagenes</a>
-		</li>
-		
+	  <li class="nav-item">
+	    <a class="nav-link active" data-toggle="tab" href="#main" role="tab">Datos Principales</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" data-toggle="tab" href="#dimensions" role="tab">Medidas Disponibles</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" data-toggle="tab" href="#gallery" role="tab">Imagenes</a>
+	  </li>
 	</ul>
 	
 	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane active" id="main">
-			<h1>Detalles Producto	</h1>
-			<div class="row">
-				<div class="col-lg-4 col-md-4">
-					<%= image_tag(@product.product_picture.url, widht: 400)%>
-				</div>
-				<div class="col-lg-8 col-md-8">
-					<dl class="dl-horizontal">
-						<dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
-						<dt>Marca			</dt>		<dd><%= @product.supplier.name		%>	</dd>
-						<dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
-						<dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
-						<dt>Descripción		</dt>		<dd><%= @product.description			%>	</dd>
-					</dl>
-				</div>
-			</div>
-			<p>
-				<%= link_to "Modificar",edit_admin_product_path(@product)	%>	| 
-				<%= link_to("Eliminar", admin_product_path(@product), method: :delete)%>
-			</p>	
-		</div>
-
-		<div role="tabpanel" class="tab-pane" id="dimensions">
-			<%= render 'product_dimensions' %>
-		</div>
-
-		<div role="tabpanel" class="tab-pane" id="gallery">
-		</div>
+	  <div class="tab-pane active" id="main" role="tabpanel">
+		  <h1>Detalles Producto	</h1>
+		  <div class="row">
+			  <div class="col-xl-4 col-lg-4">
+				  <% unless @product.product_picture.file==nil %>
+				  <%= image_tag(@product.product_picture.url, width: 400)%>
+				  <% end %>
+			  </div>
+			  <div class="col-xl-8 col-lg-8">
+				  <dl class="dl-horizontal">
+					  <dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
+					  <dt>Marca			</dt>		<dd><%= @product.supplier.name		%>	</dd>
+					  <dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
+					  <dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
+					  <dt>Descripción		</dt>		<dd><%= @product.description			%>	</dd>
+				  </dl>
+			  </div>
+		  </div>
+		  <p>
+			  <%= link_to "Modificar",edit_admin_product_path(@product)	%>	| 
+			  <%= link_to("Eliminar", admin_product_path(@product), method: :delete)%>
+		  </p>				
+	  </div>
+	  <div class="tab-pane" id="dimensions" role="tabpanel">
+		  <%= render partial: 'product_dimensions' %>
+	  </div>
+	  <div class="tab-pane" id="gallery" role="tabpanel">
+		  <p>this is gallery</p>
+	  </div>
 	</div>
-<br \> <br \>
-<%= link_to "Regresar", lookup_admin_products_path %>
-
-<div id="dimension_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-</div>
-
+	<br \> <br \>
 	
+	<%= link_to "Regresar", lookup_admin_products_path %>
+
 </div>
 
 

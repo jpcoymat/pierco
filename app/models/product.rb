@@ -1,4 +1,4 @@
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
 
   mount_uploader :product_picture, ProductPictureUploader 
 

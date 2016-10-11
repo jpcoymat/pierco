@@ -1,7 +1,6 @@
 class Admin::SuppliersController < ApplicationController
   
   layout 'admin'
-  before_filter :authorize
   before_action :set_supplier, only: [:edit, :update, :delete, :show]
 
   def index

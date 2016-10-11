@@ -1,7 +1,6 @@
 class Admin::ProductDimensionsController < ApplicationController
   
   layout 'admin'
-  before_filter :authorize
   
   def new
     @product = Product.find(params[:product_id])

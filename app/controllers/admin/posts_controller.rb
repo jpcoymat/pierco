@@ -1,6 +1,6 @@
 class Admin::PostsController < ApplicationController
+
   layout 'admin'
-  before_filter :authorize
 
   def index
     @company = User.find(session[:user_id]).company

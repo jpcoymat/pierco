@@ -1,4 +1,4 @@
-class ChangeLog < ActiveRecord::Base
+class ChangeLog < ApplicationRecord
   belongs_to :reference_object, polymorphic: true
   belongs_to :user
 

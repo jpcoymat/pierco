@@ -1,5 +1,6 @@
 Pierco::Application.routes.draw do
 
+  resources :rename_column_password_digests
   get "login/login"
   get "login/logout"
   post "login/login"

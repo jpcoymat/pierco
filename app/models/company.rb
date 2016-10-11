@@ -1,4 +1,4 @@
-class Company < ActiveRecord::Base
+class Company < ApplicationRecord
   
   mount_uploader :company_picture, CompanyPictureUploader
     

@@ -1,7 +1,6 @@
 class Admin::ProductsController < ApplicationController
 
   layout 'admin'
-  before_filter :authorize
 
   def lookup 
     @company = User.find(session[:user_id]).company
