@@ -1,3 +1,4 @@
-$('#productModal').html("<%= j (render 'product_modal')%>");
+$('#productModal').html("<%= j (render partial: 'product_modal')%>");
+
 $('#productModal').modal({});
 $('#productModal').show();

@@ -25,6 +25,12 @@ gem 'therubyracer'
 gem 'execjs'
 
 gem 'less-rails'
+
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 # Deploy with Capistrano

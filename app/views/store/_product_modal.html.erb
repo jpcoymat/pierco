@@ -7,13 +7,17 @@
 	    	<h4 class="modal-title" id="myModalLabel"><%= @product.name %></h4>
 	  	</div>
 	  	<div class="modal-body">
-			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active">
-					<a href="#main" aria-controls="main" role="tab" data-toggle="tab">Datos Principales</a>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a href="#main" role="tab" data-toggle="tab" class="nav-link">Datos Principales</a>
 				</li>
-				<li role="presentation">
-					<a href="#dimensions" aria-controls="dimensions" role="tab" data-toggle="tab">Medidas Disponibles</a>
+				<li class="nav-item">
+					<a href="#dimensions" class="nav-link" role="tab" data-toggle="tab">Medidas Disponibles</a>
 				</li>
+				<li rclass="nav-item">
+					<a href="#gallery" class="nav-link" role="tab" data-toggle="tab">Imagenes</a>
+				</li>
+				
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="main">
@@ -34,23 +38,27 @@
 				<div role="tabpanel" class="tab-pane" id="dimensions">
 					<% if @product.product_dimensions.count > 0 %>
 					<div class="table-detail">
-						<table class="table table-condensed">
-							<tr>
+						<table class="table table-sm">
+							<thead>
+								<tr>
 								<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
 								<% if @product.product_category.attributes[ordered_attribute]	%>
-								<th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%></th>
+									<th><%= ProductDimension.attribute_dictionary[ordered_attribute]	%></th>
 								<% end %>
 							  	<% end %>
-						  	</tr>
-						  	<% @product.product_dimensions.each do |product_dimension| %>
-						  	<tr>
+						  		</tr>
+							</thead>
+							<tbody>
+								<% @product.product_dimensions.each do |product_dimension| %>
+								<tr>
 								<% ProductDimension.ordered_attributes.each do |ordered_attribute| 	%>
 							  	<% if @product.product_category.attributes[ordered_attribute] %>
-							  	<td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
+							  		<td><%= product_dimension.attributes[ordered_attribute]  %>&nbsp;</td>
 							  	<% end %>
   								<% end %>									  
-						  	</tr>
-						  	<% end %>
+						  		</tr>
+						  		<% end %>
+							</tbody>
 						</table>
 					</div>
 					<% else %>

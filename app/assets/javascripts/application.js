@@ -5,8 +5,8 @@
 // the compiled file.
 //
 //= require jquery
-//= require bootstrap
 //= require jquery-ui/effect-blind
 //= require jquery_ujs
+//= require bootstrap
 //= require chosen-jquery
 //= require_tree .

@@ -5,7 +5,6 @@ class StoreController < ApplicationController
   def index
     @company = Company.first
     @suppliers = @company.suppliers
-    render layout: false
   end
   
   def about_us

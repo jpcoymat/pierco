@@ -8,7 +8,7 @@
 	<%slice.each do |product| %>
 	<div class="col-lg-4 col-md-4 col-xs-6 portfolio-item text-center"> 
 		<% unless product.product_picture.file == nil %>
-		<%= link_to(image_tag(product.product_picture.thumb.url, height: 180), product_modal_path(product: product.id), remote: true) if product.product_picture %>
+		<%= link_to(image_tag(product.product_picture.thumb.url, height: 180), product_modal_path(product: product.id), remote: true) %>
 		<% end %>
 		
 		<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
@@ -19,9 +19,10 @@
 <div class="row text-center" id="pagination_links">
 	<%= will_paginate @products, renderer: BootstrapPagination::Rails, previous_label: "<<", next_label: ">>" %>
 </div>
+
 <script type="text/javascript">
 	$("#pagination_links a").each( function() {
-		$(this).attr( 'data-remote', 'true' );
+		$(this).attr( 'data-remote', 'true' );		
 	});
   	
   
