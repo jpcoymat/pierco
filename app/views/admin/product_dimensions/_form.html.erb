@@ -10,23 +10,23 @@
 <% end %>
 	
 <%= form_for [:admin, @product, @product_dimension], html: {class: "form-horizontal"}, remote: true do |form| %>
-	<div class="form-group">
+	<div class="form-group row">
 		<%= form.label ProductDimension.attribute_dictionary["name"], class: "col-sm-2 control-label"	%>
-		<div class="col-xs-4">
+		<div class="col-sm-10">
 			<%= form.text_field :name, class: "form-control"%>
 	  	</div>
 	</div>
 	<% ProductDimension.dimension_attributes.each do |dim_attr|  %>
 	<% if @product.product_category.attributes[dim_attr]	%>
-	<div class="form-group">
+	<div class="form-group row">
 		<%= form.label ProductDimension.attribute_dictionary[dim_attr], class: "col-sm-2 control-label"	%>
-		<div class="col-xs-4">
+		<div class="col-sm-10">
 			<%= form.text_field dim_attr.to_sym, class: "form-control" %>
 		</div>
 	</div>
 	<% end %>
 	<% end %>
-	<div class="form-group">
+	<div class="form-group row">
 		<div class="col-sm-offset-2 col-sm-10">
 			<%= submit_tag "Confirmar",  {class: "btn btn-primary"} %>
 		</div>

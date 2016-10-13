@@ -1,4 +1,11 @@
-<h2>Dimensiones de Producto </h2>
+<div class="row">
+	<div class="col-md-8">
+		<h2>Dimensiones de Producto </h2>
+	</div>
+	<div>
+		<%= link_to "Agregar", new_admin_product_product_dimension_path(@product), remote: true, class: "btn btn-primary"	%>
+	</div>
+</div>
 <% unless @product.product_dimensions.empty?%>
 <table  class="table table-striped">
 	<tr><th>Dimension	</th>
@@ -20,5 +27,5 @@
 <p>No hay medidas para este producto.</p>
 <% end %>
 <p>
-	<%= link_to "Agregar Dimension", new_admin_product_product_dimension_path(@product), remote: true	%>
+	<%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>'.html_safe, new_admin_product_product_dimension_path(@product), remote: true	%>
 </p>
