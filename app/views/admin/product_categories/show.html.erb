@@ -1,0 +1,17 @@
+<div class="container">
+	
+	<dl class="row">	
+		<dt class="col-sm-4">Nombre	</dt> <dd class="col-sm-8"><%= @product_category.name %></dd>
+		<dt class="col-sm-4">Descripcion </dt> <dd class="col-sm-8"><%= @product_category.description %></dd>
+		<% ProductDimension.attribute_dictionary.each do |k,v| %>
+		<dt class="col-sm-4">Maneja <%= v %>?	</dt>	
+		<% if @product_category.attributes[k] %>
+		<dd class="col-sm-8"><i class="fa fa-check" aria-hidden="true"></i></dd>
+		<% else %>
+		<dd class="col-sm-8"><i class="fa fa-minus-square" aria-hidden="true"></i></dd>
+		<% end %>
+		<% end %>
+	</dl>
+	<%= link_to "Editar", edit_admin_product_category_path(@product_category) %>
+	
+</div>

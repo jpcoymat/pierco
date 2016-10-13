@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = "Usuario creado exitosamente"
       redirect_to admin_users_path
     else
-      flash[:notice] = "Error creando usuario"
+      flash[:alert] = "Error creando usuario"
     end
   end
   
@@ -34,7 +34,7 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = "Usuario actualizado exitosamente"
       redirect_to admin_users_path
     else
-      flash[:notice] = "Error actualizando usuario"
+      flash[:alert] = "Error actualizando usuario"
       render action: 'edit'
     end
   end

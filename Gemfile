@@ -10,6 +10,7 @@ gem 'bootstrap'
 gem 'will_paginate-bootstrap'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'font-awesome-rails'
 #gem "twitter-bootstrap-rails"
 gem "yaml_db"
 gem 'carrierwave'

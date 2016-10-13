@@ -21,6 +21,7 @@ class Admin::SuppliersController < ApplicationController
       flash[:notice] = "Marca creada exitosamente"
       redirect_to admin_supplier_path @supplier
     else
+      flas[:alert] = "Error creando marca"
       render action: 'new'
     end
   end
@@ -35,6 +36,7 @@ class Admin::SuppliersController < ApplicationController
       flash[:notice] = "Marca actualizada exitosamente"
       redirect_to admin_supplier_path @supplier
     else
+      flash[:alert] = "Error actualizando marca"
       render action: 'edit'
     end
   end

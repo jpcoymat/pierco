@@ -18,7 +18,7 @@ class Admin::PostsController < ApplicationController
       flash[:notice] = "Noticia creada"
       redirect_to admin_posts_path
     else
-      flash[:notice] = "Error creando noticia"
+      flash[:alert] = "Error creando noticia"
       redirect_to admin_posts_path
     end
   end
@@ -33,7 +33,7 @@ class Admin::PostsController < ApplicationController
       flash[:notice] = "Noticia actualizada exitosamente"
       redirect_to admin_posts_path
     else
-      flash[:notice] = "Error actualizando noticia"
+      flash[:alert] = "Error actualizando noticia"
       render action: 'edit'
     end
   end

@@ -1,30 +1,28 @@
-<div class="navbar navbar-light bg-faded navbar-fixed-top" role="navigation">
-	<div class="container">
-		<ul class="nav navbar-nav">
-			<li class="nav-item">
-				<%= link_to "Compa&ntilde;ia".html_safe, admin_companies_path, class: "nav-link"%>	
-			</li>
-			<li class="nav-item">
-				<%= link_to "Marcas", admin_suppliers_path, class: "nav-link"						%>	
-			</li>
-			<li class="nav-item">
-				<%= link_to "Categorias", admin_product_categories_path, class: "nav-link"			%>	
-			</li>
-			<li class="nav-item">
-				<%= link_to "Productos",	lookup_admin_products_path, class: "nav-link"			%>	
-			</li>
-			<li class="nav-item">
-				<%= link_to "Distribuidores", lookup_admin_distributors_path, class: "nav-link" 	%>	
-			</li>
-			<li class="nav-item">
-				<%= link_to "Noticias", admin_posts_path, class: "nav-link"							%>	
-			</li>
-			<li class="nav-item">
-				<%= link_to "Usuarios", admin_users_path, class: "nav-link"            				%>  
-			</li>
-		</ul>
-		<ul class="nav navbar-nav pull-xs-right">
-			<li class="nav-item"><%= link_to "Cerrar Session", login_logout_path, class: "nav-link" %></li>
-		</ul>
-	</div>
-</div>
+<nav class="navbar navbar-dark bg-inverse">
+	<ul class="nav navbar-nav">
+		<li class="nav-item">
+			<%= link_to "Compa&ntilde;ia".html_safe, admin_companies_path, class: "nav-link"%>	
+		</li>
+		<li class="nav-item">
+			<%= link_to "Marcas", admin_suppliers_path, class: "nav-link"						%>	
+		</li>
+		<li class="nav-item">
+			<%= link_to "Categorias", admin_product_categories_path, class: "nav-link"			%>	
+		</li>
+		<li class="nav-item">
+			<%= link_to "Productos",	lookup_admin_products_path, class: "nav-link"			%>	
+		</li>
+		<li class="nav-item">
+			<%= link_to "Distribuidores", lookup_admin_distributors_path, class: "nav-link" 	%>	
+		</li>
+		<li class="nav-item">
+			<%= link_to "Noticias", admin_posts_path, class: "nav-link"							%>	
+		</li>
+		<li class="nav-item">
+			<%= link_to "Usuarios", admin_users_path, class: "nav-link"            				%>  
+		</li>
+	</ul>
+	<ul class="nav navbar-nav pull-xs-right">
+		<li class="nav-item"><%= link_to "Cerrar Session", login_logout_path, class: "nav-link" %></li>
+	</ul>
+</nav>

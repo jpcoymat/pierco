@@ -28,6 +28,7 @@ class Admin::ProductDimensionsController < ApplicationController
         format.js
       else
         format.html do 
+          flash[:alert] = "Error creando dimension de producto"
           render :action => 'new'
         end
         format.js
@@ -55,6 +56,7 @@ class Admin::ProductDimensionsController < ApplicationController
         end
         format.js
       else
+        flash[:alert] = "Error actualizando dimension de producto"
         format.html {render :action => 'edit'}
         format.js
       end

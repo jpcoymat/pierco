@@ -38,6 +38,7 @@ class Admin::ProductsController < ApplicationController
       flash[:notice] = "Producto creado exitosamnte"
       redirect_to admin_product_path @product
     else
+      flash[:alert] = "Error creando producto"
       @company = User.find(session[:user_id]).company
       @suppliers = @company.suppliers
       @product_categories = @company.product_categories
@@ -60,6 +61,7 @@ class Admin::ProductsController < ApplicationController
       flash[:notice] = "Producto actualizado exitosamente"
       redirect_to admin_product_path @product
     else
+      flash[:alert] = "Error actualizando producto"
       @company = User.find(session[:user_id]).company
       @suppliers = @company.suppliers
       @product_categories = @company.product_categories

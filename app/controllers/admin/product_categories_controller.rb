@@ -2,6 +2,8 @@ class Admin::ProductCategoriesController < ApplicationController
 
   layout 'admin'
 
+  before_action :set_product_category, only: [:show, :edit, :update, :destroy]
+
   def index
     @product_categories = User.find(session[:user_id]).company.product_categories
   end
@@ -17,29 +19,36 @@ class Admin::ProductCategoriesController < ApplicationController
       flash[:notice] = "Categoria creada exitosamente"
       redirect_to admin_product_categories_path
     else
+      flas[:alert] = "Error creando categoria"
       @company = User.find(session[:user_id]).company
       render :action => 'new_product_category'
     end
   end
   
   def edit
-    @product_category = ProductCategory.find(params[:id])
+
   end
   
   def update
-    @product_category = ProductCategory.find(params[:id])
     if @product_category.update_attributes(params[:product_category])
       flash[:notice] = "Categoria actalizada exitosamente"
       redirect_to admin_product_categories_path
     else
+      flash[:alert] = "Error actualizando categoria"
       render :action => 'edit'      
     end
   end
   
   def destroy
-    ProductCategory.destroy(params[:id])
+    @product_category.destroy
     flash[:notice] = "Catgoria eliminada exitosamente"
     redirect_to admin_product_categories_path
+  end
+  
+  private
+  
+  def set_product_category
+    @product_category = ProductCategory.find(params[:id])
   end
 
 

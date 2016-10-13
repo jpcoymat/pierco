@@ -20,6 +20,7 @@ class Admin::CompaniesController < ApplicationController
       flash[:notice] = "Compa&ntilde;ia actualizada exitosamente".html_safe
       redirect_to admin_companies_path
     else
+      flash[:alert] = "Error grabando cambios"
       render :action => 'edit'
     end
   end
@@ -33,7 +34,7 @@ class Admin::CompaniesController < ApplicationController
       flash[:notice] = "Compa&ntilde;ia creada exitosamente"
       redirect_to admin_companies_path
     else
-      flash[:notice] = "Error creando Compa&ntilde;ia"
+      flash[:alert] = "Error creando Compa&ntilde;ia"
       render action: 'new'
     end
     

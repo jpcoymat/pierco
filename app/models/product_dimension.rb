@@ -18,10 +18,10 @@ class ProductDimension < ApplicationRecord
                               	"rim_width_range" => "Ancho Rin",
                               	"tred_depth" => "Prof. Banda Rdmnto (in)",
                               	"name" => "Dimension",
-				"offset" => "Offset",
-				"pcd" => "PCD",
-				"holes" => "Huecos",
-				"x_factor" => "X-Factor"}
+				                         "offset" => "Offset",
+				                         "pcd" => "PCD",
+				                         "holes" => "Huecos",
+				                         "x_factor" => "X-Factor"}
   end
   
   def self.dimension_attributes
