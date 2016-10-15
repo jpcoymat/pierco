@@ -3,69 +3,48 @@ class Admin::ProductsController < ApplicationController
   layout 'admin'
 
   def lookup 
-    @company = User.find(session[:user_id]).company
-    @suppliers = @company.suppliers
-    @product_categories = @company.product_categories
-    @product_subcategories = @company.product_subcategories
+    set_filter_criteria
     @all_products = @company.products
-    if request.post?
-      product_search = params[:product].clone
-      product_search.delete_if {|k,v| v.blank? }
-      @products = Product.where(product_search).order('name ASC').all
-      respond_to do |format|
-        format.html
-        format.js
-      end
-    end
   end
   
   def show
     @product = Product.find(params[:id])
-    @product_photo = ProductPhoto.new
   end
   
   def new
     @product = Product.new
-    @company = User.find(session[:user_id]).company
-    @suppliers = @company.suppliers
-    @product_categories = @company.product_categories
-    @product_subcategories = @company.product_subcategories
+    set_filter_criteria
   end
   
   def create
     @product = Product.new(params[:product])
     if @product.save        
+      flash[:alert] = nil
       flash[:notice] = "Producto creado exitosamnte"
-      redirect_to admin_product_path @product
+      render action: 'show'
     else
+      flash[:notice] = nil
       flash[:alert] = "Error creando producto"
-      @company = User.find(session[:user_id]).company
-      @suppliers = @company.suppliers
-      @product_categories = @company.product_categories
-      @product_subcategories = @company.product_subcategories
+      set_filter_criteria
       render action: 'new'
     end
   end
   
   def edit
     @product = Product.find(params[:id])
-    @company = User.find(session[:user_id]).company
-    @suppliers = @company.suppliers
-    @product_categories = @company.product_categories
-    @product_subcategories = @company.product_subcategories
+    set_filter_criteria
   end
   
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(params[:product]) 
+      flash[:alert] = nil
       flash[:notice] = "Producto actualizado exitosamente"
-      redirect_to admin_product_path @product
+      render action: 'show'
     else
+      flash[:notice] = nil
       flash[:alert] = "Error actualizando producto"
-      @company = User.find(session[:user_id]).company
-      @suppliers = @company.suppliers
-      @product_categories = @company.product_categories
-      @product_subcategories = @company.product_subcategories
+      set_filter_criteria
       render action: 'edit'    
     end
   end
@@ -85,6 +64,15 @@ class Admin::ProductsController < ApplicationController
       #format.html
       format.js
     end
+  end
+  
+  private 
+  
+  def set_filter_criteria
+    @company = User.find(session[:user_id]).company
+    @suppliers = @company.suppliers
+    @product_categories = @company.product_categories
+    @product_subcategories = @company.product_subcategories    
   end
 
 

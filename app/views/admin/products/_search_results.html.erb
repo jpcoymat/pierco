@@ -1,16 +1,21 @@
 <% unless @products.empty?	%>
 <table class="table table-striped">
-	<tr><th>Nombre	</th>	<th>Marca	</th>	<th>Categoria	</th>	<th>Imagen	</th></tr>
+	<thead>
+		<tr><th>Nombre	</th>	<th>Marca	</th>	<th>Categoria	</th>	<th>Imagen	</th></tr>
+	</thead>
+	<tbody>
 	<% @products.each do |product|	%>
-	<tr><td><%= link_to product.name, admin_product_path(product)		%>	</td>
-		<td><%= product.supplier.name									%>	</td>
-		<td><%= product.product_category.nil? ? "" : product.product_category.name	%>	</td>
-		<td><%= product.product_picture.file==nil ? "" : image_tag(product.product_picture.url, :size => "40x40")%>	</td>
-		<td><%= link_to "Modificar", edit_admin_product_path(product)	%>	</td>
-		<td><%= button_to("Eliminar", admin_product_path(product),method: :delete) 			%>	</td>
-	</tr>
+		<tr>
+			<td><%= link_to product.name, admin_product_path(product)		%>	</td>
+			<td><%= product.supplier.name									%>	</td>
+			<td><%= product.product_category.nil? ? "" : product.product_category.name	%>	</td>
+			<td><%= product.product_picture.file==nil ? "" : image_tag(product.product_picture.url, :size => "40x40")%>	</td>
+			<td><%= link_to "Modificar", edit_admin_product_path(product)	%>	</td>
+			<td><%= button_to("Eliminar", admin_product_path(product),method: :delete, class: "btn btn-danger") %>	</td>
+		</tr>
 	<% end %>
+	</tbody>
 </table>
 <% else %>
-	<p>No hay productos que coincidan con su criterio de busqueda.  Por favor intente de nuevo.</p>
+<p>No hay productos que coincidan con su criterio de busqueda.  Por favor intente de nuevo.</p>
 <% end 	%>

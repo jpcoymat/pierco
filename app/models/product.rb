@@ -2,12 +2,12 @@ class Product < ApplicationRecord
 
   mount_uploader :product_picture, ProductPictureUploader 
 
-  validates :name,  :supplier_id, :product_category_id, presence: true
-  validates :name,  uniqueness: true  
+  validates :name,  :supplier_id, :product_category_id, presence: {message: "Nombre, Marca, y Categoria son obligatorios"}
+  validates :name,  uniqueness: {message: "Nombre ya existe"}  
   
   belongs_to  :supplier
   belongs_to  :product_category
-  belongs_to  :product_subcategory
+  belongs_to  :product_subcategory, optional: true
   has_many    :product_dimensions, dependent: :destroy
   has_many    :product_photos, dependent: :destroy
 

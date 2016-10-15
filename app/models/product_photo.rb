@@ -7,4 +7,6 @@ class ProductPhoto < ApplicationRecord
   validates :product_id, :product_photograph, presence: true
 
 
+
+
 end

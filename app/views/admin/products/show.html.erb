@@ -13,33 +13,41 @@
 	
 	<div class="tab-content">
 	  <div class="tab-pane active" id="main" role="tabpanel">
-		  <h1>Detalles Producto	</h1>
+		  <div class="title-control">
+			  <div class="row">
+				  <div class="col-md-8">
+					  <h2>Detalles Producto	</h2>
+				  </div>
+				  <div class="col-md-2">
+					  <%= link_to "Modificar",edit_admin_product_path(@product), class: "btn btn-primary"	%>	
+				  </div>
+				  <div class="col-md-2">
+					  <%= link_to("Eliminar", admin_product_path(@product), method: :delete, class: "btn btn-danger")%>
+				  </div>
+			  </div>	  
+		  </div>
 		  <div class="row">
-			  <div class="col-xl-4 col-lg-4">
+			  <div class="col-xl-6 col-lg-6">
 				  <% unless @product.product_picture.file==nil %>
 				  <%= image_tag(@product.product_picture.url, width: 400)%>
 				  <% end %>
 			  </div>
-			  <div class="col-xl-8 col-lg-8">
-				  <dl class="dl-horizontal">
-					  <dt>Nombre Producto </dt>		<dd><%= @product.name				%>	</dd>
-					  <dt>Marca			</dt>		<dd><%= @product.supplier.name		%>	</dd>
-					  <dt>Categoria		</dt>		<dd><%= @product.product_category.try(:name) 	%>	</dd>
-					  <dt>Subcategoria	</dt>		<dd><%= @product.product_subcategory.try(:name)	%>	</dd>
-					  <dt>Descripción		</dt>		<dd><%= @product.description			%>	</dd>
+			  <div class="col-xl-6 col-lg-6">
+				  <dl class="row">
+					  <dt class="col-sm-4">Nombre Producto</dt><dd class="col-sm-8"><%= @product.name		%>	</dd>
+					  <dt class="col-sm-4">Marca</dt><dd class="col-sm-8"><%= @product.supplier.name		%>	</dd>
+					  <dt class="col-sm-4">Categoria</dt><dd class="col-sm-8"><%= @product.product_category.try(:name) 	%>	</dd>
+					  <dt class="col-sm-4">Subcategoria</dt><dd class="col-sm-8"><%= @product.product_subcategory.try(:name)	%>	</dd>
+					  <dt class="col-sm-4">Descripción</dt><dd class="col-sm-8"><%= @product.description	%>	</dd>
 				  </dl>
 			  </div>
 		  </div>
-		  <p>
-			  <%= link_to "Modificar",edit_admin_product_path(@product)	%>	| 
-			  <%= link_to("Eliminar", admin_product_path(@product), method: :delete)%>
-		  </p>				
 	  </div>
 	  <div class="tab-pane" id="dimensions" role="tabpanel">
 		  <%= render partial: 'product_dimensions' %>
 	  </div>
 	  <div class="tab-pane" id="gallery" role="tabpanel">
-		  <p>this is gallery</p>
+		  <%= render partial: "gallery"%>
 	  </div>
 	</div>
 	
@@ -51,23 +59,6 @@
 </div>
 	
 <!-- Modal -->
-<div id="addProductPhotograph" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Agregar Imagen de Producto </h4>
-			</div>
-			<div class="modal-body">
-				<%= form_for [:admin, @product, @product_photo], remote: true, html: {class: "form-inline",  multipart: true} do |form| %>
-				<div class="form-group">
-					<%= form.label "Archivo Imagen"								%>
-					<%= form.file_field	:product_picture, class: "form-control"	%>
-					<button type="submit" class="btn btn-default">Cargar Archivo</button>
-				</div>	
-				<% end %>
-			</div>
-		</div>
-	</div>
+<div id="product_photo_modal" class="modal fade" role="dialog">
 </div>
 

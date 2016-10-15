@@ -15,16 +15,29 @@ class Admin::ProductPhotosController < ApplicationController
 
   def new
     @product_photo = ProductPhoto.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @product_photo = ProductPhoto.new(product_photo_parms)
+    @product_photo.product = @product
     respond_to do |format|
       if @product_photo.save
         format.json { render json: @product_photo, status: :ok}
         format.js
+        format.html do
+          flash[:notice] = "Archivo cargado exitosamente"
+          redirect_to admin_product_path(@product)
+        end
       else
         format.json { render json: @product_photo.errors, status: :unprocessable_entity }
+        format.html do 
+          flash[:alert] = "Error cargando archivo"
+          redirect_to admin_product_path(@product)
+        end
       end
     end
   end
@@ -53,7 +66,7 @@ class Admin::ProductPhotosController < ApplicationController
     end
 
     def product_photo_parms
-      params.require(:product_photo).permit()
+      params.require(:product_photo).permit(:product_photograph)
     end
 
 end
