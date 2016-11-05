@@ -8,37 +8,3 @@
 
 @import "bootstrap";
 @import "font-awesome";
-
-.portfolio-item {
-    margin-bottom: 25px;
-}
-
-
-.panel-group {
-	margin-top: 25px;
-}
-
-#accordion .glyphicon { margin-right:10px; }
-
-
-
-.business-header {
-    height: 200px;
-    background: url('https://s3.amazonaws.com/pierco.com.co/images/store-header-bg.jpg') center center no-repeat scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-/* Customize the text color and shadow color and to optimize text legibility. */
-
-.tagline {
-    text-shadow: 0 0 10px #000;
-    color: #fff;
-}
-
-.img-center {
-    margin: 0 auto;
-}
-

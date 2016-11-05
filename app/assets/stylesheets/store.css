@@ -5,3 +5,17 @@
 .store-row {
 	padding-bottom: 1rem;
 }
+
+.business-header {
+    height: 200px;
+    background: url('https://s3.amazonaws.com/pierco.com.co/images/store-header-bg.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.btn-secondary {
+	background: #F2BF34;
+	color: #040404;
+}
