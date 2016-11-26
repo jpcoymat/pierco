@@ -4,7 +4,7 @@ gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'puma'
 gem 'pg'
 gem 'bootstrap'
 gem 'will_paginate-bootstrap'
@@ -25,7 +25,6 @@ gem 'jbuilder'
 gem 'therubyracer'
 gem 'execjs'
 
-gem 'less-rails'
 gem 'uglifier', '>= 1.3.0'
 
 source 'https://rails-assets.org' do
