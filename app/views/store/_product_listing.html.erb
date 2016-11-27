@@ -6,12 +6,18 @@
 <% @products.each_slice(3) do |slice| %>
 <div class="row">
 	<%slice.each do |product| %>
-	<div class="col-lg-4 col-md-4 col-xs-6 portfolio-item text-center"> 
-		<% unless product.product_picture.file == nil %>
-		<%= link_to(image_tag(product.product_picture.thumb.url, height: 180), product_modal_path(product: product.id), remote: true) %>
-		<% end %>
-		
-		<p><strong><%= product.supplier.name %></strong> <%= product.name %></p>
+	<div class="col-lg-4 col-md-4 col-xs-6">
+		<div class="card"> 
+			<% unless product.product_picture.file == nil %>
+			<%= link_to(image_tag(product.product_picture.thumb.url, height: "100%"), product_modal_path(product: product.id), remote: true, class:"card-img-top") %>
+			<% end %>
+			<div class="card-block">
+				<h4 class="card-title">
+					<%= product.supplier.name%>
+				</hr>
+				<p class="card-text"><%= product.name %></p>
+			</div>
+		</div>
 	</div>
 	<% end%>
 </div>
