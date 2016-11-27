@@ -9,7 +9,7 @@
 		<%slice.each do |product| %>
 		<div class="card"> 
 			<% unless product.product_picture.file == nil %>
-			<%= link_to(image_tag(product.product_picture.thumb.url, height: "100%"), product_modal_path(product: product.id), remote: true, class:"card-img-top text-xs-center") %>
+			<%= link_to(image_tag(product.product_picture.thumb.url, height: "100%", class:"card-img-top text-xs-center"), product_modal_path(product: product.id), remote: true) %>
 			<% end %>
 			<div class="card-block">
 				<h4 class="card-title">
