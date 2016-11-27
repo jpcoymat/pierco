@@ -11,7 +11,7 @@
 			<% unless product.product_picture.file == nil %>
 			<%= image_tag(product.product_picture.thumb.url,  class:"card-img-top rounded mx-auto d-block") %>
 			<% end %>
-			<div class="card-block">
+			<div class="card-block text-xs-center">
 				<h4 class="card-title">
 					<%= product.supplier.name%>
 				</h4>
