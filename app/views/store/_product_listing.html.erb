@@ -4,21 +4,21 @@
 	</div>
 </div>
 <% @products.each_slice(3) do |slice| %>
-<div class="row">
-	<%slice.each do |product| %>
-	<div class="col-lg-4 col-md-4 col-xs-6">
+<div class="card-deck-wrapper">
+	<div class="card-deck">
+		<%slice.each do |product| %>
 		<div class="card"> 
 			<% unless product.product_picture.file == nil %>
-			<%= link_to(image_tag(product.product_picture.thumb.url, height: "100%"), product_modal_path(product: product.id), remote: true, class:"card-img-top") %>
+			<%= link_to(image_tag(product.product_picture.thumb.url, height: "100%"), product_modal_path(product: product.id), remote: true, class:"card-img-top text-xs-center") %>
 			<% end %>
 			<div class="card-block">
 				<h4 class="card-title">
 					<%= product.supplier.name%>
-				</hr>
+				</h4>
 				<p class="card-text"><%= product.name %></p>
 			</div>
 		</div>
+		<% end%>
 	</div>
-	<% end%>
 </div>
 <% end %>
