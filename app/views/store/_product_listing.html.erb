@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-lg-12">
-		<h3><%= @supplier.name + " > " + @product_category.name %></h3>
+		<h3><%=  @product_category.name %></h3>
 	</div>
 </div>
 <% @products.each_slice(3) do |slice| %>
@@ -8,14 +8,14 @@
 	<div class="card-deck">
 		<%slice.each do |product| %>
 		<div class="card"> 
-			<% unless product.product_picture.file == nil %>
-			<%= image_tag(product.product_picture.thumb.url,  class:"card-img-top rounded mx-auto d-block") %>
-			<% end %>
+			<div class="card-header">
+				<h4><%= product.supplier.name %></h4> <%= link_to(product.name,product_modal_path(product: product.id), remote: true) %>
+			</div>
 			<div class="card-block text-xs-center">
-				<h4 class="card-title">
-					<%= product.supplier.name%>
-				</h4>
-				<p class="card-text"><%= link_to(product.name,product_modal_path(product: product.id), remote: true) %></p>
+				<% unless product.product_picture.file == nil %>
+				<%= image_tag(product.product_picture.thumb.url,  class:"card-img-top rounded mx-auto d-block") %>
+				<% end %>
+				<p class="card-text"></p>
 			</div>
 		</div>
 		<% end%>
