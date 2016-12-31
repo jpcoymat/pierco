@@ -9,7 +9,7 @@
 		<%slice.each do |product| %>
 		<div class="card"> 
 			<div class="card-header">
-				<h4><%= product.supplier.name %></h4> <%= link_to(product.name,product_modal_path(product: product.id), remote: true) %>
+				<h4><%= @supplier.name %></h4> <%= link_to(product.name,product_modal_path(product: product.id), remote: true) %>
 			</div>
 			<div class="card-block text-xs-center">
 				<% unless product.product_picture.file == nil %>

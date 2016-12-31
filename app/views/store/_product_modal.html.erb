@@ -73,10 +73,10 @@
 				<% unless @product.product_photos.empty? %>
 				<div role="tabpanel" class="tab-pane" id="gallery">
 					<div id="gallery-carousel" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators" id="indicators">
+						<ol class="carousel-indicators">
 							<% for i in 0 .. @product.product_photos.count %>
 							<% if i == 0 %>
-							<li data-target="#gallery-carousel active" data-slide-to="<%= i %>"</li>
+							<li data-target="#gallery-carousel" data-slide-to="<%= i %>" class="active"</li>
 							<% else %>
 							<li data-target="#gallery-carousel" data-slide-to="<%= i %>"</li>
 							<% end %>
@@ -85,23 +85,21 @@
 						<div class="carousel-inner" role="listbox">
 							<% @product.product_photos.each do |photo| %>
 							<% if photo == @product.product_photos.first %>
-							<div class="carousel-item active" id="entry-<%= @product.product_photos.to_a.index(photo).to_s %>">
-								<%= image_tag photo.product_photograph.url %>
-							</div>
+							<div class="carousel-item active">
 							<% else %>
-							<div class="carousel-item" id="entry-<%= @product.product_photos.to_a.index(photo).to_s %>">
+							<div class="carousel-item">
+							<% end %>
 								<%= image_tag photo.product_photograph.url %>
 							</div>
-							<% end %>
 							<% end %>
 						</div>
 						<a class="left carousel-control" href="#gallery-carousel" role="button" data-slide="prev">
 							<span class="icon-prev" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
+							<span class="sr-only">Anterior</span>
 						</a>
 						<a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next">
 							<span class="icon-next" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
+							<span class="sr-only">Proximo</span>
 						</a>
 					</div>
 				</div>
