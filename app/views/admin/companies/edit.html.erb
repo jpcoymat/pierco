@@ -11,10 +11,11 @@
 		</div>
 	<% end %>
 
-
+<div class="container">
 	<%= form_for [:admin, @company],html: {class: "form-horizontal", multipart: true} do |form|	%>
 		<%= render partial: 'company', locals: {form: form}	%>
 		<%= submit_tag "Actualizar", {class: "btn btn-primary"}	%>
 	<% end %>
 	
 	<%= link_to "Regresar a Compa&ntilde;ia".html_safe, admin_companies_path %>
+</div>

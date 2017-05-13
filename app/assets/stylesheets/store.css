@@ -6,6 +6,22 @@
 	padding-bottom: 1rem;
 }
 
+.opaque-navbar {
+    background-color: rgba(0,0,0,0.5);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 60px;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+}
+
+.opaque-navbar.opaque {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
+
+
+
 .business-header {
     height: 200px;
     background: url('https://s3.amazonaws.com/pierco.com.co/images/store-header-bg.jpg') center center no-repeat scroll;

@@ -6,18 +6,17 @@
 		</div>
 	</div>
 </header>	
-
 <div class="jumbotron">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-lg-6">
 				<h2><%= @company.slogan %></h2>
 				<p><%= @company.homepage_intro %></p>
 				<p>
 					<a class="btn btn-secondary btn-lg" href="/products">Ir a Tienda &raquo;</a>
 				</p>
 			</div>
-			<div class="col-md-6">
+			<div class="col-lg-6">
 				<h2>Contacto</h2>
 				<address>
 					<strong><%= @company.name %></strong>
@@ -36,9 +35,9 @@
 	<div class="container">
 		<h2>Nuestras Marcas</h2>
 		<% @suppliers.each do |supplier| %>
-		<div class="col-md-6">
+		<div class="col-lg-6">
 			<strong><%= supplier.name %></strong>
-			<img class="img-circle img-fluid img-center" src="<%= supplier.supplier_picture.url %>" alt="" >
+			<img class="rounded-circle img-fluid img-center" src="<%= supplier.supplier_picture.url %>" alt="" >
 		</div>
 		<% end %>
 	

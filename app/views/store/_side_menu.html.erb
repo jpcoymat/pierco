@@ -1,7 +1,7 @@
 <div role="tablist" aria-multiselectable="true" id="accordion">
 	<% @company.suppliers.each do |supplier| %>
 	<div class="panel card">
-		<div class="panel-heading card-header" role="tab" id="supplier<%=supplier.id.to_s %>">
+		<div class="card-header" role="tab" id="supplier<%=supplier.id.to_s %>">
 			<h4 class="card-title">
 				<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= supplier.id.to_s%>">
 					<%= supplier.name %>
@@ -11,7 +11,7 @@
 		<div id="collapse<%= supplier.id.to_s%>" class="card-block panel-collapse collapse" role="tabpanel" aria-labelledby="supplier<%=supplier.id.to_s %>">
 			<ul>
 				<% @product_categories.each do |pcat| %>
-				<% if Product.where(product_category_id: pcat.id, supplier_id: supplier.id).count > 0 %>
+				<% if Product.where(product_category_id: pcat.id, supplier_id: supplier.id).count >	 0 %>
 				<li >
 					<%= link_to(pcat.name, products_path(product_category_id: pcat.id, supplier_id: supplier.id), remote: true) %>
 				</li>

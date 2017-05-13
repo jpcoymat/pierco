@@ -3,6 +3,7 @@ class Admin::ProductCategoriesController < ApplicationController
   layout 'admin'
 
   before_action :set_product_category, only: [:show, :edit, :update, :destroy]
+  
 
   def index
     @product_categories = User.find(session[:user_id]).company.product_categories

@@ -5,7 +5,7 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery-ui/effect-blind
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
 //= require chosen-jquery

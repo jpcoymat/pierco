@@ -1,6 +1,7 @@
 class Admin::DistributorsController < ApplicationController
 
   layout 'admin'
+  before_action :authorize
 
   def lookup
     @user = User.find(session[:user_id])

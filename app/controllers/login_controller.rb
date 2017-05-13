@@ -1,6 +1,6 @@
 class LoginController < ApplicationController
   
-  before_filter :authorize, :except => [:login]
+  before_action :authorize, :except => [:login]
 
   def login
     if request.post?

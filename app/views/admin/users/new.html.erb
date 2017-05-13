@@ -1,10 +1,21 @@
 <h2>Crear Nuevo Usuario</h2>
 
 <%= form_for [:admin, @user], html: {class: "form-horizontal"} do |form| %>
-  <%= form.hidden_field :company_id, value: @company.id %>
-  <%= render partial: 'user', locals: {form: form} %>
-  <%= render partial: 'password', locals: {form: form} %>
-  <%= submit_tag "Crear Usuario", {class: "btn btn-primary"} %>
+  	<%= form.hidden_field :company_id, value: @company.id %>
+  	<%= render partial: 'user', locals: {form: form} %>
+	<div class="form-group row">
+		<%= form.label "Contraseña", class: "col-2 control-label" %>
+		<div class="col-10">
+			<%= form.password_field :password, class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group row">
+		<%= form.label "Confirmar Contraseña", class: "col-2 control-label" %>
+		<div class="col-10">
+			<%= form.password_field :password_confirmation, class: "form-control" %>
+		</div>
+	</div>
+	<%= submit_tag "Crear Usuario", {class: "btn btn-primary"} %>
 <% end %>
 <br \><br \>
 <%= link_to "Regresar", admin_users_path %>

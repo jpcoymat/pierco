@@ -32,7 +32,7 @@ source 'https://rails-assets.org' do
 end
 
 
-ruby "2.3.1"
+ruby "2.4.1"
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -51,6 +51,7 @@ ruby "2.3.1"
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+ group :development do
+   gem 'listen'
+   
+ end

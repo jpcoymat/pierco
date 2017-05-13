@@ -8,7 +8,7 @@ var marker;
 
 function initMap() {
 	
-	var loc = {lat: <%= @company.default_distributor.latitude %>, lng: <%= @company.default_distributor.longitude %>};
+	var loc = {lat: <%= @company.default_distributor.latitude.to_f %>, lng: <%= @company.default_distributor.longitude.to_f %>};
 	
 	map = new google.maps.Map(document.getElementById('gmap'), {
 		center: loc,
