@@ -1,38 +1,34 @@
 <header class="business-header">
-	<div class="container">
-		<div class="row">
-			<div class="col-xl-12">
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-xl-12">      
+    </div>
+  </div>
 </header>	
 <div class="jumbotron">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<h2><%= @company.slogan %></h2>
-				<p><%= @company.homepage_intro %></p>
-				<p>
-					<a class="btn btn-secondary btn-lg" href="/products">Ir a Tienda &raquo;</a>
-				</p>
-			</div>
-			<div class="col-lg-6">
-				<h2>Contacto</h2>
-				<address>
-					<strong><%= @company.name %></strong>
-					<br /><%= @company.address_1 %>
-					<br /><%= @company.city + ', ' + @company.country	%>
-					<br />
-				</address>
-				<address>
-					<abbr title="Phone">Teléfonos:</abbr> <%= @company.telephones %>
-					<br />
-					<abbr title="Email">Email:</abbr> <%= mail_to @company.email %>
-				</address>
-			</div>
-		</div>
-	</div>
-	<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2><%= @company.slogan %></h2>
+      <p><%= @company.homepage_intro %></p>
+      <p>
+        <a class="btn btn-secondary btn-lg" href="/products">Ir a Tienda &raquo;</a>
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <h2>Contacto</h2>
+      <address>
+        <strong><%= @company.name %></strong>
+        <br /><%= @company.address_1 %>
+        <br /><%= @company.city + ', ' + @company.country	%>
+        <br />
+      </address>
+      <address>
+        <abbr title="Phone">Teléfonos:</abbr> <%= @company.telephones %>
+        <br />
+        <abbr title="Email">Email:</abbr> <%= mail_to @company.email %>
+      </address>
+    </div>
+  </div>
+	<div class="row">
 		<h2>Nuestras Marcas</h2>
 		<% @suppliers.each do |supplier| %>
 		<div class="col-lg-6">
@@ -40,8 +36,5 @@
 			<img class="rounded-circle img-fluid img-center" src="<%= supplier.supplier_picture.url %>" alt="" >
 		</div>
 		<% end %>
-	
 	</div>
-	
- 
 </div>
