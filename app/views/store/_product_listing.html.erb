@@ -4,22 +4,18 @@
 	</div>
 </div>
 <% @products.each_slice(3) do |slice| %>
-<div class="card-deck-wrapper">
-	<div class="card-deck">
-		<%slice.each do |product| %>
-		<div class="card"> 
-			<div class="card-header">
-				<h4><%= @supplier.name %></h4> <%= link_to(product.name,product_modal_path(product: product.id), remote: true) %>
-			</div>
-			<div class="card-block text-xs-center">
-				<% unless product.product_picture.file == nil %>
-				<%= image_tag(product.product_picture.thumb.url,  class:"card-img-top rounded mx-auto d-block") %>
-				<% end %>
-			</div>
-		</div>
-		<% end%>
-	</div>
+<div class="card-deck">
+  <%slice.each do |product| %>
+  <div class="card"> 
+    <%= image_tag(product.product_picture.thumb.try(:url),  class:"card-img-top rounded mx-auto d-block") %>
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= @supplier.name + " " + link_to(product.name,product_modal_path(product: product.id), remote: true) %>
+      </h5>
+    </div>
+  </div>
+  <% end %>
 </div>
-<br \>
+<% end %>  
 
-<% end %>
+  
