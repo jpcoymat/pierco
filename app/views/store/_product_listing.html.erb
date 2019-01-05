@@ -10,7 +10,7 @@
     <%= image_tag(product.product_picture.thumb.try(:url),  class:"card-img-top rounded mx-auto d-block") %>
     <div class="card-body">
       <h5 class="card-title">
-        <%= @supplier.name + " " + link_to(product.name,product_modal_path(product: product.id), remote: true) %>
+        <%= @supplier.name %>&nbsp;<%= link_to(product.name,product_modal_path(product: product.id), remote: true) %>
       </h5>
     </div>
   </div>
