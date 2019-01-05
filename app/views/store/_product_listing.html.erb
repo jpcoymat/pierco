@@ -7,7 +7,7 @@
 <div class="card-deck">
   <%slice.each do |product| %>
   <div class="card"> 
-    <%= image_tag(product.product_picture.thumb.try(:url),  class:"card-img-top rounded mx-auto d-block") %>
+    <%= image_tag(product.product_picture.try(:url),  class:"card-img-top rounded mx-auto d-block") %>
     <div class="card-body">
       <h5 class="card-title">
         <%= @supplier.name %>&nbsp;<%= link_to(product.name,product_modal_path(product: product.id), remote: true) %>
