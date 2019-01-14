@@ -1,20 +1,12 @@
 <h1>Distribuidores </h1>
 <p>Seleccione el criterio que desea para filtrar los resultados </p>
-<%= form_for :distributor, url: lookup_admin_distributors_path, html: {class: "form-horizontal"} do |form| %>
+<%= form_for :distributor, url: lookup_admin_distributors_path, html: {class: "form-inline"} do |form| %>
   <%= form.hidden_field :company_id, value: @company.id %>
-  <div class="form-group">
-	  <%= form.label "Ciudad", class: "col-sm-1 control-label" %>
-	  <div class="col-sm-2">
-		  <%= form.select :city, @cities.collect {|city| [city, city]}, {include_blank: true},{class: "form-control"} %>
-		</div>
-	  <%= form.label "Nombre", class: "col-sm-1 control-label" %>
-	  <div class="col-sm-2">
-		  <%= form.text_field :name, class: "form-control" %>
-		</div>
-    <div class="col-sm-2">
-      <%= submit_tag "Buscar", {class: "btn btn-primary"}	%>
-    </div>
-  </div>
+  <%= form.label "Ciudad", class: "mb-2 mr-sm-2" %>
+  <%= form.select :city, @cities.collect {|city| [city, city]}, {include_blank: true},{class: "form-control mb-4 mr-sm-4"} %>
+  <%= form.label "Nombre", class: "mb-2 mr-sm-2" %>
+  <%= form.text_field :name, class: "form-control mb-4 mr-sm-4" %>      
+  <%= submit_tag "Buscar", {class: "btn btn-primary mb-2"}	%>
 <% end %>
 <script type="text/javascript">
 

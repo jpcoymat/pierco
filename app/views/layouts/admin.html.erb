@@ -7,7 +7,7 @@
 	<%= stylesheet_link_tag "application"	%>
 	<%= stylesheet_link_tag "admin.css" %>
 	<%= javascript_include_tag "application" %>
-  	<%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
 	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,25 +15,19 @@
 </head>
 
 <body>
-	
-    <%= render partial: "shared/main_menu" %>
-	<div class="container main-content">
-
+  <%= render partial: "shared/main_menu" %>
+	<div class="container-fluid main-content">
     <% if notice %>
     <div class="alert alert-success" role="alert"><%= notice %></div>
     <% end %>
-	<% if alert %>
-	<div class="alert alert-danger" role="alert"><%= alert %></div>
-	<% end %>
+    <% if alert %>
+    <div class="alert alert-danger" role="alert"><%= alert %></div>
+    <% end %>
 
-		<%= yield %>			
-
-	<footer id="company_footer">
-		<p>&copy Pierco Ltda. 2011 </p>
-	</footer>
-	</div>
-	
+		<%= yield %>
+    <footer id="company_footer">
+      <p>&copy Pierco Ltda. <%=Date.today.year.to_s %> </p>
+    </footer>
+  </div>
 </body>
-
-
 </html>

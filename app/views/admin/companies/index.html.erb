@@ -1,7 +1,7 @@
-<div class="container-fluid">	
+
 	<h1>Compa&ntilde;ia	<%= @company.name	%>	</h1>
-</div>
-<div class="container-fluid">
+
+
 	<dl class="row">	
 		<dt class="col-sm-3">Direccion 				</dt>	<dd class="col-sm-9"><%= @company.full_address		%></dd>
 		<dt class="col-sm-3">Ciudad					</dt>	<dd class="col-sm-9"><%= @company.city			%></dd> 
@@ -24,7 +24,7 @@
 		<dt class="col-sm-3">Seccion 3 Titulo 		</dt>	<dd class="col-sm-9"><%= @company.headline_3_title 	%></dd> 
 		<dt class="col-sm-3">Seccion 4 Contenido	</dt>	<dd class="col-sm-9"><%= @company.headline_3_content	%></dd> 
 	</dl>
-</div>
+
 	<br \><br \>
 	<%= link_to "Editar Datos Compa&ntilde;ia".html_safe, edit_admin_company_path(@company)	%>
 
