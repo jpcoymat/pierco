@@ -1,4 +1,4 @@
-class AddCategorySubcategoryToProduct < ActiveRecord::Migration
+class AddCategorySubcategoryToProduct < ActiveRecord::Migration[5.0]
 
   def self.up
     add_column  :products, :product_category_id, :integer

@@ -1,4 +1,4 @@
-class CreateProductSubcategories < ActiveRecord::Migration
+class CreateProductSubcategories < ActiveRecord::Migration[5.0]
   def self.up
     create_table :product_subcategories do |t|
       t.integer :product_category_id, :null => false

@@ -1,4 +1,4 @@
-class CreateProducts < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration[5.0]
   def self.up
     create_table :products do |t|
       t.integer :supplier_id, :null => false

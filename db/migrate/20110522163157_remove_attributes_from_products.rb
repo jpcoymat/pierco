@@ -1,4 +1,4 @@
-class RemoveAttributesFromProducts < ActiveRecord::Migration
+class RemoveAttributesFromProducts < ActiveRecord::Migration[5.0]
   def self.up
 	remove_column :products, :attribute_1
 	remove_column :products, :attribute_2

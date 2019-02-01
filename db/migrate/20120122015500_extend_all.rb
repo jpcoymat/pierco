@@ -1,4 +1,4 @@
-class ExtendAll < ActiveRecord::Migration
+class ExtendAll < ActiveRecord::Migration[5.0]
   def up
   	change_column :product_dimensions, :offset, :string, limit:50
   	change_column :product_dimensions, :pcd, :string, limit:50

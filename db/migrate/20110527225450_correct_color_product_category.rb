@@ -1,4 +1,4 @@
-class CorrectColorProductCategory < ActiveRecord::Migration
+class CorrectColorProductCategory < ActiveRecord::Migration[5.0]
 
   def self.up
     remove_column :product_categories,  :color

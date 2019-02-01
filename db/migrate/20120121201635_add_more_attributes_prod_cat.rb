@@ -1,4 +1,4 @@
-class AddMoreAttributesProdCat < ActiveRecord::Migration
+class AddMoreAttributesProdCat < ActiveRecord::Migration[5.0]
 
   def up
 	add_column :product_categories, :offset, :boolean, default: false

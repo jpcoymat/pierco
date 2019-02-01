@@ -1,4 +1,4 @@
-class AddSupplierFields < ActiveRecord::Migration
+class AddSupplierFields < ActiveRecord::Migration[5.0]
 
   def self.up
     add_column  :distributors, :telephone_1,  :string,  :limit => 15

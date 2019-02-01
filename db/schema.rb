@@ -10,32 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014194230) do
+ActiveRecord::Schema.define(version: 2016_10_14_194230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "change_logs", force: :cascade do |t|
+  create_table "change_logs", id: :serial, force: :cascade do |t|
+    t.string "reference_object_type"
     t.integer "reference_object_id"
-    t.string "reference_object_type", limit: 255
-    t.string "reference_attribute", limit: 255
-    t.string "old_value", limit: 255
-    t.string "new_value", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "reference_attribute"
+    t.string "old_value"
+    t.string "new_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.index ["reference_object_type", "reference_object_id"], name: "change_log_references"
   end
 
-  create_table "companies", force: :cascade do |t|
+  create_table "companies", id: :serial, force: :cascade do |t|
     t.string "name", limit: 100, null: false
     t.string "address_1", limit: 100, null: false
-    t.string "address_2", limit: 255
+    t.string "address_2"
     t.string "city", limit: 100, null: false
     t.string "state", limit: 50, null: false
     t.string "postal_code", limit: 10, null: false
     t.string "country", limit: 100, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "about_us_main"
     t.string "telephone_1", limit: 20
     t.string "telephone_2", limit: 20
@@ -58,16 +59,16 @@ ActiveRecord::Schema.define(version: 20161014194230) do
     t.text "homepage_intro"
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", id: :serial, force: :cascade do |t|
     t.integer "company_id", null: false
     t.string "name", limit: 75, null: false
     t.string "email", limit: 75, null: false
     t.text "message", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "distributors", force: :cascade do |t|
+  create_table "distributors", id: :serial, force: :cascade do |t|
     t.integer "company_id", null: false
     t.string "name", limit: 100, null: false
     t.string "address_1", limit: 100, null: false
@@ -76,8 +77,8 @@ ActiveRecord::Schema.define(version: 20161014194230) do
     t.string "state", limit: 100
     t.string "postal_code", limit: 10
     t.string "country", limit: 50, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "telephone_1", limit: 15
     t.string "telephone_2", limit: 15
     t.string "telephone_3", limit: 15
@@ -86,20 +87,20 @@ ActiveRecord::Schema.define(version: 20161014194230) do
     t.decimal "longitude", precision: 10, scale: 5
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", id: :serial, force: :cascade do |t|
     t.string "title", limit: 100, null: false
     t.text "content", null: false
     t.integer "company_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "product_categories", force: :cascade do |t|
+  create_table "product_categories", id: :serial, force: :cascade do |t|
     t.integer "company_id", null: false
     t.string "name", limit: 50, null: false
     t.string "description", limit: 100, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "length", default: false
     t.boolean "width", default: false
     t.boolean "maximum_pressure", default: false
@@ -117,15 +118,15 @@ ActiveRecord::Schema.define(version: 20161014194230) do
     t.boolean "x_factor", default: false
   end
 
-  create_table "product_dimensions", force: :cascade do |t|
+  create_table "product_dimensions", id: :serial, force: :cascade do |t|
     t.integer "product_id"
-    t.string "name", limit: 255, null: false
+    t.string "name", null: false
     t.decimal "length", precision: 10, scale: 2
     t.decimal "width", precision: 10, scale: 2
     t.decimal "maximum_pressure", precision: 10, scale: 2
     t.decimal "maximum_weight", precision: 10, scale: 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "color", limit: 50
     t.decimal "diameter", precision: 10, scale: 2
     t.string "part_number", limit: 75
@@ -139,77 +140,77 @@ ActiveRecord::Schema.define(version: 20161014194230) do
     t.string "x_factor", limit: 50
   end
 
-  create_table "product_photos", force: :cascade do |t|
+  create_table "product_photos", id: :serial, force: :cascade do |t|
     t.integer "product_id"
     t.string "product_photograph"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_subcategories", force: :cascade do |t|
+  create_table "product_subcategories", id: :serial, force: :cascade do |t|
     t.integer "product_category_id", null: false
     t.string "name", limit: 50, null: false
     t.string "description", limit: 100, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "display_priority", default: 0
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", id: :serial, force: :cascade do |t|
     t.integer "supplier_id", null: false
     t.string "name", limit: 50, null: false
     t.boolean "active", default: true, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "product_category_id"
     t.integer "product_subcategory_id"
     t.text "description"
     t.string "product_picture"
   end
 
-  create_table "supplier_contacts", force: :cascade do |t|
+  create_table "supplier_contacts", id: :serial, force: :cascade do |t|
     t.integer "supplier_id", null: false
     t.string "first_name", limit: 50, null: false
     t.string "last_name", limit: 50, null: false
-    t.string "position", limit: 255
-    t.string "telephone", limit: 255
-    t.string "cell_phone", limit: 255
-    t.string "email", limit: 255
-    t.string "fax", limit: 255
-    t.string "address_1", limit: 255
-    t.string "address_2", limit: 255
-    t.string "city", limit: 255
-    t.string "state", limit: 255
-    t.string "postal_code", limit: 255
-    t.string "country", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "position"
+    t.string "telephone"
+    t.string "cell_phone"
+    t.string "email"
+    t.string "fax"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "postal_code"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "suppliers", force: :cascade do |t|
+  create_table "suppliers", id: :serial, force: :cascade do |t|
     t.string "name", limit: 100, null: false
-    t.string "address_1", limit: 255
-    t.string "address_2", limit: 255
-    t.string "city", limit: 255
-    t.string "state", limit: 255
-    t.string "postal_code", limit: 255
-    t.string "country", limit: 255
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "postal_code"
+    t.string "country"
     t.integer "company_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "website", limit: 100
     t.string "telephone", limit: 20
     t.string "supplier_picture"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "first_name", limit: 50, null: false
     t.string "last_name", limit: 50, null: false
     t.string "username", limit: 25, null: false
     t.string "email", limit: 50
     t.integer "company_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "password_digest"
   end
 

@@ -1,4 +1,4 @@
-class AddNewCompanyFields < ActiveRecord::Migration
+class AddNewCompanyFields < ActiveRecord::Migration[5.0]
 
   def self.up
 	add_column :companies, :telephone_1, 	:string, 	:limit => 20

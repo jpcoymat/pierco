@@ -1,4 +1,4 @@
-class CreateSuppliers < ActiveRecord::Migration
+class CreateSuppliers < ActiveRecord::Migration[5.0]
   def self.up
     create_table :suppliers do |t|
       t.string :name, :null => false, :limit => 100, :unique => true

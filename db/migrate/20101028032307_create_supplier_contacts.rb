@@ -1,4 +1,4 @@
-class CreateSupplierContacts < ActiveRecord::Migration
+class CreateSupplierContacts < ActiveRecord::Migration[5.0]
   def self.up
     create_table :supplier_contacts do |t|
       t.integer :supplier_id, :null => false

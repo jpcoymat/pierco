@@ -1,4 +1,4 @@
-class RenameFilenames < ActiveRecord::Migration
+class RenameFilenames < ActiveRecord::Migration[5.0]
 
   def self.up
     rename_column :companies, :logo_filename, :image_filename

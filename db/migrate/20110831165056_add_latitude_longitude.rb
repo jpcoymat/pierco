@@ -1,4 +1,4 @@
-class AddLatitudeLongitude < ActiveRecord::Migration
+class AddLatitudeLongitude < ActiveRecord::Migration[5.0]
   def self.up
     add_column  :companies, :latitude, :decimal, :precision => 10, :scale => 5
     add_column  :companies, :longitude, :decimal, :precision => 10, :scale => 5

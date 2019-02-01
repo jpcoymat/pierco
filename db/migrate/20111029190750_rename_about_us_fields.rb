@@ -1,4 +1,4 @@
-class RenameAboutUsFields < ActiveRecord::Migration
+class RenameAboutUsFields < ActiveRecord::Migration[5.0]
 
   def self.up
     rename_column :companies, :about_us_side_1, :headline_1_content

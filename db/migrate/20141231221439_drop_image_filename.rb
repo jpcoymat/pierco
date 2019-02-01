@@ -1,4 +1,4 @@
-class DropImageFilename < ActiveRecord::Migration
+class DropImageFilename < ActiveRecord::Migration[5.0]
   def change
     remove_column :products, :image_filename
     remove_column :suppliers, :image_filename

@@ -1,4 +1,4 @@
-class CompanyFields < ActiveRecord::Migration
+class CompanyFields < ActiveRecord::Migration[5.0]
   def self.up
     add_column :companies, :slogan, :string, :limit => 150
     add_column :companies, :about_us_side_1, :text

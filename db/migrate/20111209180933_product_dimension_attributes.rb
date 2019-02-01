@@ -1,4 +1,4 @@
-class ProductDimensionAttributes < ActiveRecord::Migration
+class ProductDimensionAttributes < ActiveRecord::Migration[5.0]
 
   def self.up
     add_column :product_dimensions, :part_number,         :string, :limit => 75

@@ -1,4 +1,4 @@
-class CreateDistributors < ActiveRecord::Migration
+class CreateDistributors < ActiveRecord::Migration[5.0]
   def self.up
     create_table :distributors do |t|
       t.integer :company_id,  :null => false

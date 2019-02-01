@@ -1,4 +1,4 @@
-class AddDimensionAttributeToCategories < ActiveRecord::Migration
+class AddDimensionAttributeToCategories < ActiveRecord::Migration[5.0]
 
   def self.up
     add_column  :product_categories,  :length,            :boolean, :default => false

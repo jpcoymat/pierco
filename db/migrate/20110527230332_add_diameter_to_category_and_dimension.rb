@@ -1,4 +1,4 @@
-class AddDiameterToCategoryAndDimension < ActiveRecord::Migration
+class AddDiameterToCategoryAndDimension < ActiveRecord::Migration[5.0]
 
   def self.up
     add_column  :product_categories,  :diameter, :boolean, :default => false

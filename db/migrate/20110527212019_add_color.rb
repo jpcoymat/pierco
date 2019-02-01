@@ -1,4 +1,4 @@
-class AddColor < ActiveRecord::Migration
+class AddColor < ActiveRecord::Migration[5.0]
 
   def self.up
     add_column  :product_dimensions,  :color, :string,  :limit => 25

@@ -1,4 +1,4 @@
-class CreateProductDimensions < ActiveRecord::Migration
+class CreateProductDimensions < ActiveRecord::Migration[5.0]
   def self.up
     create_table :product_dimensions do |t|
       t.integer     :product_id, :nulll => false    
