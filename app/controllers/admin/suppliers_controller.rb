@@ -8,36 +8,70 @@ class Admin::SuppliersController < ApplicationController
   end
   
   def show
-    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
     @supplier = Supplier.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def create
     @supplier = Supplier.new(params[:supplier])
-    if @supplier.save
-      flash[:notice] = "Marca creada exitosamente"
-      redirect_to admin_supplier_path @supplier
-    else
-      flas[:alert] = "Error creando marca"
-      render action: 'new'
+    respond_to do |format|
+      if @supplier.save
+        format.html do
+          flash[:notice] = "Marca creada exitosamente"
+          redirect_to admin_supplier_path @supplier
+        end
+        format.js do 
+          @suppliers = User.find(session[:user_id]).company.suppliers
+        end 
+      else
+        format.html do
+          flash[:alert] = "Error creando marca"
+          render action: 'new'
+        end
+        format.js do
+          render action: 'errors'
+        end
+      end
     end
   end
   
   def edit
-    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
     @supplier.assign_attributes(params[:supplier])
-    if @supplier.save
-      flash[:notice] = "Marca actualizada exitosamente"
-      redirect_to admin_supplier_path @supplier
-    else
-      flash[:alert] = "Error actualizando marca"
-      render action: 'edit'
+    respond_to do |format|
+      if @supplier.save
+        format.html do
+          flash[:notice] = "Marca actualizada exitosamente"
+          redirect_to admin_supplier_path @supplier
+        end
+        format.js do 
+          @suppliers = User.find(session[:user_id]).company.suppliers
+        end 
+      else
+        format.html do 
+          flash[:alert] = "Error actualizando marca"
+          render action: 'edit'
+        end
+        format.js do
+          render action: 'errors'
+        end
+      end      
     end
   end
   

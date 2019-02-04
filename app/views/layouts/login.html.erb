@@ -12,13 +12,20 @@
 
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 text-center">
+        <img src="https://s3.amazonaws.com/pierco.com.co/images/logo-pierco.png" alt=""/>		 
+      </div>
+    </div>
+      
 		<% if flash[:notice] %>
-		<div id="notice"><%= flash[:notice] %></div>
+		<div class="alert alert-danger" role="alert"><%= flash[:notice] %></div>
 		<% end %>
+    
 		<%= yield %>
-	</div>
-	<div class="container">
-		<p>&copy Pierco SAS <%= Date.today.year.to_s %> </p>
-	</div>
+    <footer id="company_footer">
+      <p>&copy Pierco SAS <%= Date.today.year.to_s %> </p>
+    </footer>
+  </div>
 </body>

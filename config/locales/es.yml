@@ -1,99 +1,95 @@
 es:
-    activerecord:
-        errors:
-            models:
-                supplier:
-                    attributes:
-                        name:
-                            blank: "Nombre no puede estar en blanco"
-                            taken: "Marca ya existe"
-                        address_1:
-                            blank: "Direccion no puede estar en blanco"
-                        city:
-                            blank: "Ciudad no puede estar en blanco"
-                        country:
-                            blank: "Pais no puede estar en blanco"
-                        company_id:
-                            blank: "Compania no puede estar en blanco"
-                distributor:
-                    attributes:
-                        name:
-                            blank: "Nombre no puede estar en blanco"
-                            taken: "Distribuidor ya existe"
-                        address_1:
-                            blank: "Direccion no puede estar en blanco"
-                        city:
-                            blank: "Ciudad no puede estar en blanco"
-                        country:
-                            blank: "Pais no puede estar en blanco"
-                        company_id:
-                            blank: "Compania no puede estar en blanco"
-                product:
-                    attributes:
-                        name:
-                            blank: "Nombre no puede estar en blanco"
-                            taken: "Producto ya existe"
-                        supplier_id: 
-                            blank: "Marca no puede estar en blanco"
-                        product_category_id:
-                            blank: "Categoria no puede estar en blanco"
-                        product_subcategory_id:
-                            blank: "Subcategoria no puede estar en blanco"
-                product_category:
-                    attributes:
-                        name:
-                            blank: "Nombre no puede estar en blanco"
-                            taken: "Categoria ya existe"
-                        description:
-                            blank: "Descripcion no puede estar en blanco"    
-                product_subcategory:
-                    attributes:
-                        name:
-                            blank: "Nombre no puede estar en blanco"
-                            taken: "Subcategoria ya existe"
-                product_dimension:
-                    attributes:
-                        name:
-                            blank: "Nombre no puede estar en blanco"
-                            taken: "Dimension ya existe"
-                user:
-                    attributes:
-                        username:
-                            blank: "Nombre de usuario no puede estar en blanco"
-                            taken: "Nombre de usuario ya existe"
-                            too_short: "Nombre de usuario debe ser de por lo menos 3 caracteres"
-                            too_long: "Nombre de usuario no puede tener mas de 40 caracteres"
-                            confirmation: "Contrasena no ha sido confirmada"
-                        first_name:
-                            blank: "Nombre no puede estar en blanco"
-                        last_name:
-                            blank: "Apellido no puede estar en blanco"
-                        email:
-                            blank: "Email no puede estar en blanco"
-                        hashed_password:
-                            blank: "Contrasena no puede estar en blanco"
-                company:
-                    attributes:
-                        name:
-                            blank: "Nombre de Compania no puede estar en blanco"
-                            taken: "Compania ya existe"
-                        address_1:
-                            blank: "Direccion no puede estar en blanco"
-                        city:
-                            blank: "Ciudad no puede estar en blanco"
-                        state:
-                            blank:"Departamento no puede estar en blanco"
-                        country:
-                            blank: "Pais no puede estar en blanco"
-                contact:
-                    attributes:
-                        name:
-                            blank: "Nombrte no puede estar en blanco"
-                        email:
-                            blank: "Email no puede estar en blanco"
-                        message:
-                            blank: "Mensaje no puede estar en blanco"
-                                
-                                
-                    
-                    
+  activerecord:
+    errors:
+      models:
+        supplier:
+          attributes:
+            name:
+              blank: "Nombre no puede estar en blanco"
+              taken: "Marca ya existe"
+            address_1:
+              blank: "Direccion no puede estar en blanco"
+            city:
+              blank: "Ciudad no puede estar en blanco"
+            country:
+              blank: "Pais no puede estar en blanco"
+            company_id:
+              blank: "Compania no puede estar en blanco"
+        distributor:
+          attributes:
+            name:
+              blank: "Nombre no puede estar en blanco"
+              taken: "Distribuidor ya existe"
+            address_1:
+              blank: "Direccion no puede estar en blanco"
+            city:
+              blank: "Ciudad no puede estar en blanco"
+            country:
+              blank: "Pais no puede estar en blanco"
+            company_id:
+              blank: "Compania no puede estar en blanco"
+        product:
+          attributes:
+            name:
+              blank: "Nombre no puede estar en blanco"
+              taken: "Producto ya existe"
+            supplier_id: 
+              blank: "Marca no puede estar en blanco"
+            product_category_id:
+              blank: "Categoria no puede estar en blanco"
+            product_subcategory_id:
+              blank: "Subcategoria no puede estar en blanco"
+        product_category:
+          attributes:
+            name:
+              blank: "Nombre no puede estar en blanco"
+              taken: "Categoria ya existe"
+            description:
+              blank: "Descripcion no puede estar en blanco"    
+        product_subcategory:
+          attributes:
+            name:
+              blank: "Nombre no puede estar en blanco"
+              taken: "Subcategoria ya existe"
+        product_dimension:
+          attributes:
+            name:
+              blank: "Nombre no puede estar en blanco"
+              taken: "Dimension ya existe"
+        user:
+          attributes:
+            username:
+              blank: "Nombre de usuario no puede estar en blanco"
+              taken: "Nombre de usuario ya existe"
+              too_short: "Nombre de usuario debe ser de por lo menos 3 caracteres"
+              too_long: "Nombre de usuario no puede tener mas de 40 caracteres"
+              confirmation: "Contrasena no ha sido confirmada"
+            first_name:
+              blank: "Nombre no puede estar en blanco"
+            last_name:
+              blank: "Apellido no puede estar en blanco"
+            email:
+              blank: "Email no puede estar en blanco"
+            hashed_password:
+              blank: "Contrasena no puede estar en blanco"
+        company:
+          attributes:
+            name:
+              blank: "Nombre de Compania no puede estar en blanco"
+              taken: "Compania ya existe"
+            address_1:
+              blank: "Direccion no puede estar en blanco"
+            city:
+              blank: "Ciudad no puede estar en blanco"
+            state:
+              blank: "Departamento no puede estar en blanco"
+            country:
+              blank: "Pais no puede estar en blanco"
+        contact:
+          attributes:
+            name:
+              blank: "Nombrte no puede estar en blanco"
+            email:
+              blank: "Email no puede estar en blanco"
+            message:
+              blank: "Mensaje no puede estar en blanco"

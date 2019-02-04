@@ -1,30 +1,21 @@
-<h1>Categorias de Productos	</h1>
+<div class="row">
+  <div class="col-9">
+    <h1>Categorias de Productos	</h1>
+  </div>
+  <div class="col-3">
+    <%= link_to "Agregar", new_admin_product_category_path, remote: true, class: "btn btn-primary pull-right"	%>
+  </div>
+</div>
 	
-	<% unless @product_categories.empty?	%>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Categoria				</th>
-					<th>Descripcion				</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @product_categories.each do |product_category| %>
-				<tr>
-					<td><%= link_to(product_category.name, admin_product_category_path(product_category))			%>	</td>
-					<td><%= product_category.description	%>	</td>
-					<td><%= link_to "Subcategorias", admin_product_category_product_subcategories_path(product_category)	%>	</td>
-					<td><%= link_to "Modificiar",edit_admin_product_category_path(product_category)		%>	</td>
-					<td><%= product_category.deleteable? ? button_to("Eliminar", admin_product_category_path(product_category), method: :delete) : "" %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	<% else 	%>
-		<p>Aun no se han creado categorias de productos. :(</p>
-	<% end %>
-	<br><br>
-	<hr>
-	<br>
-	<%= link_to "Crear Nueva Categoria", new_admin_product_category_path	%>
+<% unless @product_categories.empty?	%>
+<div id="categories_list">
+  <%= render "categories" %>
+</div>
+<% else 	%>
+<p>Aun no se han creado categorias de productos. :(</p>
+<% end %>
+<br><br>
+<hr>
+<div id="product_category_modal" class="modal fade" role="dialog">
 	
+</div>

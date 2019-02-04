@@ -1,32 +1,21 @@
-<h1>Marcas	</h1>
-	<% unless @suppliers.empty?	%>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Nombre Marca	</th>
-					<th>Direccion	</th>	
-					<th>Ciudad	</th>	
-					<th>Pais	</th>
-					<th>Website	</th>
-				</tr>
-			</thead>
-			<tbody>
-			<% @suppliers.each do |supplier| %>
-				<tr><td><%= link_to supplier.name, admin_supplier_path(supplier) 	%>	</td>
-					<td><%= supplier.address_1					%>	</td>
-					<td><%= supplier.city						%>	</td>
-					<td><%= supplier.country					%>	</td>
-					<td><%= supplier.website					%>	</td>
-					<td><%= link_to "Modificar", edit_admin_supplier_path(supplier)	%>	</td>
-					<td><%= supplier.deleteable? ?  button_to("Eliminar",admin_supplier_path(supplier), method: :delete) : nil %></td>
-				</tr>
-			<% end %>
-			</tbody>
-		</table>
-	<% else %>
-		<p>Aun no se han creado marcas. :( 	</p>
-	<% end %>
-	<br><br>
-	<hr>
-	<br>
-	<%= link_to "Crear Nueva Marca",new_admin_supplier_path	%>
+<div class="row">
+  <div class="col-9">
+    <h1>Marcas	</h1>
+  </div>
+  <div class="col-3">
+    <%= link_to "Agregar", new_admin_supplier_path, remote: true, class: "btn btn-primary pull-right"	%>
+  </div>
+</div>
+<% unless @suppliers.empty?	%>
+<div id="suppliers_list">
+  <%= render 'suppliers'%>
+</div>
+<% else %>
+<p>Aun no se han creado marcas. :( 	</p>
+<% end %>
+<br><br>
+<hr>
+<br>
+<div id="supplier_form_modal" class="modal fade" role="dialog">
+	
+</div>

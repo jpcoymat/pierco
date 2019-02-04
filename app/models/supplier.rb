@@ -2,7 +2,7 @@ class Supplier < ApplicationRecord
   
   mount_uploader :supplier_picture, SupplierPictureUploader
   
-  validates_presence_of :name, :address_1, :city, :country, :company_id, presence: {:message => "no pueden estar en blanco"}
+  validates_presence_of :name, :address_1, :city, :country, presence: {:message => "no pueden estar en blanco"}
   validates :name, uniqueness: {:message => "ya existe"}
   
   belongs_to :company

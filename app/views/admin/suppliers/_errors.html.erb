@@ -1,0 +1,8 @@
+<% if @supplier.errors.any? %>
+<h2>Hay <%= @supplier.errors.count.to_s %> error(es) con esta marca :</h2>
+<ul>
+  <% @supplier.errors.each do |key,value| %>
+  <li><%= value %></li>
+  <% end %>
+</ul>
+<% end %>
