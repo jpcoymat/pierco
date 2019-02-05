@@ -1,0 +1,11 @@
+<table  class="table table-striped">
+  <tr><th>Subcategoria	</th>	<th>Descripcion	</th> <th>Orden Muestra </th></tr>
+  <% @product_subcategories.each do |product_subcategory| %>
+  <tr><td><%= product_subcategory.name											%>	</td>
+    <td><%= product_subcategory.description										%>	</td>
+    <td><%= product_subcategory.display_priority									%>	</td>
+    <td><%= link_to "Modificar", edit_admin_product_category_product_subcategory_path(@product_category, product_subcategory), remote: true	%>	</td>
+    <td><%= product_subcategory.deleteable? ? button_to("Eliminar",admin_product_category_product_subcategory_path(@product_category, product_subcategory),method: :delete , class: "btn btn-danger") : ""	%>													</td>
+  </tr>
+  <% end %>
+</table>

@@ -17,7 +17,7 @@
       <td><%= supplier.country					%>	</td>
       <td><%= supplier.website					%>	</td>
       <td><%= link_to "Modificar", edit_admin_supplier_path(supplier), remote: true	%>	</td>
-      <td><%= supplier.deleteable? ?  button_to("Eliminar",admin_supplier_path(supplier), method: :delete) : nil %></td>
+      <td><%= supplier.deleteable? ?  button_to("Eliminar",admin_supplier_path(supplier), method: :delete, class: "btn btn-danger") : nil %></td>
     </tr>
   <% end %>
   </tbody>

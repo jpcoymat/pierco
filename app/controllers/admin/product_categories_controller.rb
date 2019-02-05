@@ -33,12 +33,14 @@ class Admin::ProductCategoriesController < ApplicationController
           flash[:notice] = "Categoria creada exitosamente"
           redirect_to admin_product_categories_path
         end
-        format.js
+        format.js do
+          @product_categories = ProductCategory.where(company_id: session[:company_id])
+        end
       else
         format.hmtl do
           flash[:alert] = "Error creando categoria"
           @company = User.find(session[:user_id]).company
-          render :action => 'new_product_category'
+          render action: 'new_product_category'
         end
         format.js do
           render action: 'errors'
@@ -48,16 +50,31 @@ class Admin::ProductCategoriesController < ApplicationController
   end
   
   def edit
-
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def update
-    if @product_category.update_attributes(params[:product_category])
-      flash[:notice] = "Categoria actalizada exitosamente"
-      redirect_to admin_product_categories_path
-    else
-      flash[:alert] = "Error actualizando categoria"
-      render :action => 'edit'      
+    respond_to do |format|
+      if @product_category.update_attributes(params[:product_category])
+        format.html do
+          flash[:notice] = "Categoria actalizada exitosamente"
+          redirect_to admin_product_categories_path
+        end
+        format.js do
+          @product_categories = ProductCategory.where(company_id: session[:company_id])
+        end
+      else
+        format.html do
+          flash[:alert] = "Error actualizando categoria"
+          render :action => 'edit'      
+        end
+        format.js do
+          render action: 'errors'
+        end
+      end      
     end
   end
   

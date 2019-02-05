@@ -1,28 +1,21 @@
-<h1>Subcategoria	</h1>
-	<h4>Categoria: <%= @product_category.name	%>	</h4>
+<div class="row">
+  <div class="col-9">
+    <h1>Subcategories de	<%= link_to @product_category.name, admin_product_categories_path %></h1>
+  </div>
+  <div class="col-3">
+    <%= link_to "Agregar", new_admin_product_category_product_subcategory_path(@product_category), remote: true, class: "btn btn-primary pull-right"	%>
+  </div>
+</div>
+<% unless @product_subcategories.empty?	%>
+<div id="subcategories_list">
+<%= render 'subcategories' %>
+</div>
+<% else %>
+<p>
+  No hay subcategorias para la categoria <%= @product_category.name	%>
+</p>
+<% end %>
+<br><br>
+<div id="product_subcategory_modal" class="modal fade" role="dialog">
 	
-		<% unless @product_category.product_subcategories.empty?	%>
-			<table  class="table table-striped">
-				<tr><th>Subcategoria	</th>	<th>Descripcion	</th> <th>Orden Muestra </th></tr>
-				<% @product_category.product_subcategories.each do |product_subcategory| %>
-				<tr><td><%= product_subcategory.name											%>	</td>
-				<td><%= product_subcategory.description										%>	</td>
-				<td><%= product_subcategory.display_priority									%>	</td>
-				<td><%= link_to "Modificar",edit_admin_product_category_product_subcategory_path(@product_category, product_subcategory)	%>	</td>
-				<td><%= product_subcategory.deleteable? ? button_to("Eliminar",admin_product_category_product_subcategory_path(@product_category, product_subcategory),method: :delete ) : ""	%>													</td>
-					</tr>
-				<% end %>
-			</table>
-		<% else %>
-			<p>
-				No hay subcategorias para la categoria <%= @product_category.name	%>
-			</p>
-		<% end %>
-		<br><br>
-		<hr>
-		<br>
-		<%= form_for [:admin, @product_category, @product_subcategory], html: {class: "form-horizontal"} do |form|	%>
-			<%= form.hidden_field :product_category_id, value: @product_category.id	%>
-			<%= render partial: 'product_subcategory',locals: {form: form}		%>
-			<%= submit_tag "Crear Subcategoria", {class: "btn btn-primary"} %>
-		<% end %>
+</div>

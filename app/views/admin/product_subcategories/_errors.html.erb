@@ -1,0 +1,8 @@
+<% if @product_subcategory.errors.any? %>
+<h2>Hay <%= @product_subcategory.errors.count.to_s %> error(es) con esta subcategoria :</h2>
+<ul>
+  <% @product_subcategory.errors.each do |key,value| %>
+  <li><%= value %></li>
+  <% end %>
+</ul>
+<% end %>

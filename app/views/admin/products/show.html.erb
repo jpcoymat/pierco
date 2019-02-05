@@ -19,7 +19,7 @@
 					  <h2>Detalles Producto	</h2>
 				  </div>
 				  <div class="col-md-2">
-					  <%= link_to "Modificar",edit_admin_product_path(@product), class: "btn btn-primary"	%>	
+					  <%= link_to "Modificar",edit_admin_product_path(@product), remote: true, class: "btn btn-primary"	%>	
 				  </div>
 				  <div class="col-md-2">
 					  <%= link_to("Eliminar", admin_product_path(@product), method: :delete, class: "btn btn-danger")%>
