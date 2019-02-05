@@ -10,7 +10,7 @@
 			<td><%= product.supplier.name									%>	</td>
 			<td><%= product.product_category.nil? ? "" : product.product_category.name	%>	</td>
 			<td><%= product.product_picture.file==nil ? "" : image_tag(product.product_picture.url, :size => "40x40")%>	</td>
-			<td><%= link_to "Modificar", edit_admin_product_path(product)	%>	</td>
+			<td><%= link_to "Modificar", edit_admin_product_path(product), remote: true	%>	</td>
 			<td><%= button_to("Eliminar", admin_product_path(product),method: :delete, class: "btn btn-danger") %>	</td>
 		</tr>
 	<% end %>
