@@ -12,10 +12,10 @@
 	<%= form.label "Marca", class: "col-1 form-control-label"	%>	
 	<%= form.select :supplier_id, @suppliers.collect {|s| [s.name, s.id]}, {include_blank: true}, {class: "form-control mb-2 mr-sm-2 mb-sm-0", placeholder: "Marca"}	%>
 	<%= form.label "Categoria", class: "col-1 form-control-label"	%>	
-	<%= form.select :product_category_id, @product_categories.collect {|pc| [pc.name, pc.id]}, {include_blank: true}, {class: "form-control"}	%>
+	<%= form.select :product_category_id, @product_categories.collect {|pc| [pc.name, pc.id]}, {include_blank: true}, {class: "form-control mb-2 mr-sm-2 mb-sm-0"}	%>
 	<%= form.label "Nombre", class: "col-1 form-control-label" %>	
-	<%= form.select :id, @all_products.collect {|prod| [prod.name, prod.id]}, {include_blank: true}, {class: "form-control chosen-select"} %>
-	<%= submit_tag "Buscar", {class: "btn btn-primary"}	%>
+	<%= form.select :id, @all_products.collect {|prod| [prod.name, prod.id]}, {include_blank: true}, {class: "form-control chosen-select mb-2 mr-sm-2 mb-sm-0"} %>
+	<%= submit_tag "Buscar", {class: "btn btn-primary "}	%>
   <% end %>
 <br><br>
 <hr>
@@ -29,5 +29,5 @@
 	
 </div>
 <script type="text/javascript">
-	$("#product_id").chosen({search_containes: true})
+	$("#product_id").chosen({search_contains: true})
 </script>
